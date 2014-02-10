@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-09T20:37:55-08:00</updated>
+  <updated>2014-02-09T20:59:21-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 2 - I am still alive]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/09/week-2-i-am-still-alive/"/>
+    <updated>2014-02-09T02:53:00-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/09/week-2-i-am-still-alive</id>
+    <content type="html"><![CDATA[<p>Apparently, getting sick is a trend among DBC cohorts. When you get here, expect to get sick. Bad weather this week, and me being very stupid with the weak points I know I have just made me get sicker than I do usually.<br/>
+So, I ended up feverish, sleeping more or less the whole day&hellip; for 2 days, in DBC, waking up 5 minutes at a time, just enough to get some work done so that I don&rsquo;t feel too far behind, and then go back to sleep. Then I woke up on friday but had no more voice&hellip;<br/>
+All in all, a good week of fun times.</p>
+
+<p>In other news, we went through some SQL introduction. We will be using Postgres mostly. Now I just have to figure out if my experience with MySQL will be a good or a bad thing.
+Different implementations of SQL can save you some time to get into the syntax, but then the small differences are what can just be the tricky things that make you get in so many bugs. Only time will tell.</p>
+
+<p>Friday was the first group project, and we did a Tournament Manager. Again, I couldn&rsquo;t speak and was a bit dizzy so I ended up not being able to give my 100% and I hate that&hellip; Yesterday was the first DBC-Alumni hackathon and I was still not close enough to awake-ish to be able to participate. Damn throat&hellip;</p>
+
+<p>Anyway, sorry to my pairs this week for having my mind pretty far off the planet, sorry to my friends who I may make sick, to those who took time to help me get better when they clearly had better things to do, and to the people who may be reading this blog and had no food for thoughts for 4 days.</p>
+
+<p>But don&rsquo;t worry, I&rsquo;m back, I&rsquo;m good now, and hungry for knowledge, experience, and opportunities to show the world what I&rsquo;m made of!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 2 - Day 2 - Oop, Friends & Brothers, Battleship & Sudoku]]></title>
