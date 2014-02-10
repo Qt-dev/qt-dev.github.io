@@ -98,7 +98,9 @@
 
 <p>So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to :</p>
 
-<pre><code class="ruby">myClass[index]="new_value"</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">myClass</span><span class="o">[</span><span class="n">index</span><span class="o">]=</span><span class="s2">&quot;new_value&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>My buddy and I were trying to get used to Test-Driven Development (<a href="http://fr.wikipedia.org/wiki/Test_Driven_Development">If you want more info&hellip; Thanks Wikipedia!</a>). So I had a very simple test method that tested if 2 things were equal.<br/>
@@ -106,13 +108,16 @@ I was testing that this code would return true, just to make sure the whole code
 
 <p>Come this test, we found out that it wanted a method called &ldquo;[]=&rdquo;, so we did. Our method looked something like :</p>
 
-<pre><code class="ruby">def []= index,new_value
-    #Do some stuff
-    true
-end</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="n">index</span><span class="p">,</span><span class="n">new_value</span>
+</span><span class='line'>  <span class="c1">#Do some stuff</span>
+</span><span class='line'>  <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-<p></p>
 
 <h2>The problem</h2>
 
@@ -123,12 +128,9 @@ end</code></pre>
 &ndash;  Second : It is actually doing what we want. The data is changed, and it goes through the last line that returns true.<br/>
 &ndash;  Third : It does not care about that because on the very next step, the trace you have of this method and what it returns already became &ldquo;new_value&rdquo;</p>
 
-<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :</p>
-
-<pre><code class="ruby">myClass.[]=(index,"new_value")</code></pre>
-
-
-<p>Conclusion of this test : SUCCESS!<br/>
+<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :<br/>
+<code>ruby myClass.[]=(index,"new_value")</code>
+Conclusion of this test : SUCCESS!<br/>
 This calls the method without any problem, and that is done exactly how we want.</p>
 
 <p>So at that point are conclusions were :<br/>

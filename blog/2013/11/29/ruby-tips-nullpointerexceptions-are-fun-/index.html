@@ -94,140 +94,137 @@
 
 
 
-  <p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.</p>
-
-
-<p>After talking with some boots from the cohort (DBC language, read &#8220;colleagues&#8221;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&#8217;s up here.&nbsp;<br /><!-- more --></p>
-
+  <p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.<br/>
+After talking with some boots from the cohort (DBC language, read &ldquo;colleagues&rdquo;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&rsquo;s up here. <!-- more --></p>
 
 <h2>The code</h2>
 
+<p>I won&rsquo;t bother you with the whole exercise, let&rsquo;s just get sum the code up as :</p>
 
-<p>I won&#8217;t bother you with the whole exercise, let&#8217;s just get sum the code up as :</p>
-
-
-<pre><code class="ruby">
-class Drawer
-  def initialize
-    @contents = []
-  end
-  
-  def remove_item(item = contents.pop)
-    @contents.delete(item)
-  end
-end
-
-class Silverware
-  def initialize(type)
-    @type = type
-  end
-  
-  def eat
-    puts "Yum yum I eat with #{@type}"
-  end
-end
-
-our_drawer = Drawer.new
-fork = our_drawer.remove_item(fork)
-fork.eat
-</code></pre>
-
-
-<p>&nbsp;</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Drawer</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
+</span><span class='line'>    <span class="vi">@contents</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">remove_item</span><span class="p">(</span><span class="n">item</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">pop</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@contents</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Silverware</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@type</span> <span class="o">=</span> <span class="n">type</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">eat</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Yum yum I eat with </span><span class="si">#{</span><span class="vi">@type</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">our_drawer</span> <span class="o">=</span> <span class="no">Drawer</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="nb">fork</span> <span class="o">=</span> <span class="n">our_drawer</span><span class="o">.</span><span class="n">remove_item</span><span class="p">(</span><span class="nb">fork</span><span class="p">)</span>
+</span><span class='line'><span class="nb">fork</span><span class="o">.</span><span class="n">eat</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Try and paste that if you want, the error is :</p>
 
-
-<pre><em>drawer.rb:23:in `&lt;main&gt;': undefined method `eat' for nil:NilClass (NoMethodError)</em></pre>
-
-
-<h2>Detailling the Problem</h2>
-
-
-<p>Let&#8217;s translate that error then.</p>
-
-
-<ul>
-<li>
-<pre><em>drawer.rb:23:in `&lt;main&gt;':</em></pre>
-</li>
-</ul>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">drawer</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">23</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;&#39;: undefined method `</span><span class="n">eat</span><span class="s1">&#39; for nil:NilClass (NoMethodError)```</span>
+</span><span class='line'><span class="s1">##Detailling the Problem</span>
+</span><span class='line'><span class="s1">Let&#39;</span><span class="n">s</span> <span class="n">translate</span> <span class="n">that</span> <span class="n">error</span> <span class="k">then</span><span class="o">.</span>
+</span><span class='line'>
+</span><span class='line'> <span class="o">-</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The problem lays in the <em>&#8220;Main&#8221;</em> (we&#8217;ll see about that later in the DBC cursus most likely), on like 23 of the drawer.rb file. so in our</p>
+<p>drawer.rb:23:in `<main>&lsquo;:&#8220;`</p>
+
+<p>The problem lays in the <em>&ldquo;Main&rdquo;</em> (we&rsquo;ll see about that later in the DBC cursus most likely), on like 23 of the drawer.rb file. so in our</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rubyfork</span><span class="o">.</span><span class="n">eat</span><span class="sb">```</span>
+</span><span class='line'><span class="sb">  </span>
+</span><span class='line'>
+</span><span class='line'><span class="sb"> - </span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<pre><code class="ruby">fork.eat</code></pre>
+<p>undefined method `eat&#8217; for nil:NilClass (NoMethodError)&#8220;`</p>
 
+<p>So, there is no method called <em>eat</em> for the object <em>nil</em>, from the class <em>NilClass</em>. So far so good.<br/>
+That is what java devs would call a &ldquo;<em>null pointer exception</em>&rdquo;.
+It is an error where, basically, something is null and your code wants to work with it but it can&rsquo;t. The &ldquo;null&rdquo; I am talking about is the &ldquo;nil&rdquo; object we got here, and the only methods it has are described <a href="http://www.ruby-doc.org/core-2.0.0/NilClass.html" title="NilClass Ruby Doc">&ndash;> here &lt;&ndash;</a><br/>
+Now, what is that <em>nil</em> and what is it doing on line 23? And why do we care if it has a <em>#eat</em> method?</p>
 
-<p></p>
+<h2>Finding out what&rsquo;s up</h2>
 
-
-<ul>
-<li>
-<pre><em>undefined method `eat' for nil:NilClass (NoMethodError)</em></pre>
-</li>
-</ul>
-
-
-<p>So, there is no method called <em>eat</em> for the object <em>nil</em>, from the class <em>NilClass</em>. So far so good.</p>
-
-
-<p>That is what java devs would call a &#8221;<em>null pointer exception</em>&#8221;.<br />It is an error where, basically, something is null and your code wants to work with it but it can&#8217;t. The &#8220;null&#8221; I am talking about is the &#8220;nil&#8221; object we got here, and the only methods it has are described <a href="http://www.ruby-doc.org/core-2.0.0/NilClass.html" title="NilClass Ruby Doc">-&gt; here &lt;-</a></p>
-
-
-<p>Now, what is that <em>nil</em> and what is it doing on line 23? And why do we care if it has a <em>#eat</em> method?</p>
-
-
-<p></p>
-
-
-<h2>Finding out what&#8217;s up</h2>
-
-
-<p>What do is the object that can be <em>nil</em> on line 23? Well, simple : fork.<br />No other option there, there&#8217;s only one object on that line, <em>fork</em> is nil.&nbsp;</p>
-
-
-<p>So we go a bit up and check out how we defined it, something must have been wrong there.<br />Definition is on line 22, right above. Since it&#8217;s the only place where we set a value to fork, that must be where we set it to nil.&nbsp;</p>
-
-
-<p>By deduction, on that line, the thing that is <em>nil</em> is <em>our_drawer.remove_item(fork)</em> then.<br />So, we examine every part of this:</p>
-
+<p>What do is the object that can be <em>nil</em> on line 23? Well, simple : fork.
+No other option there, there&rsquo;s only one object on that line, <em>fork</em> is nil. <br/>
+So we go a bit up and check out how we defined it, something must have been wrong there.
+Definition is on line 22, right above. Since it&rsquo;s the only place where we set a value to fork, that must be where we set it to nil. <br/>
+By deduction, on that line, the thing that is <em>nil</em> is <em>our_drawer.remove_item(fork)</em> then.
+So, we examine every part of this:</p>
 
 <ul>
 <li><em>our_drawer</em> does not put much of a problem. We used it above (not in the example but in the exercise we did), and it would raise an error if we were calling <em>#remove_item</em> from it anyway.</li>
-<li><em>#remove_item</em> may not do exactly what we want. It uses <em>#delete</em> with <em>fork</em> as an argument. Now, if you check <a href="http://ruby-doc.org/core-2.0.0/Array.html#method-i-delete" title="array#delete on the Ruby Doc">&gt;here&lt;</a>, this method returns the item if it found and deleted it in the array&#8230; or it returns <em>nil</em> if it is not in the array we call the method from&#8230; So THAT is where we get that nil from, the only <em>return</em> is here, we get a <em>nil</em> from that method. Now, let&#8217;s check the next thing in the expression just in case.</li>
+<li><em>#remove_item</em> may not do exactly what we want. It uses <em>#delete</em> with <em>fork</em> as an argument. Now, if you check <a href="http://ruby-doc.org/core-2.0.0/Array.html#method-i-delete" title="array#delete on the Ruby Doc">>here&lt;</a>, this method returns the item if it found and deleted it in the array&hellip; or it returns <em>nil</em> if it is not in the array we call the method from&hellip; So THAT is where we get that nil from, the only <em>return</em> is here, we get a <em>nil</em> from that method. Now, let&rsquo;s check the next thing in the expression just in case.</li>
 <li><em>fork</em> is passed as an argument. But then, is <em>fork</em> defined before that? The answer is : NO. That is definitely a problem!</li>
 </ul>
 
 
-<p></p>
-
-
-<p>Well, that was quite helpful, we now have identified 2 problems that happen in our case. I&#8217;ll use numbers for further use (&#8230; or just because i&#8217;m just tired of dots in my lists :p) :</p>
-
+<p>Well, that was quite helpful, we now have identified 2 problems that happen in our case. I&rsquo;ll use numbers for further use (&hellip; or just because i&rsquo;m just tired of dots in my lists :p) :</p>
 
 <ol>
-<li><em>#remove_item</em> returns <em>nil</em> if it did not find the stuff in the array, that&#8217;s where our <em>nil</em> comes from.</li>
-<li>we pass an argument that has never been created before to <em>#remove_item</em> (if you change the code to print <em>item</em> inside the method you&#8217;ll see that item is <em>nil</em>, the argument we gave the method was <em>nil</em>). So, there&#8217;s no way it can find it in an array unless we add the <em>nil</em> object at one point, specifically (but we did not.</li>
+<li><em>#remove_item</em> returns <em>nil</em> if it did not find the stuff in the array, that&rsquo;s where our <em>nil</em> comes from.</li>
+<li>we pass an argument that has never been created before to <em>#remove_item</em> (if you change the code to print <em>item</em> inside the method you&rsquo;ll see that item is <em>nil</em>, the argument we gave the method was <em>nil</em>). So, there&rsquo;s no way it can find it in an array unless we add the <em>nil</em> object at one point, specifically (but we did not.</li>
 </ol>
 
 
 <p>Right, so now, we just need to solve that!</p>
 
-
 <h2>A solution</h2>
 
+<p>Nope, not giving you one right now haha. There is not one correct answer anyway, so as long as you correct 1 and 2.Send me a mail or a message on facebook, G+, anything, if you want and I&rsquo;ll show you what I did, but I thought that could be more interesting for people to be able to correct it yourself, but with a clearer understanding of what&rsquo;s happening.</p>
 
-<p>Nope, not giving you one right now haha. There is not one correct answer anyway, so as long as you correct 1 and 2.<br />Send me a mail or a message on facebook, G+, anything, if you want and I&#8217;ll show you what I did, but I thought that could be more interesting for people to be able to correct it yourself, but with a clearer understanding of what&#8217;s happening.</p>
+<p>Anyway, once you solve that, no more &ldquo;NullPointerException&rdquo;, no more &ldquo;NoMethodError&rdquo;, the code works.
+I know I went into a lot of details and that must be long to read, but I hope you can get a clearer view of what that error was and how it could be cleared with that.</p>
 
+<p>Don&rsquo;t hesitate to tell me if it stll is a bit confusing !</p>
 
-<p></p>
-
-
-<p>Anyway, once you solve that, no more &#8220;NullPointerException&#8221;, no more &#8220;NoMethodError&#8221;, the code works.<br />I know I went into a lot of details and that must be long to read, but I hope you can get a clearer view of what that error was and how it could be cleared with that.<br /><br />Don&#8217;t hesitate to tell me if it stll is a bit confusing !&nbsp;<br /><br />Cheers~&nbsp;</p>
-
+<p>Cheers~</p>
 
 
 </article>

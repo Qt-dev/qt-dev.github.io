@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-09T19:37:22-08:00</updated>
+  <updated>2014-02-09T20:28:13-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -29,7 +29,7 @@ They also come, but at a very slow pace. They too are very different, and affect
 
 <p>Well, today was the second day of introduction to Object Oriented Programming. One could probably spend hours writing about such a notion, but I will stick to a one sentence explanation.</p>
 
-<p>(Object Oriented Programming)[<a href="http://en.wikipedia.org/wiki/Object-oriented_programming">http://en.wikipedia.org/wiki/Object-oriented_programming</a>] is a way to work in development by modeling blocks of code in what people call an &ldquo;Object&rdquo;. Wikipedia, among others, explains that much more easily than I do, I encourage you to get there to check what it is about. ;)<br/>
+<p><a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming</a> is a way to work in development by modeling blocks of code in what people call an &ldquo;Object&rdquo;. Wikipedia, among others, explains that much more easily than I do, I encourage you to get there to check what it is about. ;)<br/>
 Plus, I don&rsquo;t have much interesting things to say about it so&hellip; I won&rsquo;t say much!</p>
 
 <h2>Friends &amp; Brothers</h2>
@@ -53,7 +53,7 @@ You will NEED brothers and sisters.</p>
 
 <h2>Battleship &amp; Sudoku</h2>
 
-<p>I already took too much of your time so I will try and be fast on this one but : Yesterday somebody pointed me in a new direction for sudoku solving. It is called (Dancing Links)[<a href="http://en.wikipedia.org/wiki/Dancing_Links">http://en.wikipedia.org/wiki/Dancing_Links</a>]. I won&rsquo;t explain in details, especially since I don&rsquo;t think I have a good enough grasp on this, but my goal here is to try and solve the 170 puzzles I solved in 8.5 seconds, but in less than a second this time. I&rsquo;ll tell you more when I can.</p>
+<p>I already took too much of your time so I will try and be fast on this one but : Yesterday somebody pointed me in a new direction for sudoku solving. It is called <a href="http://en.wikipedia.org/wiki/Dancing_Links">Dancing Links</a>. I won&rsquo;t explain in details, especially since I don&rsquo;t think I have a good enough grasp on this, but my goal here is to try and solve the 170 puzzles I solved in 8.5 seconds, but in less than a second this time. I&rsquo;ll tell you more when I can.</p>
 
 <p>And about Battleship : A few of us finished the challenge that said we had to make a battleship game in Ruby. We thought we could share that knowledge, so we got an idea and we are organizing a Battleship contest. We will build a core game, and a way for people to develop their players behaviors. We will be around the whole way and help those who could not finish it at first. Then after that we will just compete&hellip; But then again, we don&rsquo;t have the rules yet so&hellip; See you tomorrow!</p>
 ]]></content>
@@ -89,7 +89,7 @@ In the end, people have experience, and every experience is different. There is 
 &ndash; You then take all the boxes, rows, and columns, and try to find if any possible values can take only one location in one of these groups, and then set it to this cell.<br/>
 &ndash; If you did not find anything, just guess one number, taking all the cells with the smallest number of possible values, and fix them one by one, before calling the first step again. If it did not work, you get back on this part, restore the board, and fix the next one.</p>
 
-<p>I could spend hours talking about that, but in the end&hellip; I solve 170 puzzles, among which 95 &ldquo;hards&rdquo;, and the 11 harvests, all that in 9.5 seconds.</p>
+<p>I could spend hours talking about that, but in the end&hellip; I solve 170 puzzles, among which 95 &ldquo;hards&rdquo;, and the 11 harvests, all that in 8.5 seconds.</p>
 
 <p>If you want any more info, don&rsquo;t hesitate to ask. I think I&rsquo;ll be showing how I did to my cohort very soon anyway.</p>
 ]]></content>
@@ -222,7 +222,9 @@ So that&rsquo;s what I did. That did not really helped me work things out on the
 
 <p>So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to :</p>
 
-<pre><code class="ruby">myClass[index]="new_value"</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">myClass</span><span class="o">[</span><span class="n">index</span><span class="o">]=</span><span class="s2">&quot;new_value&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>My buddy and I were trying to get used to Test-Driven Development (<a href="http://fr.wikipedia.org/wiki/Test_Driven_Development">If you want more info&hellip; Thanks Wikipedia!</a>). So I had a very simple test method that tested if 2 things were equal.<br/>
@@ -230,13 +232,16 @@ I was testing that this code would return true, just to make sure the whole code
 
 <p>Come this test, we found out that it wanted a method called &ldquo;[]=&rdquo;, so we did. Our method looked something like :</p>
 
-<pre><code class="ruby">def []= index,new_value
-    #Do some stuff
-    true
-end</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="n">index</span><span class="p">,</span><span class="n">new_value</span>
+</span><span class='line'>  <span class="c1">#Do some stuff</span>
+</span><span class='line'>  <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-<p></p>
 
 <h2>The problem</h2>
 
@@ -247,12 +252,9 @@ end</code></pre>
 &ndash;  Second : It is actually doing what we want. The data is changed, and it goes through the last line that returns true.<br/>
 &ndash;  Third : It does not care about that because on the very next step, the trace you have of this method and what it returns already became &ldquo;new_value&rdquo;</p>
 
-<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :</p>
-
-<pre><code class="ruby">myClass.[]=(index,"new_value")</code></pre>
-
-
-<p>Conclusion of this test : SUCCESS!<br/>
+<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :<br/>
+<code>ruby myClass.[]=(index,"new_value")</code>
+Conclusion of this test : SUCCESS!<br/>
 This calls the method without any problem, and that is done exactly how we want.</p>
 
 <p>So at that point are conclusions were :<br/>
@@ -311,17 +313,18 @@ Your algorithm will not work (Duh&hellip; You did not write any code yet), but y
 
 <p>So, we worked on data structures, while using test-driven-development. While doing that we ended up redefining a method whose syntax is recognized and transformed by ruby&rsquo;s Syntaxic sugar :</p>
 
-<pre><code class="ruby">
-    def []= (index, data)  
-    end
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>which transforms into :</p>
 
-<pre><code class="ruby">
-    thing[3] = 4
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">thing</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="mi">4</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>So far so good.<br/>
@@ -375,7 +378,6 @@ And let me tell you guys : That was worth it, and a very good idea !</p>
 
 <h2>The program started</h2>
 
-
 <p>So, yesterday, we were expected at Dev Bootcamp, just at the entrance of Chinatown, for 9AM. We met the last remaining people of the cohort that we had not met before, and waited there, anxiously waiting.
 At 9AM sharp, shouts and claps started right behind that little door we had not passed yet&hellip;</p>
 
@@ -383,11 +385,11 @@ At 9AM sharp, shouts and claps started right behind that little door we had not 
 I won&rsquo;t go as far as to explain everything in details, but for this first post in a while I&rsquo;ll just sum it up as :</p>
 
 <ul>
-<li>- People are awesome. Teachers, Coaches, other students, other cohorts, everybody!</li>
-<li>- We should be expecting 60-80 hours weeks, and even there we probably won&#8217;t get over everything anyway.</li>
-<li>- Sherif, one of our teachers, is really eloquent&#8230; You can hear pure knowledge come out of his mouth&#8230; That&#8217;s insane</li>
-<li>- Sherif told us repeatedly : We are insane for thinking it is doable. But the common insanity is what bounds us and may end up making it possible.</li>
-<li>- We are guinea pigs. The program we will be living will be a bit different than the others, but then I&#8217;ll explain that later.</li>
+<li>People are awesome. Teachers, Coaches, other students, other cohorts, everybody!</li>
+<li>We should be expecting 60-80 hours weeks, and even there we probably won&rsquo;t get over everything anyway.</li>
+<li>Sherif, one of our teachers, is really eloquent&hellip; You can hear pure knowledge come out of his mouth&hellip; That&rsquo;s insane</li>
+<li>Sherif told us repeatedly : We are insane for thinking it is doable. But the common insanity is what bounds us and may end up making it possible.</li>
+<li>We are guinea pigs. The program we will be living will be a bit different than the others, but then I&rsquo;ll explain that later.</li>
 </ul>
 
 
@@ -412,77 +414,45 @@ We are basically the ones making it possible. Teachers guide us, but that is all
     <link href="http://Qt-dev.github.io/blog/2013/12/13/welcome-to-dev-bootcamp/"/>
     <updated>2013-12-13T07:01:57-08:00</updated>
     <id>http://Qt-dev.github.io/blog/2013/12/13/welcome-to-dev-bootcamp</id>
-    <content type="html"><![CDATA[<p>I created this blog as a part of the Dev Bootcamp, mostly. But what is it? How does it work?</p>
-
-
-<p>Time to give you guys a bit more info, at least about what I know so far&#8230;<!-- more --></p>
-
+    <content type="html"><![CDATA[<p>I created this blog as a part of the Dev Bootcamp, mostly. But what is it? How does it work?<br/>
+Time to give you guys a bit more info, at least about what I know so far&hellip;<!-- more --></p>
 
 <h2>What is it?</h2>
 
-
-<p>My words will probably be much more wrong that these :&nbsp;<a href="http://devbootcamp.com/learn-more/">http://devbootcamp.com/learn-more/</a>&nbsp;.<br />But to put it simply :&nbsp;</p>
-
-
-<p>Dev Bootcamp is an intensive program that aims to teach you how to become a good developper in 9 weeks (Plus 12 weeks, less intensive, to train beforehand, and a few more afterwhile).</p>
-
-
-<p>!You don&#8217;t need to have mad coding skills to enter, any experience. What you need is genuine interest, and being able to show that you can learn.</p>
-
+<p>My words will probably be much more wrong that these :&nbsp;<a href="http://devbootcamp.com/learn-more/"><a href="http://devbootcamp.com/learn-more/">http://devbootcamp.com/learn-more/</a></a>&nbsp;.<br/>
+But to put it simply :&nbsp;<br/>
+Dev Bootcamp is an intensive program that aims to teach you how to become a good developper in 9 weeks (Plus 12 weeks, less intensive, to train beforehand, and a few more afterwhile).<br/>
+!You don&rsquo;t need to have mad coding skills to enter, any experience. What you need is genuine interest, and being able to show that you can learn.</p>
 
 <h2>Can I join then, and how?</h2>
 
+<p>Well, as I was saying, it is not a program for hardcore coders, it is one for genuinely interested people who can learn.<br/>
+So if you think this description would fit you : Apply!<br/>
+The selection is in 3 steps.<br/>
+1 : You answer the questions they have in an online application.<br/>
+2 : You make a 5 minutes video that tells the viewer a bit more about you, and teaches something you know to that same person.<br/>
+3 : If your video and application are selected, you get an interview with one of the Bootcamp&rsquo;s recruiters.<br/>
+Now, remember, what they want to see is : Are you genuinely interested? Are you able to learn? And how interesting are you?<br/>
+If you can show them that you fit the description, then you will just have to choose a place and date and here you go!</p>
 
-<p>Well, as I was saying, it is not a program for hardcore coders, it is one for genuinely interested people who can learn.<br /> So if you think this description would fit you : Apply!</p>
+<h2>So how does it work once you&rsquo;re in?</h2>
 
+<p>Well, you got in, now you have to pay to book your spot. Cohorts (= Promotions) are small, and they intend to make it stay this way. So the fastest you can pay the first deposit, the better the chances to have the spot you&#8217;ld want, and so the better it is for everybody<br/>
+Now, the bootcamp in itself will start 12 weeks before the &ldquo;Starting day&rdquo; you booked. Before that, Try to check out everything they put in the list for new recruits. There are tutorials, books, many things. Not doing them all will not make you fail, but it will most likely make it a bit harder than if you had.<br/>
+Also, try to get in contact with people from your group. Dev Bootcamp will teach you how to be a developper, and so how to work with other developpers. There will be a lot of group projects, pair-programming (you&rsquo;ll know about that soon enough hehe), and so the fastest you get together and start organizing, the better it will be for you.<br/>
+You will also, most likely, need to find a place near the bootcamp, and plan a lot of stuff for when it all starts, so don&rsquo;t hesitate to plan in advance (and all together, which will make you save a lot of money on your new place and stuff like that). You will most likely not get a solid plan for everything 9 months in advance, but looking around does not hurt.<br/>
+Soon enough, you&rsquo;ll be at the D-12 weeks milestone : Phase 0 starts</p>
 
-<p>The selection is in 3 steps.</p>
+<h2>Dev Bootcamp &ndash; Phase 0</h2>
 
-
-<p>1 : You answer the questions they have in an online application.</p>
-
-
-<p>2 : You make a 5 minutes video that tells the viewer a bit more about you, and teaches something you know to that same person.</p>
-
-
-<p>3 : If your video and application are selected, you get an interview with one of the Bootcamp&#8217;s recruiters.</p>
-
-
-<p>Now, remember, what they want to see is : Are you genuinely interested? Are you able to learn? And how interesting are you?<br />If you can show them that you fit the description, then you will just have to choose a place and date and here you go!</p>
-
-
-<h2>So how does it work once you&#8217;re in?</h2>
-
-
-<p>Well, you got in, now you have to pay to book your spot. Cohorts (= Promotions) are small, and they intend to make it stay this way. So the fastest you can pay the first deposit, the better the chances to have the spot you&#8217;ld want, and so the better it is for everybody</p>
-
-
-<p>Now, the bootcamp in itself will start 12 weeks before the &#8220;Starting day&#8221; you booked. Before that, Try to check out everything they put in the list for new recruits. There are tutorials, books, many things. Not doing them all will not make you fail, but it will most likely make it a bit harder than if you had.<br />Also, try to get in contact with people from your group. Dev Bootcamp will teach you how to be a developper, and so how to work with other developpers. There will be a lot of group projects, pair-programming (you&#8217;ll know about that soon enough hehe), and so the fastest you get together and start organizing, the better it will be for you.<br />You will also, most likely, need to find a place near the bootcamp, and plan a lot of stuff for when it all starts, so don&#8217;t hesitate to plan in advance (and all together, which will make you save a lot of money on your new place and stuff like that). You will most likely not get a solid plan for everything 9 months in advance, but looking around does not hurt.</p>
-
-
-<p>Soon enough, you&#8217;ll be at the D-12 weeks milestone : Phase 0 starts</p>
-
-
-<h2>Dev Bootcamp - Phase 0</h2>
-
-
-<p>As I mentionned in an earlier post, Dev Bootcamp is not about making you able to code stuff, or giving you a coding job, but about making you a developper.</p>
-
-
-<p>To follow that idea, the first &#8220;Lesson&#8221; you get in the first day of the first week of phase 0 is about Developper&#8217;s Empathy. The idea is that you have feelings, and are encouraged to have even more and stronger ones, but you should be able to manage them.<u>Wherever you code, you will have to work in team and more importantly work WITH this team.</u></p>
-
-
-<p>One could ask &#8220;What if I want to code an app alone?&#8221;<br />This could be thought as being in no team, but the idea is that you still have a team. This team is a group that contains the present you, the past you, and the future you. Past you built some code, and now present you is trying to adapt and refactor that code to add new features, while thinking and modeling it so that future you don&#8217;t look at the code and die of an instant brain disease.</p>
-
-
-<p>So, with that in mind, Phase 0 starts with a few code challenges per week, increasingly hard of course, to do with other people from your group. Add a weekly meeting with instructors to make sure you&#8217;re doing ok, with the code AND with the others, and you will have around 15 hours per week of DBC-ing.</p>
-
-
-<p>I would tell you more about all that, but that&#8217;s where I am right now so I&#8217;ll stop here for now. After all, the post name is &#8220;Welcome to Dev Bootcamp&#8221;, not &#8220;Everything about Dev Bootcamp&#8221;.<br /> Don&#8217;t hesitate if you have any questions, and I hope I&#8217;ll have helped you in some way with this post!</p>
-
-
-<p>See you sooon for more on the bootcamp!</p>
-
+<p>As I mentionned in an earlier post, Dev Bootcamp is not about making you able to code stuff, or giving you a coding job, but about making you a developper.<br/>
+To follow that idea, the first &ldquo;Lesson&rdquo; you get in the first day of the first week of phase 0 is about Developper&rsquo;s Empathy. The idea is that you have feelings, and are encouraged to have even more and stronger ones, but you should be able to manage them.<u>Wherever you code, you will have to work in team and more importantly work WITH this team.</u><br/>
+One could ask &ldquo;What if I want to code an app alone?&#8221;<br/>
+This could be thought as being in no team, but the idea is that you still have a team. This team is a group that contains the present you, the past you, and the future you. Past you built some code, and now present you is trying to adapt and refactor that code to add new features, while thinking and modeling it so that future you don&rsquo;t look at the code and die of an instant brain disease.<br/>
+So, with that in mind, Phase 0 starts with a few code challenges per week, increasingly hard of course, to do with other people from your group. Add a weekly meeting with instructors to make sure you&rsquo;re doing ok, with the code AND with the others, and you will have around 15 hours per week of DBC-ing.<br/>
+I would tell you more about all that, but that&rsquo;s where I am right now so I&rsquo;ll stop here for now. After all, the post name is &#8220;Welcome to Dev Bootcamp&rdquo;, not &ldquo;Everything about Dev Bootcamp&rdquo;. <br/>
+Don&rsquo;t hesitate if you have any questions, and I hope I&rsquo;ll have helped you in some way with this post!<br/>
+See you sooon for more on the bootcamp!</p>
 ]]></content>
   </entry>
   
@@ -576,140 +546,137 @@ We are basically the ones making it possible. Teachers guide us, but that is all
     <link href="http://Qt-dev.github.io/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-/"/>
     <updated>2013-11-29T05:50:00-08:00</updated>
     <id>http://Qt-dev.github.io/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-</id>
-    <content type="html"><![CDATA[<p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.</p>
-
-
-<p>After talking with some boots from the cohort (DBC language, read &#8220;colleagues&#8221;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&#8217;s up here.&nbsp;<br /><!-- more --></p>
-
+    <content type="html"><![CDATA[<p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.<br/>
+After talking with some boots from the cohort (DBC language, read &ldquo;colleagues&rdquo;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&rsquo;s up here. <!-- more --></p>
 
 <h2>The code</h2>
 
+<p>I won&rsquo;t bother you with the whole exercise, let&rsquo;s just get sum the code up as :</p>
 
-<p>I won&#8217;t bother you with the whole exercise, let&#8217;s just get sum the code up as :</p>
-
-
-<pre><code class="ruby">
-class Drawer
-  def initialize
-    @contents = []
-  end
-  
-  def remove_item(item = contents.pop)
-    @contents.delete(item)
-  end
-end
-
-class Silverware
-  def initialize(type)
-    @type = type
-  end
-  
-  def eat
-    puts "Yum yum I eat with #{@type}"
-  end
-end
-
-our_drawer = Drawer.new
-fork = our_drawer.remove_item(fork)
-fork.eat
-</code></pre>
-
-
-<p>&nbsp;</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Drawer</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
+</span><span class='line'>    <span class="vi">@contents</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">remove_item</span><span class="p">(</span><span class="n">item</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">pop</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@contents</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Silverware</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@type</span> <span class="o">=</span> <span class="n">type</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">eat</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Yum yum I eat with </span><span class="si">#{</span><span class="vi">@type</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">our_drawer</span> <span class="o">=</span> <span class="no">Drawer</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="nb">fork</span> <span class="o">=</span> <span class="n">our_drawer</span><span class="o">.</span><span class="n">remove_item</span><span class="p">(</span><span class="nb">fork</span><span class="p">)</span>
+</span><span class='line'><span class="nb">fork</span><span class="o">.</span><span class="n">eat</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Try and paste that if you want, the error is :</p>
 
-
-<pre><em>drawer.rb:23:in `&lt;main&gt;': undefined method `eat' for nil:NilClass (NoMethodError)</em></pre>
-
-
-<h2>Detailling the Problem</h2>
-
-
-<p>Let&#8217;s translate that error then.</p>
-
-
-<ul>
-<li>
-<pre><em>drawer.rb:23:in `&lt;main&gt;':</em></pre>
-</li>
-</ul>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">drawer</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">23</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;&#39;: undefined method `</span><span class="n">eat</span><span class="s1">&#39; for nil:NilClass (NoMethodError)```</span>
+</span><span class='line'><span class="s1">##Detailling the Problem</span>
+</span><span class='line'><span class="s1">Let&#39;</span><span class="n">s</span> <span class="n">translate</span> <span class="n">that</span> <span class="n">error</span> <span class="k">then</span><span class="o">.</span>
+</span><span class='line'>
+</span><span class='line'> <span class="o">-</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The problem lays in the <em>&#8220;Main&#8221;</em> (we&#8217;ll see about that later in the DBC cursus most likely), on like 23 of the drawer.rb file. so in our</p>
+<p>drawer.rb:23:in `<main>&lsquo;:&#8220;`</p>
+
+<p>The problem lays in the <em>&ldquo;Main&rdquo;</em> (we&rsquo;ll see about that later in the DBC cursus most likely), on like 23 of the drawer.rb file. so in our</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rubyfork</span><span class="o">.</span><span class="n">eat</span><span class="sb">```</span>
+</span><span class='line'><span class="sb">  </span>
+</span><span class='line'>
+</span><span class='line'><span class="sb"> - </span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<pre><code class="ruby">fork.eat</code></pre>
+<p>undefined method `eat&#8217; for nil:NilClass (NoMethodError)&#8220;`</p>
 
+<p>So, there is no method called <em>eat</em> for the object <em>nil</em>, from the class <em>NilClass</em>. So far so good.<br/>
+That is what java devs would call a &ldquo;<em>null pointer exception</em>&rdquo;.
+It is an error where, basically, something is null and your code wants to work with it but it can&rsquo;t. The &ldquo;null&rdquo; I am talking about is the &ldquo;nil&rdquo; object we got here, and the only methods it has are described <a href="http://www.ruby-doc.org/core-2.0.0/NilClass.html" title="NilClass Ruby Doc">&ndash;> here &lt;&ndash;</a><br/>
+Now, what is that <em>nil</em> and what is it doing on line 23? And why do we care if it has a <em>#eat</em> method?</p>
 
-<p></p>
+<h2>Finding out what&rsquo;s up</h2>
 
-
-<ul>
-<li>
-<pre><em>undefined method `eat' for nil:NilClass (NoMethodError)</em></pre>
-</li>
-</ul>
-
-
-<p>So, there is no method called <em>eat</em> for the object <em>nil</em>, from the class <em>NilClass</em>. So far so good.</p>
-
-
-<p>That is what java devs would call a &#8221;<em>null pointer exception</em>&#8221;.<br />It is an error where, basically, something is null and your code wants to work with it but it can&#8217;t. The &#8220;null&#8221; I am talking about is the &#8220;nil&#8221; object we got here, and the only methods it has are described <a href="http://www.ruby-doc.org/core-2.0.0/NilClass.html" title="NilClass Ruby Doc">-&gt; here &lt;-</a></p>
-
-
-<p>Now, what is that <em>nil</em> and what is it doing on line 23? And why do we care if it has a <em>#eat</em> method?</p>
-
-
-<p></p>
-
-
-<h2>Finding out what&#8217;s up</h2>
-
-
-<p>What do is the object that can be <em>nil</em> on line 23? Well, simple : fork.<br />No other option there, there&#8217;s only one object on that line, <em>fork</em> is nil.&nbsp;</p>
-
-
-<p>So we go a bit up and check out how we defined it, something must have been wrong there.<br />Definition is on line 22, right above. Since it&#8217;s the only place where we set a value to fork, that must be where we set it to nil.&nbsp;</p>
-
-
-<p>By deduction, on that line, the thing that is <em>nil</em> is <em>our_drawer.remove_item(fork)</em> then.<br />So, we examine every part of this:</p>
-
+<p>What do is the object that can be <em>nil</em> on line 23? Well, simple : fork.
+No other option there, there&rsquo;s only one object on that line, <em>fork</em> is nil. <br/>
+So we go a bit up and check out how we defined it, something must have been wrong there.
+Definition is on line 22, right above. Since it&rsquo;s the only place where we set a value to fork, that must be where we set it to nil. <br/>
+By deduction, on that line, the thing that is <em>nil</em> is <em>our_drawer.remove_item(fork)</em> then.
+So, we examine every part of this:</p>
 
 <ul>
 <li><em>our_drawer</em> does not put much of a problem. We used it above (not in the example but in the exercise we did), and it would raise an error if we were calling <em>#remove_item</em> from it anyway.</li>
-<li><em>#remove_item</em> may not do exactly what we want. It uses <em>#delete</em> with <em>fork</em> as an argument. Now, if you check <a href="http://ruby-doc.org/core-2.0.0/Array.html#method-i-delete" title="array#delete on the Ruby Doc">&gt;here&lt;</a>, this method returns the item if it found and deleted it in the array&#8230; or it returns <em>nil</em> if it is not in the array we call the method from&#8230; So THAT is where we get that nil from, the only <em>return</em> is here, we get a <em>nil</em> from that method. Now, let&#8217;s check the next thing in the expression just in case.</li>
+<li><em>#remove_item</em> may not do exactly what we want. It uses <em>#delete</em> with <em>fork</em> as an argument. Now, if you check <a href="http://ruby-doc.org/core-2.0.0/Array.html#method-i-delete" title="array#delete on the Ruby Doc">>here&lt;</a>, this method returns the item if it found and deleted it in the array&hellip; or it returns <em>nil</em> if it is not in the array we call the method from&hellip; So THAT is where we get that nil from, the only <em>return</em> is here, we get a <em>nil</em> from that method. Now, let&rsquo;s check the next thing in the expression just in case.</li>
 <li><em>fork</em> is passed as an argument. But then, is <em>fork</em> defined before that? The answer is : NO. That is definitely a problem!</li>
 </ul>
 
 
-<p></p>
-
-
-<p>Well, that was quite helpful, we now have identified 2 problems that happen in our case. I&#8217;ll use numbers for further use (&#8230; or just because i&#8217;m just tired of dots in my lists :p) :</p>
-
+<p>Well, that was quite helpful, we now have identified 2 problems that happen in our case. I&rsquo;ll use numbers for further use (&hellip; or just because i&rsquo;m just tired of dots in my lists :p) :</p>
 
 <ol>
-<li><em>#remove_item</em> returns <em>nil</em> if it did not find the stuff in the array, that&#8217;s where our <em>nil</em> comes from.</li>
-<li>we pass an argument that has never been created before to <em>#remove_item</em> (if you change the code to print <em>item</em> inside the method you&#8217;ll see that item is <em>nil</em>, the argument we gave the method was <em>nil</em>). So, there&#8217;s no way it can find it in an array unless we add the <em>nil</em> object at one point, specifically (but we did not.</li>
+<li><em>#remove_item</em> returns <em>nil</em> if it did not find the stuff in the array, that&rsquo;s where our <em>nil</em> comes from.</li>
+<li>we pass an argument that has never been created before to <em>#remove_item</em> (if you change the code to print <em>item</em> inside the method you&rsquo;ll see that item is <em>nil</em>, the argument we gave the method was <em>nil</em>). So, there&rsquo;s no way it can find it in an array unless we add the <em>nil</em> object at one point, specifically (but we did not.</li>
 </ol>
 
 
 <p>Right, so now, we just need to solve that!</p>
 
-
 <h2>A solution</h2>
 
+<p>Nope, not giving you one right now haha. There is not one correct answer anyway, so as long as you correct 1 and 2.Send me a mail or a message on facebook, G+, anything, if you want and I&rsquo;ll show you what I did, but I thought that could be more interesting for people to be able to correct it yourself, but with a clearer understanding of what&rsquo;s happening.</p>
 
-<p>Nope, not giving you one right now haha. There is not one correct answer anyway, so as long as you correct 1 and 2.<br />Send me a mail or a message on facebook, G+, anything, if you want and I&#8217;ll show you what I did, but I thought that could be more interesting for people to be able to correct it yourself, but with a clearer understanding of what&#8217;s happening.</p>
+<p>Anyway, once you solve that, no more &ldquo;NullPointerException&rdquo;, no more &ldquo;NoMethodError&rdquo;, the code works.
+I know I went into a lot of details and that must be long to read, but I hope you can get a clearer view of what that error was and how it could be cleared with that.</p>
 
+<p>Don&rsquo;t hesitate to tell me if it stll is a bit confusing !</p>
 
-<p></p>
-
-
-<p>Anyway, once you solve that, no more &#8220;NullPointerException&#8221;, no more &#8220;NoMethodError&#8221;, the code works.<br />I know I went into a lot of details and that must be long to read, but I hope you can get a clearer view of what that error was and how it could be cleared with that.<br /><br />Don&#8217;t hesitate to tell me if it stll is a bit confusing !&nbsp;<br /><br />Cheers~&nbsp;</p>
-
+<p>Cheers~</p>
 ]]></content>
   </entry>
   
@@ -718,121 +685,91 @@ fork.eat
     <link href="http://Qt-dev.github.io/blog/2013/11/26/because-im-happy/"/>
     <updated>2013-11-26T06:18:00-08:00</updated>
     <id>http://Qt-dev.github.io/blog/2013/11/26/because-im-happy</id>
-    <content type="html"><![CDATA[<p>So&#8230; here is my first step into the blogging world. (&lt;- I must have rewritten that sentence a thousand times over the years&#8230; I like to think&nbsp;of it as the thing that prevented me from blogging so far ;) )</p>
+    <content type="html"><![CDATA[<p>So&hellip; here is my first step into the blogging world. (&lt;&ndash; I must have rewritten that sentence a thousand times over the years&hellip; I like to think  of it as the thing that prevented me from blogging so far  ) )<br/>
+So here comes my first post, with an introduction, and info about why I am happy, and of course about Dev Bootcamp<br/>
+(Warning : Long post ahead&hellip; but don&rsquo;t worry, I&rsquo;ve put videos to help you cope with the long text)<!-- more --></p>
 
-
-<p>So here comes my first post, with an introduction, and info about why I am happy, and of course about Dev Bootcamp</p>
-
-
-<p>(Warning : Long post ahead&#8230; but don&#8217;t worry, I&#8217;ve put videos to help you cope with the long text)<!-- more --></p>
-
-
-<p><br />I&#8217;ve always been the kind of guy who speaks a lot, I&#8217;ve also been said that I would make a good blogger thanks to that, but that is my very first post in my very first blog.<br />As such, I feel obliged to start with :&nbsp;</p>
-
-
-<p></p>
-
+<p>I&rsquo;ve always been the kind of guy who speaks a lot, I&rsquo;ve also been said that I would make a good blogger thanks to that, but that is my very first post in my very first blog.<br/>
+As such, I feel obliged to start with :</p>
 
 <h2>A small introduction about me</h2>
 
-
-<p>So, hi! My name is Quentin and I am a 27 years old french dude who has&#8230; done stuff, here and there.&nbsp;<br />So far, in my life, I can say that:&nbsp;</p>
-
+<p>So, hi! My name is Quentin and I am a 27 years old french dude who has&hellip; done stuff, here and there.  <br/>
+So far, in my life, I can say that:</p>
 
 <ul>
-<li><span>I travelled to 2 different continents (3 in 2 months, take that frequent flyer program!). </span></li>
-<li><span>As a job, I counted stock, sold clothes to climb the K2, built skateboards, taught kids what France was like.</span></li>
-<li><span>I studied &#8230; Scientific stuff, then economics, then English/Spanish and their applications (in Law, Economics, Culture), and then Korean, most of them only for one year or two but still&#8230;</span></li>
-<li><span>I built some webpages (old-school style, back in the days), created a geeky Roleplaying Club in high school, created and managed a podcast about Korea (<a href="http://www.mirae.fr">www.mirae.fr</a> &#8230; all in french), and more recently made an app (<a href="https://play.google.com/store/apps/details?id=com.qdev.craftmeapass&amp;hl=fr">Craft me a pass!</a> on Android)</span></li>
+<li>I travelled to 2 different continents (3 in 2 months, take that frequent flyer program!).</li>
+<li>As a job, I counted stock, sold clothes to climb the K2, built skateboards, taught kids what France was like.</li>
+<li>I studied &hellip; Scientific stuff, then economics, then English/Spanish and their applications (in Law, Economics, Culture), and then Korean, most of them only for one year or two but still&hellip;</li>
+<li>I built some webpages (old-school style, back in the days), created a geeky Roleplaying Club in high school, created and managed a podcast about Korea (<a href="http://www.mirae.fr">www.mirae.fr</a> &hellip; all in french), and more recently made an app (<a href="https://play.google.com/store/apps/details?id=com.qdev.craftmeapass&amp;amp;hl=fr">Craft me a pass!</a> on Android)</li>
 </ul>
 
 
-<p><span>Right now, I&#8217;m working as a Technical Support Manager (Think <a href="http://en.wikipedia.org/wiki/The_IT_Crowd">The IT Crowd</a>&#8217;s Roy with a french accent) in a company that works for Digital Cinemas all over the world.<br /></span><span>I also played hundreds of games because I just&#8230; love challenges. And when I feel like I don&#8217;t have enough of it, I just manage to create a group, a guild, a clan, anything, and then deal with the other challenges that come with it.</span></p>
+<p>Right now, I&rsquo;m working as a Technical Support Manager (Think <a href="http://en.wikipedia.org/wiki/The_IT_Crowd">The IT Crowd</a>&rsquo;s Roy with a french accent) in a company that works for Digital Cinemas all over the world.<br/>
+I also played hundreds of games because I just&hellip; love challenges. And when I feel like I don&rsquo;t have enough of it, I just manage to create a group, a guild, a clan, anything, and then deal with the other challenges that come with it.<br/>
+All in all, I like building and managing projects, people, &hellip; anything. One other thing I like is humor. I joke a lot, and like to laugh. Always have and always will  )<br/>
+Also, a small trait that seems to surprise most of the people : I give the truth. All of it. <br/>
+I once told my fiancee how getting with her does not make others less charming, it just makes her the one I chose and I like to stick to my choices. Long story short, it didn&rsquo;t go very well. But she&rsquo;s my fiancee now so I think can safely say that it ended up OK.<br/>
+I also told the listeners of my podcast that I was sorry I made a joke about Korean people&hellip; But if they were that &ldquo;stuck-up&rdquo; they could just stop listening right now since I&#8217;ld make more about any group of people, being in it or not. I never meant any harm in it, and those who don&rsquo;t understand 2nd degree probably don&rsquo;t like what I&rsquo;m saying anyway so&hellip; Why keep on listening then?</p>
 
-
-<p><span>All in all, I like building and managing projects, people, &#8230; anything. One other thing I like is humor. I joke a lot, and like to laugh. Always have and always will ;)</span></p>
-
-
-<p><span>Also, a small trait that seems to surprise most of the people : I give the truth. All of it. <br />I once told my fiancee how getting with her does not make others less charming, it just makes her the one I chose and I like to stick to my choices. Long story short, it didn&#8217;t go very well. But she&#8217;s my fiancee now so I think can safely say that it ended up OK.<br />I also told the listeners of my podcast that I was sorry I made a joke about Korean people&#8230; But if they were that &#8220;stuck-up&#8221; they could just stop listening right now since I&#8217;ld make more about any group of people, being in it or not. I never meant any harm in it, and those who don&#8217;t understand 2nd degree probably don&#8217;t like what I&#8217;m saying anyway so&#8230; Why keep on listening then?<br /><br />But then I tell the people what I like and don&#8217;t like about them (Not like a douche, telling the truth does not necessarily mean being hurtful). If I don&#8217;t want to go to your party, I&#8217;ll explain, I will not be suddenly sick, my grandmother won&#8217;t die every other weekend, nope, I will bluntly tell you what my reasons are and then we can talk about it if you want.</span></p>
-
-
-<p>Finally (that &#8220;short&#8221; introduction may be one of the biggest thing I ever wrote already&#8230;), I will say that I live to help. I don&#8217;t have anything to compensate (that I know of&#8230;) I am not a bad person that wants redemption or something, I just think that I am very glad to have a roof over my head, a decent body, a decent mind (decent genes all in all, thanks mom and dad), I grew up with my loving parents, I have an awesome house, I also got some skills (nothing fancy or rare, just stuff I know how to do) and I don&#8217;t care about having that if I can&#8217;t make that useful for those who would have less of any of that.</p>
-
-
-<p>This kind of stuff is what I live for, my goal in life, and I don&#8217;t intend to change it at any time.</p>
-
-
-<p><span>Now, that may sound like bragging, trying to look good in some way but first, I honestly don&#8217;t care what you think about that, I&#8217;m happy with myself, just trying to inform, and second remember what I wrote just a little above :&nbsp;</span><em>&nbsp;I give the truth. All of it.<br /></em></p>
-
-
-<p></p>
-
+<p>But then I tell the people what I like and don&rsquo;t like about them (Not like a douche, telling the truth does not necessarily mean being hurtful). If I don&rsquo;t want to go to your party, I&rsquo;ll explain, I will not be suddenly sick, my grandmother won&rsquo;t die every other weekend, nope, I will bluntly tell you what my reasons are and then we can talk about it if you want.<br/>
+Finally (that &ldquo;short&rdquo; introduction may be one of the biggest thing I ever wrote already&hellip;), I will say that I live to help. I don&rsquo;t have anything to compensate (that I know of&hellip;) I am not a bad person that wants redemption or something, I just think that I am very glad to have a roof over my head, a decent body, a decent mind (decent genes all in all, thanks mom and dad), I grew up with my loving parents, I have an awesome house, I also got some skills (nothing fancy or rare, just stuff I know how to do) and I don&rsquo;t care about having that if I can&rsquo;t make that useful for those who would have less of any of that.<br/>
+This kind of stuff is what I live for, my goal in life, and I don&rsquo;t intend to change it at any time.<br/>
+Now, that may sound like bragging, trying to look good in some way but first, I honestly don&rsquo;t care what you think about that, I&rsquo;m happy with myself, just trying to inform, and second remember what I wrote just a little above :  *  I give the truth. All of it.  *</p>
 
 <h2>Why I am happy~</h2>
 
+<p>Many reasons about it. This title is mostly because of this :</p>
 
-<p><span>Many reasons about it. This title is mostly because of this :</span></p>
-
-
-<p><iframe frameborder="0" height="315" src="http://Qt-dev.github.io//www.youtube.com/embed/y6Sxv-sUYtM" width="560"></iframe></p>
+<iframe frameborder="0" height="315" src="http://Qt-dev.github.io//www.youtube.com/embed/y6Sxv-sUYtM" width="560)</iframe>
 
 
 <p></p>
 
+<p>That songs definitely sets the mood to happy doesn&rsquo;t it?  <br/>
+Now, the biggest reason why I am happy, the one that is just amplified by this song is :  <br/>
+<strong>She said YES!</strong><br/>
+I have been together with my girlfriend, Thuy Nguyen, the girl in my profile picture&hellip; pretty much everywhere (I rarely take pictures without her, and I tend to find pictures very bad when she is not in them anyway) for &hellip; 5 years 9 months and 7 days right now. 2 weeks ago, on the 8th, I took her to the Op&eacute;ra Garnier in Paris, a wonderful place where we first got together. She had no idea why I was taking her there and she honestly thought I was just showing her some new restaurant.  <br/>
+Then, I stopped, faced her, and it went like this :  <br/>
+&ndash; Do you know how long we&rsquo;ve been together?<br/>
+&ndash; Well&hellip; (of course she did not, who counts apart from on the anniversaries?)<br/>
+&ndash; 5 years, 8 months, 2 weeks and 4 days. And in that time, we did not have much time for ourselves right? All our anniversaries, your birthday, valentine&rsquo;s day, everything is in the same 2 weeks window&hellip; So I thought, maybe we could get a day to ourselves, right in the middle of nowhere in the calendar, when we could take the day off, every year, and celebrate&hellip; us.  <br/>
+&ndash; (Lot of confusion right now, and hunger, she thought I was bringing her to a restaurant, remember?) Well&hellip; sure?&hellip;<br/>
+&ndash; And this day, we could celebrate the day when I (get on one knee) asked you : Would you marry me?</p>
 
-<p>That songs definitely sets the mood to happy doesn&#8217;t it?&nbsp;</p>
+<p>No she did not cry, and the first answer I got was &ldquo;What the hell are you doing on the ground, get up already&rdquo;, but she did say yes. And she hugged me more in the next hour than she did in most of our relationship. We don&rsquo;t have a date yet, and are not planning the wedding, but let me tell you that :  <br/>
+&ndash; <em>No matter what happens, I am marrying that girl, and the fact that I can work the rest of my life making her happy while she kind of agreed to let me do so is enough to put a smile on my face for years.  <br/>
+&ndash; The smile may fade, but that will most likely be because I laugh too much and will just end up having my face hurt when I smile  )</em><br/>
+Now, personal stuff set aside, let&rsquo;s get to what many may be reading me right now :  <br/>
+<strong>Dev Bootcamp &ndash; Go Banana Slugs!</strong><br/>
+Now, with that set aside, I also got accepted a few month ago into the (<a href="http://devbootcamp.com/">http://devbootcamp.com/</a>)Dev Bootcamp</a> in San Francisco. I am in the cohort of Jan 27th-Mar 26th called Banan Slugs.</p>
 
+<p>Before I joined, I searched for former alumni (I also searched for the word alumnus/alumni), because&hellip; let&rsquo;s face it&hellip; It&rsquo;s too good to be true  )<br/>
+I then filled the application, made a video to go with it. The rule was : In 5 minutes, teach something to the viewers, and tell us more about you&hellip; Here you go if you want to see how it went :</p>
 
-<p>Now, the biggest reason why I am happy, the one that is just amplified by this song is :&nbsp;</p>
-
-
-<p><strong><u>She said YES!</u></strong></p>
-
-
-<p>I have been together with my girlfriend, Thuy Nguyen, the girl in my profile picture&#8230; pretty much everywhere (I rarely take pictures without her, and I tend to find pictures very bad when she is not in them anyway) for &#8230; 5 years 9 months and 7 days right now. 2 weeks ago, on the 8th, I took her to the Op&eacute;ra Garnier in Paris, a wonderful place where we first got together. She had no idea why I was taking her there and she honestly thought I was just showing her some new restaurant.&nbsp;<br />Then, I stopped, faced her, and it went like this :&nbsp;</p>
-
-
-<p><span>- Do you know how long we&#8217;ve been together?<br />- Well&#8230; (of course she did not, who counts apart from on the anniversaries?)<br />- 5 years, 8 months, 2 weeks and 4 days. And in that time, we did not have much time for ourselves right? All our anniversaries, your birthday, valentine&#8217;s day, everything is in the same 2 weeks window&#8230; So I thought, maybe we could get a day to ourselves, right in the middle of nowhere in the calendar, when we could take the day off, every year, and celebrate&#8230; us.&nbsp;<br />- (Lot of confusion right now, and hunger, she thought I was bringing her to a restaurant, remember?) Well&#8230; sure?&#8230;<br />- And this day, we could celebrate the day when I (get on one knee) asked you : Would you marry me?<br /><br />No she did not cry, and the first answer I got was &#8220;What the hell are you doing on the ground, get up already&#8221;, but she did say yes. And she hugged me more in the next hour than she did in most of our relationship. We don&#8217;t have a date yet, and are not planning the wedding, but let me tell you that :&nbsp;<br /><em>No matter what happens, I am marrying that girl, and the fact that I can work the rest of my life making her happy while she kind of agreed to let me do so is enough to put a smile on my face for years.&nbsp;<br />The smile may fade, but that will most likely be because I laugh too much and will just end up having my face hurt when I smile ;)</em></span></p>
-
-
-<p>Now, personal stuff set aside, let&#8217;s get to what many may be reading me right now :&nbsp;</p>
-
-
-<p><strong><u>Dev Bootcamp - Go Banana Slugs!</u></strong></p>
-
-
-<p>Now, with that set aside, I also got accepted a few month ago into the <a href="http://devbootcamp.com/">Dev Bootcamp</a> in San Francisco. I am in the cohort of Jan 27th-Mar 26th called Banan Slugs.&nbsp;<br /><br />Before I joined, I searched for former alumni (I also searched for the word alumnus/alumni), because&#8230; let&#8217;s face it&#8230; It&#8217;s too good to be true ;)<br />I then filled the application, made a video to go with it. The rule was : In 5 minutes, teach something to the viewers, and tell us more about you&#8230; Here you go if you want to see how it went :&nbsp;</p>
-
-
-<p><iframe frameborder="0" height="315" src="http://Qt-dev.github.io//www.youtube.com/embed/lDTy1peyC5o" width="560"></iframe></p>
+<iframe frameborder="0" height="315" src="http://Qt-dev.github.io//www.youtube.com/embed/lDTy1peyC5o" width="560)</iframe>
 
 
-<p>(Kudos for the best camera(wo)man in the world, I&#8217;m marrying her! hehe)<br /><br />Now the idea about joining the Bootcamp, as opposed to what people seem to think, is that they do not teach you stuff about computers in general. They don&#8217;t just teach you one language. They also don&#8217;t make it so you can fit in that small case that will allow you to land a job at Twitter or Google.</p>
+<p>
+(Kudos for the best camera(wo)man in the world, I&rsquo;m marrying her! hehe)</p>
 
+<p>Now the idea about joining the Bootcamp, as opposed to what people seem to think, is that they do not teach you stuff about computers in general. They don&rsquo;t just teach you one language. They also don&rsquo;t make it so you can fit in that small case that will allow you to land a job at Twitter or Google.<br/>
+<strong><em>What Dev Bootcamp teaches you is not how to develop programs, but how to be a good developper.</em></strong> <br/>
+They take Ruby and Rails (if you don&rsquo;t know about it, just wait,I&rsquo;ll post more about it later) as an example to teach you how to organize your code, your project, how to program with others, how to lead and be led, how to manage your time, your energy, the way employers see you, how to apply for a new job, etc&hellip;<br/>
+They teach you how to adapt to new people, new challenges, new hypothesis everyday.<br/>
+And that, guys&hellip; let me rewrite that : And <strong>THAT </strong>guys is what being a good developper is about.</p>
 
-<p><em><strong>What Dev Bootcamp teaches you is not how to develop programs, but how to be a good developper.</strong></em> <br />They take Ruby and Rails (if you don&#8217;t know about it, just wait,I&#8217;ll post more about it later) as an example to teach you how to organize your code, your project, how to program with others, how to lead and be led, how to manage your time, your energy, the way employers see you, how to apply for a new job, etc&#8230;</p>
-
-
-<p>They teach you how to adapt to new people, new challenges, new hypothesis everyday.<br />And that, guys&#8230; let me rewrite that : And <strong>THAT </strong>guys is what being a good developper is about.</p>
-
-
-<p><br />Think about it this way : What do you think the first developers are doing now (the ones still working, of course). Did they stick to the main language they used? Does that mean that now that we have tablets, phones, etc, we need to train new guys because the developers for the former platforms can&#8217;t switch?&nbsp;<br />No. Good developers adapt. They changed teams. They changed the languages they used, the machines, the &#8220;targets&#8221; (80&#8217;s computers users are not the same as nowadays&#8217;), they changed everything. And the best at adapting are now the ones doing the best .</p>
-
-
-<p>Dev Bootcamp aims at teaching you exactly that. They select those that seems to fit the mold of the untrained soul they have, and then they teach you how to grow from that, in the best direction possible, and then end up becoming a good or even a great developer.&nbsp;</p>
-
-
-<p></p>
-
+<p>Think about it this way : What do you think the first developers are doing now (the ones still working, of course). Did they stick to the main language they used? Does that mean that now that we have tablets, phones, etc, we need to train new guys because the developers for the former platforms can&rsquo;t switch?  <br/>
+No. Good developers adapt. They changed teams. They changed the languages they used, the machines, the &ldquo;targets&rdquo; (80&rsquo;s computers users are not the same as nowadays&#8217;), they changed everything. And the best at adapting are now the ones doing the best .<br/>
+Dev Bootcamp aims at teaching you exactly that. They select those that seems to fit the mold of the untrained soul they have, and then they teach you how to grow from that, in the best direction possible, and then end up becoming a good or even a great developer.</p>
 
 <p>That is what I signed up for.</p>
 
+<p>Now, I will tell you more about the prep work that already started, about the organization, and all that, but this post is long enough already so I&rsquo;ll stop here for now.</p>
 
-<p></p>
+<p>I hope you did not feel like you were wasting your time too much, and I hope you&rsquo;ll enjoy the next ones too.</p>
 
-
-<p>Now, I will tell you more about the prep work that already started, about the organization, and all that, but this post is long enough already so I&#8217;ll stop here for now.&nbsp;<br /><br />I hope you did not feel like you were wasting your time too much, and I hope you&#8217;ll enjoy the next ones too.&nbsp;<br /><br />See ya very soon~</p>
-
+<p>See ya very soon~</p>
 ]]></content>
   </entry>
   

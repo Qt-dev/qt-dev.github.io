@@ -111,7 +111,7 @@ They also come, but at a very slow pace. They too are very different, and affect
 
 <p>Well, today was the second day of introduction to Object Oriented Programming. One could probably spend hours writing about such a notion, but I will stick to a one sentence explanation.</p>
 
-<p>(Object Oriented Programming)[<a href="http://en.wikipedia.org/wiki/Object-oriented_programming">http://en.wikipedia.org/wiki/Object-oriented_programming</a>] is a way to work in development by modeling blocks of code in what people call an &ldquo;Object&rdquo;. Wikipedia, among others, explains that much more easily than I do, I encourage you to get there to check what it is about. ;)<br/>
+<p><a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming</a> is a way to work in development by modeling blocks of code in what people call an &ldquo;Object&rdquo;. Wikipedia, among others, explains that much more easily than I do, I encourage you to get there to check what it is about. ;)<br/>
 Plus, I don&rsquo;t have much interesting things to say about it so&hellip; I won&rsquo;t say much!</p>
 
 <h2>Friends &amp; Brothers</h2>
@@ -135,7 +135,7 @@ You will NEED brothers and sisters.</p>
 
 <h2>Battleship &amp; Sudoku</h2>
 
-<p>I already took too much of your time so I will try and be fast on this one but : Yesterday somebody pointed me in a new direction for sudoku solving. It is called (Dancing Links)[<a href="http://en.wikipedia.org/wiki/Dancing_Links">http://en.wikipedia.org/wiki/Dancing_Links</a>]. I won&rsquo;t explain in details, especially since I don&rsquo;t think I have a good enough grasp on this, but my goal here is to try and solve the 170 puzzles I solved in 8.5 seconds, but in less than a second this time. I&rsquo;ll tell you more when I can.</p>
+<p>I already took too much of your time so I will try and be fast on this one but : Yesterday somebody pointed me in a new direction for sudoku solving. It is called <a href="http://en.wikipedia.org/wiki/Dancing_Links">Dancing Links</a>. I won&rsquo;t explain in details, especially since I don&rsquo;t think I have a good enough grasp on this, but my goal here is to try and solve the 170 puzzles I solved in 8.5 seconds, but in less than a second this time. I&rsquo;ll tell you more when I can.</p>
 
 <p>And about Battleship : A few of us finished the challenge that said we had to make a battleship game in Ruby. We thought we could share that knowledge, so we got an idea and we are organizing a Battleship contest. We will build a core game, and a way for people to develop their players behaviors. We will be around the whole way and help those who could not finish it at first. Then after that we will just compete&hellip; But then again, we don&rsquo;t have the rules yet so&hellip; See you tomorrow!</p>
 
@@ -210,7 +210,7 @@ In the end, people have experience, and every experience is different. There is 
 &ndash; You then take all the boxes, rows, and columns, and try to find if any possible values can take only one location in one of these groups, and then set it to this cell.<br/>
 &ndash; If you did not find anything, just guess one number, taking all the cells with the smallest number of possible values, and fix them one by one, before calling the first step again. If it did not work, you get back on this part, restore the board, and fix the next one.</p>
 
-<p>I could spend hours talking about that, but in the end&hellip; I solve 170 puzzles, among which 95 &ldquo;hards&rdquo;, and the 11 harvests, all that in 9.5 seconds.</p>
+<p>I could spend hours talking about that, but in the end&hellip; I solve 170 puzzles, among which 95 &ldquo;hards&rdquo;, and the 11 harvests, all that in 8.5 seconds.</p>
 
 <p>If you want any more info, don&rsquo;t hesitate to ask. I think I&rsquo;ll be showing how I did to my cohort very soon anyway.</p>
 
@@ -460,7 +460,9 @@ So that&rsquo;s what I did. That did not really helped me work things out on the
 
 <p>So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to :</p>
 
-<pre><code class="ruby">myClass[index]="new_value"</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">myClass</span><span class="o">[</span><span class="n">index</span><span class="o">]=</span><span class="s2">&quot;new_value&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>My buddy and I were trying to get used to Test-Driven Development (<a href="http://fr.wikipedia.org/wiki/Test_Driven_Development">If you want more info&hellip; Thanks Wikipedia!</a>). So I had a very simple test method that tested if 2 things were equal.<br/>
@@ -468,13 +470,16 @@ I was testing that this code would return true, just to make sure the whole code
 
 <p>Come this test, we found out that it wanted a method called &ldquo;[]=&rdquo;, so we did. Our method looked something like :</p>
 
-<pre><code class="ruby">def []= index,new_value
-    #Do some stuff
-    true
-end</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="n">index</span><span class="p">,</span><span class="n">new_value</span>
+</span><span class='line'>  <span class="c1">#Do some stuff</span>
+</span><span class='line'>  <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-<p></p>
 
 <h2>The problem</h2>
 
@@ -485,12 +490,9 @@ end</code></pre>
 &ndash;  Second : It is actually doing what we want. The data is changed, and it goes through the last line that returns true.<br/>
 &ndash;  Third : It does not care about that because on the very next step, the trace you have of this method and what it returns already became &ldquo;new_value&rdquo;</p>
 
-<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :</p>
-
-<pre><code class="ruby">myClass.[]=(index,"new_value")</code></pre>
-
-
-<p>Conclusion of this test : SUCCESS!<br/>
+<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :<br/>
+<code>ruby myClass.[]=(index,"new_value")</code>
+Conclusion of this test : SUCCESS!<br/>
 This calls the method without any problem, and that is done exactly how we want.</p>
 
 <p>So at that point are conclusions were :<br/>
@@ -588,17 +590,18 @@ Your algorithm will not work (Duh&hellip; You did not write any code yet), but y
 
 <p>So, we worked on data structures, while using test-driven-development. While doing that we ended up redefining a method whose syntax is recognized and transformed by ruby&rsquo;s Syntaxic sugar :</p>
 
-<pre><code class="ruby">
-    def []= (index, data)  
-    end
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>which transforms into :</p>
 
-<pre><code class="ruby">
-    thing[3] = 4
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">thing</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="mi">4</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>So far so good.<br/>
@@ -730,7 +733,6 @@ And let me tell you guys : That was worth it, and a very good idea !</p>
 
 <h2>The program started</h2>
 
-
 <p>So, yesterday, we were expected at Dev Bootcamp, just at the entrance of Chinatown, for 9AM. We met the last remaining people of the cohort that we had not met before, and waited there, anxiously waiting.
 At 9AM sharp, shouts and claps started right behind that little door we had not passed yet&hellip;</p>
 
@@ -738,11 +740,11 @@ At 9AM sharp, shouts and claps started right behind that little door we had not 
 I won&rsquo;t go as far as to explain everything in details, but for this first post in a while I&rsquo;ll just sum it up as :</p>
 
 <ul>
-<li>- People are awesome. Teachers, Coaches, other students, other cohorts, everybody!</li>
-<li>- We should be expecting 60-80 hours weeks, and even there we probably won&#8217;t get over everything anyway.</li>
-<li>- Sherif, one of our teachers, is really eloquent&#8230; You can hear pure knowledge come out of his mouth&#8230; That&#8217;s insane</li>
-<li>- Sherif told us repeatedly : We are insane for thinking it is doable. But the common insanity is what bounds us and may end up making it possible.</li>
-<li>- We are guinea pigs. The program we will be living will be a bit different than the others, but then I&#8217;ll explain that later.</li>
+<li>People are awesome. Teachers, Coaches, other students, other cohorts, everybody!</li>
+<li>We should be expecting 60-80 hours weeks, and even there we probably won&rsquo;t get over everything anyway.</li>
+<li>Sherif, one of our teachers, is really eloquent&hellip; You can hear pure knowledge come out of his mouth&hellip; That&rsquo;s insane</li>
+<li>Sherif told us repeatedly : We are insane for thinking it is doable. But the common insanity is what bounds us and may end up making it possible.</li>
+<li>We are guinea pigs. The program we will be living will be a bit different than the others, but then I&rsquo;ll explain that later.</li>
 </ul>
 
 
@@ -846,10 +848,8 @@ We are basically the ones making it possible. Teachers guide us, but that is all
 
 
 <div class="entry-content clearfix">
-  <p>I created this blog as a part of the Dev Bootcamp, mostly. But what is it? How does it work?</p>
-
-
-<p>Time to give you guys a bit more info, at least about what I know so far&#8230;
+  <p>I created this blog as a part of the Dev Bootcamp, mostly. But what is it? How does it work?<br/>
+Time to give you guys a bit more info, at least about what I know so far&hellip;
   <a class="btn pull-right" href="/blog/2013/12/13/welcome-to-dev-bootcamp/">Read on &rarr;</a>
 </div>
 
@@ -952,10 +952,8 @@ We are basically the ones making it possible. Teachers guide us, but that is all
 
 
 <div class="entry-content clearfix">
-  <p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.</p>
-
-
-<p>After talking with some boots from the cohort (DBC language, read &#8220;colleagues&#8221;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&#8217;s up here.&nbsp;<br />
+  <p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.<br/>
+After talking with some boots from the cohort (DBC language, read &ldquo;colleagues&rdquo;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&rsquo;s up here. 
   <a class="btn pull-right" href="/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-/">Read on &rarr;</a>
 </div>
 
@@ -1005,13 +1003,9 @@ We are basically the ones making it possible. Teachers guide us, but that is all
 
 
 <div class="entry-content clearfix">
-  <p>So&#8230; here is my first step into the blogging world. (&lt;- I must have rewritten that sentence a thousand times over the years&#8230; I like to think&nbsp;of it as the thing that prevented me from blogging so far ;) )</p>
-
-
-<p>So here comes my first post, with an introduction, and info about why I am happy, and of course about Dev Bootcamp</p>
-
-
-<p>(Warning : Long post ahead&#8230; but don&#8217;t worry, I&#8217;ve put videos to help you cope with the long text)
+  <p>So&hellip; here is my first step into the blogging world. (&lt;&ndash; I must have rewritten that sentence a thousand times over the years&hellip; I like to think  of it as the thing that prevented me from blogging so far  ) )<br/>
+So here comes my first post, with an introduction, and info about why I am happy, and of course about Dev Bootcamp<br/>
+(Warning : Long post ahead&hellip; but don&rsquo;t worry, I&rsquo;ve put videos to help you cope with the long text)
   <a class="btn pull-right" href="/blog/2013/11/26/because-im-happy/">Read on &rarr;</a>
 </div>
 

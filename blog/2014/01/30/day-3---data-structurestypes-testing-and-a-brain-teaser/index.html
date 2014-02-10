@@ -116,17 +116,18 @@ Your algorithm will not work (Duh&hellip; You did not write any code yet), but y
 
 <p>So, we worked on data structures, while using test-driven-development. While doing that we ended up redefining a method whose syntax is recognized and transformed by ruby&rsquo;s Syntaxic sugar :</p>
 
-<pre><code class="ruby">
-    def []= (index, data)  
-    end
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>which transforms into :</p>
 
-<pre><code class="ruby">
-    thing[3] = 4
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">thing</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="mi">4</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>So far so good.<br/>
