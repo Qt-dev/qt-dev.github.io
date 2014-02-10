@@ -1,0 +1,321 @@
+
+
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Be careful with Ruby's assignment methods - Qt's Home</title>
+    <meta name="author" content="Quentin Devauchelle">
+    
+    <meta name="description" content="Be careful with Ruby's assignment methods Jan 31st, 2014 Comments The context So, I am in Dev Bootcamp. Yesterday, while trying to implement a &hellip;">
+    
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/01/31/be-careful-with-rubys-assignment-methods">
+    <link href="/favicon.png" rel="icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="//atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
+  </head>
+
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item two-fifths lap-four-sixths palm-one-whole">
+  <a href="/" class="site-title">Qt's Home</a>
+</div>
+
+<div class="grid__item three-fifths lap-two-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  <header>
+  
+  <h1 class="title indent">Be careful with Ruby's assignment methods</h1>
+  
+
+  
+  <div class="meta clearfix">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2014-01-31T00:59:00-08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Jan 31<span>st</span>, 2014</time>
+    
+
+
+
+  
+
+    
+      <a class="pull-right" href="#disqus_thread">
+        Comments <i class="icon-comment"></i>
+      </a>
+    
+  </div>
+  
+</header>
+
+
+
+
+  <h2>The context</h2>
+
+<p>So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to :</p>
+
+<pre><code class="ruby">myClass[index]="new_value"</code></pre>
+
+
+<p>My buddy and I were trying to get used to Test-Driven Development (<a href="http://fr.wikipedia.org/wiki/Test_Driven_Development">If you want more info&hellip; Thanks Wikipedia!</a>). So I had a very simple test method that tested if 2 things were equal.<br/>
+I was testing that this code would return true, just to make sure the whole code of my method was executed.</p>
+
+<p>Come this test, we found out that it wanted a method called &ldquo;[]=&rdquo;, so we did. Our method looked something like :</p>
+
+<pre><code class="ruby">def []= index,new_value
+    #Do some stuff
+    true
+end</code></pre>
+
+
+<p></p>
+
+<h2>The problem</h2>
+
+<p>So, we got this method, this test, so far so good. Now, we launch the test to check if the result to that first expression is true and&hellip; No. The test said that this method just ended up returning the value that we were passing it (In this case &ldquo;new_value&rdquo;).</p>
+
+<p>Maybe that method was not doing what it should, so we used the Debugger gem (<a href="http://rubydoc.info/gems/debugger/1.6.5/frames">Docs</a>). With that we just checked step by step what it would be doing.<br/>
+&ndash;  First : It is calling the method. The debugger throws us right there in the middle of the method.<br/>
+&ndash;  Second : It is actually doing what we want. The data is changed, and it goes through the last line that returns true.<br/>
+&ndash;  Third : It does not care about that because on the very next step, the trace you have of this method and what it returns already became &ldquo;new_value&rdquo;</p>
+
+<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :</p>
+
+<pre><code class="ruby">myClass.[]=(index,"new_value")</code></pre>
+
+
+<p>Conclusion of this test : SUCCESS!<br/>
+This calls the method without any problem, and that is done exactly how we want.</p>
+
+<p>So at that point are conclusions were :<br/>
+&ndash; The method is called<br/>
+&ndash; The method does what it should, even the return<br/>
+&ndash; Its behavior changes when we call it with ruby&rsquo;s &ldquo;shortcut&rdquo;, or syntaxic sugar (<a href="http://rubylearning.com/satishtalim/ruby_syntactic_sugar.html">More info</a>) and we end up having the return value disappearing, and the second argument becoming that return value.</p>
+
+<h2>Assignments methods</h2>
+
+<p>Let&rsquo;s pause on that particular problem for a second to talk about assignment methods.</p>
+
+<p>Assignment methods can be used to assign a value to a particular item, like the name says. But in Ruby, everything is object. So assignment methods are actually methods, simple ones defined just like an initialize. What differenciate them mostly is :<br/>
+&ndash; An assignment method can has any number of spaces before its = when it is called.<br/>
+&ndash; When you call it with the &ldquo;shortcut&rdquo;, the behavior will be neglected and replaced.</p>
+
+<p>Now, the important thing&hellip; Let me rephrase that : The <blink>IMPORTANT</blink> thing is how ruby selects what is and what is not an assigment method.</p>
+
+<p>The answer is : It takes the last character of the name of the method, and checks if it is an equal.<br/>
+If it is, your method will be considered an assignment method.</p>
+
+<p>If we take our problem, the method can clearly be detected as an assignment method. That means that it can be called with spaces between the brackets and the = sign, and even more because ruby has a special shortcut for the methods with such a name (The one we used).<br/>
+That also means that the behavior will be transformed.</p>
+
+<p>Well, do you want to guess what behavior is the principal one concerned by that statement? You&rsquo;re right, it&rsquo;s the return. The rubydoc tells us that using an assignment method, so the shortcut we are talking about, will always return the argument.</p>
+
+<p>So, our code did work. It did do what we wanted it to do. But unless we wanted to redefine primitive ruby behavior by diving in Ruby&rsquo;s source, there is no way we can make an assignment method return anything else than the thing on the right.</p>
+
+<p>So, guys, be REALLY careful when you call your method with an =. That may help you in some parts, but it may also leave you and your friends, coworkers, teachers craving for answers ;)</p>
+
+
+</article>
+
+
+        
+        </div>
+        
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+
+  
+<section class="social aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    Follow me!
+  </h1>
+  <ul class="unstyled">
+    
+    
+    <li><a class="github" href="//github.com/Qt-dev"><i class="icon-github"></i> Github</a></li>
+    <li><a class="facebook" href="//facebook.com/SupaMachin"><i class="icon-facebook-sign"></i> Facebook</a></li>
+    <li><a class="gplus" href="//plus.google.com/+QuentinDevauchelle86"><i class="icon-google-plus-sign"></i> Google+</a></li>
+    <li><a class="linkedin" href="//linkedin.com/in/160320613"><i class="icon-linkedin-sign"></i> LinkedIn</a></li>
+    
+    
+    <li><a class="twitter" href="//twitter.com/Supamachin"><i class="icon-twitter"></i> Twitter</a></li>
+    
+  </ul>
+</section>
+
+
+  <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      <li class="post">
+        <a href="/blog/2014/02/05/week-2---day-2---oop-friends-brothers-battleship-sudoku/">Week 2 - Day 2 - Oop, Friends & Brothers, Battleship & Sudoku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/04/day-6---an-new-partner-experience-vs-mastery-sudoku-solving/">Day 6 - An new partner, Experience vs Mastery, Sudoku solving</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/01/day-5---week-review-sudoku-day/">Day 5 - Week review, Sudoku day!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/31/day-4---games-and-solutions/">Day 4 - Games! and Solutions!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/">Be careful with Ruby's assignment methods</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="github-repos" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    GitHub Repos
+    
+    <small class="pull-right">
+      <a class="btn" href="//github.com/Qt-dev" title="@Qt-dev on GitHub" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    
+  </h1>
+  <ul id="gh_repos" class="divided">
+    <li class="loading">
+      <i class="icon-spinner icon-spin"></i>
+    </li>
+  </ul>
+</section>
+
+
+
+
+</div>
+
+        </aside>
+        
+      </div>
+    </div>
+    
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <p class="copyright">
+  All content by Quentin Devauchelle and licenced under <a href="//creativecommons.org/licenses/by-nc-sa/3.0/ie/">Creative Commons</a>.<br>
+  Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-46034570-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+  var disqus_shortname = 'qtshome';
+  
+    
+    var disqus_script = 'count.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+
+<script>
+  $(document).ready(function(){
+    if (!window.jXHR){
+      var jxhr = document.createElement('script');
+      jxhr.type = 'text/javascript';
+      jxhr.src = '/javascripts/libs/jXHR.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jxhr, s);
+    }
+
+    github.showRepos({
+      user: 'Qt-dev',
+      count: 0,
+      skip_forks: true,
+      target: '#gh_repos'
+    });
+  });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

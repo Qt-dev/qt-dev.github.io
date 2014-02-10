@@ -1,0 +1,392 @@
+
+
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ruby tips : NullPointerExceptions are fun ! - Qt's Home</title>
+    <meta name="author" content="Quentin Devauchelle">
+    
+    <meta name="description" content="Ruby tips : NullPointerExceptions are fun ! Nov 29th, 2013 Comments So, DBC prep is well on (expect a bigger post about that some time soon of &hellip;">
+    
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="canonical" href="http://Qt-dev.github.io/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-">
+    <link href="/favicon.png" rel="icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="//atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
+  </head>
+
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item two-fifths lap-four-sixths palm-one-whole">
+  <a href="/" class="site-title">Qt's Home</a>
+</div>
+
+<div class="grid__item three-fifths lap-two-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  <header>
+  
+  <h1 class="title indent">Ruby tips : NullPointerExceptions are fun !</h1>
+  
+
+  
+  <div class="meta clearfix">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2013-11-29T05:50:00-08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Nov 29<span>th</span>, 2013</time>
+    
+
+
+
+  
+
+    
+      <a class="pull-right" href="#disqus_thread">
+        Comments <i class="icon-comment"></i>
+      </a>
+    
+  </div>
+  
+</header>
+
+
+
+
+  <p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.</p>
+
+
+<p>After talking with some boots from the cohort (DBC language, read &#8220;colleagues&#8221;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&#8217;s up here.&nbsp;<br /><!-- more --></p>
+
+
+<h2>The code</h2>
+
+
+<p>I won&#8217;t bother you with the whole exercise, let&#8217;s just get sum the code up as :</p>
+
+
+<pre><code class="ruby">
+class Drawer
+  def initialize
+    @contents = []
+  end
+  
+  def remove_item(item = contents.pop)
+    @contents.delete(item)
+  end
+end
+
+class Silverware
+  def initialize(type)
+    @type = type
+  end
+  
+  def eat
+    puts "Yum yum I eat with #{@type}"
+  end
+end
+
+our_drawer = Drawer.new
+fork = our_drawer.remove_item(fork)
+fork.eat
+</code></pre>
+
+
+<p>&nbsp;</p>
+
+
+<p>Try and paste that if you want, the error is :</p>
+
+
+<pre><em>drawer.rb:23:in `&lt;main&gt;': undefined method `eat' for nil:NilClass (NoMethodError)</em></pre>
+
+
+<h2>Detailling the Problem</h2>
+
+
+<p>Let&#8217;s translate that error then.</p>
+
+
+<ul>
+<li>
+<pre><em>drawer.rb:23:in `&lt;main&gt;':</em></pre>
+</li>
+</ul>
+
+
+<p>The problem lays in the <em>&#8220;Main&#8221;</em> (we&#8217;ll see about that later in the DBC cursus most likely), on like 23 of the drawer.rb file. so in our</p>
+
+
+<pre><code class="ruby">fork.eat</code></pre>
+
+
+<p></p>
+
+
+<ul>
+<li>
+<pre><em>undefined method `eat' for nil:NilClass (NoMethodError)</em></pre>
+</li>
+</ul>
+
+
+<p>So, there is no method called <em>eat</em> for the object <em>nil</em>, from the class <em>NilClass</em>. So far so good.</p>
+
+
+<p>That is what java devs would call a &#8221;<em>null pointer exception</em>&#8221;.<br />It is an error where, basically, something is null and your code wants to work with it but it can&#8217;t. The &#8220;null&#8221; I am talking about is the &#8220;nil&#8221; object we got here, and the only methods it has are described <a href="http://www.ruby-doc.org/core-2.0.0/NilClass.html" title="NilClass Ruby Doc">-&gt; here &lt;-</a></p>
+
+
+<p>Now, what is that <em>nil</em> and what is it doing on line 23? And why do we care if it has a <em>#eat</em> method?</p>
+
+
+<p></p>
+
+
+<h2>Finding out what&#8217;s up</h2>
+
+
+<p>What do is the object that can be <em>nil</em> on line 23? Well, simple : fork.<br />No other option there, there&#8217;s only one object on that line, <em>fork</em> is nil.&nbsp;</p>
+
+
+<p>So we go a bit up and check out how we defined it, something must have been wrong there.<br />Definition is on line 22, right above. Since it&#8217;s the only place where we set a value to fork, that must be where we set it to nil.&nbsp;</p>
+
+
+<p>By deduction, on that line, the thing that is <em>nil</em> is <em>our_drawer.remove_item(fork)</em> then.<br />So, we examine every part of this:</p>
+
+
+<ul>
+<li><em>our_drawer</em> does not put much of a problem. We used it above (not in the example but in the exercise we did), and it would raise an error if we were calling <em>#remove_item</em> from it anyway.</li>
+<li><em>#remove_item</em> may not do exactly what we want. It uses <em>#delete</em> with <em>fork</em> as an argument. Now, if you check <a href="http://ruby-doc.org/core-2.0.0/Array.html#method-i-delete" title="array#delete on the Ruby Doc">&gt;here&lt;</a>, this method returns the item if it found and deleted it in the array&#8230; or it returns <em>nil</em> if it is not in the array we call the method from&#8230; So THAT is where we get that nil from, the only <em>return</em> is here, we get a <em>nil</em> from that method. Now, let&#8217;s check the next thing in the expression just in case.</li>
+<li><em>fork</em> is passed as an argument. But then, is <em>fork</em> defined before that? The answer is : NO. That is definitely a problem!</li>
+</ul>
+
+
+<p></p>
+
+
+<p>Well, that was quite helpful, we now have identified 2 problems that happen in our case. I&#8217;ll use numbers for further use (&#8230; or just because i&#8217;m just tired of dots in my lists :p) :</p>
+
+
+<ol>
+<li><em>#remove_item</em> returns <em>nil</em> if it did not find the stuff in the array, that&#8217;s where our <em>nil</em> comes from.</li>
+<li>we pass an argument that has never been created before to <em>#remove_item</em> (if you change the code to print <em>item</em> inside the method you&#8217;ll see that item is <em>nil</em>, the argument we gave the method was <em>nil</em>). So, there&#8217;s no way it can find it in an array unless we add the <em>nil</em> object at one point, specifically (but we did not.</li>
+</ol>
+
+
+<p>Right, so now, we just need to solve that!</p>
+
+
+<h2>A solution</h2>
+
+
+<p>Nope, not giving you one right now haha. There is not one correct answer anyway, so as long as you correct 1 and 2.<br />Send me a mail or a message on facebook, G+, anything, if you want and I&#8217;ll show you what I did, but I thought that could be more interesting for people to be able to correct it yourself, but with a clearer understanding of what&#8217;s happening.</p>
+
+
+<p></p>
+
+
+<p>Anyway, once you solve that, no more &#8220;NullPointerException&#8221;, no more &#8220;NoMethodError&#8221;, the code works.<br />I know I went into a lot of details and that must be long to read, but I hope you can get a clearer view of what that error was and how it could be cleared with that.<br /><br />Don&#8217;t hesitate to tell me if it stll is a bit confusing !&nbsp;<br /><br />Cheers~&nbsp;</p>
+
+
+
+</article>
+
+
+        
+        </div>
+        
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+
+  
+<section class="social aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    Follow me!
+  </h1>
+  <ul class="unstyled">
+    
+    
+    <li><a class="github" href="//github.com/Qt-dev"><i class="icon-github"></i> Github</a></li>
+    <li><a class="facebook" href="//facebook.com/SupaMachin"><i class="icon-facebook-sign"></i> Facebook</a></li>
+    <li><a class="gplus" href="//plus.google.com/+QuentinDevauchelle86"><i class="icon-google-plus-sign"></i> Google+</a></li>
+    <li><a class="linkedin" href="//linkedin.com/in/160320613"><i class="icon-linkedin-sign"></i> LinkedIn</a></li>
+    
+    
+    <li><a class="twitter" href="//twitter.com/Supamachin"><i class="icon-twitter"></i> Twitter</a></li>
+    
+  </ul>
+</section>
+
+
+  <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      <li class="post">
+        <a href="/blog/2014/02/05/week-2---day-2---oop-friends-brothers-battleship-sudoku/">Week 2 - Day 2 - Oop, Friends & Brothers, Battleship & Sudoku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/04/day-6---an-new-partner-experience-vs-mastery-sudoku-solving/">Day 6 - An new partner, Experience vs Mastery, Sudoku solving</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/01/day-5---week-review-sudoku-day/">Day 5 - Week review, Sudoku day!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/31/day-4---games-and-solutions/">Day 4 - Games! and Solutions!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/">Be careful with Ruby's assignment methods</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="github-repos" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    GitHub Repos
+    
+    <small class="pull-right">
+      <a class="btn" href="//github.com/Qt-dev" title="@Qt-dev on GitHub" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    
+  </h1>
+  <ul id="gh_repos" class="divided">
+    <li class="loading">
+      <i class="icon-spinner icon-spin"></i>
+    </li>
+  </ul>
+</section>
+
+
+
+
+</div>
+
+        </aside>
+        
+      </div>
+    </div>
+    
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <p class="copyright">
+  All content by Quentin Devauchelle and licenced under <a href="//creativecommons.org/licenses/by-nc-sa/3.0/ie/">Creative Commons</a>.<br>
+  Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-46034570-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+  var disqus_shortname = 'qtshome';
+  
+    
+    var disqus_script = 'count.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+
+<script>
+  $(document).ready(function(){
+    if (!window.jXHR){
+      var jxhr = document.createElement('script');
+      jxhr.type = 'text/javascript';
+      jxhr.src = '/javascripts/libs/jXHR.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jxhr, s);
+    }
+
+    github.showRepos({
+      user: 'Qt-dev',
+      count: 0,
+      skip_forks: true,
+      target: '#gh_repos'
+    });
+  });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
