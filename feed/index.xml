@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-09T20:59:21-08:00</updated>
+  <updated>2014-02-14T20:33:09-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -14,9 +14,142 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Week 2 - I am still alive]]></title>
+    <title type="html"><![CDATA[Week 3 - Day 4 - Group project and good news]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/14/week-3-day-4-group-projects/"/>
+    <updated>2014-02-14T09:41:20-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/14/week-3-day-4-group-projects</id>
+    <content type="html"><![CDATA[<h2>Group Project</h2>
+
+<p>Yesterday we started a new group project. This time, it&rsquo;s a 2 days stretch. You can follow how it&rsquo;s going on <a href="https://github.com/Qt-dev/cool-faker">Github</a>.</p>
+
+<p>The idea is that we are building an open-source project. More specifically, we are building a Ruby Gem (A code library, a set of tools for people who use ruby) that will generate random people names, team names, and useful info like that from a database of funny and famous words/names/quotes. The idea is that there is a gem called &ldquo;Faker&rdquo;, and we are building the cool version of this one, with Armando, Jamie, and Nicholas.</p>
+
+<p>So far, it&rsquo;s doing good! I got my voice back so I can participate much more in whiteboarding and all that, we planned everything decently and managed to get an MVP (Minimum Viable Product, the smallest thing you could build on your idea) in half the time. We&rsquo;re pushing for more options and some kind of implementation to show nice usage of that gem.</p>
+
+<p>It&rsquo;s exciting to be working on some tool that may very well be used by others all around the world. Plus, learning how to make gems is a very interesting thing. I think that when I have time later, I&rsquo;ll try to make some gems just for the sake of helping around. Open-source is awesome!</p>
+
+<h2>Good news</h2>
+
+<p>Among the good news :</p>
+
+<ul>
+<li><p>I may see my fiancee before I come back. This is by far the best news I could ever had heard. I miss her, and knowing that I may see her sooner than I expected is just the best thing that could have happened.</p></li>
+<li><p>I had a beer with Jonathan and got more info about after Dev Bootcamp. That was such a relief. Coming here as a frenchman, I just had no idea how the job market was, and how things were supposed to happen after that. I kinda get ideas from here and there, but finally being able to have some feedback from a guy who has the same experience, and comes from the same place, is really a relief. Now I just have to continue giving my best &lsquo;til the end of these 9 weeks.</p></li>
+<li><p>I&rsquo;m going to Phase 2! I got my assessment and it went ok. I overthought part of it so I wouldn&rsquo;t say I did perfectly, but with the goal being : Assess whether I know Phase 1 material or not, I did ok for that. That is perfect! So now it&rsquo;s time to learn even more!</p></li>
+</ul>
+
+
+<p>Anyway, going back to the project&hellip; See you tomorrow!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown/"/>
+    <updated>2014-02-13T08:41:13-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown</id>
+    <content type="html"><![CDATA[<h2>Engineering Empathy Cooldown</h2>
+
+<p>Two days ago was our last Engineering Empathy session of Phase 1. Like the other cohort told us : &ldquo;You thought the first session was heavy? Wait &lsquo;til you see session 3&rdquo;.</p>
+
+<p>First week was &ldquo;The superego&rdquo;, and the exercise that we got was &ldquo;Share what your inner voice tells you&rdquo;. This week was &ldquo;Dive deeper in what you let people know about you&rdquo;&hellip; And so we sat in circle to tell people stuff, while starting every sentence with &ldquo;If you really knew me&rdquo;. Now let me tell you guys&hellip; There were tears, hugs, revelations, but no shocked reaction, no judgement, nothing like that. And everything told in this room stays in this room.</p>
+
+<p>Diving deeper than the usual in what you tell people is an exercise that does make us grow, but that also hits you hard at the moment you do it. And listening to all of the others&#8217; is not even easier. I think I can safely say that I will keep that day in my mind for a very very long time.</p>
+
+<h2>ActiveRecord</h2>
+
+<p>ActiveRecord is the design pattern I told you about yesterday. In Rails, the most well known web framework for Ruby, this design pattern is implemented in its own. What it does, in short, is mapping a database with an object. Columns of the database become attributes of the objects, you can create objects and save them to the db, or get objects from an entry in the db. Quite easy and practical!</p>
+
+<p>Yesterday, we worked on that for the whole day. The morning was the introduction, and the afternoon the application. I&rsquo;ll say that it was a pretty good day, I learned a lot, and ActiveRecord is cool&hellip; Wait&hellip; Better than that : ActiveRecord is coolER than SQL!</p>
+
+<h2>My first solo day</h2>
+
+<p>Wednesdays are optional solo days. That means that every other day, we have to pair or group with more people, but on wednesdays, we choose our pairs/groups. I did not solo until then, but I thought that to save my voice I&#8217;ld try and do so yesterday.</p>
+
+<p>In the end, I did finish the exercises, which was my goal. I had to go to other people soloing a couple of times, to get my mind off of the problems that were blocking me, and to help me figure out solutions sometimes, but I did it and I am pretty happy about it.</p>
+
+<p>The beginning was hard and I just &hellip; felt like I did not know where I was going. But I got on it after I expressed my incomprehension a first time, and then I just worked, with a decent speed.</p>
+
+<p>I don&rsquo;t know if I&rsquo;ll do that again, probably not next week, but probably another time. It was a good day but I prefer picking my pairs in the people I do well with (Looking at you Irene!).</p>
+
+<p>Anyway, today is assessment and group project&hellip; time to have fun !</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql/"/>
+    <updated>2014-02-12T08:39:34-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql</id>
+    <content type="html"><![CDATA[<h2>More SQL</h2>
+
+<p>Yesterday was another day when we used SQL, apparently the last (Yay!). We implemented our own version of <a href="http://en.wikipedia.org/wiki/Active_record_pattern">ActiveRecord</a>, a tool used in Rails that we will, apparently, use all the time and that will be the one talking with the base. But to use your tools correctly you first have to learn how they were built&hellip; And so that is what we did.</p>
+
+<p>I paired with Erin for this day and it was really great. We had a good dynamic and we ended up finishing everything without any real problem going on. All in all, it was a great day for Quentin in DBC!</p>
+
+<h2>Testing</h2>
+
+<p>Shadi is back! So testing is back too ;)<br/>
+He explained how to make our own version of Rspec, the testing suite for Ruby, and then handed us a series of tests for the exercises we had for the day. Things are getting complicated pretty fast, but I love it !</p>
+
+<p>Testing is getting trickier but soon enough we&rsquo;ll get into some deep Rspec testing and for the newcomers : TESTING IS IMPORTANT! TEST ALL THE TIME!</p>
+
+<h2>Cookies and Syrup</h2>
+
+<p>So, I came here thinking americans ate junk food and only junk food. Such a disappointment to be in a house, in a program, and in a city where it is absolutely not the case!<br/>
+I ended up being on some kind of sugar withdrawal in a few days, that is absolutely not the thing I would have suspected.</p>
+
+<p>So, to compensate that, I buy cookies! And then, once or twice a day, take my usual bite. But then, I am now seen as some sort of cookie monster for eating a lot more than any other around&hellip; So strange.</p>
+
+<p>As for the syrup, small but funny story : Ivan bought syrup, I took some (The throat is not 100% ok yet), then I got incredibly sleepy, and slept. The bad part is that it was 9AM and I was fighting sleep in the middle of a very interesting lecture on Testing.<br/>
+The conclusion I got from that is : Read the fucking manual. Don&rsquo;t take syrup without reading all about it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Week 3 - Day 1 - SQL, Games, and Assessments]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql/"/>
+    <updated>2014-02-11T08:49:38-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql</id>
+    <content type="html"><![CDATA[<h2>SQL</h2>
+
+<p>In the world of development, we could say that you have plenty of choices when picking your tools. Among these tools are hundreds, if not thousands, of languages. Some are pretty specifically used, even though they may not have been made for, some are pretty &ldquo;fast&rdquo; while others are &ldquo;not&rdquo;&hellip; But all in all, we can say that a hammer is a hammer. No matter the brand or the specs, the hammer will fulfill his role and that&rsquo;s it.</p>
+
+<p>Anyway, yesterday we used SQL for the second time in phase 1. It is a language used to talk to a specific type of database (Any derivation of SQL), which may very well be one of the most common database type in the world, and that has been the case for more than 20 years. The language used to do so has been around for almost the same time too&hellip;<br/>
+I paired with Tim, a very nice and tall guy, and we ended up doing as much as we could for the day. We learned tons, we played a bit, and it was fun. All in all, a good day, even if we spent the day on SQL&hellip;</p>
+
+<h2>Games</h2>
+
+<p>So, Web Development, and maybe even particularly in Dev Bootcamp, is a world of hard work combined with games. My opinion is that we party, we play, we develop games even, to cope with the rest of the hard day. A lot of brain-twisting challenges and very not fulfilling days spent on solving that bugs that would have taken 2 minutes to solve if you had seen that semi-colon earlier will do that to you and may ask for harder entertainment.</p>
+
+<p>In DBC, we play. There are games all around, the Giant Djenga falls a couple of times a day, we did a Hack-a-thon this weekend (A coding contest where teams build stuff and compare at the end of the day. All with beer, pizzas, and a lot of laughter), and all in all, people are playful.</p>
+
+<p>Yesterday we played Magic The Gathering with a couple of boots. I did not win but I loved the game. A long game, hard, where you have to think before you do stuff. It had been a long time and now I just regret I did not bring my cards myself ;)</p>
+
+<h2>Assessments</h2>
+
+<p>DBC is not about grading students. It is not the style of the house. But they do have to test us to make sure we can understand the next phase. So, to do that they assess us at the end of every phase.</p>
+
+<p>This week is the end of the first Phase. Teachers will get with us for a short amount of time on Thursday and will review some of our code at this point. At this moment, no more help, just some control of your knowledge. At the end of that, we can be given one of 3 different options :</p>
+
+<ul>
+<li>Your level is high enough, welcome to Phase 2</li>
+<li>You may want to spend 3 more weeks on Phase 1, just to make sure you get it all</li>
+<li>Are you really sure you are learning anything? If not, DBC may not be the best thing for you&hellip;</li>
+</ul>
+
+
+<p>Now, let&rsquo;s hope for mine being the first one! I&rsquo;ll do my best anyway.<br/>
+Small info for the people in the next cohorts : We chose our assessments. The output may be the same but you may not get the same.</p>
+
+<p>Anyway, lecture is about to start again, let&rsquo;s go. Thank you for reading and see you tomorrow!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Week 2 I Am Still Alive]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/02/09/week-2-i-am-still-alive/"/>
-    <updated>2014-02-09T02:53:00-08:00</updated>
+    <updated>2014-02-09T00:00:00-08:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/02/09/week-2-i-am-still-alive</id>
     <content type="html"><![CDATA[<p>Apparently, getting sick is a trend among DBC cohorts. When you get here, expect to get sick. Bad weather this week, and me being very stupid with the weak points I know I have just made me get sicker than I do usually.<br/>
 So, I ended up feverish, sleeping more or less the whole day&hellip; for 2 days, in DBC, waking up 5 minutes at a time, just enough to get some work done so that I don&rsquo;t feel too far behind, and then go back to sleep. Then I woke up on friday but had no more voice&hellip;<br/>

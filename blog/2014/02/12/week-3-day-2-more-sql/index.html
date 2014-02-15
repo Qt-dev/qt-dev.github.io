@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup - Qt's Home</title>
+  <meta name="author" content="Quentin Devauchelle">
+
+  
+  <meta name="description" content="More SQL Yesterday was another day when we used SQL, apparently the last (Yay!). We implemented our own version of ActiveRecord, a tool used in Rails &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-47919901-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
+	<div class="header-title"><a href="/">Qt's Home</a></div>
+
+
+	<br><div class="header-subtitle">The Story of a french guy discovering the world</div>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Qt-dev.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+  
+    
+      <h1 class="entry-title">Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup</h1>
+    
+  
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-12T08:39:34-08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2014</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>More SQL</h2>
+
+<p>Yesterday was another day when we used SQL, apparently the last (Yay!). We implemented our own version of <a href="http://en.wikipedia.org/wiki/Active_record_pattern">ActiveRecord</a>, a tool used in Rails that we will, apparently, use all the time and that will be the one talking with the base. But to use your tools correctly you first have to learn how they were built&hellip; And so that is what we did.</p>
+
+<p>I paired with Erin for this day and it was really great. We had a good dynamic and we ended up finishing everything without any real problem going on. All in all, it was a great day for Quentin in DBC!</p>
+
+<h2>Testing</h2>
+
+<p>Shadi is back! So testing is back too ;)<br/>
+He explained how to make our own version of Rspec, the testing suite for Ruby, and then handed us a series of tests for the exercises we had for the day. Things are getting complicated pretty fast, but I love it !</p>
+
+<p>Testing is getting trickier but soon enough we&rsquo;ll get into some deep Rspec testing and for the newcomers : TESTING IS IMPORTANT! TEST ALL THE TIME!</p>
+
+<h2>Cookies and Syrup</h2>
+
+<p>So, I came here thinking americans ate junk food and only junk food. Such a disappointment to be in a house, in a program, and in a city where it is absolutely not the case!<br/>
+I ended up being on some kind of sugar withdrawal in a few days, that is absolutely not the thing I would have suspected.</p>
+
+<p>So, to compensate that, I buy cookies! And then, once or twice a day, take my usual bite. But then, I am now seen as some sort of cookie monster for eating a lot more than any other around&hellip; So strange.</p>
+
+<p>As for the syrup, small but funny story : Ivan bought syrup, I took some (The throat is not 100% ok yet), then I got incredibly sleepy, and slept. The bad part is that it was 9AM and I was fighting sleep in the middle of a very interesting lecture on Testing.<br/>
+The conclusion I got from that is : Read the fucking manual. Don&rsquo;t take syrup without reading all about it.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Quentin Devauchelle</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-12T08:39:34-08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/11/week-3-day-1-sql/" title="Previous Post: Week 3 - Day 1 - SQL, Games, and Assessments">&laquo; Week 3 - Day 1 - SQL, Games, and Assessments</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/02/13/week-3-day-3-ee-cooldown/" title="Next Post: Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day">Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/14/week-3-day-4-group-projects/">Week 3 - Day 4 - Group project and good news</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/13/week-3-day-3-ee-cooldown/">Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/12/week-3-day-2-more-sql/">Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/11/week-3-day-1-sql/">Week 3 - Day 1 - SQL, Games, and Assessments</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/week-2-i-am-still-alive/">Week 2 I Am Still Alive</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/Qt-dev">@Qt-dev</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'Qt-dev',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+QuentinDevauchelle86?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 -  Quentin Devauchelle <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> + <a href="https://github.com/ioveracker/mnml">mnml</a>.
+	  
+  </span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'qtshome';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

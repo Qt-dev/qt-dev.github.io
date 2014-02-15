@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Qt's Home</title>
+  <meta name="author" content="Quentin Devauchelle">
+
+  
+  <meta name="description" content="Data Structures/types Yesterday was the optionnal solo day, the day when we choose if we pair or not and work on some challenges. The code of the day &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-47919901-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
+	<div class="header-title"><a href="/">Qt's Home</a></div>
+
+
+	<br><div class="header-subtitle">The Story of a french guy discovering the world</div>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Qt-dev.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/30/day-3---data-structurestypes-testing-and-a-brain-teaser/">Day 3 - Data Structures/types, Testing, and a Brain-teaser</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-30T08:13:00-08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/30/day-3---data-structurestypes-testing-and-a-brain-teaser/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Data Structures/types</h2>
+
+<p>Yesterday was the optionnal solo day, the day when we choose if we pair or not and work on some challenges. The code of the day was about Data Structures. I wont go as far as to try and explain all of that in detail in this blogpost but the idea is that you have all these data types in languages.<br/>
+For example, a String is a chain of characters. It has a length, characters at specified index, and methods to compare Strings together, to change some character, and all the other operations you would want to do on such an object.<br/>
+Once you get that far, it is what you call Abstract Data Structure. Then you implement it into a Data type, or a Data structure, according to if this ADT is a chain of separable elements, or an element in itself.</p>
+
+<p>So, in short, we spent most of the day working to understand that 100%<br/>
+And if you are curious about if I chose to work alone, I did not. I chose to work with the &ldquo;Brother from another mother&rdquo;, Armando.</p>
+
+<h2>Testing</h2>
+
+<p>In our lunch talks, Shadi introduced us to Test-driven development. The idea is that when you have an idea about what you want to do, and no matter how strong the feeling that you can code that is, you will just write tests to verify all that first.<br/>
+Your algorithm will not work (Duh&hellip; You did not write any code yet), but you then just launch your script, and jump from error to error, deciphering and correcting them on the way, one by one, never thinking about the big picture. Then when you finish that, you check if the code does exactly what you want. If not, you write more specific tests.</p>
+
+<p>Contrary to popular beliefs, people are really bad at multitasking, and so doing that allows you to complete simple tasks one by one, without multitasking, and empowering your debugging skills on the way.</p>
+
+<p>So, Test driven development, I love you. (Not as much as my fiance of course, but we&rsquo;re getting close)</p>
+
+<h2>A brain teaser</h2>
+
+<p>So, we worked on data structures, while using test-driven-development. While doing that we ended up redefining a method whose syntax is recognized and transformed by ruby&rsquo;s Syntaxic sugar :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which transforms into :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">thing</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="mi">4</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So far so good.<br/>
+Now, the problem we find is that in Ruby, even if you make that method return something, the second expression, the after-SS one, is returning 4.<br/>
+I will tell you more when I realize what happens and why, but let&rsquo;s say other cohorts did not know, coaches did not know, Sherif did not know, and we have to know&hellip; So let&rsquo;s hunt for that!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/29/day-2---cries-laughters-and-code/">Day 2 - Cries, Laughters, and Code</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-29T08:00:00-08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/29/day-2---cries-laughters-and-code/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Cries</h2>
+
+<p>So today we started Engineer Empathy courses. The idea of this course seems to be that the better you are with yourself and the better your ability to work with others, the better engineer you will become.<br/>
+Now, just like everything else in this program, EE is freakingly intense.<br/>
+Yesterday we had a session about the Superego and how to recognize attacks from it and defend.
+That does not sound much but&hellip; I just ended up almost in tears thinking about strange attacks against myself. Sometimes we just don&rsquo;t really think about the things we put ourselves through, but then when these come back, that&rsquo;s when you have a bad time. Well, let me tell you that people who are crazy enough to join Dev Bootcamp have a lot of</p>
+
+<p>Now if that was not intense enough, I had decided to run a bit too far 2 days ago and so now I just look like a 3rd age dude having a hard time walking all around. That brings some tears too haha.</p>
+
+<h2>Laughter</h2>
+
+<p>Today they gave us a pairing buddy for the whole day. Mine was &hellip; Matthew!<br/>
+I spent most of the day enjoying what I was doing, at least for the fact that I was doing it with somebody I appreciate and really have fun with. We joked all around, and even though some may say that it is quite counterproductive, we finished the challenges right at the same time as others, and I got the feeling we learnt exactly enough!</p>
+
+<h2>Code</h2>
+
+<p>So, today we spent the morning reviewing the code some used to complete the challenges of yesterday. We ended up comparing hashes + #each with no data + if (The if waterfall seems to be faster&hellip;), and all that with or without recursion. In the end, we can say that in this small exercise, recursion was a waste of time, and not maintainable, hashes + #each keeps the code organized so maintainable, but then the If waterfall was just horrible to watch but a bit more efficient&hellip; The world of code is a strange place, guys&hellip;</p>
+
+<p>In the afternoon we worked on sorting algorithm. After a bit of time going crazy over explanations not explaining much and hurting our brains and souls, Rao, a coach with a nice and funny meow-like name gave us some more options and we found out how to do all that. We implemented the merge sorting algorithm and that did not take us much time from here. The funny surprise though was that at the end, we cleared the 3 170k words files in around 1.5 seconds each&hellip; While every other algorithm just took at least 10 minutes. Some even calculated that theirs could last for a day just sorting one of the files. Algorithms are crazy and are to be known!</p>
+
+<p>Now, time to go back and code guys, see ya!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/28/so-it-begins/">So It Begins&#8230;</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-28T07:53:00-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/28/so-it-begins/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I won&rsquo;t go as far as to tell everything since the last post. Challenges went by, I continued pairing with Armando, working at my strange company that just ended up closing, and then the closer I got to my 8000 miles travel, the busier I got&hellip;</p>
+
+<p>Plus, I just ended up taking all the time I could get to see my fiance.
+And let me tell you guys : That was worth it, and a very good idea !</p>
+
+<p>Then, 3 days ago I arrived in SF. I just had time to discover simple things here and there, get an account at the bank, a mobile line, and all the things you need for a simple life nowadays.</p>
+
+<p>Now, up to the main topic :</p>
+
+<h2>The program started</h2>
+
+<p>So, yesterday, we were expected at Dev Bootcamp, just at the entrance of Chinatown, for 9AM. We met the last remaining people of the cohort that we had not met before, and waited there, anxiously waiting.
+At 9AM sharp, shouts and claps started right behind that little door we had not passed yet&hellip;</p>
+
+<p>They opened the doors, and things went wild.
+I won&rsquo;t go as far as to explain everything in details, but for this first post in a while I&rsquo;ll just sum it up as :</p>
+
+<ul>
+<li>People are awesome. Teachers, Coaches, other students, other cohorts, everybody!</li>
+<li>We should be expecting 60-80 hours weeks, and even there we probably won&rsquo;t get over everything anyway.</li>
+<li>Sherif, one of our teachers, is really eloquent&hellip; You can hear pure knowledge come out of his mouth&hellip; That&rsquo;s insane</li>
+<li>Sherif told us repeatedly : We are insane for thinking it is doable. But the common insanity is what bounds us and may end up making it possible.</li>
+<li>We are guinea pigs. The program we will be living will be a bit different than the others, but then I&rsquo;ll explain that later.</li>
+</ul>
+
+
+<p>All in all, I can say that we are joining a program that shows us how to work and let us do the job and find about what to do and how, assess our learning,&hellip;
+We are basically the ones making it possible. Teachers guide us, but that is all.</p>
+
+<p>Now, time to head up to DBC again, cheers!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/10/unknown-post-type/">(Unknown Post Type)</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-10T12:50:35-08:00" pubdate data-updated="true">Jan 10<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/10/unknown-post-type/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>missing body</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/13/welcome-to-dev-bootcamp/">Welcome to Dev Bootcamp</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-13T07:01:57-08:00" pubdate data-updated="true">Dec 13<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/12/13/welcome-to-dev-bootcamp/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I created this blog as a part of the Dev Bootcamp, mostly. But what is it? How does it work?<br/>
+Time to give you guys a bit more info, at least about what I know so far&hellip;</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/12/13/welcome-to-dev-bootcamp/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/12/it-is-time-again/">It Is Time Again!</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-12T07:28:06-08:00" pubdate data-updated="true">Dec 12<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/12/12/it-is-time-again/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Back from a huge week full of family, friends, love, travels, &#8230; and a freaking load of coding. It&#8217;s time to blog again.<br /><br /></p>
+
+
+<p>Articles about the bootcamp are coming, I just did not have time to finish one yet.<br />So in the meantime, let me tell you more about my week, my planning, and a few other things&#8230; </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/12/12/it-is-time-again/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-/">Ruby Tips : NullPointerExceptions Are Fun !</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-29T05:50:00-08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So, DBC prep is well on (expect a bigger post about that some time soon of course), and this week, we got a challenge about refactoring a couple of classes and some calls to these classes about a Drawer and Silverware we&#8217;ld clean and put in it. And our goal here is to refactor and correct the errors we could find.<br/>
+After talking with some boots from the cohort (DBC language, read &ldquo;colleagues&rdquo;), I found that people were getting stuck on the exact same part of this challenge, so I figured some may like having some explanation on what&rsquo;s up here. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/26/because-im-happy/">Because I&#8217;m Happy~</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-26T06:18:00-08:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/11/26/because-im-happy/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So&hellip; here is my first step into the blogging world. (&lt;&ndash; I must have rewritten that sentence a thousand times over the years&hellip; I like to think  of it as the thing that prevented me from blogging so far  ) )<br/>
+So here comes my first post, with an introduction, and info about why I am happy, and of course about Dev Bootcamp<br/>
+(Warning : Long post ahead&hellip; but don&rsquo;t worry, I&rsquo;ve put videos to help you cope with the long text)</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/11/26/because-im-happy/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/14/week-3-day-4-group-projects/">Week 3 - Day 4 - Group project and good news</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/13/week-3-day-3-ee-cooldown/">Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/12/week-3-day-2-more-sql/">Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/11/week-3-day-1-sql/">Week 3 - Day 1 - SQL, Games, and Assessments</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/week-2-i-am-still-alive/">Week 2 I Am Still Alive</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/Qt-dev">@Qt-dev</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'Qt-dev',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+QuentinDevauchelle86?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 -  Quentin Devauchelle <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> + <a href="https://github.com/ioveracker/mnml">mnml</a>.
+	  
+  </span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'qtshome';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
