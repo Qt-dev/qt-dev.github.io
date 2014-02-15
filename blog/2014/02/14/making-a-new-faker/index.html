@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 2 - Day 2 - Oop, Friends & Brothers, Battleship & Sudoku - Qt's Home</title>
+  <title>Making a new faker gem - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="OOP Development is a wide topic to learn. New ways to do everything a developer need to do appear everyday. But then, the practices, the basis behind &hellip;">
+  <meta name="description" content="Let&rsquo;s me sum some stuff up first before I start : Gem : A Gem is a &ldquo;library&rdquo;, a pack of code, in the programmatic language we call &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/05/week-2---day-2---oop-friends-brothers-battleship-sudoku">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 2 - Day 2 - Oop, Friends & Brothers, Battleship & Sudoku</h1>
+      <h1 class="entry-title">Making a New Faker Gem</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-05T08:51:00-08:00" pubdate data-updated="true">Feb 5<span>th</span>, 2014</time>
+<time datetime="2014-02-14T20:36:16-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,44 +108,79 @@
   </header>
 
 
-<div class="entry-content"><h2>OOP</h2>
+<div class="entry-content"><p>Let&rsquo;s me sum some stuff up first before I start :</p>
 
-<p>Development is a wide topic to learn. New ways to do everything a developer need to do appear everyday. But then, the practices, the basis behind all of these new tools is slow and moves at a steady pace.<br/>
-You can take it as :<br/>
-&ndash; The tools are waves.<br/>
-Thousands land on your shores everyday. None is exactly the same as another, every one of them is different, and to a surfer, a fisherman, or anybody who could make us of them, every one of them could be a treasure or a pain.<br/>
-&ndash; The practices are ties.<br/>
-They also come, but at a very slow pace. They too are very different, and affect anybody much more than waves, but because of that slow pace, we tend to focus less on that.</p>
+<ul>
+<li>Gem : A Gem is a &ldquo;library&rdquo;, a pack of code, in the programmatic language we call Ruby, that enables us to use functions not built in the languages without having to rewrite the code. When one feels he has enough code to share, he can wrap it up in a &ldquo;Gem&rdquo; that will be easily installable and usable by the other Ruby programmers.</li>
+<li>Faker : Faker is a gem that basically gives you random data. Let&rsquo;s say you want to make a huge database and want to test the load for when you have more than 1000 users. Instead of writing either 1000 times the same name or use 1000 names you write one by one, Faker will generate a random one for each of these entries. Pretty useful.</li>
+</ul>
 
-<p>Well, today was the second day of introduction to Object Oriented Programming. One could probably spend hours writing about such a notion, but I will stick to a one sentence explanation.</p>
 
-<p><a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming</a> is a way to work in development by modeling blocks of code in what people call an &ldquo;Object&rdquo;. Wikipedia, among others, explains that much more easily than I do, I encourage you to get there to check what it is about. ;)<br/>
-Plus, I don&rsquo;t have much interesting things to say about it so&hellip; I won&rsquo;t say much!</p>
+<p>But then, Faker generates what it has been built for. Generating team names, or even slogans, are not what it has been made for. So as a 2 days project with my fellow boots of Phase 1 DevBootcamp we created one that made the things we want. You can check the code here : <a href="https://github.com/Qt-dev/cool-faker">Github</a>, and more info on how to download the gem on : <a href="https://rubygems.org/gems/cool_faker">Rubygem</a>.</p>
 
-<h2>Friends &amp; Brothers</h2>
+<p>Basically, we used <a href="http://bundler.io/v1.5/rubygems.html">bundle</a> to make the gem architecture, the files we needed. Then, we took a look at how Faker was built and decided to go around that same way, with our data stocked in a yaml file, and using the <a href="http://ruby-doc.org/stdlib-2.1.0/libdoc/yaml/rdoc/YAML.html">yaml</a> module to load it and get the data we wanted in ruby.</p>
 
-<p>Yesterday, I paired with Jamie, a nice american-name, american-accent girl who does not look like her profile picture and who does NOT like country music (Hehe&hellip; Sorry for the private joke). In all honesty, it went well, and if it had been another person, I may have spent a bad time. The challenges were about things that I could not say I master, but an introduction is an introduction. We talked a lot, learned to know each other.<br/>
-I find that extremely important when you spend most of the time with some people and you have to challenge, and spend most of your time in total freakout mode.</p>
+<p>And we end up with a gem that has 4 different functions :</p>
 
-<p>That being said, another part of the day was a bit harder. Dev Bootcamp makes you meet people that have been selected after a particular selection. Only 10% of the people make it apparently. Of course, we are selected because we have a specific set of skills, a particular mindset, and Karim and all the others in charge of admission see things in us that make them think we can make it.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>Then, we get grouped with others with the same characteristics, and for 9 weeks, you work with them, play with them, more or less live with them, 100% of the time. During these 9 weeks, you are challenged everyday, stressed out to a point where most would break, and most DO break. Your challenge, just like the others, is to learn what took years or even decade to master to many. As <a href="https://github.com/amgando">Sherif</a> said, that is insane. We are insane for trying that, but then we have been selected because we are, and only that combined insanity of so many people can help us make it at the end.</p>
 
-<p>In our cohort, we even took it so far as to get a house for 9 of us. If spending most of our times of struggle was not enough, we now spend 100% of our time together.</p>
+<p>generates a random Character name from a famous movie, or tv show. The titles include The Lord of the Ring, Superman, Starwars, friends, or futurama.</p>
 
-<p>I may sound overdramatic with that explanation, but my point is that your only way to win at this is brotherhood( + sisterhood, however you say that). We are one, and must stay one. All of us must succeed at the end, and if one of us breaks, we all need to do our best to &ldquo;repair&rdquo; him asap to get on the next step.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name_from</span><span class="p">(</span><span class="n">movie_or_tv_show</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>Yesterday, Stephen had a bad time. Pressure got the best of him for a part of the afternoon. It was not the challenges, not something that happened yesterday, but something that grew in his head that ended up getting to him.<br/>
-But what happened after that is the illustration of that idea that I am trying to give you : We gathered, and make it so that it never happens again. Stephen is part of us, the entity that we have become. We can&rsquo;t succeed without him, and will not let him behind. In the end most of us went to sleep at 12AM, after long talks, hugs, and mental-screwdriving.</p>
 
-<p>To whoever want to join the bootcamp with any other idea that the one I am describing in here : You shall not pass. This is teamwork, and without that, none of you will pass. That is a fact, well known by those who succeeded as well as those who did not.<br/>
-You will NEED brothers and sisters.</p>
+<p>generates a random name from the movie or tv show that you called.
+Your options are :</p>
 
-<h2>Battleship &amp; Sudoku</h2>
+<ul>
+<li>friends</li>
+<li>entourage</li>
+<li>sex_and_the_city</li>
+<li>batman</li>
+<li>startrek</li>
+<li>superman</li>
+<li>star_wars</li>
+<li>the_lord_of_the_rings</li>
+<li>napolean_dynamite</li>
+<li>snow_white</li>
+<li>back_to_the_future</li>
+<li>the_wizard_of_oz</li>
+<li>toy_story</li>
+<li>the_simpsons</li>
+<li>futurama</li>
+<li>monty_python</li>
+</ul>
 
-<p>I already took too much of your time so I will try and be fast on this one but : Yesterday somebody pointed me in a new direction for sudoku solving. It is called <a href="http://en.wikipedia.org/wiki/Dancing_Links">Dancing Links</a>. I won&rsquo;t explain in details, especially since I don&rsquo;t think I have a good enough grasp on this, but my goal here is to try and solve the 170 puzzles I solved in 8.5 seconds, but in less than a second this time. I&rsquo;ll tell you more when I can.</p>
 
-<p>And about Battleship : A few of us finished the challenge that said we had to make a battleship game in Ruby. We thought we could share that knowledge, so we got an idea and we are organizing a Battleship contest. We will build a core game, and a way for people to develop their players behaviors. We will be around the whole way and help those who could not finish it at first. Then after that we will just compete&hellip; But then again, we don&rsquo;t have the rules yet so&hellip; See you tomorrow!</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">slogan</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a random slogan from a 587 quotes database</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">name</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a team name from a list of adjectives and a list of animal names. Expect some funny names, gender-confused pandas is a good one ;)</p>
+
+<p>With all that, we ended up making the gem with a simple</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">build</span> <span class="n">cool_faker</span><span class="o">.</span><span class="n">gemspec</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then send it to rubygems.org, and here we go.</p>
+
+<p>All in all, we ended up shipping a gem without knowing about gem building/shipping, building dozens of tests without knowing about rspec&hellip; a good 2 days of intense learning, a lot of fun, and we end up with an usable tool. I&rsquo;m pretty happy about it!</p>
 </div>
 
 
@@ -168,15 +203,21 @@ You will NEED brothers and sisters.</p>
   
 
 
-<time datetime="2014-02-05T08:51:00-08:00" pubdate data-updated="true">Feb 5<span>th</span>, 2014</time>
+<time datetime="2014-02-14T20:36:16-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2014</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/devbootcamp/'>DevBootCamp</a>, <a class='category' href='/blog/categories/ruby/'>Ruby,</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/05/week-2---day-2---oop-friends-brothers-battleship-sudoku/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/05/week-2---day-2---oop-friends-brothers-battleship-sudoku/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -189,14 +230,18 @@ You will NEED brothers and sisters.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/04/day-6---an-new-partner-experience-vs-mastery-sudoku-solving/" title="Previous Post: Week 2 - Day 1 - A new partner, Experience vs Mastery, Sudoku solving">&laquo; Week 2 - Day 1 - A new partner, Experience vs Mastery, Sudoku solving</a>
+        <a class="basic-alignment left" href="/blog/2014/02/14/week-3-day-4-group-projects/" title="Previous Post: Week 3 - Day 4 - Group project and good news">&laquo; Week 3 - Day 4 - Group project and good news</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/09/week-2-i-am-still-alive/" title="Next Post: Week 2 I Am Still Alive">Week 2 I Am Still Alive &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -291,7 +336,10 @@ You will NEED brothers and sisters.</p>
       var disqus_shortname = 'qtshome';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

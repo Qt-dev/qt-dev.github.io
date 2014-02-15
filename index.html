@@ -9,7 +9,7 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Group Project Yesterday we started a new group project. This time, it&rsquo;s a 2 days stretch. You can follow how it&rsquo;s going on Github. The &hellip;">
+  <meta name="description" content="Let&rsquo;s me sum some stuff up first before I start : Gem : A Gem is a &ldquo;library&rdquo;, a pack of code, in the programmatic language we call &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,118 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/14/making-a-new-faker/">Making a New Faker Gem</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-14T20:36:16-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/02/14/making-a-new-faker/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Let&rsquo;s me sum some stuff up first before I start :</p>
+
+<ul>
+<li>Gem : A Gem is a &ldquo;library&rdquo;, a pack of code, in the programmatic language we call Ruby, that enables us to use functions not built in the languages without having to rewrite the code. When one feels he has enough code to share, he can wrap it up in a &ldquo;Gem&rdquo; that will be easily installable and usable by the other Ruby programmers.</li>
+<li>Faker : Faker is a gem that basically gives you random data. Let&rsquo;s say you want to make a huge database and want to test the load for when you have more than 1000 users. Instead of writing either 1000 times the same name or use 1000 names you write one by one, Faker will generate a random one for each of these entries. Pretty useful.</li>
+</ul>
+
+
+<p>But then, Faker generates what it has been built for. Generating team names, or even slogans, are not what it has been made for. So as a 2 days project with my fellow boots of Phase 1 DevBootcamp we created one that made the things we want. You can check the code here : <a href="https://github.com/Qt-dev/cool-faker">Github</a>, and more info on how to download the gem on : <a href="https://rubygems.org/gems/cool_faker">Rubygem</a>.</p>
+
+<p>Basically, we used <a href="http://bundler.io/v1.5/rubygems.html">bundle</a> to make the gem architecture, the files we needed. Then, we took a look at how Faker was built and decided to go around that same way, with our data stocked in a yaml file, and using the <a href="http://ruby-doc.org/stdlib-2.1.0/libdoc/yaml/rdoc/YAML.html">yaml</a> module to load it and get the data we wanted in ruby.</p>
+
+<p>And we end up with a gem that has 4 different functions :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a random Character name from a famous movie, or tv show. The titles include The Lord of the Ring, Superman, Starwars, friends, or futurama.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name_from</span><span class="p">(</span><span class="n">movie_or_tv_show</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a random name from the movie or tv show that you called.
+Your options are :</p>
+
+<ul>
+<li>friends</li>
+<li>entourage</li>
+<li>sex_and_the_city</li>
+<li>batman</li>
+<li>startrek</li>
+<li>superman</li>
+<li>star_wars</li>
+<li>the_lord_of_the_rings</li>
+<li>napolean_dynamite</li>
+<li>snow_white</li>
+<li>back_to_the_future</li>
+<li>the_wizard_of_oz</li>
+<li>toy_story</li>
+<li>the_simpsons</li>
+<li>futurama</li>
+<li>monty_python</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">slogan</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a random slogan from a 587 quotes database</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">name</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a team name from a list of adjectives and a list of animal names. Expect some funny names, gender-confused pandas is a good one ;)</p>
+
+<p>With all that, we ended up making the gem with a simple</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">build</span> <span class="n">cool_faker</span><span class="o">.</span><span class="n">gemspec</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then send it to rubygems.org, and here we go.</p>
+
+<p>All in all, we ended up shipping a gem without knowing about gem building/shipping, building dozens of tests without knowing about rspec&hellip; a good 2 days of intense learning, a lot of fun, and we end up with an usable tool. I&rsquo;m pretty happy about it!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -711,110 +823,6 @@ So that&rsquo;s what I did. That did not really helped me work things out on the
 
     </article>
   
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/">Be Careful With Ruby&#8217;s Assignment Methods</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-31T00:59:00-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
-        
-         | <a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>The context</h2>
-
-<p>So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to :</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">myClass</span><span class="o">[</span><span class="n">index</span><span class="o">]=</span><span class="s2">&quot;new_value&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>My buddy and I were trying to get used to Test-Driven Development (<a href="http://fr.wikipedia.org/wiki/Test_Driven_Development">If you want more info&hellip; Thanks Wikipedia!</a>). So I had a very simple test method that tested if 2 things were equal.<br/>
-I was testing that this code would return true, just to make sure the whole code of my method was executed.</p>
-
-<p>Come this test, we found out that it wanted a method called &ldquo;[]=&rdquo;, so we did. Our method looked something like :</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="n">index</span><span class="p">,</span><span class="n">new_value</span>
-</span><span class='line'>  <span class="c1">#Do some stuff</span>
-</span><span class='line'>  <span class="kp">true</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>The problem</h2>
-
-<p>So, we got this method, this test, so far so good. Now, we launch the test to check if the result to that first expression is true and&hellip; No. The test said that this method just ended up returning the value that we were passing it (In this case &ldquo;new_value&rdquo;).</p>
-
-<p>Maybe that method was not doing what it should, so we used the Debugger gem (<a href="http://rubydoc.info/gems/debugger/1.6.5/frames">Docs</a>). With that we just checked step by step what it would be doing.<br/>
-&ndash;  First : It is calling the method. The debugger throws us right there in the middle of the method.<br/>
-&ndash;  Second : It is actually doing what we want. The data is changed, and it goes through the last line that returns true.<br/>
-&ndash;  Third : It does not care about that because on the very next step, the trace you have of this method and what it returns already became &ldquo;new_value&rdquo;</p>
-
-<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :<br/>
-<code>ruby myClass.[]=(index,"new_value")</code>
-Conclusion of this test : SUCCESS!<br/>
-This calls the method without any problem, and that is done exactly how we want.</p>
-
-<p>So at that point are conclusions were :<br/>
-&ndash; The method is called<br/>
-&ndash; The method does what it should, even the return<br/>
-&ndash; Its behavior changes when we call it with ruby&rsquo;s &ldquo;shortcut&rdquo;, or syntaxic sugar (<a href="http://rubylearning.com/satishtalim/ruby_syntactic_sugar.html">More info</a>) and we end up having the return value disappearing, and the second argument becoming that return value.</p>
-
-<h2>Assignments methods</h2>
-
-<p>Let&rsquo;s pause on that particular problem for a second to talk about assignment methods.</p>
-
-<p>Assignment methods can be used to assign a value to a particular item, like the name says. But in Ruby, everything is object. So assignment methods are actually methods, simple ones defined just like an initialize. What differenciate them mostly is :<br/>
-&ndash; An assignment method can has any number of spaces before its = when it is called.<br/>
-&ndash; When you call it with the &ldquo;shortcut&rdquo;, the behavior will be neglected and replaced.</p>
-
-<p>Now, the important thing&hellip; Let me rephrase that : The <blink>IMPORTANT</blink> thing is how ruby selects what is and what is not an assigment method.</p>
-
-<p>The answer is : It takes the last character of the name of the method, and checks if it is an equal.<br/>
-If it is, your method will be considered an assignment method.</p>
-
-<p>If we take our problem, the method can clearly be detected as an assignment method. That means that it can be called with spaces between the brackets and the = sign, and even more because ruby has a special shortcut for the methods with such a name (The one we used).<br/>
-That also means that the behavior will be transformed.</p>
-
-<p>Well, do you want to guess what behavior is the principal one concerned by that statement? You&rsquo;re right, it&rsquo;s the return. The rubydoc tells us that using an assignment method, so the shortcut we are talking about, will always return the argument.</p>
-
-<p>So, our code did work. It did do what we wanted it to do. But unless we wanted to redefine primitive ruby behavior by diving in Ruby&rsquo;s source, there is no way we can make an assignment method return anything else than the thing on the right.</p>
-
-<p>So, guys, be REALLY careful when you call your method with an =. That may help you in some parts, but it may also leave you and your friends, coworkers, teachers craving for answers ;)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -830,6 +838,10 @@ That also means that the behavior will be transformed.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/14/making-a-new-faker/">Making a new faker gem</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/14/week-3-day-4-group-projects/">Week 3 - Day 4 - Group project and good news</a>
       </li>
     
@@ -843,10 +855,6 @@ That also means that the behavior will be transformed.</p>
     
       <li class="post">
         <a href="/blog/2014/02/11/week-3-day-1-sql/">Week 3 - Day 1 - SQL, Games, and Assessments</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/09/week-2-i-am-still-alive/">Week 2 I Am Still Alive</a>
       </li>
     
   </ul>

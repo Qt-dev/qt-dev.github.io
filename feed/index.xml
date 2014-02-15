@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-14T20:33:09-08:00</updated>
+  <updated>2014-02-14T20:58:02-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Making a new faker gem]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/"/>
+    <updated>2014-02-14T20:36:16-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker</id>
+    <content type="html"><![CDATA[<p>Let&rsquo;s me sum some stuff up first before I start :</p>
+
+<ul>
+<li>Gem : A Gem is a &ldquo;library&rdquo;, a pack of code, in the programmatic language we call Ruby, that enables us to use functions not built in the languages without having to rewrite the code. When one feels he has enough code to share, he can wrap it up in a &ldquo;Gem&rdquo; that will be easily installable and usable by the other Ruby programmers.</li>
+<li>Faker : Faker is a gem that basically gives you random data. Let&rsquo;s say you want to make a huge database and want to test the load for when you have more than 1000 users. Instead of writing either 1000 times the same name or use 1000 names you write one by one, Faker will generate a random one for each of these entries. Pretty useful.</li>
+</ul>
+
+
+<p>But then, Faker generates what it has been built for. Generating team names, or even slogans, are not what it has been made for. So as a 2 days project with my fellow boots of Phase 1 DevBootcamp we created one that made the things we want. You can check the code here : <a href="https://github.com/Qt-dev/cool-faker">Github</a>, and more info on how to download the gem on : <a href="https://rubygems.org/gems/cool_faker">Rubygem</a>.</p>
+
+<p>Basically, we used <a href="http://bundler.io/v1.5/rubygems.html">bundle</a> to make the gem architecture, the files we needed. Then, we took a look at how Faker was built and decided to go around that same way, with our data stocked in a yaml file, and using the <a href="http://ruby-doc.org/stdlib-2.1.0/libdoc/yaml/rdoc/YAML.html">yaml</a> module to load it and get the data we wanted in ruby.</p>
+
+<p>And we end up with a gem that has 4 different functions :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a random Character name from a famous movie, or tv show. The titles include The Lord of the Ring, Superman, Starwars, friends, or futurama.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name_from</span><span class="p">(</span><span class="n">movie_or_tv_show</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a random name from the movie or tv show that you called.
+Your options are :</p>
+
+<ul>
+<li>friends</li>
+<li>entourage</li>
+<li>sex_and_the_city</li>
+<li>batman</li>
+<li>startrek</li>
+<li>superman</li>
+<li>star_wars</li>
+<li>the_lord_of_the_rings</li>
+<li>napolean_dynamite</li>
+<li>snow_white</li>
+<li>back_to_the_future</li>
+<li>the_wizard_of_oz</li>
+<li>toy_story</li>
+<li>the_simpsons</li>
+<li>futurama</li>
+<li>monty_python</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">slogan</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a random slogan from a 587 quotes database</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">name</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generates a team name from a list of adjectives and a list of animal names. Expect some funny names, gender-confused pandas is a good one ;)</p>
+
+<p>With all that, we ended up making the gem with a simple</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">build</span> <span class="n">cool_faker</span><span class="o">.</span><span class="n">gemspec</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then send it to rubygems.org, and here we go.</p>
+
+<p>All in all, we ended up shipping a gem without knowing about gem building/shipping, building dozens of tests without knowing about rspec&hellip; a good 2 days of intense learning, a lot of fun, and we end up with an usable tool. I&rsquo;m pretty happy about it!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 3 - Day 4 - Group project and good news]]></title>

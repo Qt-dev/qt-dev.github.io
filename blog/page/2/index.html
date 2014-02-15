@@ -9,7 +9,8 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Data Structures/types Yesterday was the optionnal solo day, the day when we choose if we pair or not and work on some challenges. The code of the day &hellip;">
+  <meta name="description" content="The context So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to : 1
+myClass[index]=& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,110 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/">Be Careful With Ruby&#8217;s Assignment Methods</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-31T00:59:00-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>The context</h2>
+
+<p>So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">myClass</span><span class="o">[</span><span class="n">index</span><span class="o">]=</span><span class="s2">&quot;new_value&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My buddy and I were trying to get used to Test-Driven Development (<a href="http://fr.wikipedia.org/wiki/Test_Driven_Development">If you want more info&hellip; Thanks Wikipedia!</a>). So I had a very simple test method that tested if 2 things were equal.<br/>
+I was testing that this code would return true, just to make sure the whole code of my method was executed.</p>
+
+<p>Come this test, we found out that it wanted a method called &ldquo;[]=&rdquo;, so we did. Our method looked something like :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="n">index</span><span class="p">,</span><span class="n">new_value</span>
+</span><span class='line'>  <span class="c1">#Do some stuff</span>
+</span><span class='line'>  <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The problem</h2>
+
+<p>So, we got this method, this test, so far so good. Now, we launch the test to check if the result to that first expression is true and&hellip; No. The test said that this method just ended up returning the value that we were passing it (In this case &ldquo;new_value&rdquo;).</p>
+
+<p>Maybe that method was not doing what it should, so we used the Debugger gem (<a href="http://rubydoc.info/gems/debugger/1.6.5/frames">Docs</a>). With that we just checked step by step what it would be doing.<br/>
+&ndash;  First : It is calling the method. The debugger throws us right there in the middle of the method.<br/>
+&ndash;  Second : It is actually doing what we want. The data is changed, and it goes through the last line that returns true.<br/>
+&ndash;  Third : It does not care about that because on the very next step, the trace you have of this method and what it returns already became &ldquo;new_value&rdquo;</p>
+
+<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :<br/>
+<code>ruby myClass.[]=(index,"new_value")</code>
+Conclusion of this test : SUCCESS!<br/>
+This calls the method without any problem, and that is done exactly how we want.</p>
+
+<p>So at that point are conclusions were :<br/>
+&ndash; The method is called<br/>
+&ndash; The method does what it should, even the return<br/>
+&ndash; Its behavior changes when we call it with ruby&rsquo;s &ldquo;shortcut&rdquo;, or syntaxic sugar (<a href="http://rubylearning.com/satishtalim/ruby_syntactic_sugar.html">More info</a>) and we end up having the return value disappearing, and the second argument becoming that return value.</p>
+
+<h2>Assignments methods</h2>
+
+<p>Let&rsquo;s pause on that particular problem for a second to talk about assignment methods.</p>
+
+<p>Assignment methods can be used to assign a value to a particular item, like the name says. But in Ruby, everything is object. So assignment methods are actually methods, simple ones defined just like an initialize. What differenciate them mostly is :<br/>
+&ndash; An assignment method can has any number of spaces before its = when it is called.<br/>
+&ndash; When you call it with the &ldquo;shortcut&rdquo;, the behavior will be neglected and replaced.</p>
+
+<p>Now, the important thing&hellip; Let me rephrase that : The <blink>IMPORTANT</blink> thing is how ruby selects what is and what is not an assigment method.</p>
+
+<p>The answer is : It takes the last character of the name of the method, and checks if it is an equal.<br/>
+If it is, your method will be considered an assignment method.</p>
+
+<p>If we take our problem, the method can clearly be detected as an assignment method. That means that it can be called with spaces between the brackets and the = sign, and even more because ruby has a special shortcut for the methods with such a name (The one we used).<br/>
+That also means that the behavior will be transformed.</p>
+
+<p>Well, do you want to guess what behavior is the principal one concerned by that statement? You&rsquo;re right, it&rsquo;s the return. The rubydoc tells us that using an assignment method, so the shortcut we are talking about, will always return the argument.</p>
+
+<p>So, our code did work. It did do what we wanted it to do. But unless we wanted to redefine primitive ruby behavior by diving in Ruby&rsquo;s source, there is no way we can make an assignment method return anything else than the thing on the right.</p>
+
+<p>So, guys, be REALLY careful when you call your method with an =. That may help you in some parts, but it may also leave you and your friends, coworkers, teachers craving for answers ;)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -520,6 +625,10 @@ So here comes my first post, with an introduction, and info about why I am happy
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/14/making-a-new-faker/">Making a new faker gem</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/14/week-3-day-4-group-projects/">Week 3 - Day 4 - Group project and good news</a>
       </li>
     
@@ -533,10 +642,6 @@ So here comes my first post, with an introduction, and info about why I am happy
     
       <li class="post">
         <a href="/blog/2014/02/11/week-3-day-1-sql/">Week 3 - Day 1 - SQL, Games, and Assessments</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/09/week-2-i-am-still-alive/">Week 2 I Am Still Alive</a>
       </li>
     
   </ul>
