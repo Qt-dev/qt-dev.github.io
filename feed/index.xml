@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-14T20:58:02-08:00</updated>
+  <updated>2014-02-16T15:19:27-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 3 - Day 5 - Party~]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/16/week-3-day-5-party-slash-%7E/"/>
+    <updated>2014-02-16T14:37:26-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/16/week-3-day-5-party-slash-~</id>
+    <content type="html"><![CDATA[<p>&lsquo;twas the day before the end of the phase. People were happy, exhausted, and alcohol and songs mixed up to help the moods enlighten.<br/>
+Week 3 Day 5, everybody has had his assignment. The outcome of these assignments is just an advice, then people had time to make their choices. Some of our cohort (2 I think, but we&rsquo;ll get the confirmation on monday) chose to go back to work on the same phase again, not feeling ready for the next one yet yet. Most chose to go on to the next level of difficulty. And That applies for phase 1 as for phase 2.</p>
+
+<p>One thing to know is that there are 2 differences between a phase and the next one.<br/>
+The first difference is : The next one is always more difficult that the current one. It starts higher, has a higher rhythm, everything will be harder.<br/>
+The second one is : The next phase will get harder much faster that the current. You start higher, and you&rsquo;ll have more work, to do in less time. More projects, and you&rsquo;ll have to learn things faster, and better.<br/>
+Behold, fellow students, winter is not coming, Mayhem is.</p>
+
+<p>Now, on the last friday of each phase, everybody knows where they&rsquo;re going, phase 1, phase 2, phase 3. Everybody finished their projects, presented what they wanted, and now they just have to &ldquo;wait&rdquo; for monday. So on this friday, we get beer, pizzas, mics, music on the big screen, and we partayyyyy~</p>
+
+<p>Wait is a big word though, everybody who was in this program will tell you that. New material, new studies and all that are on the next monday so on this weekend, people are stressed out and tend to study as much as they can about the new stuff we&rsquo;ll have to deal with on the next monday.</p>
+
+<p>For me, I spent one day discovering stuff. I went to Target, Whole Foods. I went to the Chinese New year&rsquo;s parade in San Francisco. And now, I am studying a bit about Sinatra and stuff. Things are going well, but I prefer resting before the mayhem. It&rsquo;ll get crazy whatever I do, so I might as well just rest before that ;)</p>
+
+<p>Anyway, see you on tuesday for news about monday&hellip; And the new cohort! And Welcome to the Golden Bears!</p>
+
+<p>(PS : Marching bands are AWESOME! :</p>
+
+<pre><code>![Imgur](http://i.imgur.com/2Tl0g0Ll.jpg?1)
+</code></pre>
+
+<p>)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Making a new faker gem]]></title>
