@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-16T15:30:11-08:00</updated>
+  <updated>2014-02-16T15:31:04-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -37,12 +37,9 @@ Behold, fellow students, winter is not coming, Mayhem is.</p>
 
 <p>Anyway, see you on tuesday for news about monday&hellip; And the new cohort! And Welcome to the Golden Bears!</p>
 
-<p>(PS : Marching bands are AWESOME! :</p>
-
-<pre><code>[A nice picture of me in there!](http://i.imgur.com/2Tl0g0Ll.jpg)
-</code></pre>
-
-<p>)</p>
+<p>(PS : Marching bands are AWESOME! :
+<img src="http://i.imgur.com/2Tl0g0Ll.jpg" alt="A nice picture of me in there!" />
+)</p>
 ]]></content>
     
   </entry>
