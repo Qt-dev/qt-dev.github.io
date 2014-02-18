@@ -9,8 +9,7 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Games Yesterday was a day when we had to start and implement games. We went from a simple piglatin creator to a boggle board solver.
-For this day, I &hellip;">
+  <meta name="description" content="Week review Ok so, it was the last day of the week, everybody is pretty messed up thanks to the huge amount of content, to the Engineer Empathy, etc& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +78,124 @@ For this day, I &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/01/day-5---week-review-sudoku-day/">Day 5 - Week Review, Sudoku Day!</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-01T12:18:00-08:00" pubdate data-updated="true">Feb 1<span>st</span>, 2014</time>
+        
+         | <a href="/blog/2014/02/01/day-5---week-review-sudoku-day/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Week review</h2>
+
+<p>Ok so, it was the last day of the week, everybody is pretty messed up thanks to the huge amount of content, to the Engineer Empathy, etc&hellip;</p>
+
+<p>Yesterday, we started with a review session with Sea Lions, the cohort prior to us who&rsquo;s on the bootcamp with us. During that session, what came out was :</p>
+
+<ul>
+<li>Sea lions are happy to be around us</li>
+<li>Week 1 of Phase 2 was awesome</li>
+<li>Week 1 of Phase 1 was awesome, even though it was a bit overwhelming</li>
+<li>Engineer Empathy affected every one of us, big time</li>
+</ul>
+
+
+<p>I could explain more right now but I think I&rsquo;ll just do a quick recap during the weekend if I can.</p>
+
+<h2>Sudoku day!</h2>
+
+<p>So, today was the last day of this first week of DBC. One of the &ldquo;initiation rituals&rdquo; of that first week seems to be that first friday theme : Sudoku. The idea is that we worked hard all week on challenges here and there, and on this friday they gave us the &ldquo;Ultimate challenge of the week&rdquo;. For this challenge, you have 2 assignments :</p>
+
+<ul>
+<li>In the morning, you have to write code that reads a sudoku data line, then builds a grid and solves it without guessing.</li>
+<li>For the rest of the day&hellip; Implement guessing!</li>
+</ul>
+
+
+<p>I was to pair with Nic, a guy who chose to redo phase 0 to make sur he got all the knowledge he could get from it. But then, Nic already completed that challenge on the last cohort. So the rules we went for were :</p>
+
+<ol>
+<li>We don&rsquo;t check any of the code he did before</li>
+<li>His thoughts may very well just end up being guided by what he already did, so I found the suggestions, he would just comment, agree, debate, etc&hellip;</li>
+</ol>
+
+
+<p>Let me tell you guys : That went well! We ended up implementing an object-oriented piece of code that actually ran faster (50%) than the one he had last year!</p>
+
+<p>If you want more info on that :</p>
+
+<p>We created a cell object that had the value for that cell, and all the info about its position as its attributes. This way, a simple <a href="http://www.ruby-doc.org/core-2.1.0/Array.html-i-select"></a> call and we got all the cells in this array, in this row, or in this column.</p>
+
+<h2>Geek talk : My take on people&rsquo;s solutions</h2>
+
+<p>People actually implemented the same algorithm over and over again. To sum it up I&#8217;ld say :</p>
+
+<ul>
+<li>Select a cell</li>
+<li>Get the values of the non-empty cells in the same row, column, and box</li>
+<li>Subtract the values you found from an array of the possible values (1 to 9)</li>
+<li>If there is only one remaining possible value, assign it to that space</li>
+<li>Do it again until all the spaces are taken</li>
+</ul>
+
+
+<p>That was common for every one of us that I saw. But then the huge difference was : The data structure. You had to make a choice there that would make the code change big time, but let me explain that :<br/>
+This data structure can be put in one of 3 different groups.</p>
+
+<ol>
+<li>Nested array. You make arrays in an array, and so you get a 2D array</li>
+<li>Something hybrid from 1 and 3</li>
+<li>Cells as an object that you put in an array</li>
+</ol>
+
+
+<p>Obviously, the 1 is the easiest way to go to put and get the data, right? And the last one may just end up being the most complicated one (What do I need my object to know? How do I create it? And how do I call the attributes of that object? Do I calculate them on the go? &hellip;).</p>
+
+<p>Now, the interesting part is that, for this problem, the easiest the data structure, the hardest the rest of your code will be. Because when you have a nested array, how do you call a block? How about a column? How do you check if all the blank spaces have been filled? Do you do some kind of nested loop to go through your nested arrays?</p>
+
+<p>But then if you chose the 3, this <a href="http://www.ruby-doc.org/core-2.1.0/Array.html-i-select"></a> method just ends up selecting whatever you need in one line.</p>
+
+<p>In the end, since the rest of the code was basically the same, the main difference was there.</p>
+
+<p>If you check the code of people in the cohort, most of the people chose something around 2. Some were pushing in the direction of 3, some in the direction of 1, but mostly doing 2.</p>
+
+<p>One did go through with 0 (Way to go Armando and Chermaine!), and one did actually do something that could be a &ldquo;0&rdquo; in my list : A simple array. You calculate the row,column and box from the index every time you need one of them.</p>
+
+<p>Anyway, that was what I found and I would be happy to share more if you have any more question!</p>
+
+<p>I&rsquo;ll just end this post with this very profound quote :
+&ldquo;Today was a good day&rdquo;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -627,52 +744,9 @@ After talking with some boots from the cohort (DBC language, read &ldquo;colleag
 
     </article>
   
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/26/because-im-happy/">Because I&#8217;m Happy~</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-26T06:18:00-08:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/11/26/because-im-happy/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So&hellip; here is my first step into the blogging world. (&lt;&ndash; I must have rewritten that sentence a thousand times over the years&hellip; I like to think  of it as the thing that prevented me from blogging so far  ) )<br/>
-So here comes my first post, with an introduction, and info about why I am happy, and of course about Dev Bootcamp<br/>
-(Warning : Long post ahead&hellip; but don&rsquo;t worry, I&rsquo;ve put videos to help you cope with the long text)</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/11/26/because-im-happy/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -685,6 +759,10 @@ So here comes my first post, with an introduction, and info about why I am happy
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/18/week-4-day-1-new-people/">Week 4 - Day 1 - New people, New challenges, Personal Projects</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/02/16/week-3-day-5-party/">Week 3 - Day 5 - Party~</a>
@@ -700,10 +778,6 @@ So here comes my first post, with an introduction, and info about why I am happy
     
       <li class="post">
         <a href="/blog/2014/02/13/week-3-day-3-ee-cooldown/">Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/12/week-3-day-2-more-sql/">Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup</a>
       </li>
     
   </ul>

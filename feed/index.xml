@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-16T15:31:04-08:00</updated>
+  <updated>2014-02-18T09:52:05-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 4 - Day 1 - New people, New challenges, Personal Projects]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/18/week-4-day-1-new-people/"/>
+    <updated>2014-02-18T08:50:01-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/18/week-4-day-1-new-people</id>
+    <content type="html"><![CDATA[<h2>New People</h2>
+
+<p>Welcome to the Golden Bears!<br/>
+Yesterday was our Phase 2 first day, but also Phase 1&rsquo;s first day. A load of new people arrived in that small place that is DBC&rsquo;s current office, and so, we had to welcome them!</p>
+
+<p>The idea is that we got to get here at 8-8.30AM. Then, we shouted, gave advices, talked, ate,&hellip; All in all, a very good day!<br/>
+The new guys look cool, and it was really nice to see them approach the problems we had a different way. People ended up, from what I saw, working a lot on challenges where we did not really work much, and not care much about the ones we spent a lot of time on. That was refreshing, and fun to discover new bugs, new problems. Different approaches, different paths, I can&rsquo;t wait &lsquo;til they get on harder problems and blow my mind with problems I can&rsquo;t solve&hellip; again!</p>
+
+<p>And among the new people, they have another french dude! Plus, they also have a Korean girl who lived in France&hellip; New people to bother with conversations in random languages!</p>
+
+<h2>New Challenges</h2>
+
+<p>We started phase 2. Phase 2 is more about web development. We play with <a href="http://www.sinatrarb.com">Sinatra</a>, and are starting to make stuff that is actually stuff we can share with people who are not developers and they can use it and even get impressed with that with some luck.</p>
+
+<p>On these first challenges we paired with Jose. We had a great dynamic, no complex, and ended up helping each other into not getting stuck much, and completing the challenges. I feel like I learned a lot, and I really enjoyed that day. Even when I would think I was spending too much time on something, I checked around and found out that we were actually going quite fast. That problem was taking a bit more time than the rest of it, but then we went a bit fast on the other things and so in the end, what was confusing was our own change of pace more than the real speed at which we were going at that moment.</p>
+
+<p>Anyway, at the end of the day I learned, I worked, finished what I wanted, and if I had to sum it up&hellip; it was a great day.</p>
+
+<h2>Personal Projects</h2>
+
+<p>Now we can work on stuff that we can show to &ldquo;normal&rdquo; people. But then we&rsquo;re also using some stuff that I already know. I am not nearly good enough at all of these, but I do have some experience on some of these topics, and could just use that and be fine with that. But then I am not here to take the easy path. I am here because I want to learn.</p>
+
+<p>To do so, I figured (= People told me I should&hellip; ) I&#8217;ld start working on some personal projects. I have ideas, things to do, and so why not learn by pushing even further and work on that, independently of the things we work on.</p>
+
+<p>I&rsquo;ll try to work on blog articles to explain what I do, and share as much as I can. First day&rsquo;s work was quite long so I ended up not being able to do much, but expect more once I have more time!</p>
+
+<p>Also, phase 2 is full of &ldquo;Portfolio Projects&rdquo;. We&rsquo;ll have a lot of them, to be delivered on sundays. I&rsquo;ll share every one of them, and try to explain the thought process every time I work on one, so that&rsquo;ll be another thing to look for!</p>
+
+<p>Anyway, time to get back to coding, see you guys tomorrow!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 3 - Day 5 - Party~]]></title>
@@ -938,99 +975,6 @@ I know I went into a lot of details and that must be long to read, but I hope yo
 <p>Don&rsquo;t hesitate to tell me if it stll is a bit confusing !</p>
 
 <p>Cheers~</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Because I'm happy~ ]]></title>
-    <link href="http://Qt-dev.github.io/blog/2013/11/26/because-im-happy/"/>
-    <updated>2013-11-26T06:18:00-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2013/11/26/because-im-happy</id>
-    <content type="html"><![CDATA[<p>So&hellip; here is my first step into the blogging world. (&lt;&ndash; I must have rewritten that sentence a thousand times over the years&hellip; I like to think  of it as the thing that prevented me from blogging so far  ) )<br/>
-So here comes my first post, with an introduction, and info about why I am happy, and of course about Dev Bootcamp<br/>
-(Warning : Long post ahead&hellip; but don&rsquo;t worry, I&rsquo;ve put videos to help you cope with the long text)<!-- more --></p>
-
-<p>I&rsquo;ve always been the kind of guy who speaks a lot, I&rsquo;ve also been said that I would make a good blogger thanks to that, but that is my very first post in my very first blog.<br/>
-As such, I feel obliged to start with :</p>
-
-<h2>A small introduction about me</h2>
-
-<p>So, hi! My name is Quentin and I am a 27 years old french dude who has&hellip; done stuff, here and there.  <br/>
-So far, in my life, I can say that:</p>
-
-<ul>
-<li>I travelled to 2 different continents (3 in 2 months, take that frequent flyer program!).</li>
-<li>As a job, I counted stock, sold clothes to climb the K2, built skateboards, taught kids what France was like.</li>
-<li>I studied &hellip; Scientific stuff, then economics, then English/Spanish and their applications (in Law, Economics, Culture), and then Korean, most of them only for one year or two but still&hellip;</li>
-<li>I built some webpages (old-school style, back in the days), created a geeky Roleplaying Club in high school, created and managed a podcast about Korea (<a href="http://www.mirae.fr">www.mirae.fr</a> &hellip; all in french), and more recently made an app (<a href="https://play.google.com/store/apps/details?id=com.qdev.craftmeapass&amp;amp;hl=fr">Craft me a pass!</a> on Android)</li>
-</ul>
-
-
-<p>Right now, I&rsquo;m working as a Technical Support Manager (Think <a href="http://en.wikipedia.org/wiki/The_IT_Crowd">The IT Crowd</a>&rsquo;s Roy with a french accent) in a company that works for Digital Cinemas all over the world.<br/>
-I also played hundreds of games because I just&hellip; love challenges. And when I feel like I don&rsquo;t have enough of it, I just manage to create a group, a guild, a clan, anything, and then deal with the other challenges that come with it.<br/>
-All in all, I like building and managing projects, people, &hellip; anything. One other thing I like is humor. I joke a lot, and like to laugh. Always have and always will  )<br/>
-Also, a small trait that seems to surprise most of the people : I give the truth. All of it. <br/>
-I once told my fiancee how getting with her does not make others less charming, it just makes her the one I chose and I like to stick to my choices. Long story short, it didn&rsquo;t go very well. But she&rsquo;s my fiancee now so I think can safely say that it ended up OK.<br/>
-I also told the listeners of my podcast that I was sorry I made a joke about Korean people&hellip; But if they were that &ldquo;stuck-up&rdquo; they could just stop listening right now since I&#8217;ld make more about any group of people, being in it or not. I never meant any harm in it, and those who don&rsquo;t understand 2nd degree probably don&rsquo;t like what I&rsquo;m saying anyway so&hellip; Why keep on listening then?</p>
-
-<p>But then I tell the people what I like and don&rsquo;t like about them (Not like a douche, telling the truth does not necessarily mean being hurtful). If I don&rsquo;t want to go to your party, I&rsquo;ll explain, I will not be suddenly sick, my grandmother won&rsquo;t die every other weekend, nope, I will bluntly tell you what my reasons are and then we can talk about it if you want.<br/>
-Finally (that &ldquo;short&rdquo; introduction may be one of the biggest thing I ever wrote already&hellip;), I will say that I live to help. I don&rsquo;t have anything to compensate (that I know of&hellip;) I am not a bad person that wants redemption or something, I just think that I am very glad to have a roof over my head, a decent body, a decent mind (decent genes all in all, thanks mom and dad), I grew up with my loving parents, I have an awesome house, I also got some skills (nothing fancy or rare, just stuff I know how to do) and I don&rsquo;t care about having that if I can&rsquo;t make that useful for those who would have less of any of that.<br/>
-This kind of stuff is what I live for, my goal in life, and I don&rsquo;t intend to change it at any time.<br/>
-Now, that may sound like bragging, trying to look good in some way but first, I honestly don&rsquo;t care what you think about that, I&rsquo;m happy with myself, just trying to inform, and second remember what I wrote just a little above :  *  I give the truth. All of it.  *</p>
-
-<h2>Why I am happy~</h2>
-
-<p>Many reasons about it. This title is mostly because of this :</p>
-
-<iframe frameborder="0" height="315" src="http://Qt-dev.github.io//www.youtube.com/embed/y6Sxv-sUYtM" width="560)</iframe>
-
-
-<p></p>
-
-<p>That songs definitely sets the mood to happy doesn&rsquo;t it?  <br/>
-Now, the biggest reason why I am happy, the one that is just amplified by this song is :  <br/>
-<strong>She said YES!</strong><br/>
-I have been together with my girlfriend, Thuy Nguyen, the girl in my profile picture&hellip; pretty much everywhere (I rarely take pictures without her, and I tend to find pictures very bad when she is not in them anyway) for &hellip; 5 years 9 months and 7 days right now. 2 weeks ago, on the 8th, I took her to the Op&eacute;ra Garnier in Paris, a wonderful place where we first got together. She had no idea why I was taking her there and she honestly thought I was just showing her some new restaurant.  <br/>
-Then, I stopped, faced her, and it went like this :  <br/>
-&ndash; Do you know how long we&rsquo;ve been together?<br/>
-&ndash; Well&hellip; (of course she did not, who counts apart from on the anniversaries?)<br/>
-&ndash; 5 years, 8 months, 2 weeks and 4 days. And in that time, we did not have much time for ourselves right? All our anniversaries, your birthday, valentine&rsquo;s day, everything is in the same 2 weeks window&hellip; So I thought, maybe we could get a day to ourselves, right in the middle of nowhere in the calendar, when we could take the day off, every year, and celebrate&hellip; us.  <br/>
-&ndash; (Lot of confusion right now, and hunger, she thought I was bringing her to a restaurant, remember?) Well&hellip; sure?&hellip;<br/>
-&ndash; And this day, we could celebrate the day when I (get on one knee) asked you : Would you marry me?</p>
-
-<p>No she did not cry, and the first answer I got was &ldquo;What the hell are you doing on the ground, get up already&rdquo;, but she did say yes. And she hugged me more in the next hour than she did in most of our relationship. We don&rsquo;t have a date yet, and are not planning the wedding, but let me tell you that :  <br/>
-&ndash; <em>No matter what happens, I am marrying that girl, and the fact that I can work the rest of my life making her happy while she kind of agreed to let me do so is enough to put a smile on my face for years.  <br/>
-&ndash; The smile may fade, but that will most likely be because I laugh too much and will just end up having my face hurt when I smile  )</em><br/>
-Now, personal stuff set aside, let&rsquo;s get to what many may be reading me right now :  <br/>
-<strong>Dev Bootcamp &ndash; Go Banana Slugs!</strong><br/>
-Now, with that set aside, I also got accepted a few month ago into the (<a href="http://devbootcamp.com/">http://devbootcamp.com/</a>)Dev Bootcamp</a> in San Francisco. I am in the cohort of Jan 27th-Mar 26th called Banan Slugs.</p>
-
-<p>Before I joined, I searched for former alumni (I also searched for the word alumnus/alumni), because&hellip; let&rsquo;s face it&hellip; It&rsquo;s too good to be true  )<br/>
-I then filled the application, made a video to go with it. The rule was : In 5 minutes, teach something to the viewers, and tell us more about you&hellip; Here you go if you want to see how it went :</p>
-
-<iframe frameborder="0" height="315" src="http://Qt-dev.github.io//www.youtube.com/embed/lDTy1peyC5o" width="560)</iframe>
-
-
-<p>
-(Kudos for the best camera(wo)man in the world, I&rsquo;m marrying her! hehe)</p>
-
-<p>Now the idea about joining the Bootcamp, as opposed to what people seem to think, is that they do not teach you stuff about computers in general. They don&rsquo;t just teach you one language. They also don&rsquo;t make it so you can fit in that small case that will allow you to land a job at Twitter or Google.<br/>
-<strong><em>What Dev Bootcamp teaches you is not how to develop programs, but how to be a good developper.</em></strong> <br/>
-They take Ruby and Rails (if you don&rsquo;t know about it, just wait,I&rsquo;ll post more about it later) as an example to teach you how to organize your code, your project, how to program with others, how to lead and be led, how to manage your time, your energy, the way employers see you, how to apply for a new job, etc&hellip;<br/>
-They teach you how to adapt to new people, new challenges, new hypothesis everyday.<br/>
-And that, guys&hellip; let me rewrite that : And <strong>THAT </strong>guys is what being a good developper is about.</p>
-
-<p>Think about it this way : What do you think the first developers are doing now (the ones still working, of course). Did they stick to the main language they used? Does that mean that now that we have tablets, phones, etc, we need to train new guys because the developers for the former platforms can&rsquo;t switch?  <br/>
-No. Good developers adapt. They changed teams. They changed the languages they used, the machines, the &ldquo;targets&rdquo; (80&rsquo;s computers users are not the same as nowadays&#8217;), they changed everything. And the best at adapting are now the ones doing the best .<br/>
-Dev Bootcamp aims at teaching you exactly that. They select those that seems to fit the mold of the untrained soul they have, and then they teach you how to grow from that, in the best direction possible, and then end up becoming a good or even a great developer.</p>
-
-<p>That is what I signed up for.</p>
-
-<p>Now, I will tell you more about the prep work that already started, about the organization, and all that, but this post is long enough already so I&rsquo;ll stop here for now.</p>
-
-<p>I hope you did not feel like you were wasting your time too much, and I hope you&rsquo;ll enjoy the next ones too.</p>
-
-<p>See ya very soon~</p>
 ]]></content>
   </entry>
   
