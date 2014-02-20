@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 3 - Day 1 - SQL, Games, and Assessments - Qt's Home</title>
+  <title>Week 4 - Day 3 - Building, Testing, and deception - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="SQL In the world of development, we could say that you have plenty of choices when picking your tools. Among these tools are hundreds, if not &hellip;">
+  <meta name="description" content="Building So, yesterday&rsquo;s challenges were : Build apps. In the morning, we had to finish the Craigslist one that we started the day before, and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 3 - Day 1 - SQL, Games, and Assessments</h1>
+      <h1 class="entry-title">Week 4 - Day 3 - Building, Testing, and Deception</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-11T08:49:38-08:00" pubdate data-updated="true">Feb 11<span>th</span>, 2014</time>
+<time datetime="2014-02-20T08:51:00-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,38 +108,54 @@
   </header>
 
 
-<div class="entry-content"><h2>SQL</h2>
+<div class="entry-content"><h2>Building</h2>
 
-<p>In the world of development, we could say that you have plenty of choices when picking your tools. Among these tools are hundreds, if not thousands, of languages. Some are pretty specifically used, even though they may not have been made for, some are pretty &ldquo;fast&rdquo; while others are &ldquo;not&rdquo;&hellip; But all in all, we can say that a hammer is a hammer. No matter the brand or the specs, the hammer will fulfill his role and that&rsquo;s it.</p>
+<p>So, yesterday&rsquo;s challenges were : Build apps. In the morning, we had to finish the Craigslist one that we started the day before, and in the afternoon, we had to make a non-authenticated blog.</p>
 
-<p>Anyway, yesterday we used SQL for the second time in phase 1. It is a language used to talk to a specific type of database (Any derivation of SQL), which may very well be one of the most common database type in the world, and that has been the case for more than 20 years. The language used to do so has been around for almost the same time too&hellip;<br/>
-I paired with Tim, a very nice and tall guy, and we ended up doing as much as we could for the day. We learned tons, we played a bit, and it was fun. All in all, a good day, even if we spent the day on SQL&hellip;</p>
+<p>The teachers have to change a lot from last phase 2 program. We are different, and our phase 1 was so different than previous cohorts&#8217; than in the end, we don&rsquo;t code like our big brothers and sisters at all. While some of the previous cohorts (Thanks to their program/material ) tended to focus a lot on speed, and quantity, we tend to spend a ton of time on specific challenges, to master them to the end. While some would probably go for the &ldquo;Quantity of knowledge&rdquo;, we are going for &ldquo;Mastery&rdquo;. So in the end, while previous cohorts finished 10 challenges by the end of day 3, we finished only 4 but we did learn just as much and mastered a lot of things that previous people did not know about. An example would be Rspec testing. We literally spent all of yesterday testing&hellip;</p>
 
-<h2>Games</h2>
+<p>Anyway, at the end we finished one app, with Johnny : <a href="http://quentin-johnny-anon-blog.herokuapp.com/">Anonymous Blog</a>. It is not beautiful, not responsive, nothing like that, but the idea was not to make beautiful things, but to make a functional blog system that allows you to have posts that can have tags, and tags that can have many posts, with the corresponding pages.</p>
 
-<p>So, Web Development, and maybe even particularly in Dev Bootcamp, is a world of hard work combined with games. My opinion is that we party, we play, we develop games even, to cope with the rest of the hard day. A lot of brain-twisting challenges and very not fulfilling days spent on solving that bugs that would have taken 2 minutes to solve if you had seen that semi-colon earlier will do that to you and may ask for harder entertainment.</p>
+<p>We are about to finish Craigslist so I&rsquo;ll show you that right after.</p>
 
-<p>In DBC, we play. There are games all around, the Giant Djenga falls a couple of times a day, we did a Hack-a-thon this weekend (A coding contest where teams build stuff and compare at the end of the day. All with beer, pizzas, and a lot of laughter), and all in all, people are playful.</p>
+<h2>Testing</h2>
 
-<p>Yesterday we played Magic The Gathering with a couple of boots. I did not win but I loved the game. A long game, hard, where you have to think before you do stuff. It had been a long time and now I just regret I did not bring my cards myself ;)</p>
+<p>We tested! For 2 days!</p>
 
-<h2>Assessments</h2>
+<p>In the beginning, we just started to assert that things we wanted were equal. If we call &ldquo;5 + 5&rdquo;, we ask for it to be equal. That was phase 1.</p>
 
-<p>DBC is not about grading students. It is not the style of the house. But they do have to test us to make sure we can understand the next phase. So, to do that they assess us at the end of every phase.</p>
+<p>Then we started playing with some more tests, witnessing teachers/talking about re making Rspec (The testing suite for testing in ruby. Think about it as a toolbox with a LOT of tools).</p>
 
-<p>This week is the end of the first Phase. Teachers will get with us for a short amount of time on Thursday and will review some of our code at this point. At this moment, no more help, just some control of your knowledge. At the end of that, we can be given one of 3 different options :</p>
+<p>Now in Phase 2, we have Rspec, we have other tools, and we need that. The syntax is easy, very close to english. For example :</p>
 
-<ul>
-<li>Your level is high enough, welcome to Phase 2</li>
-<li>You may want to spend 3 more weeks on Phase 1, just to make sure you get it all</li>
-<li>Are you really sure you are learning anything? If not, DBC may not be the best thing for you&hellip;</li>
-</ul>
+<pre><code class="ruby">expect(5+5).to be 10</code></pre>
 
 
-<p>Now, let&rsquo;s hope for mine being the first one! I&rsquo;ll do my best anyway.<br/>
-Small info for the people in the next cohorts : We chose our assessments. The output may be the same but you may not get the same.</p>
+<p>And so the hardest part was : figuring out how ENGLISH it was. Is it &ldquo;.to&rdquo;? Is it &ldquo; to&rdquo;? Do I want to test if &ldquo;5+5 =10&rdquo; is true? or if &ldquo;5+5&rdquo; is 10?</p>
 
-<p>Anyway, lecture is about to start again, let&rsquo;s go. Thank you for reading and see you tomorrow!</p>
+<p>That, guys, is what we spent two days working on. We figured out a lot (and for future reference for students : <a href="http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax">You should not use should! but expect is cool</a> and <a href="http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames">Shoulda is your best friend if you&rsquo;re testing Sinatra or Rails&hellip; Anything with ActiveRecord, even if it needs should and not expect</a>), but it did take a lot of time.</p>
+
+<p>Now, I feel like I know much more about things like one a quote from one of my favorite books : “You don&rsquo;t have to test everything to destruction just to see if you made it right.”, Neil Gaiman, <a href="http://www.amazon.com/Good-Omens-Accurate-Prophecies-Nutter/dp/0060853980/ref=sr_1_1?ie=UTF8&amp;qid=1392918350&amp;sr=8-1&amp;keywords=good+omens">Good Omens</a>. Testing is good, but can be time devouring if not done right.</p>
+
+<p>But anyway, let&rsquo;s not talk about that more, there is always much to write and read about that, but there are places and times to do so!</p>
+
+<h2>Deception</h2>
+
+<p>Yesterday I was disappointed by <a href="http://www.interflora.fr/">Interflora</a>. If you don&rsquo;t know that brand, it&rsquo;s a flower selling service that is offered in France. It is a chain, you hear a lot about it, and so I thought I would use it when I needed that kind of service.</p>
+
+<p>Yesterday was my fiancee and I&rsquo;s <strong>6th anniversary</strong>. I can&rsquo;t be with her (Obviously&hellip;), so instead, I planned on making the biggest bouquet I could find delivered at her house when she would be coming home on this day. That was a long time plan, I kept the exact money I needed on my french bank account, I did some research to find how to get flowers delivered, and talked to a lot of people about that to never ever forget.</p>
+
+<p>Then, a few days ago when I got the confirmation that I had the money I needed to do so (last week), I took the biggest chain I could find, for safety, I took the biggest bouquet I could find, and make it delivered at 4PM at her house, right after she comes back home from work.</p>
+
+<p>Yesterday, when she woke up, I did not even send her a text. She was, of course, disappointed, but I was planning on that (and am very bad with time differences sometimes)! She thought I had forgotten that fateful day! But then she would be so happy when she would get back home from a long and hard day and find these flowers!</p>
+
+<p>But then&hellip; No flower was delivered. None. I checked the time, checked in with her to see if she had them, check the site to be sure they were delivered, and the site even told me &ldquo;The flower delivery guy has the order&rdquo;, which eventually turned to &ldquo;Your flowers have been delivered&rdquo;&hellip; But none got to her house. So I had to explain everything, my plan fell apart, and today she called them to check about the order and&hellip; Guess what? &hellip; Apparently the girl on the phone told her the delivery guy never got the order.</p>
+
+<p>So in short : I planned, I payed, went for safety over better shops, and in the end I feel just like an ass that did not do anything for our 6th anniversary, but just a couple of texts saying that I love and miss her.</p>
+
+<p>I am so sorry, Thuy, I am very unhappy about that, and I will never stress that enough: <strong>I WILL NEVER USE INTERFLORA AGAIN IN MY LIFE</strong></p>
+
+<p>Time to go back to coding now, see you tomorrow ;)</p>
 </div>
 
 
@@ -162,7 +178,7 @@ Small info for the people in the next cohorts : We chose our assessments. The ou
   
 
 
-<time datetime="2014-02-11T08:49:38-08:00" pubdate data-updated="true">Feb 11<span>th</span>, 2014</time>
+<time datetime="2014-02-20T08:51:00-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
       
 
 
@@ -170,7 +186,7 @@ Small info for the people in the next cohorts : We chose our assessments. The ou
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -183,10 +199,8 @@ Small info for the people in the next cohorts : We chose our assessments. The ou
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/09/week-2-i-am-still-alive/" title="Previous Post: Week 2 I Am Still Alive">&laquo; Week 2 I Am Still Alive</a>
+        <a class="basic-alignment left" href="/blog/2014/02/19/week-4-day-2-testing/" title="Previous Post: Week 4 - Day 2 - Testing, Helping, and buying">&laquo; Week 4 - Day 2 - Testing, Helping, and buying</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/12/week-3-day-2-more-sql/" title="Next Post: Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup">Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup &raquo;</a>
       
     </p>
   </footer>
@@ -292,8 +306,8 @@ Small info for the people in the next cohorts : We chose our assessments. The ou
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/';
         var disqus_script = 'embed.js';
       
     (function () {
