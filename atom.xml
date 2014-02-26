@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-02-21T14:08:35-08:00</updated>
+  <updated>2014-02-26T10:05:12-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,169 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 5 - Day 2 - OOJS again and namespacing, helpers, and lack of sleep]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/"/>
+    
+    <updated>2014-02-26T09:25:50-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again</id>
+    
+    <content type="html"><![CDATA[<h2>OOJS again and Namespacing</h2>
+
+<p>Yesterday I told you about Object Oriented Javascript. Today I have to tell you again :</p>
+
+<p>If you make some software in Javascript and DON&rsquo;T use that, you are a BAD person and should feel BAD.</p>
+
+<p>Javascript is powerful, and the community using it gives you some really good tools that enable you to make almost anything in JS today, but coding, like what I did before, in a whole file with random stuff around is NOT the way to go. One could try and go <a href="http://en.wikipedia.org/wiki/Procedural_programming">Procedural</a>, but then, even if procedural programming is actually a thing, it makes code that is a bit more messy, less maintainable, and less readable for the people working with you.</p>
+
+<p>JS gives you classes, attributes, methods, instances, packs of methods and way to call them, inheritance, and everything you would need to make &ldquo;real&rdquo; software. If you don&rsquo;t use it, then you&rsquo;re not doing it right.</p>
+
+<p>The way to actually name everything to identify and sort them the way you understand it is called namespacing. That IS a thing, and should happen in all of the code you write. That is what I have spent the last articles talking about. That is the way to go when working on big project, even alone, and now you have to do that. You&rsquo;ve been warned. Twice.</p>
+
+<h2>Helpers</h2>
+
+<p>In Dev Bootcamp phase 2 we have thing thing we call lightning talks. In the afternoon, we register at least once a week to talk for 4 minutes about one particular topic. We start the week not knowing about the topic, but then we learn about it, and have 4 minutes to share about it.</p>
+
+<p>Yesterday, I had one about helpers. Helpers are all of these &ldquo;packs&rdquo; of methods that you can use in other parts of your apps. That is the name that has been given to these packs in MVC app frameworks like <a href="http://nodejs.org">Node.js</a>, <a href="http://www.sinatrarb.com">Sinatra</a> and <a href="http://rubyonrails.org">Rails</a> are good examples.</p>
+
+<p>The idea is that you have a separation between your code that shows stuff to the user, the one that does things, and the one that stocks and pulls out data. Helpers are packages that allow one of two things :<br/>
+&ndash; Be able to encapsulate a pack of code you use at multiple times in one simple method you would call instead (<a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">GET DRY !</a>, and use namespacing like I&rsquo;ve been telling you ! )<br/>
+&ndash; Be able to use simple code in the things that are supposed to only be able to print stuff to the user (ex : Show a logout button when the user is logged in. You just print something &ldquo;If logged_in == true&rdquo;)</p>
+
+<p>In Sinatra or Rails you can actually even build a whole module to plug in helpers, I did that, that was fun&hellip; Until I realized that people did it before and that I did not need to reinvent the wheel.</p>
+
+<h2>Lack of sleep</h2>
+
+<p>Last week, I went to sleep at 1AM or more every day. After a week of doing that and waking up between 7 and 8 I can tell you : Don&rsquo;t do that.</p>
+
+<p>I have been feeling a bit tired (what a surprise&hellip;) and ended up not being myself, like every time I am tired. When I am like that, I tend to be less patient, and to get things done silently.</p>
+
+<p>Now, DBC is about pair programming&hellip; And so I ended up trying to make things work that were just remotely connected to our project, without sharing much about where I was and what I was doing, and in the end did not get stuff to work. At some point, I had lost :<br/>
+&ndash; My focus<br/>
+&ndash; My buddy&rsquo;s focus<br/>
+&ndash; My time<br/>
+&ndash; My energy and happiness (I&rsquo;m grumpy when I don&rsquo;t make things work&hellip;)</p>
+
+<p>We ended up finishing the project and doing it a way I can teach people too, so that&rsquo;s cool, but it took us so much time, I wasted so much time, and I felt so bad for my pair, that most of my day was actually really tiring.</p>
+
+<p>Now, I slept more, and I am learning from my mistakes. today is another day!</p>
+
+<p>(Plus, we had great talks with Armando, and Armando rocks haha. Oh and Armando got a new challenger, Christine is pretty awesome too :p)
+(Though, to be fair, Janet, Roy, Nic, and many others rock too haha&hellip;)</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 5 - Day 1 - OOJS, JQuery, and hugs]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/25/week-5-day-1-oojs/"/>
+    
+    <updated>2014-02-25T09:04:14-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/25/week-5-day-1-oojs</id>
+    
+    <content type="html"><![CDATA[<h2>OOJS</h2>
+
+<p>Ok, dev things. You probably heard about Javascript. If you want to hear more about it you can check <a href="http://en.wikipedia.org/wiki/JavaScript">-Wikipedia-</a>. Object oriented programming is a way to model your code in objects that interact with others. Again, <a href="http://en.wikipedia.org/wiki/JavaScript">Wikipedia</a> has all the infos.</p>
+
+<p>Yesterday, we had 2 parts in the day. First part was coding Javascript a bad way. Second part was the right way. The right way is apparently OO, Object Oriented. This allows you to actually make your code &ldquo;look&rdquo; like a developer&rsquo;s code. I did some JS before and it was cool, fine, and interesting. But what I was doing was the first thing : Random lines of code altogether, not in objects, functions, anything.</p>
+
+<p>Say I wanted a button to hide another button, I made that code in a small script, not organized, in a random file.</p>
+
+<p>That is NOT the way to do it. It works when you want simple things, but then what if you start having a lot of lines, like you do most of the time? Well what happens is a big mess of a code that nobody knows about because in human langage none of that is understandable. When you make a complicated code to make your page glow, somebody has to read the whole thing to know what it does. If you encapsulate it in a function called &ldquo;Blink&rdquo;, people will know exactly what it is the moment they see it!</p>
+
+<p>And then what if that blink was a function of the object &ldquo;PageManager&rdquo;? Well, then you have very understandable code, manageable, maintainable, and definitely object oriented.</p>
+
+<p>Building JS code without Object-Oriented Programming is like trying to build houses without any plan. Yes, sometimes the house does not fall apart. But the house is not maintainable, you have no idea about what&rsquo;s up with it, and if you do that, you&rsquo;re a bad person and you should feel bad about yourself ;)</p>
+
+<h2>JQuery</h2>
+
+<p><a href="http://jquery.com/">JQuery</a> is an open source library. People thought Javascript lacked function and could use simplification of some others, and so they built that tool with special functions, in Javascript, that give you that extension, that package of code people would use.</p>
+
+<p>That simplifies web a lot. But then&hellip; That is a very risky path to take. People tend to think that because it is easy, they don&rsquo;t really have to code it any other way that like a very long &hellip; bunch of code that does stuff with the page. No object orientation, no namespacing (Naming the things you just build, objects and functions), and in the end&hellip; No readability.</p>
+
+<p>If you do that, well, just like this sentence in my first part : You are a bad person and you should feel bad about yourself!</p>
+
+<p>Coding is not about making something work right now, coding is about building things, and when you build you plan, and organize everything. It works for Houses, Cars, Planes, and definitely for programming.</p>
+
+<p>A bunch of code, be it JQuery, Javascript, Ruby, C, any langage whatsoever, should be organized.</p>
+
+<p>So yesterday we learned that. In the morning we randomly JQuery-ed pages around the web, and on the afternoon we started encapsulated everything and naming what we did.</p>
+
+<h2>Hugs</h2>
+
+<p>I will not complain, not again. But what I did yesterday was talk. I talked about things in my life I did not like, feelings I had that are not out in the open all of the time. Dev Bootcamp tend to do that to people.</p>
+
+<p>But then yeah, sharing with everybody around helps a lot in solidifying thoughts in my mind. In a way, it is my own therapy!</p>
+
+<p>So yeah, yesterday, I talked about my life. I talked about why I don&rsquo;t want to go back to France. Any other country but not France. I talked about what I felt&hellip; And so I got a lot nice feedback from people, plus hugs for the bad parts.</p>
+
+<p>I&rsquo;m happy and grateful I am among all of these people, and I am not looking forward to having to move on, out of DBC ;)</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 4 - Day 5 - Pressure, accomplishment, and more work]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/02/22/week-4-day-5-pressure/"/>
+    
+    <updated>2014-02-22T00:19:23-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/22/week-4-day-5-pressure</id>
+    
+    <content type="html"><![CDATA[<h2>Pressure</h2>
+
+<p>Yesterday was our first group project day of phase 2. The subject was &ldquo;A Flashcards Game&rdquo;.</p>
+
+<p>We had until noon to find a whole plan for a MVP (Minimum Viable Product), that we could complete before 5PM. Then at 5PM we had to present the project. We have the rest of the weekend to work on it and on Monday we&rsquo;ll present the final release.</p>
+
+<p>With that being said, we also got lectures, and lightning talks (short lectures on specific topics made by other students), and so our afternoon basically started at 3.20PM&hellip;<br/>
+So with that, plus the 6 people that never really paired altogether, it ended up being a huge mess.</p>
+
+<p>If you know me, you know that if there is one goal that I have in life, one thing that I am confident in, one thing that I like to do, it is : Leading groups.</p>
+
+<p>So today, I took the whiteboard, tried to planned a bit, and we went on. We were 6 so it was a bit of a mess, but once we got the ideas all on paper (or whiteboard&hellip;), the rest was easy.</p>
+
+<p>The problem though, is that nobody handles pressure very well, nobody including me, especially with the exhaustion after this week. I ended up going around trying to fix every problem of the team, and people ended up panicking a bit and falling in easy traps.</p>
+
+<p>In the end, we were literally 10 minutes short when the presentation started (I coded for 10 minutes when people started talking and got it working decently&hellip;)</p>
+
+<p>The after presentation was much easier. I explained everything I knew that could be useful for the rest of the team, then we separated tasks, and went on to finish our first release. Expect a link and more info on Monday when we deliver!</p>
+
+<p>I have to say, though, that going ending up listening to some music I had somewhere on my laptop made me very nostalgic, like if I had not been in France for years, but also helped calming me. I now have a rage, a will to conquer. I will succeed!</p>
+
+<h2>Accomplishment</h2>
+
+<p>A few accomplishments this week :</p>
+
+<ul>
+<li>I got to know the new cohort and they are really awesome. I managed to spend a lot of time doing that, while helping my cohort, learning, and finishing many challenges. I count that as a damn good achievement, if not the best I have every felt so far.</li>
+<li>We finished that MVP, managed to split everything correctly, and things are going well for monday!</li>
+<li>I managed to learn enough to not be categorized in &ldquo;I am good in this skill&rdquo; for anything that we learned so far. I understand what I am doing on every part of every challenge, I learned about everything we use and can use and make everything without frustration. That is something that I will be proud of for a while. Now I do need to keep up with that</li>
+<li>Even if I am not a native, struggle with my accent and my language skills sometimes, and I did not lead any team for a while, I can still make myself useful in organizing our groups. It&rsquo;s a relief, because with the knowledge we accumulate in here, sometimes I&rsquo;m afraid I&#8217;ld just forget the things we don&rsquo;t use&hellip;</li>
+</ul>
+
+
+<p>And finally a new one that is not for me :<br/>
+My mother, who has been struggling to lose weight for a while, is finally losing enough that I can even start thinking if she did not lose a leg or something. (I have ways to keep track, call me big brother).</p>
+
+<p>That may be nothing to you, but I want to say that : I am proud.</p>
+
+<h2>More work</h2>
+
+<p>The weekend is going to be full of work everywhere. I want to show my sudoku solver to phase 1 guys so that they would do better than me, but I also have to work on the group project, I have portfolio projects, and I have personal projects on the side. 24 hours days suck.</p>
+
+<p>Oh and my first portfolio project is up. It is not full but I&rsquo;ll finish that in the weekend.
+You can check it at : <a href="http://quentins-notes.herokuapp.com/notes">Quentin&rsquo;s Notes</a></p>
+
+<p>It is a note-taking app. Not very beautiful, and the code (I&rsquo;ll release that later) is not very glorious, but that&rsquo;s the first one, and it does work ;)</p>
+
+<p>Have a great weekend everybody and see you&hellip; maybe later this weekend actually&hellip; If I find a way to stop time to write.</p>
+]]></content>
+    
+  </entry>
   
   <entry>
     
@@ -842,94 +1005,6 @@ Your algorithm will not work (Duh&hellip; You did not write any code yet), but y
 <p>So far so good.<br/>
 Now, the problem we find is that in Ruby, even if you make that method return something, the second expression, the after-SS one, is returning 4.<br/>
 I will tell you more when I realize what happens and why, but let&rsquo;s say other cohorts did not know, coaches did not know, Sherif did not know, and we have to know&hellip; So let&rsquo;s hunt for that!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Day 2 - Cries, laughters, and code]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/01/29/day-2---cries-laughters-and-code/"/>
-    
-    <updated>2014-01-29T08:00:00-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/01/29/day-2&#8212;cries-laughters-and-code</id>
-    
-    <content type="html"><![CDATA[<h2>Cries</h2>
-
-<p>So today we started Engineer Empathy courses. The idea of this course seems to be that the better you are with yourself and the better your ability to work with others, the better engineer you will become.<br/>
-Now, just like everything else in this program, EE is freakingly intense.<br/>
-Yesterday we had a session about the Superego and how to recognize attacks from it and defend.
-That does not sound much but&hellip; I just ended up almost in tears thinking about strange attacks against myself. Sometimes we just don&rsquo;t really think about the things we put ourselves through, but then when these come back, that&rsquo;s when you have a bad time. Well, let me tell you that people who are crazy enough to join Dev Bootcamp have a lot of</p>
-
-<p>Now if that was not intense enough, I had decided to run a bit too far 2 days ago and so now I just look like a 3rd age dude having a hard time walking all around. That brings some tears too haha.</p>
-
-<h2>Laughter</h2>
-
-<p>Today they gave us a pairing buddy for the whole day. Mine was &hellip; Matthew!<br/>
-I spent most of the day enjoying what I was doing, at least for the fact that I was doing it with somebody I appreciate and really have fun with. We joked all around, and even though some may say that it is quite counterproductive, we finished the challenges right at the same time as others, and I got the feeling we learnt exactly enough!</p>
-
-<h2>Code</h2>
-
-<p>So, today we spent the morning reviewing the code some used to complete the challenges of yesterday. We ended up comparing hashes + #each with no data + if (The if waterfall seems to be faster&hellip;), and all that with or without recursion. In the end, we can say that in this small exercise, recursion was a waste of time, and not maintainable, hashes + #each keeps the code organized so maintainable, but then the If waterfall was just horrible to watch but a bit more efficient&hellip; The world of code is a strange place, guys&hellip;</p>
-
-<p>In the afternoon we worked on sorting algorithm. After a bit of time going crazy over explanations not explaining much and hurting our brains and souls, Rao, a coach with a nice and funny meow-like name gave us some more options and we found out how to do all that. We implemented the merge sorting algorithm and that did not take us much time from here. The funny surprise though was that at the end, we cleared the 3 170k words files in around 1.5 seconds each&hellip; While every other algorithm just took at least 10 minutes. Some even calculated that theirs could last for a day just sorting one of the files. Algorithms are crazy and are to be known!</p>
-
-<p>Now, time to go back and code guys, see ya!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[So it begins...]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/01/28/so-it-begins/"/>
-    
-    <updated>2014-01-28T07:53:00-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/01/28/so-it-begins</id>
-    
-    <content type="html"><![CDATA[<p>I won&rsquo;t go as far as to tell everything since the last post. Challenges went by, I continued pairing with Armando, working at my strange company that just ended up closing, and then the closer I got to my 8000 miles travel, the busier I got&hellip;</p>
-
-<p>Plus, I just ended up taking all the time I could get to see my fiance.
-And let me tell you guys : That was worth it, and a very good idea !</p>
-
-<p>Then, 3 days ago I arrived in SF. I just had time to discover simple things here and there, get an account at the bank, a mobile line, and all the things you need for a simple life nowadays.</p>
-
-<p>Now, up to the main topic :</p>
-
-<h2>The program started</h2>
-
-<p>So, yesterday, we were expected at Dev Bootcamp, just at the entrance of Chinatown, for 9AM. We met the last remaining people of the cohort that we had not met before, and waited there, anxiously waiting.
-At 9AM sharp, shouts and claps started right behind that little door we had not passed yet&hellip;</p>
-
-<p>They opened the doors, and things went wild.
-I won&rsquo;t go as far as to explain everything in details, but for this first post in a while I&rsquo;ll just sum it up as :</p>
-
-<ul>
-<li>People are awesome. Teachers, Coaches, other students, other cohorts, everybody!</li>
-<li>We should be expecting 60-80 hours weeks, and even there we probably won&rsquo;t get over everything anyway.</li>
-<li>Sherif, one of our teachers, is really eloquent&hellip; You can hear pure knowledge come out of his mouth&hellip; That&rsquo;s insane</li>
-<li>Sherif told us repeatedly : We are insane for thinking it is doable. But the common insanity is what bounds us and may end up making it possible.</li>
-<li>We are guinea pigs. The program we will be living will be a bit different than the others, but then I&rsquo;ll explain that later.</li>
-</ul>
-
-
-<p>All in all, I can say that we are joining a program that shows us how to work and let us do the job and find about what to do and how, assess our learning,&hellip;
-We are basically the ones making it possible. Teachers guide us, but that is all.</p>
-
-<p>Now, time to head up to DBC again, cheers!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[(unknown post type)]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/01/10/unknown-post-type/"/>
-    
-    <updated>2014-01-10T12:50:35-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/01/10/unknown-post-type</id>
-    
-    <content type="html"><![CDATA[<p>missing body</p>
 ]]></content>
     
   </entry>
