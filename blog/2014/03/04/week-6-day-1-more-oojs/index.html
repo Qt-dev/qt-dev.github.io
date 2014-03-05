@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 5 - Day 2 - OOJS again and namespacing, helpers, and lack of sleep - Qt's Home</title>
+  <title>Week 6 - Day 1 - More OOJS, APIs, and changes - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="OOJS again and Namespacing Yesterday I told you about Object Oriented Javascript. Today I have to tell you again : If you make some software in &hellip;">
+  <meta name="description" content="More OOJS Yesterday, I paires with Harry. We have a great dynamic going on and we ended up building a good MVC system on Javascript for one of the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 5 - Day 2 - OOJS Again and Namespacing, Helpers, and Lack of Sleep</h1>
+      <h1 class="entry-title">Week 6 - Day 1 - More OOJS, APIs, and Changes</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-26T09:25:50-08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+<time datetime="2014-03-04T09:07:05-08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,48 +108,67 @@
   </header>
 
 
-<div class="entry-content"><h2>OOJS again and Namespacing</h2>
+<div class="entry-content"><h2>More OOJS</h2>
 
-<p>Yesterday I told you about Object Oriented Javascript. Today I have to tell you again :</p>
+<p>Yesterday, I paires with Harry. We have a great dynamic going on and we ended up building a good MVC system on Javascript for one of the challenges we had.</p>
 
-<p>If you make some software in Javascript and DON&rsquo;T use that, you are a BAD person and should feel BAD.</p>
+<p>People don&rsquo;t necessary get it so by the end of the week I&rsquo;ll try to send some code that I came up with for private projects, as an example.</p>
 
-<p>Javascript is powerful, and the community using it gives you some really good tools that enable you to make almost anything in JS today, but coding, like what I did before, in a whole file with random stuff around is NOT the way to go. One could try and go <a href="http://en.wikipedia.org/wiki/Procedural_programming">Procedural</a>, but then, even if procedural programming is actually a thing, it makes code that is a bit more messy, less maintainable, and less readable for the people working with you.</p>
+<p>As for the rest, we had a lot of fun and played with that a bit, to the point that we ended up falling short on a problem that apparently many people have. It feels good to not feel like you&rsquo;re outside of that whole development world ;)</p>
 
-<p>JS gives you classes, attributes, methods, instances, packs of methods and way to call them, inheritance, and everything you would need to make &ldquo;real&rdquo; software. If you don&rsquo;t use it, then you&rsquo;re not doing it right.</p>
+<p>The problem we had was : We made a Controller class, and just to Namespace and separate concerns, all the AJAX calls were used from the Ajax Controller, a class of its own.</p>
 
-<p>The way to actually name everything to identify and sort them the way you understand it is called namespacing. That IS a thing, and should happen in all of the code you write. That is what I have spent the last articles talking about. That is the way to go when working on big project, even alone, and now you have to do that. You&rsquo;ve been warned. Twice.</p>
+<p>Now the problem we hit is :</p>
 
-<h2>Helpers</h2>
+<ul>
+<li>Who calls the Ajax controller? &ndash;> The controller</li>
+<li>What does the Ajax controller in case of a successful request?  &ndash;> The controller</li>
+</ul>
 
-<p>In Dev Bootcamp phase 2 we have thing thing we call lightning talks. In the afternoon, we register at least once a week to talk for 4 minutes about one particular topic. We start the week not knowing about the topic, but then we learn about it, and have 4 minutes to share about it.</p>
 
-<p>Yesterday, I had one about helpers. Helpers are all of these &ldquo;packs&rdquo; of methods that you can use in other parts of your apps. That is the name that has been given to these packs in MVC app frameworks like <a href="http://nodejs.org">Node.js</a>, <a href="http://www.sinatrarb.com">Sinatra</a> and <a href="http://rubyonrails.org">Rails</a> are good examples.</p>
+<p>That is a problem, how do you link two objects when you can not create both at the exact same time?<br/>
+And so our solution was to pass one as the argument to the other (The Ajax Controller knows about the controller), and then add the Ajax Controller to the controller</p>
 
-<p>The idea is that you have a separation between your code that shows stuff to the user, the one that does things, and the one that stocks and pulls out data. Helpers are packages that allow one of two things :<br/>
-&ndash; Be able to encapsulate a pack of code you use at multiple times in one simple method you would call instead (<a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">GET DRY !</a>, and use namespacing like I&rsquo;ve been telling you ! )<br/>
-&ndash; Be able to use simple code in the things that are supposed to only be able to print stuff to the user (ex : Show a logout button when the user is logged in. You just print something &ldquo;If logged_in == true&rdquo;)</p>
+<p><strong>In demonstration : </strong></p>
 
-<p>In Sinatra or Rails you can actually even build a whole module to plug in helpers, I did that, that was fun&hellip; Until I realized that people did it before and that I did not need to reinvent the wheel.</p>
+<pre><code class="js">
+var AjaxController = function(controller){
+    this.controller = controller;
+}
+// Do stuff with the ajax Controller
 
-<h2>Lack of sleep</h2>
+var Controller = function(){}
+// Do stuff with the Controller
 
-<p>Last week, I went to sleep at 1AM or more every day. After a week of doing that and waking up between 7 and 8 I can tell you : Don&rsquo;t do that.</p>
+$(document).ready(function(){
+    var controller = new Controller();
+    var ajaxController = new AjaxController({ 
+        controller: controller // First link
+    })
+    controller.ajaxController = ajaxController; // Link back
+})
+</code></pre>
 
-<p>I have been feeling a bit tired (what a surprise&hellip;) and ended up not being myself, like every time I am tired. When I am like that, I tend to be less patient, and to get things done silently.</p>
 
-<p>Now, DBC is about pair programming&hellip; And so I ended up trying to make things work that were just remotely connected to our project, without sharing much about where I was and what I was doing, and in the end did not get stuff to work. At some point, I had lost :<br/>
-&ndash; My focus<br/>
-&ndash; My buddy&rsquo;s focus<br/>
-&ndash; My time<br/>
-&ndash; My energy and happiness (I&rsquo;m grumpy when I don&rsquo;t make things work&hellip;)</p>
+<p>In the end, that looks very hack-ish. But then it is actually a question that people have nowadays : How do you do that? And like every good programming problem : There is no right or wrong answer ;)</p>
 
-<p>We ended up finishing the project and doing it a way I can teach people too, so that&rsquo;s cool, but it took us so much time, I wasted so much time, and I felt so bad for my pair, that most of my day was actually really tiring.</p>
+<p>I&rsquo;ll stick with that for now.</p>
 
-<p>Now, I slept more, and I am learning from my mistakes. today is another day!</p>
+<h2>APIs</h2>
 
-<p>(Plus, we had great talks with Armando, and Armando rocks haha. Oh and Armando got a new challenger, Christine is pretty awesome too :p)
-(Though, to be fair, Janet, Roy, Nic, and many others rock too haha&hellip;)</p>
+<p><a href="http://en.wikipedia.org/wiki/Application_programming_interface">APIs</a> are interfaces for your program to be able to play with some web apps around. The idea is that instead of posting status via Facebook, you build an app that can do that for you somewhere else. The link between that App and Facebook is that API.</p>
+
+<p>Your app will send a message to Facebook saying (write_status) and that will write the status.</p>
+
+<p>Yesterday we started playing with Twitter and that was fun, and today we play on more&hellip; So expect some nice links in the near future ;)</p>
+
+<h2>Changes</h2>
+
+<p>I feel like DBC changes people. Not necessarily in the best way, but that does change people anyway.</p>
+
+<p>I feel changed, I AM changed. But then, you will be able to see that the next time you meet me ;)</p>
+
+<p>I am more confident, deal with my problems a more logical way, I empathize more with my peers&hellip; All in all, I like to think I took the good in that program. I may also have taken the bad, but then I don&rsquo;t know about that yet&hellip; Only time will tell!</p>
 </div>
 
 
@@ -172,7 +191,7 @@
   
 
 
-<time datetime="2014-02-26T09:25:50-08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+<time datetime="2014-03-04T09:07:05-08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
       
 
 
@@ -180,7 +199,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -193,10 +212,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/25/week-5-day-1-oojs/" title="Previous Post: Week 5 - Day 1 - OOJS, JQuery, and hugs">&laquo; Week 5 - Day 1 - OOJS, JQuery, and hugs</a>
+        <a class="basic-alignment left" href="/blog/2014/03/01/week-5-day-5-awesome-project/" title="Previous Post: Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit">&laquo; Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/02/27/week-5-day-3-ajax/" title="Next Post: Week 5 - Day 3 - Ajax, MVC and congratulations">Week 5 - Day 3 - Ajax, MVC and congratulations &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/03/05/week-6-day-2-observer-design-pattern/" title="Next Post: Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job">Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job &raquo;</a>
       
     </p>
   </footer>
@@ -302,8 +321,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 5 - Day 2 - OOJS again and namespacing, helpers, and lack of sleep - Qt's Home</title>
+  <title>Week 5 - Day 4 - Small and repetitive code, DB Constraints, and connecting - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="OOJS again and Namespacing Yesterday I told you about Object Oriented Javascript. Today I have to tell you again : If you make some software in &hellip;">
+  <meta name="description" content="Small and repetitive code Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 5 - Day 2 - OOJS Again and Namespacing, Helpers, and Lack of Sleep</h1>
+      <h1 class="entry-title">Week 5 - Day 4 - Small and Repetitive Code, DB Constraints, and Connecting</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-26T09:25:50-08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+<time datetime="2014-02-28T09:48:47-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,48 +108,49 @@
   </header>
 
 
-<div class="entry-content"><h2>OOJS again and Namespacing</h2>
+<div class="entry-content"><h2>Small and repetitive code</h2>
 
-<p>Yesterday I told you about Object Oriented Javascript. Today I have to tell you again :</p>
+<p>Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for yourself or for the teachers. They are small, easy, and fun&hellip; And everything is relative, like Einstein said.</p>
 
-<p>If you make some software in Javascript and DON&rsquo;T use that, you are a BAD person and should feel BAD.</p>
+<p>One of the project was hard, but not because of the complicated content, but because of the amount of repetitive code we had to do.</p>
 
-<p>Javascript is powerful, and the community using it gives you some really good tools that enable you to make almost anything in JS today, but coding, like what I did before, in a whole file with random stuff around is NOT the way to go. One could try and go <a href="http://en.wikipedia.org/wiki/Procedural_programming">Procedural</a>, but then, even if procedural programming is actually a thing, it makes code that is a bit more messy, less maintainable, and less readable for the people working with you.</p>
+<p>Don&rsquo;t get the bad idea though, the challenge was cool, but it was about making a big bunch of code that we have been making for 2 weeks now. I did it late, and because of that I just ended up having to re do again, instead of doing it in the middle of my learning.</p>
 
-<p>JS gives you classes, attributes, methods, instances, packs of methods and way to call them, inheritance, and everything you would need to make &ldquo;real&rdquo; software. If you don&rsquo;t use it, then you&rsquo;re not doing it right.</p>
+<p>Anyway, the thing I got from that challenge is : Code is repetitive! That&rsquo;s why people take and make shortcuts. Sometimes, you have to make the same thing again, a few times, and that sucks. Copy pasting and all that works, but in this particular context, it did not&hellip;</p>
 
-<p>The way to actually name everything to identify and sort them the way you understand it is called namespacing. That IS a thing, and should happen in all of the code you write. That is what I have spent the last articles talking about. That is the way to go when working on big project, even alone, and now you have to do that. You&rsquo;ve been warned. Twice.</p>
+<h2>DB Constraints</h2>
 
-<h2>Helpers</h2>
+<p>I did a lightning talk about DB Constraints. The idea is that the apps that we build with Ruby On Rails, Sinatra, Nodejs, or all these things, use tools that allow you to not have to deal with database languages and small tasks by yourself.</p>
 
-<p>In Dev Bootcamp phase 2 we have thing thing we call lightning talks. In the afternoon, we register at least once a week to talk for 4 minutes about one particular topic. We start the week not knowing about the topic, but then we learn about it, and have 4 minutes to share about it.</p>
+<p>But then, people tend to forget that in the end, we ARE working with databases. And what if one day your app falls apart? What if you want to change some portion of your code, among which is the DB reader thingy?</p>
 
-<p>Yesterday, I had one about helpers. Helpers are all of these &ldquo;packs&rdquo; of methods that you can use in other parts of your apps. That is the name that has been given to these packs in MVC app frameworks like <a href="http://nodejs.org">Node.js</a>, <a href="http://www.sinatrarb.com">Sinatra</a> and <a href="http://rubyonrails.org">Rails</a> are good examples.</p>
+<p>If you don&rsquo;t put any constraints on your database, then you have a problem because now people can use empty username, 1230912301921309 characters numbers, etc&hellip;</p>
 
-<p>The idea is that you have a separation between your code that shows stuff to the user, the one that does things, and the one that stocks and pulls out data. Helpers are packages that allow one of two things :<br/>
-&ndash; Be able to encapsulate a pack of code you use at multiple times in one simple method you would call instead (<a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">GET DRY !</a>, and use namespacing like I&rsquo;ve been telling you ! )<br/>
-&ndash; Be able to use simple code in the things that are supposed to only be able to print stuff to the user (ex : Show a logout button when the user is logged in. You just print something &ldquo;If logged_in == true&rdquo;)</p>
+<p>So to prevent that, put constraints!
+When I say constraints, you can limit your 4 things (or 5) :</p>
 
-<p>In Sinatra or Rails you can actually even build a whole module to plug in helpers, I did that, that was fun&hellip; Until I realized that people did it before and that I did not need to reinvent the wheel.</p>
+<ul>
+<li>:limit : Works for binary, numbers, strings, and texts, and set the max number of characters</li>
+<li>:null : Allows (Or not allow, if you give it false) this column to have a null entry in it</li>
+<li>:default : Give a default value to that field when none is entered</li>
+<li>:precision / :scale : Specifies the number of digits you can give, and the number of digits after the decimal</li>
+</ul>
 
-<h2>Lack of sleep</h2>
 
-<p>Last week, I went to sleep at 1AM or more every day. After a week of doing that and waking up between 7 and 8 I can tell you : Don&rsquo;t do that.</p>
+<p>See? That was not hard!</p>
 
-<p>I have been feeling a bit tired (what a surprise&hellip;) and ended up not being myself, like every time I am tired. When I am like that, I tend to be less patient, and to get things done silently.</p>
+<p>Now, go ahead and go read : <a href="http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_column">this</a>.</p>
 
-<p>Now, DBC is about pair programming&hellip; And so I ended up trying to make things work that were just remotely connected to our project, without sharing much about where I was and what I was doing, and in the end did not get stuff to work. At some point, I had lost :<br/>
-&ndash; My focus<br/>
-&ndash; My buddy&rsquo;s focus<br/>
-&ndash; My time<br/>
-&ndash; My energy and happiness (I&rsquo;m grumpy when I don&rsquo;t make things work&hellip;)</p>
+<h2>Connecting</h2>
 
-<p>We ended up finishing the project and doing it a way I can teach people too, so that&rsquo;s cool, but it took us so much time, I wasted so much time, and I felt so bad for my pair, that most of my day was actually really tiring.</p>
+<p>One thing we do here is connecting. We spend all of our time together, we are now a huge family where everybody has to know and live with everybody.</p>
 
-<p>Now, I slept more, and I am learning from my mistakes. today is another day!</p>
+<p>Yesterday, Irene and I &ldquo;cashed in&rdquo; my free meal from Sherif, our big first phase teacher that we don&rsquo;t see much because we&rsquo;re in phase 2 now, because we finished our sudoku solver that solves 170 sudokus in less than a minutes (8.5 seconds whaddup!).<br/>
+That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, when he is &ldquo;off duty&rdquo;, we learn a lot from him!</p>
 
-<p>(Plus, we had great talks with Armando, and Armando rocks haha. Oh and Armando got a new challenger, Christine is pretty awesome too :p)
-(Though, to be fair, Janet, Roy, Nic, and many others rock too haha&hellip;)</p>
+<p>He told us a lot about how he had trouble connecting with the new cohort and I feel bad for them.</p>
+
+<p>Today, I went/am going to eat with Strand, and that is awesome. He&rsquo;s a 2nd phase teacher and I feel like I&rsquo;m connecting with everybody and I love it ^.^</p>
 </div>
 
 
@@ -172,7 +173,7 @@
   
 
 
-<time datetime="2014-02-26T09:25:50-08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+<time datetime="2014-02-28T09:48:47-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
       
 
 
@@ -180,7 +181,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -193,10 +194,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/25/week-5-day-1-oojs/" title="Previous Post: Week 5 - Day 1 - OOJS, JQuery, and hugs">&laquo; Week 5 - Day 1 - OOJS, JQuery, and hugs</a>
+        <a class="basic-alignment left" href="/blog/2014/02/27/week-5-day-3-ajax/" title="Previous Post: Week 5 - Day 3 - Ajax, MVC and congratulations">&laquo; Week 5 - Day 3 - Ajax, MVC and congratulations</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/02/27/week-5-day-3-ajax/" title="Next Post: Week 5 - Day 3 - Ajax, MVC and congratulations">Week 5 - Day 3 - Ajax, MVC and congratulations &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/03/01/week-5-day-5-awesome-project/" title="Next Post: Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit">Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit &raquo;</a>
       
     </p>
   </footer>
@@ -302,8 +303,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/';
         var disqus_script = 'embed.js';
       
     (function () {

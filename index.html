@@ -9,7 +9,7 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="OOJS again and Namespacing Yesterday I told you about Object Oriented Javascript. Today I have to tell you again : If you make some software in &hellip;">
+  <meta name="description" content="Observer Design Pattern Design patterns are a very important thing in Development. The idea is that experienced developers came up with the idea that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,457 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/05/week-6-day-2-observer-design-pattern/">Week 6 - Day 2 - Observer Design Pattern, EE Aftermath, and Looking for a Job</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-05T09:22:11-08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/05/week-6-day-2-observer-design-pattern/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Observer Design Pattern</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Software_design_pattern">Design patterns</a> are a very important thing in Development. The idea is that experienced developers came up with the idea that no matter the language, the experience, the software they were building, they always ended up on the exact same problems. And then they came up with a &ldquo;simple solution&rdquo; for that, simpler than the problem at least.</p>
+
+<p>So, they came up with design patterns they could use next time they would encounter that same problem. Many of them are useful mainly in statically typed languages like Java or C, but most of them are actually useful, for your own logic development, and for the time you might have to end up using these languages.</p>
+
+<p>Also, since it is a pretty complicated notion, it does show people (like recruiters&hellip;) that you actually know what you are talking about, which is not a bad thing right?</p>
+
+<p>Yesterday, I did a lightning talk about the <a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer Pattern</a>. The idea is that it is a solution to the problem :</p>
+
+<ul>
+<li>I have objects that must be aware of changed of a particular object</li>
+</ul>
+
+
+<p>The solution is pretty simple. You actually give all the info to the observed (called observable) object.</p>
+
+<ul>
+<li>The observer gets an &ldquo;update&rdquo; method that will be triggered by the observable with the info it sent.</li>
+<li>The observable gets a &ldquo;notify&rdquo; method that triggers the update method of the observers</li>
+<li>The observable has a list of observers and relative methods (add/remove/number of them)</li>
+</ul>
+
+
+<p>And that is it. According to the language you&rsquo;ll use, you will have modules to do so (<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/observer/rdoc/Observable.html">Observable in Ruby</a>), Interfaces (like some implementations in Java), but the idea will always be the same.</p>
+
+<p>Now go on and play with it !</p>
+
+<h2>Engineering Empathy Aftermath</h2>
+
+<p>We still have Engineering Empathy in phase 2. Yesterday was the last session, about what triggers us and how to respond accordingly.</p>
+
+<p>I did use that without even knowing about what I was doing. The idea is that when something triggers you, you stop, breathe, think about what&rsquo;s happening, then select the best response and respond. I tend to do that myself, mostly because I am overthinking everything.</p>
+
+<p>Now, yesterday was also 3rd EE session for the phase 1, the Golden Bears. It is a really strong and heavy session, even though it is also a very liberating one. I felt like I wanted to be there for the people and so I spent my evening with anybody I could find, and that was nice.</p>
+
+<p>They are affected, but they seem ok&hellip; You may find it strange, but just like a big brother about his younger siblings, I feel relieved to see they are doing fine&hellip;</p>
+
+<h2>Looking for a job</h2>
+
+<p>Things are going well at DBC, but yesterday I had a bit of time and ended up thinking about jobs. After all, that is one of the endpoint of this program, a reason why I came here.</p>
+
+<p>I know that before I came here, hired was the only site I tried to join, and I just not being accepted. But now, things have changed. I have good proofs of what I can do, I have more mastery, people that can vouch for me&hellip;</p>
+
+<p>I am thinking about that way in advance, but I feel like I want and have to. Being a foreigner, these things may be trickier, so I need to be better, and faster.</p>
+
+<p>So now, time to work on side project to show my worth, and then use that!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/04/week-6-day-1-more-oojs/">Week 6 - Day 1 - More OOJS, APIs, and Changes</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-04T09:07:05-08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/04/week-6-day-1-more-oojs/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>More OOJS</h2>
+
+<p>Yesterday, I paires with Harry. We have a great dynamic going on and we ended up building a good MVC system on Javascript for one of the challenges we had.</p>
+
+<p>People don&rsquo;t necessary get it so by the end of the week I&rsquo;ll try to send some code that I came up with for private projects, as an example.</p>
+
+<p>As for the rest, we had a lot of fun and played with that a bit, to the point that we ended up falling short on a problem that apparently many people have. It feels good to not feel like you&rsquo;re outside of that whole development world ;)</p>
+
+<p>The problem we had was : We made a Controller class, and just to Namespace and separate concerns, all the AJAX calls were used from the Ajax Controller, a class of its own.</p>
+
+<p>Now the problem we hit is :</p>
+
+<ul>
+<li>Who calls the Ajax controller? &ndash;> The controller</li>
+<li>What does the Ajax controller in case of a successful request?  &ndash;> The controller</li>
+</ul>
+
+
+<p>That is a problem, how do you link two objects when you can not create both at the exact same time?<br/>
+And so our solution was to pass one as the argument to the other (The Ajax Controller knows about the controller), and then add the Ajax Controller to the controller</p>
+
+<p><strong>In demonstration : </strong></p>
+
+<pre><code class="js">
+var AjaxController = function(controller){
+    this.controller = controller;
+}
+// Do stuff with the ajax Controller
+
+var Controller = function(){}
+// Do stuff with the Controller
+
+$(document).ready(function(){
+    var controller = new Controller();
+    var ajaxController = new AjaxController({ 
+        controller: controller // First link
+    })
+    controller.ajaxController = ajaxController; // Link back
+})
+</code></pre>
+
+
+<p>In the end, that looks very hack-ish. But then it is actually a question that people have nowadays : How do you do that? And like every good programming problem : There is no right or wrong answer ;)</p>
+
+<p>I&rsquo;ll stick with that for now.</p>
+
+<h2>APIs</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Application_programming_interface">APIs</a> are interfaces for your program to be able to play with some web apps around. The idea is that instead of posting status via Facebook, you build an app that can do that for you somewhere else. The link between that App and Facebook is that API.</p>
+
+<p>Your app will send a message to Facebook saying (write_status) and that will write the status.</p>
+
+<p>Yesterday we started playing with Twitter and that was fun, and today we play on more&hellip; So expect some nice links in the near future ;)</p>
+
+<h2>Changes</h2>
+
+<p>I feel like DBC changes people. Not necessarily in the best way, but that does change people anyway.</p>
+
+<p>I feel changed, I AM changed. But then, you will be able to see that the next time you meet me ;)</p>
+
+<p>I am more confident, deal with my problems a more logical way, I empathize more with my peers&hellip; All in all, I like to think I took the good in that program. I may also have taken the bad, but then I don&rsquo;t know about that yet&hellip; Only time will tell!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/01/week-5-day-5-awesome-project/">Week 5 - Day 5 - Awesome Project, MVC Javascript, and Cohort Tribe Spirit</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-01T12:01:41-08:00" pubdate data-updated="true">Mar 1<span>st</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/01/week-5-day-5-awesome-project/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Awesome project</h2>
+
+<p>Yesterday we had our second group project of phase 2. The idea of this one is : create a new version of <a href="https://surveymonkey.com">SurveyMonkey</a>. This time, we could choose our groups. Just like &hellip; most of the time. I checked around, saw Armando, he nodded, and we&rsquo;re in the same group!
+We grouped with Henry, a new guy who repeated our phase, that I had not had the chance of talking with so far, Chermaine, who I had yet to pair with (really sorry >.&lt;), even though we&rsquo;re in the same accountability group (A group of 3 students of the same cohort that have to take care of each other), and Chris Woodrich, who is really an awesome dude, even though we end up messing with each other all the time.</p>
+
+<p>Armando came with the awesome team name : The Ultimate Amazing Super Best Friends!</p>
+
+<p>You can check how our project is going on : <a href="https://github.com/chriswoodrich/TUASBF/">https://github.com/chriswoodrich/TUASBF/</a></p>
+
+<p>We have an awesome dynamic, we&rsquo;re all very happy to work with each other, and the project is really going well. I can&rsquo;t wait til we present it on monday!</p>
+
+<h2>MVC Javascript</h2>
+
+<p>I won&rsquo;t talk for hours about that, I&rsquo;ve been talking about it for days so you&rsquo;re probably tired about it already, but Javascript is to be used with an object oriented programming style. You can do it, and if you don&rsquo;t you will end up having a lot of troubles.</p>
+
+<p>Now, we work on small JS projects here and there and even though I had some trouble finding where some part of my code would go (View or Controller for the listeners etc&hellip;). Now I do know and I really like it.</p>
+
+<p>I could spend hours explaining how to do stuff, but instead, I&rsquo;ll just say : I do it, I like it, I can explain it if you want, and I&rsquo;ll try to release some code where I do that on my <a href="https://github.com/Qt-dev">Github</a> whenever I can.</p>
+
+<h2>Cohort tribe spirit</h2>
+
+<p>A few things that Sherif (The guru that taught us in phase 1 haha) told us :</p>
+
+<ul>
+<li>&ldquo;If you think that you can become developers in 9 weeks, you are insane. All of you. But then, that is that common insanity that will take you there. It is that shared insanity that will make you actually succeed in that.&rdquo;</li>
+<li>&ldquo;You are a tribe. You are seen as such, you have a tribe spirit that is the way people and feel your whole group. Every cohort has a different spirit, and gives a different feeling&rdquo;</li>
+</ul>
+
+
+<p>These ideas will not be surprising to anybody who knows the guy. Now, we had a few nice talk about this.</p>
+
+<p>Nowadays, we have 3 cohorts in DBC. The Sea Lions, in phase 3, the Banana Slugs (US!) in phase 2, and Golden Bears in phase 1.
+And apparently, even just these 3 have a VERY different spirit.</p>
+
+<p>Sea Lions are apparently like university students. Their first instinct is more to work alone, even though they don&rsquo;t have any problem in forming groups in need be.</p>
+
+<p>The Banana Slugs are seen as overachieving kids. We are the kind of kids that say things like &ldquo;Oh look dad, a mountain! Look at me I&rsquo;ll go climb the thing faster that anybody else!&rdquo;. We crave on challenges that we can work on together and just be as awesome as one could be! Haha</p>
+
+<p>The Golden Bears are much more &ldquo;shy&rdquo;. Compared to us and our 2 hours of questions and ideas exchanges that we had to timebox everyday, the echo I get from some of them I talked to and from their instructors is that they are very silent and studious.</p>
+
+<p>At the end, none of us is right or wrong, but seeing that big of a difference in such a short amount of time is really interesting.</p>
+
+<p>But then, the idea is that the presence of all of these people is what is actually helping us get to the end. We work 15 hours a day, something I would NEVER have thought would happen before coming here. We support each other, help each other, and at the end I think that Sherif was actually right, that common insanity that makes us stay that late, that makes us work our asses off without even realizing that, is what takes us where we are.</p>
+
+<p>We learned Javascript/Object Oriented JS in one week, Everything we could about Sinatra, MVC WebApp frameworks, and all that in one week&hellip; That happens only in such conditions and I am really grateful about that!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/">Week 5 - Day 4 - Small and Repetitive Code, DB Constraints, and Connecting</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-28T09:48:47-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Small and repetitive code</h2>
+
+<p>Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for yourself or for the teachers. They are small, easy, and fun&hellip; And everything is relative, like Einstein said.</p>
+
+<p>One of the project was hard, but not because of the complicated content, but because of the amount of repetitive code we had to do.</p>
+
+<p>Don&rsquo;t get the bad idea though, the challenge was cool, but it was about making a big bunch of code that we have been making for 2 weeks now. I did it late, and because of that I just ended up having to re do again, instead of doing it in the middle of my learning.</p>
+
+<p>Anyway, the thing I got from that challenge is : Code is repetitive! That&rsquo;s why people take and make shortcuts. Sometimes, you have to make the same thing again, a few times, and that sucks. Copy pasting and all that works, but in this particular context, it did not&hellip;</p>
+
+<h2>DB Constraints</h2>
+
+<p>I did a lightning talk about DB Constraints. The idea is that the apps that we build with Ruby On Rails, Sinatra, Nodejs, or all these things, use tools that allow you to not have to deal with database languages and small tasks by yourself.</p>
+
+<p>But then, people tend to forget that in the end, we ARE working with databases. And what if one day your app falls apart? What if you want to change some portion of your code, among which is the DB reader thingy?</p>
+
+<p>If you don&rsquo;t put any constraints on your database, then you have a problem because now people can use empty username, 1230912301921309 characters numbers, etc&hellip;</p>
+
+<p>So to prevent that, put constraints!
+When I say constraints, you can limit your 4 things (or 5) :</p>
+
+<ul>
+<li>:limit : Works for binary, numbers, strings, and texts, and set the max number of characters</li>
+<li>:null : Allows (Or not allow, if you give it false) this column to have a null entry in it</li>
+<li>:default : Give a default value to that field when none is entered</li>
+<li>:precision / :scale : Specifies the number of digits you can give, and the number of digits after the decimal</li>
+</ul>
+
+
+<p>See? That was not hard!</p>
+
+<p>Now, go ahead and go read : <a href="http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_column">this</a>.</p>
+
+<h2>Connecting</h2>
+
+<p>One thing we do here is connecting. We spend all of our time together, we are now a huge family where everybody has to know and live with everybody.</p>
+
+<p>Yesterday, Irene and I &ldquo;cashed in&rdquo; my free meal from Sherif, our big first phase teacher that we don&rsquo;t see much because we&rsquo;re in phase 2 now, because we finished our sudoku solver that solves 170 sudokus in less than a minutes (8.5 seconds whaddup!).<br/>
+That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, when he is &ldquo;off duty&rdquo;, we learn a lot from him!</p>
+
+<p>He told us a lot about how he had trouble connecting with the new cohort and I feel bad for them.</p>
+
+<p>Today, I went/am going to eat with Strand, and that is awesome. He&rsquo;s a 2nd phase teacher and I feel like I&rsquo;m connecting with everybody and I love it ^.^</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/27/week-5-day-3-ajax/">Week 5 - Day 3 - Ajax, MVC and Congratulations</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-27T11:34:30-08:00" pubdate data-updated="true">Feb 27<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/02/27/week-5-day-3-ajax/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Ajax</h2>
+
+<p>What is Ajax?</p>
+
+<p>Well&hellip; It is not a <a href="http://en.wikipedia.org/wiki/Ajax_(cleaning_product">cleaning product</a>), or a <a href="http://en.wikipedia.org/wiki/AFC_Ajax">football team</a>. Ajax, or more A.J.A.X. stands for Asynchronous Javascript And XML. <a href="http://en.wikipedia.org/wiki/Ajax_(programming">Wikipedia</a>)</p>
+
+<p>Javascript is a very well known scripting language used widely on the internet nowadays (I would say on webpages, but the use is even wider than that). <a href="http://en.wikipedia.org/wiki/XML">XML</a> is a markup language that looks a lot like HTML (One could even say like two brothers &ndash;<em>hint</em>&ndash; with the same parents &ndash;<em>hint</em>&ndash;&hellip;). Basically, it is supposed to be a way to stock data between tags that look like : &lt; stuff >This is stuff&lt; /stuff >.</p>
+
+<p>In short, what AJAX is is a link between the Javascipt (= the language that makes stuff display dynamically in your page) interact with stuff, using XML (at first, now that part changed), and then giving you info back, without disrupting the lifecycle of your page viewing.</p>
+
+<p>When you get on Facebook and get to the bottom of the page, you know how it loads the rest? AJAX. Javascript sends a request, get data, adds it in your browser. You don&rsquo;t reload, JS does this refreshing for you, and replaces what needs to be replaced.</p>
+
+<p>If you&rsquo;re looking for more examples : You load Buzzfeed, and only the first image loads first: AJAX. You read twitter and it shows you a new tweet on top when one appears: AJAX. You register on any site that is less than 10 years old and it just shows a &ldquo;You have been registered&rdquo;: AJAX.</p>
+
+<p>Let&rsquo;s just say it is used everywhere nowadays, more of less, to enable the &ldquo;one-page&rdquo; web-browsing habits you got used to.</p>
+
+<p>And that is what we did yesterday. The idea, in more technical terms, is that your javascript (or JQuery) sends the same request that you were sending from a link, or a button (<a href="http://en.wikipedia.org/wiki/Representational_state_transfer#Vocabulary_re-use_vs._its_arbitrary_extension:_HTTP_and_SOAP">POST, GET, etc&hellip; RESTful routes</a>), and treat that data. It can redirect if need be, or just print that new alert, tweet, post, or even just do nothing even though the server got all the info you sent (Bad practice guys&hellip; stop doing that, please)</p>
+
+<p>We did it with simple exercises but that was part of the things that I did not know about. Now I do, and I love it. Expect some nice projects with that when I get some time!</p>
+
+<h2>MVC</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> stands for Model-View-Controller (And yes, today is acronyms day in Quentin&rsquo;s world).</p>
+
+<p>It is part of the &ldquo;Software design patterns&rdquo;. If you don&rsquo;t know about design patterns and you are a developer, please be ashamed of yourself.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Design_pattern_(computer_science">Design patterns</a>) are a funny and important topic. The idea is that at some point, people realized that no matter the language, the scope of the problems, the kind of apps, etc&hellip; The problems developers were facing could very often fit in one of a very few number of cases. And once they had a solution for a problem, they could actually re use that same solution for every one of the problems they had later that had similar traits with the one they just solved.</p>
+
+<p>So from that, they built &ldquo;patterns&rdquo;, saying : When you have Problem 1, it can be solved with Solution 1. The problem is not necessarily clearly defined and may very well be more widely defined than what they thought about, just like the solution is very often quite hard to understand, maybe even more than the problem itself. Yet, Problem 1 will always be solved by Solution 1. You can make something up, but in the end you&rsquo;ll just redefine Solution 1.</p>
+
+<p>Think about it this way : Some people one day invented wheel (Great example). We changed the kind of wheels we used, the materials we used, and we even made stuff that remotely look like wheels but are not really, will never roll and all that.<br/>
+But in the end, where you need something that can help things turn, an object that supports other things and enable it to move, you make a wheel. If you try to make it another way, it&rsquo;ll not really fit until you make a wheel. Maybe one day somebody will find a great counterargument for the wheel. Yet, that solution seems to be pretty useful, we&rsquo;ve been using it for millenias after all.</p>
+
+<p>Design patterns are like wheels of your program. You use them, and you don&rsquo;t have to search for what is the best solution to support your object and make it move easily, you don&rsquo;t reinvent the wheel every time you want to do that (Yes, I used that example for that &lsquo;pun&rsquo;).</p>
+
+<p>If you develop, you should learn about and start using them. You will be asked about them, they will be an insight on your proficiency, and using them will save you a great lot of time.</p>
+
+<p>Among these Design Patterns, MVC is an architectural decision where you decide that instead of putting everything together, you&rsquo;re gonna split things up :<br/>
+&ndash; <strong>Models</strong> : They are your object. They know their states, and they can change/add/return theses states. A tree has branch, but a tree does not cut itself. It can just &hellip; be, and have characteristics.<br/>
+&ndash; <strong>Views</strong> : What you are going to show that user. Are you going to print stuff to the console? Print in the page? Play that in Gifs? It only knows about itself, and you tell the &lsquo;view&rsquo; to &lsquo;Show the menu&rsquo;, or &lsquo;Give the answer&rsquo; and give it an answer to show.
+&ndash; <strong>Controllers</strong> : The core. It has Models and views, and makes things happen between them. It is where you logic should be.</p>
+
+<p>If I have time I&rsquo;ll get you some example of that made by a new boot. She really defined it the way it should, and if you need an example, that will be it ^.^</p>
+
+<h2>Congratulations</h2>
+
+<p>I can&rsquo;t be speaking only about coding. The header says &ldquo;A frenchman discovering the world&rdquo;, not &ldquo;A coder coding code&rdquo;.</p>
+
+<p>So today, I&rsquo;ll just say that yesterday, I got my first congratulations for the work I have accomplished. And that is a big deal for me.</p>
+
+<p>For those who don&rsquo;t know me, I am in DevBootcamp not to graduate&hellip; But to ACE it. I am here to show the world that I CAN do it.
+That is what I came for. That is what I work my ass for and I will keep on doing that.</p>
+
+<p>I want to be the proof for everybody I can that, no matter what you&rsquo;re told (I was told when I was a kid that I may just not live up to 20, I was told that I needed a diploma, I was told a lot of things), no matter what happens, what people think of you, you can be what you want to.</p>
+
+<p>I have always believed that one could be what he wanted to be if he poured his heart into it (Too much disney, some may say), even though some times and/or places may have been pressuring hard on that belief, but now I want to be the living proof that this is true.</p>
+
+<p>And if you feel like this is far from the truth&hellip;</p>
+
+<p>Watch me.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -483,385 +934,6 @@ I love that. I love that new family, every one of them! (Or maybe not Matthew? I
 
     </article>
   
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/19/week-4-day-2-testing/">Week 4 - Day 2 - Testing, Helping, and Buying</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-19T09:32:14-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/19/week-4-day-2-testing/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Testing</h2>
-
-<p>Yesterday, we paired with Elliot, a new Banana Slug who is re doing Phase 2. We had 4 challenges&hellip; and ended up not really finishing one. We had a great dynamic, we both learned tons and spent most of the day working on testing with <a href="https://relishapp.com/rspec">Rspec</a> on Sinatra, the tool we&rsquo;re working with at the moment.</p>
-
-<p>The challenge we worked on was making a simplified version of <a href="http://sfbay.craigslist.org/">CraigsList</a>.<br/>
-So to do that you need to meet these requirements :</p>
-
-<ul>
-<li>The front page creates a list of categories</li>
-<li>Each category has many posts</li>
-<li>A user can create a post in a category, and/or create a category</li>
-<li>A user that created a post gets a key/url that allows him and only him to edit or delete that post</li>
-</ul>
-
-
-<p>For that, we created tests, a lot of them. But then we forgot one of the basic principle : When you finish writing your test, you need to make it pass before working on the next one.</p>
-
-<p>Just for that, we worked and learned a lot but being at the end and having to work on all that from scratch was a mess and we ended up working on other things.</p>
-
-<h2>Helping</h2>
-
-<p>So, I was told I am a patient person. Hell, I was even talk this very morning that I was a Cool person! Also, I already said that I have a bit of experience with the stuff we work with.</p>
-
-<p>From that, I can tell you that I like helping, and spend a lot of my days doing so.</p>
-
-<p>Yesterday, we worked with Elliot, and I actually spent a lot of time trying to solve a lot of problems and explaining what we did to the people who were stuck. People came, people go, came again, and we spent like half of the day working on solving people&rsquo;s bugs. I have no problem with that, and I like to think that I learn much more by doing that than by just coding by myself, but then I also feel bad for Elliot who basically spent half of his day not &hellip; working on solving our problem.</p>
-
-<p>When we thought about stopping with that craigslist challenge, I went around and tried to help the people that I had not seen before. I ended up working on stuff with Golden Bears, and that was fun too (And took less of Elliot&rsquo;s time, so I&rsquo;m even happier about that haha)</p>
-
-<p>In the end, that was a fun day anyway.</p>
-
-<h2>Buying</h2>
-
-<p>I started buying a couple of things. First thing is that I bought socks and underwear. I ended up in Uniqlo this weekend, a brand I really like, and they had sales&hellip; That coupled with the fact that I did not bring enough socks to have at least a 7 days period before I need any laundry made me buy a lot of socks&hellip; and then other stuff on sales haha. Don&rsquo;t worry though, I took advantage of the Dollar being lower than the Euro, and the conversion being a 1 to 1 in everyday&rsquo;s prices.</p>
-
-<p>Another thing I had to buy was a beard trimmer. I was thinking about going to the barbershop (because the US HAS barbershops), but I ended up not having the time, the opportunity, or even the reason since I feel like spending valuable time there would be a waste if I just wanted to trim a bit.<br/>
-So instead of that I bought a beard trimmer, and played with it. I spent a lot of time playing with it yesterday. I spent a lot of time playing with it today, and now I love my beard even more.</p>
-
-<p>Now, I also bought other stuff, but then some are surprises so&hellip; brace yourself, news are coming tomorrow too ;)</p>
-
-<p>PS : Today is my fiance and I&rsquo;s 6th anniversary&hellip; I love you Thuy, you make me happy and I will do my best to make that happen for you to&hellip; Everyday of the rest of my life.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/18/week-4-day-1-new-people/">Week 4 - Day 1 - New People, New Challenges, Personal Projects</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-18T08:50:01-08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/18/week-4-day-1-new-people/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>New People</h2>
-
-<p>Welcome to the Golden Bears!<br/>
-Yesterday was our Phase 2 first day, but also Phase 1&rsquo;s first day. A load of new people arrived in that small place that is DBC&rsquo;s current office, and so, we had to welcome them!</p>
-
-<p>The idea is that we got to get here at 8-8.30AM. Then, we shouted, gave advices, talked, ate,&hellip; All in all, a very good day!<br/>
-The new guys look cool, and it was really nice to see them approach the problems we had a different way. People ended up, from what I saw, working a lot on challenges where we did not really work much, and not care much about the ones we spent a lot of time on. That was refreshing, and fun to discover new bugs, new problems. Different approaches, different paths, I can&rsquo;t wait &lsquo;til they get on harder problems and blow my mind with problems I can&rsquo;t solve&hellip; again!</p>
-
-<p>And among the new people, they have another french dude! Plus, they also have a Korean girl who lived in France&hellip; New people to bother with conversations in random languages!</p>
-
-<h2>New Challenges</h2>
-
-<p>We started phase 2. Phase 2 is more about web development. We play with <a href="http://www.sinatrarb.com">Sinatra</a>, and are starting to make stuff that is actually stuff we can share with people who are not developers and they can use it and even get impressed with that with some luck.</p>
-
-<p>On these first challenges we paired with Jose. We had a great dynamic, no complex, and ended up helping each other into not getting stuck much, and completing the challenges. I feel like I learned a lot, and I really enjoyed that day. Even when I would think I was spending too much time on something, I checked around and found out that we were actually going quite fast. That problem was taking a bit more time than the rest of it, but then we went a bit fast on the other things and so in the end, what was confusing was our own change of pace more than the real speed at which we were going at that moment.</p>
-
-<p>Anyway, at the end of the day I learned, I worked, finished what I wanted, and if I had to sum it up&hellip; it was a great day.</p>
-
-<h2>Personal Projects</h2>
-
-<p>Now we can work on stuff that we can show to &ldquo;normal&rdquo; people. But then we&rsquo;re also using some stuff that I already know. I am not nearly good enough at all of these, but I do have some experience on some of these topics, and could just use that and be fine with that. But then I am not here to take the easy path. I am here because I want to learn.</p>
-
-<p>To do so, I figured (= People told me I should&hellip; ) I&#8217;ld start working on some personal projects. I have ideas, things to do, and so why not learn by pushing even further and work on that, independently of the things we work on.</p>
-
-<p>I&rsquo;ll try to work on blog articles to explain what I do, and share as much as I can. First day&rsquo;s work was quite long so I ended up not being able to do much, but expect more once I have more time!</p>
-
-<p>Also, phase 2 is full of &ldquo;Portfolio Projects&rdquo;. We&rsquo;ll have a lot of them, to be delivered on sundays. I&rsquo;ll share every one of them, and try to explain the thought process every time I work on one, so that&rsquo;ll be another thing to look for!</p>
-
-<p>Anyway, time to get back to coding, see you guys tomorrow!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/16/week-3-day-5-party/">Week 3 - Day 5 - Party~</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-16T14:37:26-08:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/16/week-3-day-5-party/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&lsquo;twas the day before the end of the phase. People were happy, exhausted, and alcohol and songs mixed up to help the moods enlighten.<br/>
-Week 3 Day 5, everybody has had his assignment. The outcome of these assignments is just an advice, then people had time to make their choices. Some of our cohort (2 I think, but we&rsquo;ll get the confirmation on monday) chose to go back to work on the same phase again, not feeling ready for the next one yet yet. Most chose to go on to the next level of difficulty. And That applies for phase 1 as for phase 2.</p>
-
-<p>One thing to know is that there are 2 differences between a phase and the next one.<br/>
-The first difference is : The next one is always more difficult that the current one. It starts higher, has a higher rhythm, everything will be harder.<br/>
-The second one is : The next phase will get harder much faster that the current. You start higher, and you&rsquo;ll have more work, to do in less time. More projects, and you&rsquo;ll have to learn things faster, and better.<br/>
-Behold, fellow students, winter is not coming, Mayhem is.</p>
-
-<p>Now, on the last friday of each phase, everybody knows where they&rsquo;re going, phase 1, phase 2, phase 3. Everybody finished their projects, presented what they wanted, and now they just have to &ldquo;wait&rdquo; for monday. So on this friday, we get beer, pizzas, mics, music on the big screen, and we partayyyyy~</p>
-
-<p>Wait is a big word though, everybody who was in this program will tell you that. New material, new studies and all that are on the next monday so on this weekend, people are stressed out and tend to study as much as they can about the new stuff we&rsquo;ll have to deal with on the next monday.</p>
-
-<p>For me, I spent one day discovering stuff. I went to Target, Whole Foods. I went to the Chinese New year&rsquo;s parade in San Francisco. And now, I am studying a bit about Sinatra and stuff. Things are going well, but I prefer resting before the mayhem. It&rsquo;ll get crazy whatever I do, so I might as well just rest before that ;)</p>
-
-<p>Anyway, see you on tuesday for news about monday&hellip; And the new cohort! And Welcome to the Golden Bears!</p>
-
-<p>(PS : Marching bands are AWESOME! :
-<img src="http://i.imgur.com/2Tl0g0Ll.jpg" alt="A nice picture of me in there!" />
-)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/14/making-a-new-faker/">Making a New Faker Gem</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-14T20:36:16-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/14/making-a-new-faker/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Let&rsquo;s me sum some stuff up first before I start :</p>
-
-<ul>
-<li>Gem : A Gem is a &ldquo;library&rdquo;, a pack of code, in the programmatic language we call Ruby, that enables us to use functions not built in the languages without having to rewrite the code. When one feels he has enough code to share, he can wrap it up in a &ldquo;Gem&rdquo; that will be easily installable and usable by the other Ruby programmers.</li>
-<li>Faker : Faker is a gem that basically gives you random data. Let&rsquo;s say you want to make a huge database and want to test the load for when you have more than 1000 users. Instead of writing either 1000 times the same name or use 1000 names you write one by one, Faker will generate a random one for each of these entries. Pretty useful.</li>
-</ul>
-
-
-<p>But then, Faker generates what it has been built for. Generating team names, or even slogans, are not what it has been made for. So as a 2 days project with my fellow boots of Phase 1 DevBootcamp we created one that made the things we want. You can check the code here : <a href="https://github.com/Qt-dev/cool-faker">Github</a>, and more info on how to download the gem on : <a href="https://rubygems.org/gems/cool_faker">Rubygem</a>.</p>
-
-<p>Basically, we used <a href="http://bundler.io/v1.5/rubygems.html">bundle</a> to make the gem architecture, the files we needed. Then, we took a look at how Faker was built and decided to go around that same way, with our data stocked in a yaml file, and using the <a href="http://ruby-doc.org/stdlib-2.1.0/libdoc/yaml/rdoc/YAML.html">yaml</a> module to load it and get the data we wanted in ruby.</p>
-
-<p>And we end up with a gem that has 4 different functions :</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a random Character name from a famous movie, or tv show. The titles include The Lord of the Ring, Superman, Starwars, friends, or futurama.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name_from</span><span class="p">(</span><span class="n">movie_or_tv_show</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a random name from the movie or tv show that you called.
-Your options are :</p>
-
-<ul>
-<li>friends</li>
-<li>entourage</li>
-<li>sex_and_the_city</li>
-<li>batman</li>
-<li>startrek</li>
-<li>superman</li>
-<li>star_wars</li>
-<li>the_lord_of_the_rings</li>
-<li>napolean_dynamite</li>
-<li>snow_white</li>
-<li>back_to_the_future</li>
-<li>the_wizard_of_oz</li>
-<li>toy_story</li>
-<li>the_simpsons</li>
-<li>futurama</li>
-<li>monty_python</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">slogan</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a random slogan from a 587 quotes database</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">name</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a team name from a list of adjectives and a list of animal names. Expect some funny names, gender-confused pandas is a good one ;)</p>
-
-<p>With all that, we ended up making the gem with a simple</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">build</span> <span class="n">cool_faker</span><span class="o">.</span><span class="n">gemspec</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then send it to rubygems.org, and here we go.</p>
-
-<p>All in all, we ended up shipping a gem without knowing about gem building/shipping, building dozens of tests without knowing about rspec&hellip; a good 2 days of intense learning, a lot of fun, and we end up with an usable tool. I&rsquo;m pretty happy about it!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/14/week-3-day-4-group-projects/">Week 3 - Day 4 - Group Project and Good News</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-14T09:41:20-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/14/week-3-day-4-group-projects/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Group Project</h2>
-
-<p>Yesterday we started a new group project. This time, it&rsquo;s a 2 days stretch. You can follow how it&rsquo;s going on <a href="https://github.com/Qt-dev/cool-faker">Github</a>.</p>
-
-<p>The idea is that we are building an open-source project. More specifically, we are building a Ruby Gem (A code library, a set of tools for people who use ruby) that will generate random people names, team names, and useful info like that from a database of funny and famous words/names/quotes. The idea is that there is a gem called &ldquo;Faker&rdquo;, and we are building the cool version of this one, with Armando, Jamie, and Nicholas.</p>
-
-<p>So far, it&rsquo;s doing good! I got my voice back so I can participate much more in whiteboarding and all that, we planned everything decently and managed to get an MVP (Minimum Viable Product, the smallest thing you could build on your idea) in half the time. We&rsquo;re pushing for more options and some kind of implementation to show nice usage of that gem.</p>
-
-<p>It&rsquo;s exciting to be working on some tool that may very well be used by others all around the world. Plus, learning how to make gems is a very interesting thing. I think that when I have time later, I&rsquo;ll try to make some gems just for the sake of helping around. Open-source is awesome!</p>
-
-<h2>Good news</h2>
-
-<p>Among the good news :</p>
-
-<ul>
-<li><p>I may see my fiancee before I come back. This is by far the best news I could ever had heard. I miss her, and knowing that I may see her sooner than I expected is just the best thing that could have happened.</p></li>
-<li><p>I had a beer with Jonathan and got more info about after Dev Bootcamp. That was such a relief. Coming here as a frenchman, I just had no idea how the job market was, and how things were supposed to happen after that. I kinda get ideas from here and there, but finally being able to have some feedback from a guy who has the same experience, and comes from the same place, is really a relief. Now I just have to continue giving my best &lsquo;til the end of these 9 weeks.</p></li>
-<li><p>I&rsquo;m going to Phase 2! I got my assessment and it went ok. I overthought part of it so I wouldn&rsquo;t say I did perfectly, but with the goal being : Assess whether I know Phase 1 material or not, I did ok for that. That is perfect! So now it&rsquo;s time to learn even more!</p></li>
-</ul>
-
-
-<p>Anyway, going back to the project&hellip; See you tomorrow!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -877,23 +949,23 @@ Your options are :</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/02/26/week-5-day-2-oojs-again/">Week 5 - Day 2 - OOJS again and namespacing, helpers, and lack of sleep</a>
+        <a href="/blog/2014/03/05/week-6-day-2-observer-design-pattern/">Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/25/week-5-day-1-oojs/">Week 5 - Day 1 - OOJS, JQuery, and hugs</a>
+        <a href="/blog/2014/03/04/week-6-day-1-more-oojs/">Week 6 - Day 1 - More OOJS, APIs, and changes</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/22/week-4-day-5-pressure/">Week 4 - Day 5 - Pressure, accomplishment, and more work</a>
+        <a href="/blog/2014/03/01/week-5-day-5-awesome-project/">Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/20/week-4-day-4-building/">Week 4 - Day 4 - Confidence, (Lack of) sleep and links</a>
+        <a href="/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/">Week 5 - Day 4 - Small and repetitive code, DB Constraints, and connecting</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/20/week-4-day-3-building/">Week 4 - Day 3 - Building, Testing, and deception</a>
+        <a href="/blog/2014/02/27/week-5-day-3-ajax/">Week 5 - Day 3 - Ajax, MVC and congratulations</a>
       </li>
     
   </ul>
