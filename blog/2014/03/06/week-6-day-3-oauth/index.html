@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day - Qt's Home</title>
+  <title>Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Engineering Empathy Cooldown Two days ago was our last Engineering Empathy session of Phase 1. Like the other cohort told us : &ldquo;You thought the &hellip;">
+  <meta name="description" content="Oauth Oauth is a system used in authentification on the web nowadays. The idea is that authenticating is easy, with password and username/email/name/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 3 - Day 3 - EE Cooldown, ActiveRecord and My First Solo Day</h1>
+      <h1 class="entry-title">Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a Fun Day With Armando</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-13T08:41:13-08:00" pubdate data-updated="true">Feb 13<span>th</span>, 2014</time>
+<time datetime="2014-03-06T09:23:33-08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,31 +108,69 @@
   </header>
 
 
-<div class="entry-content"><h2>Engineering Empathy Cooldown</h2>
+<div class="entry-content"><h2>Oauth</h2>
 
-<p>Two days ago was our last Engineering Empathy session of Phase 1. Like the other cohort told us : &ldquo;You thought the first session was heavy? Wait &lsquo;til you see session 3&rdquo;.</p>
+<p><a href="http://en.wikipedia.org/wiki/OAuth">Oauth</a> is a system used in authentification on the web nowadays.</p>
 
-<p>First week was &ldquo;The superego&rdquo;, and the exercise that we got was &ldquo;Share what your inner voice tells you&rdquo;. This week was &ldquo;Dive deeper in what you let people know about you&rdquo;&hellip; And so we sat in circle to tell people stuff, while starting every sentence with &ldquo;If you really knew me&rdquo;. Now let me tell you guys&hellip; There were tears, hugs, revelations, but no shocked reaction, no judgement, nothing like that. And everything told in this room stays in this room.</p>
+<p>The idea is that authenticating is easy, with password and username/email/name/whatever-id-you-want. But this is not secure enough. Plus, people get tired of logging on every site they use.</p>
 
-<p>Diving deeper than the usual in what you tell people is an exercise that does make us grow, but that also hits you hard at the moment you do it. And listening to all of the others&#8217; is not even easier. I think I can safely say that I will keep that day in my mind for a very very long time.</p>
+<p>Oauth came out in 2010, when people were trying to remedy to that problem with different theories, <a href="http://en.wikipedia.org/wiki/OpenID">OpenID</a> being one of them.</p>
 
-<h2>ActiveRecord</h2>
+<p>So in the end, they came up with this way to identify an user on one site, and share that identification on every app authorized by this site and the user.</p>
 
-<p>ActiveRecord is the design pattern I told you about yesterday. In Rails, the most well known web framework for Ruby, this design pattern is implemented in its own. What it does, in short, is mapping a database with an object. Columns of the database become attributes of the objects, you can create objects and save them to the db, or get objects from an entry in the db. Quite easy and practical!</p>
+<p>Let me try to explain the process a bit :</p>
 
-<p>Yesterday, we worked on that for the whole day. The morning was the introduction, and the afternoon the application. I&rsquo;ll say that it was a pretty good day, I learned a lot, and ActiveRecord is cool&hellip; Wait&hellip; Better than that : ActiveRecord is coolER than SQL!</p>
+<ul>
+<li>The app maker registers on the giver&rsquo;s site (Twitter, Facebook, &hellip;)</li>
+<li>The giver&rsquo;s site give the app maker a private <strong>API Token</strong>, a code that can be use to identify that app when it talks with the giver&rsquo;s site.</li>
+</ul>
 
-<h2>My first solo day</h2>
 
-<p>Wednesdays are optional solo days. That means that every other day, we have to pair or group with more people, but on wednesdays, we choose our pairs/groups. I did not solo until then, but I thought that to save my voice I&#8217;ld try and do so yesterday.</p>
+<p>&hellip;Time passes&hellip;</p>
 
-<p>In the end, I did finish the exercises, which was my goal. I had to go to other people soloing a couple of times, to get my mind off of the problems that were blocking me, and to help me figure out solutions sometimes, but I did it and I am pretty happy about it.</p>
+<ul>
+<li>An user comes on the site, tries to log in</li>
+<li>The app redirects to the giver&rsquo;s site where the user is asked to log in. In the background, the app gives the <strong>API Token</strong> on the way, as a proof that the user is coming from there.</li>
+<li>The user authorizes his account to be linked/identified on this app. The giver&rsquo;s saves that decision.</li>
+<li>The giver&rsquo;s site sends back a <strong>User Token</strong> to the app.</li>
+</ul>
 
-<p>The beginning was hard and I just &hellip; felt like I did not know where I was going. But I got on it after I expressed my incomprehension a first time, and then I just worked, with a decent speed.</p>
 
-<p>I don&rsquo;t know if I&rsquo;ll do that again, probably not next week, but probably another time. It was a good day but I prefer picking my pairs in the people I do well with (Looking at you Irene!).</p>
+<p>Now, the app has an <strong>API Token</strong> and a <strong>User Token</strong>.
+Using these 2, the app can ask the giver&rsquo;s site for info (last tweets? send tweet?), and while this is true, the user is authenticated on the site.</p>
 
-<p>Anyway, today is assessment and group project&hellip; time to have fun !</p>
+<p>In the end, the user only has to login once, and nobody has the user password or anything. And anytime somebody&rsquo;s info is asked for, the giver&rsquo;s site verifies that the asking app has the rights.</p>
+
+<p>This, ladies and gentlemen, is what we played with yesterday ;)
+This : <a href="http://blooming-reaches-2179.herokuapp.com">Tweet from Heroku</a> is an example ;)</p>
+
+<h2>Other languages / Frameworks</h2>
+
+<p>The world of development is full of a lot (really&hellip; a tremendous amount) of languages and frameworks. People don&rsquo;t use them the same way, in the same places, but I can tell you that to do one thing, you have multiple tools in development.</p>
+
+<p>In DBC, we learn about Ruby, Javascript, HTML, and CSS, mostly. We cover a few framework for each of those too. But in the end, we are not here to learn languages.</p>
+
+<p>No good developer knows one language by heart.<br/>
+&hellip; Let me rephrase and split that that:</p>
+
+<ul>
+<li>A good developer does not know fully a language, knowing that is what makes him really good.</li>
+<li>A good developer learns new languages/frameworks all the time. One does not &ldquo;know one&rdquo;, but learns many.</li>
+</ul>
+
+
+<p>I try to work on that and get the second part up and running, and that is really fun. Also, using tools made by and for other people is really eyes opening. I love it.</p>
+
+<p>I had ideas about that yesterday and I&rsquo;m thinking I&rsquo;ll learn a bit more about the languages I already approached but did not use that much as soon as I have 5 minutes (probably this weekend).</p>
+
+<h2>A fun day with Armando</h2>
+
+<p>Yesterday, we paired with Armando again.<br/>
+I was looking forward to it. He has been down for a bit, with a lack of self confidence and some doubts about his skills, and I was looking forward to doing my best to work on helping him with that.</p>
+
+<p>Well, you know what? He f*cking rocks! We had fun the whole day, finished most of the challenges, and the best part :<br/>
+Teachers did not try and assess him. And if they don&rsquo;t, that means that THEY don&rsquo;t doubt him. And one thing that I know :<br/>
+If the person that&rsquo;s making it hard on you, teaching you, and taught hundreds before, has no doubt about you&hellip; that probably means you should stop doubting and assume you do (not really fully) know what you&rsquo;re doing.</p>
 </div>
 
 
@@ -155,7 +193,7 @@
   
 
 
-<time datetime="2014-02-13T08:41:13-08:00" pubdate data-updated="true">Feb 13<span>th</span>, 2014</time>
+<time datetime="2014-03-06T09:23:33-08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
       
 
 
@@ -163,7 +201,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -176,10 +214,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/12/week-3-day-2-more-sql/" title="Previous Post: Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup">&laquo; Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup</a>
+        <a class="basic-alignment left" href="/blog/2014/03/05/week-6-day-2-observer-design-pattern/" title="Previous Post: Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job">&laquo; Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/14/week-3-day-4-group-projects/" title="Next Post: Week 3 - Day 4 - Group project and good news">Week 3 - Day 4 - Group project and good news &raquo;</a>
       
     </p>
   </footer>
@@ -285,8 +321,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth/';
         var disqus_script = 'embed.js';
       
     (function () {

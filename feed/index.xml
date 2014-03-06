@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-03-05T15:51:34-08:00</updated>
+  <updated>2014-03-06T09:57:25-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth/"/>
+    <updated>2014-03-06T09:23:33-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth</id>
+    <content type="html"><![CDATA[<h2>Oauth</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/OAuth">Oauth</a> is a system used in authentification on the web nowadays.</p>
+
+<p>The idea is that authenticating is easy, with password and username/email/name/whatever-id-you-want. But this is not secure enough. Plus, people get tired of logging on every site they use.</p>
+
+<p>Oauth came out in 2010, when people were trying to remedy to that problem with different theories, <a href="http://en.wikipedia.org/wiki/OpenID">OpenID</a> being one of them.</p>
+
+<p>So in the end, they came up with this way to identify an user on one site, and share that identification on every app authorized by this site and the user.</p>
+
+<p>Let me try to explain the process a bit :</p>
+
+<ul>
+<li>The app maker registers on the giver&rsquo;s site (Twitter, Facebook, &hellip;)</li>
+<li>The giver&rsquo;s site give the app maker a private <strong>API Token</strong>, a code that can be use to identify that app when it talks with the giver&rsquo;s site.</li>
+</ul>
+
+
+<p>&hellip;Time passes&hellip;</p>
+
+<ul>
+<li>An user comes on the site, tries to log in</li>
+<li>The app redirects to the giver&rsquo;s site where the user is asked to log in. In the background, the app gives the <strong>API Token</strong> on the way, as a proof that the user is coming from there.</li>
+<li>The user authorizes his account to be linked/identified on this app. The giver&rsquo;s saves that decision.</li>
+<li>The giver&rsquo;s site sends back a <strong>User Token</strong> to the app.</li>
+</ul>
+
+
+<p>Now, the app has an <strong>API Token</strong> and a <strong>User Token</strong>.
+Using these 2, the app can ask the giver&rsquo;s site for info (last tweets? send tweet?), and while this is true, the user is authenticated on the site.</p>
+
+<p>In the end, the user only has to login once, and nobody has the user password or anything. And anytime somebody&rsquo;s info is asked for, the giver&rsquo;s site verifies that the asking app has the rights.</p>
+
+<p>This, ladies and gentlemen, is what we played with yesterday ;)
+This : <a href="http://blooming-reaches-2179.herokuapp.com">Tweet from Heroku</a> is an example ;)</p>
+
+<h2>Other languages / Frameworks</h2>
+
+<p>The world of development is full of a lot (really&hellip; a tremendous amount) of languages and frameworks. People don&rsquo;t use them the same way, in the same places, but I can tell you that to do one thing, you have multiple tools in development.</p>
+
+<p>In DBC, we learn about Ruby, Javascript, HTML, and CSS, mostly. We cover a few framework for each of those too. But in the end, we are not here to learn languages.</p>
+
+<p>No good developer knows one language by heart.<br/>
+&hellip; Let me rephrase and split that that:</p>
+
+<ul>
+<li>A good developer does not know fully a language, knowing that is what makes him really good.</li>
+<li>A good developer learns new languages/frameworks all the time. One does not &ldquo;know one&rdquo;, but learns many.</li>
+</ul>
+
+
+<p>I try to work on that and get the second part up and running, and that is really fun. Also, using tools made by and for other people is really eyes opening. I love it.</p>
+
+<p>I had ideas about that yesterday and I&rsquo;m thinking I&rsquo;ll learn a bit more about the languages I already approached but did not use that much as soon as I have 5 minutes (probably this weekend).</p>
+
+<h2>A fun day with Armando</h2>
+
+<p>Yesterday, we paired with Armando again.<br/>
+I was looking forward to it. He has been down for a bit, with a lack of self confidence and some doubts about his skills, and I was looking forward to doing my best to work on helping him with that.</p>
+
+<p>Well, you know what? He f*cking rocks! We had fun the whole day, finished most of the challenges, and the best part :<br/>
+Teachers did not try and assess him. And if they don&rsquo;t, that means that THEY don&rsquo;t doubt him. And one thing that I know :<br/>
+If the person that&rsquo;s making it hard on you, teaching you, and taught hundreds before, has no doubt about you&hellip; that probably means you should stop doubting and assume you do (not really fully) know what you&rsquo;re doing.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job]]></title>
@@ -902,52 +973,6 @@ Different implementations of SQL can save you some time to get into the syntax, 
 <p>Anyway, sorry to my pairs this week for having my mind pretty far off the planet, sorry to my friends who I may make sick, to those who took time to help me get better when they clearly had better things to do, and to the people who may be reading this blog and had no food for thoughts for 4 days.</p>
 
 <p>But don&rsquo;t worry, I&rsquo;m back, I&rsquo;m good now, and hungry for knowledge, experience, and opportunities to show the world what I&rsquo;m made of!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Week 2 - Day 2 - Oop, Friends & Brothers, Battleship & Sudoku]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/05/week-2---day-2---oop-friends-brothers-battleship-sudoku/"/>
-    <updated>2014-02-05T08:51:00-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/05/week-2&#8212;day-2&#8212;oop-friends-brothers-battleship-sudoku</id>
-    <content type="html"><![CDATA[<h2>OOP</h2>
-
-<p>Development is a wide topic to learn. New ways to do everything a developer need to do appear everyday. But then, the practices, the basis behind all of these new tools is slow and moves at a steady pace.<br/>
-You can take it as :<br/>
-&ndash; The tools are waves.<br/>
-Thousands land on your shores everyday. None is exactly the same as another, every one of them is different, and to a surfer, a fisherman, or anybody who could make us of them, every one of them could be a treasure or a pain.<br/>
-&ndash; The practices are ties.<br/>
-They also come, but at a very slow pace. They too are very different, and affect anybody much more than waves, but because of that slow pace, we tend to focus less on that.</p>
-
-<p>Well, today was the second day of introduction to Object Oriented Programming. One could probably spend hours writing about such a notion, but I will stick to a one sentence explanation.</p>
-
-<p><a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming</a> is a way to work in development by modeling blocks of code in what people call an &ldquo;Object&rdquo;. Wikipedia, among others, explains that much more easily than I do, I encourage you to get there to check what it is about. ;)<br/>
-Plus, I don&rsquo;t have much interesting things to say about it so&hellip; I won&rsquo;t say much!</p>
-
-<h2>Friends &amp; Brothers</h2>
-
-<p>Yesterday, I paired with Jamie, a nice american-name, american-accent girl who does not look like her profile picture and who does NOT like country music (Hehe&hellip; Sorry for the private joke). In all honesty, it went well, and if it had been another person, I may have spent a bad time. The challenges were about things that I could not say I master, but an introduction is an introduction. We talked a lot, learned to know each other.<br/>
-I find that extremely important when you spend most of the time with some people and you have to challenge, and spend most of your time in total freakout mode.</p>
-
-<p>That being said, another part of the day was a bit harder. Dev Bootcamp makes you meet people that have been selected after a particular selection. Only 10% of the people make it apparently. Of course, we are selected because we have a specific set of skills, a particular mindset, and Karim and all the others in charge of admission see things in us that make them think we can make it.</p>
-
-<p>Then, we get grouped with others with the same characteristics, and for 9 weeks, you work with them, play with them, more or less live with them, 100% of the time. During these 9 weeks, you are challenged everyday, stressed out to a point where most would break, and most DO break. Your challenge, just like the others, is to learn what took years or even decade to master to many. As <a href="https://github.com/amgando">Sherif</a> said, that is insane. We are insane for trying that, but then we have been selected because we are, and only that combined insanity of so many people can help us make it at the end.</p>
-
-<p>In our cohort, we even took it so far as to get a house for 9 of us. If spending most of our times of struggle was not enough, we now spend 100% of our time together.</p>
-
-<p>I may sound overdramatic with that explanation, but my point is that your only way to win at this is brotherhood( + sisterhood, however you say that). We are one, and must stay one. All of us must succeed at the end, and if one of us breaks, we all need to do our best to &ldquo;repair&rdquo; him asap to get on the next step.</p>
-
-<p>Yesterday, Stephen had a bad time. Pressure got the best of him for a part of the afternoon. It was not the challenges, not something that happened yesterday, but something that grew in his head that ended up getting to him.<br/>
-But what happened after that is the illustration of that idea that I am trying to give you : We gathered, and make it so that it never happens again. Stephen is part of us, the entity that we have become. We can&rsquo;t succeed without him, and will not let him behind. In the end most of us went to sleep at 12AM, after long talks, hugs, and mental-screwdriving.</p>
-
-<p>To whoever want to join the bootcamp with any other idea that the one I am describing in here : You shall not pass. This is teamwork, and without that, none of you will pass. That is a fact, well known by those who succeeded as well as those who did not.<br/>
-You will NEED brothers and sisters.</p>
-
-<h2>Battleship &amp; Sudoku</h2>
-
-<p>I already took too much of your time so I will try and be fast on this one but : Yesterday somebody pointed me in a new direction for sudoku solving. It is called <a href="http://en.wikipedia.org/wiki/Dancing_Links">Dancing Links</a>. I won&rsquo;t explain in details, especially since I don&rsquo;t think I have a good enough grasp on this, but my goal here is to try and solve the 170 puzzles I solved in 8.5 seconds, but in less than a second this time. I&rsquo;ll tell you more when I can.</p>
-
-<p>And about Battleship : A few of us finished the challenge that said we had to make a battleship game in Ruby. We thought we could share that knowledge, so we got an idea and we are organizing a Battleship contest. We will build a core game, and a way for people to develop their players behaviors. We will be around the whole way and help those who could not finish it at first. Then after that we will just compete&hellip; But then again, we don&rsquo;t have the rules yet so&hellip; See you tomorrow!</p>
 ]]></content>
   </entry>
   
