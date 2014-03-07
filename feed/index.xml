@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-03-06T09:57:25-08:00</updated>
+  <updated>2014-03-07T08:59:31-08:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 6 - Day 4 - Rest, personal projects, and DBC life]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/07/week-6-day-4-rest/"/>
+    <updated>2014-03-07T08:48:04-08:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/07/week-6-day-4-rest</id>
+    <content type="html"><![CDATA[<h2>Rest</h2>
+
+<p>When I say rest, I don&rsquo;t mean sleeping all day&hellip; Yesterday, we had to finish some challenges that we had been given a few days before, had a couple of lectures, and then I worked on personal projects here and there. This is what I call rest.</p>
+
+<p>In the end, that was a fruitful day, and a happy one too! I spoke with some people I had never met in the bootcamp, got some info on after-DBC, I learned stuff about languages and frameworks I did not know&hellip; AND, I congratulated my mother for her very happy birthday ;)</p>
+
+<h2>Personal projects</h2>
+
+<p>You can check my github for that. I have a few projects I had been dying to work on, and having some time to do so may make me finish a lot of them really fast!</p>
+
+<p>I won&rsquo;t tell you all about them yet, but I can tell you I expect to have a lot of stuff to do and to use them as a way to show the world my progress!</p>
+
+<p>In the end, these are the things that make you look different, and make the people want to hear about you, and why not even hire you!</p>
+
+<h2>DBC Life</h2>
+
+<p>RAO HAS NO BEARD ANYMORE!</p>
+
+<p>Apart from that, DBC life is fun. It was a slow day, fun things, but then the results of the assessments also kicked in, people dealt with that, and that was a big day for everybody.</p>
+
+<p>And in the end, if I had to keep one sentence from yesterday, I would say :
+If you have a lesson to get from DBC, it should be &lsquo;You don&rsquo;t know anything, but that&rsquo;s ok&rsquo;.</p>
+
+<p>No matter how much we learn here, when we get out, we&rsquo;re gonna be asked about what we don&rsquo;t. And we are not going to be asked to know stuff, but to show we can learn, and we don&rsquo;t freak out when we don&rsquo;t know.</p>
+
+<p>So the lesson would be : Stop stressing out, and learn how to google ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando]]></title>
@@ -953,26 +987,6 @@ I paired with Tim, a very nice and tall guy, and we ended up doing as much as we
 Small info for the people in the next cohorts : We chose our assessments. The output may be the same but you may not get the same.</p>
 
 <p>Anyway, lecture is about to start again, let&rsquo;s go. Thank you for reading and see you tomorrow!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Week 2 I Am Still Alive]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/09/week-2-i-am-still-alive/"/>
-    <updated>2014-02-09T00:00:00-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/09/week-2-i-am-still-alive</id>
-    <content type="html"><![CDATA[<p>Apparently, getting sick is a trend among DBC cohorts. When you get here, expect to get sick. Bad weather this week, and me being very stupid with the weak points I know I have just made me get sicker than I do usually.<br/>
-So, I ended up feverish, sleeping more or less the whole day&hellip; for 2 days, in DBC, waking up 5 minutes at a time, just enough to get some work done so that I don&rsquo;t feel too far behind, and then go back to sleep. Then I woke up on friday but had no more voice&hellip;<br/>
-All in all, a good week of fun times.</p>
-
-<p>In other news, we went through some SQL introduction. We will be using Postgres mostly. Now I just have to figure out if my experience with MySQL will be a good or a bad thing.
-Different implementations of SQL can save you some time to get into the syntax, but then the small differences are what can just be the tricky things that make you get in so many bugs. Only time will tell.</p>
-
-<p>Friday was the first group project, and we did a Tournament Manager. Again, I couldn&rsquo;t speak and was a bit dizzy so I ended up not being able to give my 100% and I hate that&hellip; Yesterday was the first DBC-Alumni hackathon and I was still not close enough to awake-ish to be able to participate. Damn throat&hellip;</p>
-
-<p>Anyway, sorry to my pairs this week for having my mind pretty far off the planet, sorry to my friends who I may make sick, to those who took time to help me get better when they clearly had better things to do, and to the people who may be reading this blog and had no food for thoughts for 4 days.</p>
-
-<p>But don&rsquo;t worry, I&rsquo;m back, I&rsquo;m good now, and hungry for knowledge, experience, and opportunities to show the world what I&rsquo;m made of!</p>
 ]]></content>
   </entry>
   
