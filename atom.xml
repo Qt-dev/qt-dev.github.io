@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-03-07T08:59:31-08:00</updated>
+  <updated>2014-03-12T00:54:05-07:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    
+    <title type="html"><![CDATA['Week 7 - Day 2 - Testing, A video , and naps]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/12/week-7-day-2-testing/"/>
+    
+    <updated>2014-03-12T00:36:51-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/12/week-7-day-2-testing</id>
+    
+    <content type="html"><![CDATA[<h2>Testing</h2>
+
+<p>Yesterday we tested. We tested Rails for the first time, and it was not that hard. Many things are built-in, and the presence of gems like : <a href="https://github.com/thoughtbot/shoulda-matchers">shoulda-matchers</a> ended up making that day even easier than expected.</p>
+
+<p>The idea behind testing your code is that you don&rsquo;t want it to break later. Now that you are working on that 100 lines project, you don&rsquo;t feel the need to do so, but what about when it hits 10000 lines and the 10001 actually breaks something in the middle? And what if solving that bug actually creates new ones?</p>
+
+<p>So, to prevent that&hellip; We test. We test that an user can create an account, that it is correctly saved. We test that an user can login, that our password verification does not send unencrypted passwords, that the posts we make are not duplicates, etc&hellip;</p>
+
+<p>All that, in 3 big groups :</p>
+
+<ul>
+<li>Integration tests : Complicated to do (Use <a href="https://github.com/jnicklas/capybara">Capybara</a> for Ruby web frameworks like Sinatra or Rails), and very long to execute. The idea is that you make a program do exactly what an user would do, to make sure every step works</li>
+<li>Controller tests : This is a bit &hellip; fuzzy. These are considered as integration tests, or unit tests, depending on the piece of code you&rsquo;re testing, but of specific actions of the &ldquo;controller&rdquo; in your app. For example, when a user sends data to /users/new it should create a new user. They are faster than integration test, but still not the fastest</li>
+<li>Model (Unit) tests : The idea here is to test the basic data you have. You have one single piece of data, a User, a Post, a Category, and you want to test that its data is the one you want. You want to test that a User can&rsquo;t have an email without an @ for example.</li>
+</ul>
+
+
+<p>This, we did it in Ruby, with <a href="http://rspec.info">Rspec</a>, <a href="https://github.com/jnicklas/capybara">Capybara</a>, <a href="https://github.com/thoughtbot/shoulda-matchers">shoulda-matchers</a>, and some others. I then did that in Javascript with <a href="https://github.com/pivotal/jasmine">Jasmine</a> and <a href="sinonjs.org/">Sinon</a>, for a small part of the evening.  All in all, it was a nice day, and now nothing breaks anymore ;)</p>
+
+<h2>A video</h2>
+
+<p>A tradition here in Dev Bootcamp says that people who are graduating from phase 2 need to prepare a video for the newcomers of the next monday. The video shows a bit about the bootcamp, the spirit, and the people that you can meet there&hellip; So without further introduction, ours :</p>
+
+<iframe width="560" height="315" src="http://Qt-dev.github.io//www.youtube.com/embed/AabGP9yvJ7o" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>Naps</h2>
+
+<p>Nowadays, I am a bit tired. I had no idea that we had to change the clocks on sunday, and discovered that after a very short night&hellip; Unfortunately, I was busy so I ended up doing a lot of things and not sleeping enough.</p>
+
+<p>I am working on that, but since Monday, I am napping every afternoon now!<br/>
+I hope I can make that be less of a habit soon&hellip; So I&rsquo;ll go to sleep now ;)</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 7 - Phase 3, projects, and another first day in DBC]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/11/week-7-rails/"/>
+    
+    <updated>2014-03-11T09:26:44-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/11/week-7-rails</id>
+    
+    <content type="html"><![CDATA[<h2>Phase 3</h2>
+
+<p>So, first, sorry for not giving any news for friday. If I had to sum friday up, it would probably go like : &ldquo;Partayyyyyyyyyyy&rdquo;.<br/>
+Phase 3 was graduating and showing us projects they worked on. Phase 1 and 2 were moving on to the next phase, so everybody just &hellip; had fun&hellip; and a lot of alcohol. If I can find the links to the projects I&rsquo;ll let you know, but in short we had :</p>
+
+<ul>
+<li>A social app for street performers to share their videos and people to tip them,</li>
+<li>An app that tracks your bad (but legal) substance abuse (coffee, alcohol, cigarette)</li>
+<li>An app that helps you keep track of all the online courses you can take and all the ones you take.</li>
+<li>An app that helps independent music teacher track everything about their business</li>
+</ul>
+
+
+<p>Yesterday we started phase 3 and we started working on Rails&hellip;  Basically, if I had to say anything about it, I would say : Take everything we did so far, and now stop doing it because everything is generated automatically in rails!</p>
+
+<p>We&rsquo;ll have fun, and play with a few things for 8 days, then group projects. That sounds awesome and I can&rsquo;t wait ;)</p>
+
+<h2>Projects</h2>
+
+<p>So, group projects are approaching&hellip; I have ideas, and my #1 would be to join Chermaine and work on the project we thought about together. But then, I also want to pitch a lot of ideas so I guess I&rsquo;ll try and share the ideas and see how it goes! Not right now, but I will, I promise!</p>
+
+<p>Then, on the weekend, I learned 4 things :<br/>
+&ndash; How to use Flask (A Python equivalent of Sinatra)
+&ndash; How to compress WebAssets (And not have 10000000 js files here and there, even though your code is full of clear small classes for example&hellip;)
+&ndash; How to play with Backbone (A Javascript framework to make whole apps on the front-end)
+&ndash; How to play with Google Maps (Put a map of the site and pin stuff to it, geocode stuff, etc&hellip;)</p>
+
+<p>And with that, I ended up making an app. It is an app that shows you all the movie shooting locations in San Francisco, by movie. It is not perfect or finished (I expect it to be finished tonight) but so far you can see :<br/>
+&ndash; The site : <a href="http://movie-shootings-in-sf.herokuapp.com/">http://movie-shootings-in-sf.herokuapp.com/</a>
+&ndash; The code : <a href="https://github.com/Qt-dev/shootings">https://github.com/Qt-dev/shootings</a></p>
+
+<p>Again, I&rsquo;ll tell you when it&rsquo;s over, but you can check it out for now!</p>
+
+<h2>Another first day in DBC</h2>
+
+<p>Yesterday, the new cohort started. It feels so strange to be in the seniors&hellip;</p>
+
+<p>They seem pretty interesting and interested. I think they have a very different dynamic than the Golden bears, and again, very different than the Banana Slugs too. I can&rsquo;t wait until I get to know them and learn more about them!</p>
+
+<p>No worries though, I still love the golden bears, and more than that, I love the banana bears!</p>
+
+<p>Now, time to go back to eating cookies and coding.
+See you tomorrow!</p>
+]]></content>
+    
+  </entry>
   
   <entry>
     
@@ -988,84 +1087,6 @@ Your options are :</p>
 <p>I don&rsquo;t know if I&rsquo;ll do that again, probably not next week, but probably another time. It was a good day but I prefer picking my pairs in the people I do well with (Looking at you Irene!).</p>
 
 <p>Anyway, today is assessment and group project&hellip; time to have fun !</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 3 - Day 2 - More SQL, Testing, Cookies and Syrup]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql/"/>
-    
-    <updated>2014-02-12T08:39:34-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql</id>
-    
-    <content type="html"><![CDATA[<h2>More SQL</h2>
-
-<p>Yesterday was another day when we used SQL, apparently the last (Yay!). We implemented our own version of <a href="http://en.wikipedia.org/wiki/Active_record_pattern">ActiveRecord</a>, a tool used in Rails that we will, apparently, use all the time and that will be the one talking with the base. But to use your tools correctly you first have to learn how they were built&hellip; And so that is what we did.</p>
-
-<p>I paired with Erin for this day and it was really great. We had a good dynamic and we ended up finishing everything without any real problem going on. All in all, it was a great day for Quentin in DBC!</p>
-
-<h2>Testing</h2>
-
-<p>Shadi is back! So testing is back too ;)<br/>
-He explained how to make our own version of Rspec, the testing suite for Ruby, and then handed us a series of tests for the exercises we had for the day. Things are getting complicated pretty fast, but I love it !</p>
-
-<p>Testing is getting trickier but soon enough we&rsquo;ll get into some deep Rspec testing and for the newcomers : TESTING IS IMPORTANT! TEST ALL THE TIME!</p>
-
-<h2>Cookies and Syrup</h2>
-
-<p>So, I came here thinking americans ate junk food and only junk food. Such a disappointment to be in a house, in a program, and in a city where it is absolutely not the case!<br/>
-I ended up being on some kind of sugar withdrawal in a few days, that is absolutely not the thing I would have suspected.</p>
-
-<p>So, to compensate that, I buy cookies! And then, once or twice a day, take my usual bite. But then, I am now seen as some sort of cookie monster for eating a lot more than any other around&hellip; So strange.</p>
-
-<p>As for the syrup, small but funny story : Ivan bought syrup, I took some (The throat is not 100% ok yet), then I got incredibly sleepy, and slept. The bad part is that it was 9AM and I was fighting sleep in the middle of a very interesting lecture on Testing.<br/>
-The conclusion I got from that is : Read the fucking manual. Don&rsquo;t take syrup without reading all about it.</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 3 - Day 1 - SQL, Games, and Assessments]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql/"/>
-    
-    <updated>2014-02-11T08:49:38-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql</id>
-    
-    <content type="html"><![CDATA[<h2>SQL</h2>
-
-<p>In the world of development, we could say that you have plenty of choices when picking your tools. Among these tools are hundreds, if not thousands, of languages. Some are pretty specifically used, even though they may not have been made for, some are pretty &ldquo;fast&rdquo; while others are &ldquo;not&rdquo;&hellip; But all in all, we can say that a hammer is a hammer. No matter the brand or the specs, the hammer will fulfill his role and that&rsquo;s it.</p>
-
-<p>Anyway, yesterday we used SQL for the second time in phase 1. It is a language used to talk to a specific type of database (Any derivation of SQL), which may very well be one of the most common database type in the world, and that has been the case for more than 20 years. The language used to do so has been around for almost the same time too&hellip;<br/>
-I paired with Tim, a very nice and tall guy, and we ended up doing as much as we could for the day. We learned tons, we played a bit, and it was fun. All in all, a good day, even if we spent the day on SQL&hellip;</p>
-
-<h2>Games</h2>
-
-<p>So, Web Development, and maybe even particularly in Dev Bootcamp, is a world of hard work combined with games. My opinion is that we party, we play, we develop games even, to cope with the rest of the hard day. A lot of brain-twisting challenges and very not fulfilling days spent on solving that bugs that would have taken 2 minutes to solve if you had seen that semi-colon earlier will do that to you and may ask for harder entertainment.</p>
-
-<p>In DBC, we play. There are games all around, the Giant Djenga falls a couple of times a day, we did a Hack-a-thon this weekend (A coding contest where teams build stuff and compare at the end of the day. All with beer, pizzas, and a lot of laughter), and all in all, people are playful.</p>
-
-<p>Yesterday we played Magic The Gathering with a couple of boots. I did not win but I loved the game. A long game, hard, where you have to think before you do stuff. It had been a long time and now I just regret I did not bring my cards myself ;)</p>
-
-<h2>Assessments</h2>
-
-<p>DBC is not about grading students. It is not the style of the house. But they do have to test us to make sure we can understand the next phase. So, to do that they assess us at the end of every phase.</p>
-
-<p>This week is the end of the first Phase. Teachers will get with us for a short amount of time on Thursday and will review some of our code at this point. At this moment, no more help, just some control of your knowledge. At the end of that, we can be given one of 3 different options :</p>
-
-<ul>
-<li>Your level is high enough, welcome to Phase 2</li>
-<li>You may want to spend 3 more weeks on Phase 1, just to make sure you get it all</li>
-<li>Are you really sure you are learning anything? If not, DBC may not be the best thing for you&hellip;</li>
-</ul>
-
-
-<p>Now, let&rsquo;s hope for mine being the first one! I&rsquo;ll do my best anyway.<br/>
-Small info for the people in the next cohorts : We chose our assessments. The output may be the same but you may not get the same.</p>
-
-<p>Anyway, lecture is about to start again, let&rsquo;s go. Thank you for reading and see you tomorrow!</p>
 ]]></content>
     
   </entry>

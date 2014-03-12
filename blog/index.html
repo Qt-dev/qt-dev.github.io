@@ -9,7 +9,7 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Rest When I say rest, I don&rsquo;t mean sleeping all day&hellip; Yesterday, we had to finish some challenges that we had been given a few days &hellip;">
+  <meta name="description" content="Testing Yesterday we tested. We tested Rails for the first time, and it was not that hard. Many things are built-in, and the presence of gems like : &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,155 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/12/week-7-day-2-testing/">&#8216;Week 7 - Day 2 - Testing, a Video , and Naps</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-12T00:36:51-07:00" pubdate data-updated="true">Mar 12<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/12/week-7-day-2-testing/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Testing</h2>
+
+<p>Yesterday we tested. We tested Rails for the first time, and it was not that hard. Many things are built-in, and the presence of gems like : <a href="https://github.com/thoughtbot/shoulda-matchers">shoulda-matchers</a> ended up making that day even easier than expected.</p>
+
+<p>The idea behind testing your code is that you don&rsquo;t want it to break later. Now that you are working on that 100 lines project, you don&rsquo;t feel the need to do so, but what about when it hits 10000 lines and the 10001 actually breaks something in the middle? And what if solving that bug actually creates new ones?</p>
+
+<p>So, to prevent that&hellip; We test. We test that an user can create an account, that it is correctly saved. We test that an user can login, that our password verification does not send unencrypted passwords, that the posts we make are not duplicates, etc&hellip;</p>
+
+<p>All that, in 3 big groups :</p>
+
+<ul>
+<li>Integration tests : Complicated to do (Use <a href="https://github.com/jnicklas/capybara">Capybara</a> for Ruby web frameworks like Sinatra or Rails), and very long to execute. The idea is that you make a program do exactly what an user would do, to make sure every step works</li>
+<li>Controller tests : This is a bit &hellip; fuzzy. These are considered as integration tests, or unit tests, depending on the piece of code you&rsquo;re testing, but of specific actions of the &ldquo;controller&rdquo; in your app. For example, when a user sends data to /users/new it should create a new user. They are faster than integration test, but still not the fastest</li>
+<li>Model (Unit) tests : The idea here is to test the basic data you have. You have one single piece of data, a User, a Post, a Category, and you want to test that its data is the one you want. You want to test that a User can&rsquo;t have an email without an @ for example.</li>
+</ul>
+
+
+<p>This, we did it in Ruby, with <a href="http://rspec.info">Rspec</a>, <a href="https://github.com/jnicklas/capybara">Capybara</a>, <a href="https://github.com/thoughtbot/shoulda-matchers">shoulda-matchers</a>, and some others. I then did that in Javascript with <a href="https://github.com/pivotal/jasmine">Jasmine</a> and <a href="sinonjs.org/">Sinon</a>, for a small part of the evening.  All in all, it was a nice day, and now nothing breaks anymore ;)</p>
+
+<h2>A video</h2>
+
+<p>A tradition here in Dev Bootcamp says that people who are graduating from phase 2 need to prepare a video for the newcomers of the next monday. The video shows a bit about the bootcamp, the spirit, and the people that you can meet there&hellip; So without further introduction, ours :</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/AabGP9yvJ7o" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>Naps</h2>
+
+<p>Nowadays, I am a bit tired. I had no idea that we had to change the clocks on sunday, and discovered that after a very short night&hellip; Unfortunately, I was busy so I ended up doing a lot of things and not sleeping enough.</p>
+
+<p>I am working on that, but since Monday, I am napping every afternoon now!<br/>
+I hope I can make that be less of a habit soon&hellip; So I&rsquo;ll go to sleep now ;)</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/11/week-7-rails/">Week 7 - Phase 3, Projects, and Another First Day in DBC</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-11T09:26:44-07:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/11/week-7-rails/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Phase 3</h2>
+
+<p>So, first, sorry for not giving any news for friday. If I had to sum friday up, it would probably go like : &ldquo;Partayyyyyyyyyyy&rdquo;.<br/>
+Phase 3 was graduating and showing us projects they worked on. Phase 1 and 2 were moving on to the next phase, so everybody just &hellip; had fun&hellip; and a lot of alcohol. If I can find the links to the projects I&rsquo;ll let you know, but in short we had :</p>
+
+<ul>
+<li>A social app for street performers to share their videos and people to tip them,</li>
+<li>An app that tracks your bad (but legal) substance abuse (coffee, alcohol, cigarette)</li>
+<li>An app that helps you keep track of all the online courses you can take and all the ones you take.</li>
+<li>An app that helps independent music teacher track everything about their business</li>
+</ul>
+
+
+<p>Yesterday we started phase 3 and we started working on Rails&hellip;  Basically, if I had to say anything about it, I would say : Take everything we did so far, and now stop doing it because everything is generated automatically in rails!</p>
+
+<p>We&rsquo;ll have fun, and play with a few things for 8 days, then group projects. That sounds awesome and I can&rsquo;t wait ;)</p>
+
+<h2>Projects</h2>
+
+<p>So, group projects are approaching&hellip; I have ideas, and my #1 would be to join Chermaine and work on the project we thought about together. But then, I also want to pitch a lot of ideas so I guess I&rsquo;ll try and share the ideas and see how it goes! Not right now, but I will, I promise!</p>
+
+<p>Then, on the weekend, I learned 4 things :<br/>
+&ndash; How to use Flask (A Python equivalent of Sinatra)
+&ndash; How to compress WebAssets (And not have 10000000 js files here and there, even though your code is full of clear small classes for example&hellip;)
+&ndash; How to play with Backbone (A Javascript framework to make whole apps on the front-end)
+&ndash; How to play with Google Maps (Put a map of the site and pin stuff to it, geocode stuff, etc&hellip;)</p>
+
+<p>And with that, I ended up making an app. It is an app that shows you all the movie shooting locations in San Francisco, by movie. It is not perfect or finished (I expect it to be finished tonight) but so far you can see :<br/>
+&ndash; The site : <a href="http://movie-shootings-in-sf.herokuapp.com/">http://movie-shootings-in-sf.herokuapp.com/</a>
+&ndash; The code : <a href="https://github.com/Qt-dev/shootings">https://github.com/Qt-dev/shootings</a></p>
+
+<p>Again, I&rsquo;ll tell you when it&rsquo;s over, but you can check it out for now!</p>
+
+<h2>Another first day in DBC</h2>
+
+<p>Yesterday, the new cohort started. It feels so strange to be in the seniors&hellip;</p>
+
+<p>They seem pretty interesting and interested. I think they have a very different dynamic than the Golden bears, and again, very different than the Banana Slugs too. I can&rsquo;t wait until I get to know them and learn more about them!</p>
+
+<p>No worries though, I still love the golden bears, and more than that, I love the banana bears!</p>
+
+<p>Now, time to go back to eating cookies and coding.
+See you tomorrow!</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -755,165 +904,6 @@ That is what I came for. That is what I work my ass for and I will keep on doing
 
 <p>(Plus, we had great talks with Armando, and Armando rocks haha. Oh and Armando got a new challenger, Christine is pretty awesome too :p)
 (Though, to be fair, Janet, Roy, Nic, and many others rock too haha&hellip;)</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/25/week-5-day-1-oojs/">Week 5 - Day 1 - OOJS, JQuery, and Hugs</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-25T09:04:14-08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/25/week-5-day-1-oojs/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>OOJS</h2>
-
-<p>Ok, dev things. You probably heard about Javascript. If you want to hear more about it you can check <a href="http://en.wikipedia.org/wiki/JavaScript">-Wikipedia-</a>. Object oriented programming is a way to model your code in objects that interact with others. Again, <a href="http://en.wikipedia.org/wiki/JavaScript">Wikipedia</a> has all the infos.</p>
-
-<p>Yesterday, we had 2 parts in the day. First part was coding Javascript a bad way. Second part was the right way. The right way is apparently OO, Object Oriented. This allows you to actually make your code &ldquo;look&rdquo; like a developer&rsquo;s code. I did some JS before and it was cool, fine, and interesting. But what I was doing was the first thing : Random lines of code altogether, not in objects, functions, anything.</p>
-
-<p>Say I wanted a button to hide another button, I made that code in a small script, not organized, in a random file.</p>
-
-<p>That is NOT the way to do it. It works when you want simple things, but then what if you start having a lot of lines, like you do most of the time? Well what happens is a big mess of a code that nobody knows about because in human langage none of that is understandable. When you make a complicated code to make your page glow, somebody has to read the whole thing to know what it does. If you encapsulate it in a function called &ldquo;Blink&rdquo;, people will know exactly what it is the moment they see it!</p>
-
-<p>And then what if that blink was a function of the object &ldquo;PageManager&rdquo;? Well, then you have very understandable code, manageable, maintainable, and definitely object oriented.</p>
-
-<p>Building JS code without Object-Oriented Programming is like trying to build houses without any plan. Yes, sometimes the house does not fall apart. But the house is not maintainable, you have no idea about what&rsquo;s up with it, and if you do that, you&rsquo;re a bad person and you should feel bad about yourself ;)</p>
-
-<h2>JQuery</h2>
-
-<p><a href="http://jquery.com/">JQuery</a> is an open source library. People thought Javascript lacked function and could use simplification of some others, and so they built that tool with special functions, in Javascript, that give you that extension, that package of code people would use.</p>
-
-<p>That simplifies web a lot. But then&hellip; That is a very risky path to take. People tend to think that because it is easy, they don&rsquo;t really have to code it any other way that like a very long &hellip; bunch of code that does stuff with the page. No object orientation, no namespacing (Naming the things you just build, objects and functions), and in the end&hellip; No readability.</p>
-
-<p>If you do that, well, just like this sentence in my first part : You are a bad person and you should feel bad about yourself!</p>
-
-<p>Coding is not about making something work right now, coding is about building things, and when you build you plan, and organize everything. It works for Houses, Cars, Planes, and definitely for programming.</p>
-
-<p>A bunch of code, be it JQuery, Javascript, Ruby, C, any langage whatsoever, should be organized.</p>
-
-<p>So yesterday we learned that. In the morning we randomly JQuery-ed pages around the web, and on the afternoon we started encapsulated everything and naming what we did.</p>
-
-<h2>Hugs</h2>
-
-<p>I will not complain, not again. But what I did yesterday was talk. I talked about things in my life I did not like, feelings I had that are not out in the open all of the time. Dev Bootcamp tend to do that to people.</p>
-
-<p>But then yeah, sharing with everybody around helps a lot in solidifying thoughts in my mind. In a way, it is my own therapy!</p>
-
-<p>So yeah, yesterday, I talked about my life. I talked about why I don&rsquo;t want to go back to France. Any other country but not France. I talked about what I felt&hellip; And so I got a lot nice feedback from people, plus hugs for the bad parts.</p>
-
-<p>I&rsquo;m happy and grateful I am among all of these people, and I am not looking forward to having to move on, out of DBC ;)</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/22/week-4-day-5-pressure/">Week 4 - Day 5 - Pressure, Accomplishment, and More Work</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-22T00:19:23-08:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/22/week-4-day-5-pressure/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Pressure</h2>
-
-<p>Yesterday was our first group project day of phase 2. The subject was &ldquo;A Flashcards Game&rdquo;.</p>
-
-<p>We had until noon to find a whole plan for a MVP (Minimum Viable Product), that we could complete before 5PM. Then at 5PM we had to present the project. We have the rest of the weekend to work on it and on Monday we&rsquo;ll present the final release.</p>
-
-<p>With that being said, we also got lectures, and lightning talks (short lectures on specific topics made by other students), and so our afternoon basically started at 3.20PM&hellip;<br/>
-So with that, plus the 6 people that never really paired altogether, it ended up being a huge mess.</p>
-
-<p>If you know me, you know that if there is one goal that I have in life, one thing that I am confident in, one thing that I like to do, it is : Leading groups.</p>
-
-<p>So today, I took the whiteboard, tried to planned a bit, and we went on. We were 6 so it was a bit of a mess, but once we got the ideas all on paper (or whiteboard&hellip;), the rest was easy.</p>
-
-<p>The problem though, is that nobody handles pressure very well, nobody including me, especially with the exhaustion after this week. I ended up going around trying to fix every problem of the team, and people ended up panicking a bit and falling in easy traps.</p>
-
-<p>In the end, we were literally 10 minutes short when the presentation started (I coded for 10 minutes when people started talking and got it working decently&hellip;)</p>
-
-<p>The after presentation was much easier. I explained everything I knew that could be useful for the rest of the team, then we separated tasks, and went on to finish our first release. Expect a link and more info on Monday when we deliver!</p>
-
-<p>I have to say, though, that going ending up listening to some music I had somewhere on my laptop made me very nostalgic, like if I had not been in France for years, but also helped calming me. I now have a rage, a will to conquer. I will succeed!</p>
-
-<h2>Accomplishment</h2>
-
-<p>A few accomplishments this week :</p>
-
-<ul>
-<li>I got to know the new cohort and they are really awesome. I managed to spend a lot of time doing that, while helping my cohort, learning, and finishing many challenges. I count that as a damn good achievement, if not the best I have every felt so far.</li>
-<li>We finished that MVP, managed to split everything correctly, and things are going well for monday!</li>
-<li>I managed to learn enough to not be categorized in &ldquo;I am good in this skill&rdquo; for anything that we learned so far. I understand what I am doing on every part of every challenge, I learned about everything we use and can use and make everything without frustration. That is something that I will be proud of for a while. Now I do need to keep up with that</li>
-<li>Even if I am not a native, struggle with my accent and my language skills sometimes, and I did not lead any team for a while, I can still make myself useful in organizing our groups. It&rsquo;s a relief, because with the knowledge we accumulate in here, sometimes I&rsquo;m afraid I&#8217;ld just forget the things we don&rsquo;t use&hellip;</li>
-</ul>
-
-
-<p>And finally a new one that is not for me :<br/>
-My mother, who has been struggling to lose weight for a while, is finally losing enough that I can even start thinking if she did not lose a leg or something. (I have ways to keep track, call me big brother).</p>
-
-<p>That may be nothing to you, but I want to say that : I am proud.</p>
-
-<h2>More work</h2>
-
-<p>The weekend is going to be full of work everywhere. I want to show my sudoku solver to phase 1 guys so that they would do better than me, but I also have to work on the group project, I have portfolio projects, and I have personal projects on the side. 24 hours days suck.</p>
-
-<p>Oh and my first portfolio project is up. It is not full but I&rsquo;ll finish that in the weekend.
-You can check it at : <a href="http://quentins-notes.herokuapp.com/notes">Quentin&rsquo;s Notes</a></p>
-
-<p>It is a note-taking app. Not very beautiful, and the code (I&rsquo;ll release that later) is not very glorious, but that&rsquo;s the first one, and it does work ;)</p>
-
-<p>Have a great weekend everybody and see you&hellip; maybe later this weekend actually&hellip; If I find a way to stop time to write.</p>
 </div>
   
   

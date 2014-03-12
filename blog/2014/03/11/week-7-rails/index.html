@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job - Qt's Home</title>
+  <title>Week 7 - Phase 3, projects, and another first day in DBC - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Observer Design Pattern Design patterns are a very important thing in Development. The idea is that experienced developers came up with the idea that &hellip;">
+  <meta name="description" content="Phase 3 So, first, sorry for not giving any news for friday. If I had to sum friday up, it would probably go like : &ldquo;Partayyyyyyyyyyy&rdquo;. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/11/week-7-rails">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 6 - Day 2 - Observer Design Pattern, EE Aftermath, and Looking for a Job</h1>
+      <h1 class="entry-title">Week 7 - Phase 3, Projects, and Another First Day in DBC</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-03-05T09:22:11-08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+<time datetime="2014-03-11T09:26:44-07:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,53 +108,49 @@
   </header>
 
 
-<div class="entry-content"><h2>Observer Design Pattern</h2>
+<div class="entry-content"><h2>Phase 3</h2>
 
-<p><a href="http://en.wikipedia.org/wiki/Software_design_pattern">Design patterns</a> are a very important thing in Development. The idea is that experienced developers came up with the idea that no matter the language, the experience, the software they were building, they always ended up on the exact same problems. And then they came up with a &ldquo;simple solution&rdquo; for that, simpler than the problem at least.</p>
-
-<p>So, they came up with design patterns they could use next time they would encounter that same problem. Many of them are useful mainly in statically typed languages like Java or C, but most of them are actually useful, for your own logic development, and for the time you might have to end up using these languages.</p>
-
-<p>Also, since it is a pretty complicated notion, it does show people (like recruiters&hellip;) that you actually know what you are talking about, which is not a bad thing right?</p>
-
-<p>Yesterday, I did a lightning talk about the <a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer Pattern</a>. The idea is that it is a solution to the problem :</p>
+<p>So, first, sorry for not giving any news for friday. If I had to sum friday up, it would probably go like : &ldquo;Partayyyyyyyyyyy&rdquo;.<br/>
+Phase 3 was graduating and showing us projects they worked on. Phase 1 and 2 were moving on to the next phase, so everybody just &hellip; had fun&hellip; and a lot of alcohol. If I can find the links to the projects I&rsquo;ll let you know, but in short we had :</p>
 
 <ul>
-<li>I have objects that must be aware of changed of a particular object</li>
+<li>A social app for street performers to share their videos and people to tip them,</li>
+<li>An app that tracks your bad (but legal) substance abuse (coffee, alcohol, cigarette)</li>
+<li>An app that helps you keep track of all the online courses you can take and all the ones you take.</li>
+<li>An app that helps independent music teacher track everything about their business</li>
 </ul>
 
 
-<p>The solution is pretty simple. You actually give all the info to the observed (called observable) object.</p>
+<p>Yesterday we started phase 3 and we started working on Rails&hellip;  Basically, if I had to say anything about it, I would say : Take everything we did so far, and now stop doing it because everything is generated automatically in rails!</p>
 
-<ul>
-<li>The observer gets an &ldquo;update&rdquo; method that will be triggered by the observable with the info it sent.</li>
-<li>The observable gets a &ldquo;notify&rdquo; method that triggers the update method of the observers</li>
-<li>The observable has a list of observers and relative methods (add/remove/number of them)</li>
-</ul>
+<p>We&rsquo;ll have fun, and play with a few things for 8 days, then group projects. That sounds awesome and I can&rsquo;t wait ;)</p>
 
+<h2>Projects</h2>
 
-<p>And that is it. According to the language you&rsquo;ll use, you will have modules to do so (<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/observer/rdoc/Observable.html">Observable in Ruby</a>), Interfaces (like some implementations in Java), but the idea will always be the same.</p>
+<p>So, group projects are approaching&hellip; I have ideas, and my #1 would be to join Chermaine and work on the project we thought about together. But then, I also want to pitch a lot of ideas so I guess I&rsquo;ll try and share the ideas and see how it goes! Not right now, but I will, I promise!</p>
 
-<p>Now go on and play with it !</p>
+<p>Then, on the weekend, I learned 4 things :<br/>
+&ndash; How to use Flask (A Python equivalent of Sinatra)
+&ndash; How to compress WebAssets (And not have 10000000 js files here and there, even though your code is full of clear small classes for example&hellip;)
+&ndash; How to play with Backbone (A Javascript framework to make whole apps on the front-end)
+&ndash; How to play with Google Maps (Put a map of the site and pin stuff to it, geocode stuff, etc&hellip;)</p>
 
-<h2>Engineering Empathy Aftermath</h2>
+<p>And with that, I ended up making an app. It is an app that shows you all the movie shooting locations in San Francisco, by movie. It is not perfect or finished (I expect it to be finished tonight) but so far you can see :<br/>
+&ndash; The site : <a href="http://movie-shootings-in-sf.herokuapp.com/">http://movie-shootings-in-sf.herokuapp.com/</a>
+&ndash; The code : <a href="https://github.com/Qt-dev/shootings">https://github.com/Qt-dev/shootings</a></p>
 
-<p>We still have Engineering Empathy in phase 2. Yesterday was the last session, about what triggers us and how to respond accordingly.</p>
+<p>Again, I&rsquo;ll tell you when it&rsquo;s over, but you can check it out for now!</p>
 
-<p>I did use that without even knowing about what I was doing. The idea is that when something triggers you, you stop, breathe, think about what&rsquo;s happening, then select the best response and respond. I tend to do that myself, mostly because I am overthinking everything.</p>
+<h2>Another first day in DBC</h2>
 
-<p>Now, yesterday was also 3rd EE session for the phase 1, the Golden Bears. It is a really strong and heavy session, even though it is also a very liberating one. I felt like I wanted to be there for the people and so I spent my evening with anybody I could find, and that was nice.</p>
+<p>Yesterday, the new cohort started. It feels so strange to be in the seniors&hellip;</p>
 
-<p>They are affected, but they seem ok&hellip; You may find it strange, but just like a big brother about his younger siblings, I feel relieved to see they are doing fine&hellip;</p>
+<p>They seem pretty interesting and interested. I think they have a very different dynamic than the Golden bears, and again, very different than the Banana Slugs too. I can&rsquo;t wait until I get to know them and learn more about them!</p>
 
-<h2>Looking for a job</h2>
+<p>No worries though, I still love the golden bears, and more than that, I love the banana bears!</p>
 
-<p>Things are going well at DBC, but yesterday I had a bit of time and ended up thinking about jobs. After all, that is one of the endpoint of this program, a reason why I came here.</p>
-
-<p>I know that before I came here, hired was the only site I tried to join, and I just not being accepted. But now, things have changed. I have good proofs of what I can do, I have more mastery, people that can vouch for me&hellip;</p>
-
-<p>I am thinking about that way in advance, but I feel like I want and have to. Being a foreigner, these things may be trickier, so I need to be better, and faster.</p>
-
-<p>So now, time to work on side project to show my worth, and then use that!</p>
+<p>Now, time to go back to eating cookies and coding.
+See you tomorrow!</p>
 </div>
 
 
@@ -177,7 +173,7 @@
   
 
 
-<time datetime="2014-03-05T09:22:11-08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+<time datetime="2014-03-11T09:26:44-07:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
       
 
 
@@ -185,7 +181,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/11/week-7-rails/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/11/week-7-rails/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -198,10 +194,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/03/04/week-6-day-1-more-oojs/" title="Previous Post: Week 6 - Day 1 - More OOJS, APIs, and changes">&laquo; Week 6 - Day 1 - More OOJS, APIs, and changes</a>
+        <a class="basic-alignment left" href="/blog/2014/03/07/week-6-day-4-rest/" title="Previous Post: Week 6 - Day 4 - Rest, personal projects, and DBC life">&laquo; Week 6 - Day 4 - Rest, personal projects, and DBC life</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/03/06/week-6-day-3-oauth/" title="Next Post: Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando">Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/03/12/week-7-day-2-testing/" title="Next Post: 'Week 7 - Day 2 - Testing, A video , and naps">'Week 7 - Day 2 - Testing, A video , and naps &raquo;</a>
       
     </p>
   </footer>
@@ -307,8 +303,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/11/week-7-rails/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/11/week-7-rails/';
         var disqus_script = 'embed.js';
       
     (function () {
