@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 4 - Day 3 - Building, Testing, and deception - Qt's Home</title>
+  <title>Week 7 - Day 3 - Test driven development, the new guys, and my first full project - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Building So, yesterday&rsquo;s challenges were : Build apps. In the morning, we had to finish the Craigslist one that we started the day before, and &hellip;">
+  <meta name="description" content="Test driven development After a few days of testing, we started the test driven development on Rails. The idea of test driven development is to make &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 4 - Day 3 - Building, Testing, and Deception</h1>
+      <h1 class="entry-title">Week 7 - Day 3 - Test Driven Development, the New Guys, and My First Full Project</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-20T08:51:00-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+<time datetime="2014-03-13T09:03:05-07:00" pubdate data-updated="true">Mar 13<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,54 +108,66 @@
   </header>
 
 
-<div class="entry-content"><h2>Building</h2>
+<div class="entry-content"><h2>Test driven development</h2>
 
-<p>So, yesterday&rsquo;s challenges were : Build apps. In the morning, we had to finish the Craigslist one that we started the day before, and in the afternoon, we had to make a non-authenticated blog.</p>
+<p>After a few days of testing, we started the test driven development on Rails.</p>
 
-<p>The teachers have to change a lot from last phase 2 program. We are different, and our phase 1 was so different than previous cohorts&#8217; than in the end, we don&rsquo;t code like our big brothers and sisters at all. While some of the previous cohorts (Thanks to their program/material ) tended to focus a lot on speed, and quantity, we tend to spend a ton of time on specific challenges, to master them to the end. While some would probably go for the &ldquo;Quantity of knowledge&rdquo;, we are going for &ldquo;Mastery&rdquo;. So in the end, while previous cohorts finished 10 challenges by the end of day 3, we finished only 4 but we did learn just as much and mastered a lot of things that previous people did not know about. An example would be Rspec testing. We literally spent all of yesterday testing&hellip;</p>
+<p>The idea of test driven development is to make tests before you type any code. Let me give you a small example :</p>
 
-<p>Anyway, at the end we finished one app, with Johnny : <a href="http://quentin-johnny-anon-blog.herokuapp.com/">Anonymous Blog</a>. It is not beautiful, not responsive, nothing like that, but the idea was not to make beautiful things, but to make a functional blog system that allows you to have posts that can have tags, and tags that can have many posts, with the corresponding pages.</p>
+<ul>
+<li>Situation : I want to give a user the possibility to create an account</li>
+<li><p>I write tests, from the biggest to the smallest:</p>
 
-<p>We are about to finish Craigslist so I&rsquo;ll show you that right after.</p>
-
-<h2>Testing</h2>
-
-<p>We tested! For 2 days!</p>
-
-<p>In the beginning, we just started to assert that things we wanted were equal. If we call &ldquo;5 + 5&rdquo;, we ask for it to be equal. That was phase 1.</p>
-
-<p>Then we started playing with some more tests, witnessing teachers/talking about re making Rspec (The testing suite for testing in ruby. Think about it as a toolbox with a LOT of tools).</p>
-
-<p>Now in Phase 2, we have Rspec, we have other tools, and we need that. The syntax is easy, very close to english. For example :</p>
-
-<pre><code class="ruby">expect(5+5).to be 10</code></pre>
+<ul>
+<li>Test 1 : Fake an user that clicks user creation, then fill in the fields with correct info and click on the create button. The user should be taken back to the first page, and now he can login with these infos. (Integration tests)</li>
+<li>Test 2 : Fake a request on the creation page, it should be defined and give a form.(controller test)</li>
+<li>Test 3 : Fake a request on the route it takes after you click on the &ldquo;Create&rdquo; button. It should add a new User to the Database (Controller test)</li>
+<li>Test 4 : The DB should not accept info that is not correct, so you test if it adds something when you try and push random invalid info to the DB (Model Unit Test)</li>
+</ul>
+</li>
+<li><p>Now I have that behavior, that I specified more and more, while writing the tests. Now, I can make the tests pass one by one. I start with Test 4, make these limits, then 3, 2, and finally 1.</p></li>
+</ul>
 
 
-<p>And so the hardest part was : figuring out how ENGLISH it was. Is it &ldquo;.to&rdquo;? Is it &ldquo; to&rdquo;? Do I want to test if &ldquo;5+5 =10&rdquo; is true? or if &ldquo;5+5&rdquo; is 10?</p>
+<p>W00t? You have code that does exactly what you want, and that does not break! If you want to add code later, you just have to run the tests once this is finished, and make everything pass according to plan.</p>
 
-<p>That, guys, is what we spent two days working on. We figured out a lot (and for future reference for students : <a href="http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax">You should not use should! but expect is cool</a> and <a href="http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames">Shoulda is your best friend if you&rsquo;re testing Sinatra or Rails&hellip; Anything with ActiveRecord, even if it needs should and not expect</a>), but it did take a lot of time.</p>
+<p>It tends to take a bit longer, but then you have a &ldquo;perfect code!&rdquo;. So do that!</p>
 
-<p>Now, I feel like I know much more about things like one a quote from one of my favorite books : “You don&rsquo;t have to test everything to destruction just to see if you made it right.”, Neil Gaiman, <a href="http://www.amazon.com/Good-Omens-Accurate-Prophecies-Nutter/dp/0060853980/ref=sr_1_1?ie=UTF8&amp;qid=1392918350&amp;sr=8-1&amp;keywords=good+omens">Good Omens</a>. Testing is good, but can be time devouring if not done right.</p>
+<h2>The new guys</h2>
 
-<p>But anyway, let&rsquo;s not talk about that more, there is always much to write and read about that, but there are places and times to do so!</p>
+<p>I spent a bit of time with the new cohort. They are awesome!</p>
 
-<h2>Deception</h2>
+<p>It is amazing to see that the tribe spirit is actually very different, once again. We had the &ldquo;University students&rdquo; Sea Lions, the &ldquo;Overachieving Kids&rdquo; Banana slugs, the &ldquo;Shy kids&rdquo; Golden bears, and now I think we have the &ldquo;Against-all-odds team&rdquo; fiery skippers.</p>
 
-<p>Yesterday I was disappointed by <a href="http://www.interflora.fr/">Interflora</a>. If you don&rsquo;t know that brand, it&rsquo;s a flower selling service that is offered in France. It is a chain, you hear a lot about it, and so I thought I would use it when I needed that kind of service.</p>
+<p>Many of them don&rsquo;t come from computer science backgrounds, many are not the usual start-up 20-something american bearded dudes. But then, I am really impressed with the effort, and especially the team spirit they have. If one knows, one shares. Pairing is optional today? I heard : You can make bigger groups.</p>
 
-<p>Yesterday was my fiancee and I&rsquo;s <strong>6th anniversary</strong>. I can&rsquo;t be with her (Obviously&hellip;), so instead, I planned on making the biggest bouquet I could find delivered at her house when she would be coming home on this day. That was a long time plan, I kept the exact money I needed on my french bank account, I did some research to find how to get flowers delivered, and talked to a lot of people about that to never ever forget.</p>
+<p>That is something I really resonate to, I just love it. They ask questions, try to know, show, learn, share, every verb I love ;)</p>
 
-<p>Then, a few days ago when I got the confirmation that I had the money I needed to do so (last week), I took the biggest chain I could find, for safety, I took the biggest bouquet I could find, and make it delivered at 4PM at her house, right after she comes back home from work.</p>
+<p>I think I&rsquo;m gonna hang around a lot even after graduation, because I think these skippers are going to impress me big time!</p>
 
-<p>Yesterday, when she woke up, I did not even send her a text. She was, of course, disappointed, but I was planning on that (and am very bad with time differences sometimes)! She thought I had forgotten that fateful day! But then she would be so happy when she would get back home from a long and hard day and find these flowers!</p>
+<p>And Golden bears are good too, but I just think that individuality and shyness makes it harder. I am expecting good things to come out of the final group projects of the Bears, but I feel like they will struggle more than the skippers.</p>
 
-<p>But then&hellip; No flower was delivered. None. I checked the time, checked in with her to see if she had them, check the site to be sure they were delivered, and the site even told me &ldquo;The flower delivery guy has the order&rdquo;, which eventually turned to &ldquo;Your flowers have been delivered&rdquo;&hellip; But none got to her house. So I had to explain everything, my plan fell apart, and today she called them to check about the order and&hellip; Guess what? &hellip; Apparently the girl on the phone told her the delivery guy never got the order.</p>
+<h2>My first full project</h2>
 
-<p>So in short : I planned, I payed, went for safety over better shops, and in the end I feel just like an ass that did not do anything for our 6th anniversary, but just a couple of texts saying that I love and miss her.</p>
+<p>So, I finished my project. You can see it live on : <a href="http://movie-shootings-in-sf.herokuapp.com">Heroku</a>, and the code on <a href="https://github.com/Qt-dev/shootings">Github</a>.
+You can also check some of my tests on <a href="http://movie-shootings-in-sf.herokuapp.com/jasmine">Jasmine</a>.</p>
 
-<p>I am so sorry, Thuy, I am very unhappy about that, and I will never stress that enough: <strong>I WILL NEVER USE INTERFLORA AGAIN IN MY LIFE</strong></p>
+<p>It shows you a list of movies that have been shot in San Francisco. You try typing a movie title, and it autocompletes the movie title. It then geocodes every location where it has been shot, from the address that I am given by <a href="http://sfdata.org">Sfdata</a>, and pins them on the map.</p>
 
-<p>Time to go back to coding now, see you tomorrow ;)</p>
+<p>Then, I make small popups info windows for when you click on the pin, with the director, location, name, year, and a link to IMDB to find the movie.</p>
+
+<p>It is not that impressive, but I f*cking did it! I took 2 days (Plus 2 slacking with only one commit&hellip; oops), and I learned about things I did not know about :</p>
+
+<ul>
+<li>Flask</li>
+<li>Jasmine + Sinon</li>
+<li>Backbone</li>
+<li>Google Maps API</li>
+<li>Google Geocoding</li>
+</ul>
+
+
+<p>And now I feel good about it!</p>
 </div>
 
 
@@ -178,7 +190,7 @@
   
 
 
-<time datetime="2014-02-20T08:51:00-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+<time datetime="2014-03-13T09:03:05-07:00" pubdate data-updated="true">Mar 13<span>th</span>, 2014</time>
       
 
 
@@ -186,7 +198,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -199,10 +211,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/19/week-4-day-2-testing/" title="Previous Post: Week 4 - Day 2 - Testing, Helping, and buying">&laquo; Week 4 - Day 2 - Testing, Helping, and buying</a>
+        <a class="basic-alignment left" href="/blog/2014/03/12/week-7-day-2-testing/" title="Previous Post: 'Week 7 - Day 2 - Testing, A video , and naps">&laquo; 'Week 7 - Day 2 - Testing, A video , and naps</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/20/week-4-day-4-building/" title="Next Post: Week 4 - Day 4 - Confidence, (Lack of) sleep and links">Week 4 - Day 4 - Confidence, (Lack of) sleep and links &raquo;</a>
       
     </p>
   </footer>
@@ -308,8 +318,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -9,7 +9,7 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="OOJS Ok, dev things. You probably heard about Javascript. If you want to hear more about it you can check -Wikipedia-. Object oriented programming is &hellip;">
+  <meta name="description" content="OOJS again and Namespacing Yesterday I told you about Object Oriented Javascript. Today I have to tell you again : If you make some software in &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,87 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/26/week-5-day-2-oojs-again/">Week 5 - Day 2 - OOJS Again and Namespacing, Helpers, and Lack of Sleep</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-26T09:25:50-08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/02/26/week-5-day-2-oojs-again/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>OOJS again and Namespacing</h2>
+
+<p>Yesterday I told you about Object Oriented Javascript. Today I have to tell you again :</p>
+
+<p>If you make some software in Javascript and DON&rsquo;T use that, you are a BAD person and should feel BAD.</p>
+
+<p>Javascript is powerful, and the community using it gives you some really good tools that enable you to make almost anything in JS today, but coding, like what I did before, in a whole file with random stuff around is NOT the way to go. One could try and go <a href="http://en.wikipedia.org/wiki/Procedural_programming">Procedural</a>, but then, even if procedural programming is actually a thing, it makes code that is a bit more messy, less maintainable, and less readable for the people working with you.</p>
+
+<p>JS gives you classes, attributes, methods, instances, packs of methods and way to call them, inheritance, and everything you would need to make &ldquo;real&rdquo; software. If you don&rsquo;t use it, then you&rsquo;re not doing it right.</p>
+
+<p>The way to actually name everything to identify and sort them the way you understand it is called namespacing. That IS a thing, and should happen in all of the code you write. That is what I have spent the last articles talking about. That is the way to go when working on big project, even alone, and now you have to do that. You&rsquo;ve been warned. Twice.</p>
+
+<h2>Helpers</h2>
+
+<p>In Dev Bootcamp phase 2 we have thing thing we call lightning talks. In the afternoon, we register at least once a week to talk for 4 minutes about one particular topic. We start the week not knowing about the topic, but then we learn about it, and have 4 minutes to share about it.</p>
+
+<p>Yesterday, I had one about helpers. Helpers are all of these &ldquo;packs&rdquo; of methods that you can use in other parts of your apps. That is the name that has been given to these packs in MVC app frameworks like <a href="http://nodejs.org">Node.js</a>, <a href="http://www.sinatrarb.com">Sinatra</a> and <a href="http://rubyonrails.org">Rails</a> are good examples.</p>
+
+<p>The idea is that you have a separation between your code that shows stuff to the user, the one that does things, and the one that stocks and pulls out data. Helpers are packages that allow one of two things :<br/>
+&ndash; Be able to encapsulate a pack of code you use at multiple times in one simple method you would call instead (<a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">GET DRY !</a>, and use namespacing like I&rsquo;ve been telling you ! )<br/>
+&ndash; Be able to use simple code in the things that are supposed to only be able to print stuff to the user (ex : Show a logout button when the user is logged in. You just print something &ldquo;If logged_in == true&rdquo;)</p>
+
+<p>In Sinatra or Rails you can actually even build a whole module to plug in helpers, I did that, that was fun&hellip; Until I realized that people did it before and that I did not need to reinvent the wheel.</p>
+
+<h2>Lack of sleep</h2>
+
+<p>Last week, I went to sleep at 1AM or more every day. After a week of doing that and waking up between 7 and 8 I can tell you : Don&rsquo;t do that.</p>
+
+<p>I have been feeling a bit tired (what a surprise&hellip;) and ended up not being myself, like every time I am tired. When I am like that, I tend to be less patient, and to get things done silently.</p>
+
+<p>Now, DBC is about pair programming&hellip; And so I ended up trying to make things work that were just remotely connected to our project, without sharing much about where I was and what I was doing, and in the end did not get stuff to work. At some point, I had lost :<br/>
+&ndash; My focus<br/>
+&ndash; My buddy&rsquo;s focus<br/>
+&ndash; My time<br/>
+&ndash; My energy and happiness (I&rsquo;m grumpy when I don&rsquo;t make things work&hellip;)</p>
+
+<p>We ended up finishing the project and doing it a way I can teach people too, so that&rsquo;s cool, but it took us so much time, I wasted so much time, and I felt so bad for my pair, that most of my day was actually really tiring.</p>
+
+<p>Now, I slept more, and I am learning from my mistakes. today is another day!</p>
+
+<p>(Plus, we had great talks with Armando, and Armando rocks haha. Oh and Armando got a new challenger, Christine is pretty awesome too :p)
+(Though, to be fair, Janet, Roy, Nic, and many others rock too haha&hellip;)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -781,70 +862,6 @@ Your options are :</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/13/week-3-day-3-ee-cooldown/">Week 3 - Day 3 - EE Cooldown, ActiveRecord and My First Solo Day</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-13T08:41:13-08:00" pubdate data-updated="true">Feb 13<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/13/week-3-day-3-ee-cooldown/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Engineering Empathy Cooldown</h2>
-
-<p>Two days ago was our last Engineering Empathy session of Phase 1. Like the other cohort told us : &ldquo;You thought the first session was heavy? Wait &lsquo;til you see session 3&rdquo;.</p>
-
-<p>First week was &ldquo;The superego&rdquo;, and the exercise that we got was &ldquo;Share what your inner voice tells you&rdquo;. This week was &ldquo;Dive deeper in what you let people know about you&rdquo;&hellip; And so we sat in circle to tell people stuff, while starting every sentence with &ldquo;If you really knew me&rdquo;. Now let me tell you guys&hellip; There were tears, hugs, revelations, but no shocked reaction, no judgement, nothing like that. And everything told in this room stays in this room.</p>
-
-<p>Diving deeper than the usual in what you tell people is an exercise that does make us grow, but that also hits you hard at the moment you do it. And listening to all of the others&#8217; is not even easier. I think I can safely say that I will keep that day in my mind for a very very long time.</p>
-
-<h2>ActiveRecord</h2>
-
-<p>ActiveRecord is the design pattern I told you about yesterday. In Rails, the most well known web framework for Ruby, this design pattern is implemented in its own. What it does, in short, is mapping a database with an object. Columns of the database become attributes of the objects, you can create objects and save them to the db, or get objects from an entry in the db. Quite easy and practical!</p>
-
-<p>Yesterday, we worked on that for the whole day. The morning was the introduction, and the afternoon the application. I&rsquo;ll say that it was a pretty good day, I learned a lot, and ActiveRecord is cool&hellip; Wait&hellip; Better than that : ActiveRecord is coolER than SQL!</p>
-
-<h2>My first solo day</h2>
-
-<p>Wednesdays are optional solo days. That means that every other day, we have to pair or group with more people, but on wednesdays, we choose our pairs/groups. I did not solo until then, but I thought that to save my voice I&#8217;ld try and do so yesterday.</p>
-
-<p>In the end, I did finish the exercises, which was my goal. I had to go to other people soloing a couple of times, to get my mind off of the problems that were blocking me, and to help me figure out solutions sometimes, but I did it and I am pretty happy about it.</p>
-
-<p>The beginning was hard and I just &hellip; felt like I did not know where I was going. But I got on it after I expressed my incomprehension a first time, and then I just worked, with a decent speed.</p>
-
-<p>I don&rsquo;t know if I&rsquo;ll do that again, probably not next week, but probably another time. It was a good day but I prefer picking my pairs in the people I do well with (Looking at you Irene!).</p>
-
-<p>Anyway, today is assessment and group project&hellip; time to have fun !</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -862,6 +879,10 @@ Your options are :</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/13/week-7-day-3-testing-again/">Week 7 - Day 3 - Test driven development, the new guys, and my first full project</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/12/week-7-day-2-testing/">&#8216;Week 7 - Day 2 - Testing, A video , and naps</a>
       </li>
     
@@ -875,10 +896,6 @@ Your options are :</p>
     
       <li class="post">
         <a href="/blog/2014/03/06/week-6-day-3-oauth/">Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/05/week-6-day-2-observer-design-pattern/">Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job</a>
       </li>
     
   </ul>

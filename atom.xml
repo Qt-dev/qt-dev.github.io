@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-03-12T00:54:05-07:00</updated>
+  <updated>2014-03-13T09:34:08-07:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 7 - Day 3 - Test driven development, the new guys, and my first full project]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again/"/>
+    
+    <updated>2014-03-13T09:03:05-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again</id>
+    
+    <content type="html"><![CDATA[<h2>Test driven development</h2>
+
+<p>After a few days of testing, we started the test driven development on Rails.</p>
+
+<p>The idea of test driven development is to make tests before you type any code. Let me give you a small example :</p>
+
+<ul>
+<li>Situation : I want to give a user the possibility to create an account</li>
+<li><p>I write tests, from the biggest to the smallest:</p>
+
+<ul>
+<li>Test 1 : Fake an user that clicks user creation, then fill in the fields with correct info and click on the create button. The user should be taken back to the first page, and now he can login with these infos. (Integration tests)</li>
+<li>Test 2 : Fake a request on the creation page, it should be defined and give a form.(controller test)</li>
+<li>Test 3 : Fake a request on the route it takes after you click on the &ldquo;Create&rdquo; button. It should add a new User to the Database (Controller test)</li>
+<li>Test 4 : The DB should not accept info that is not correct, so you test if it adds something when you try and push random invalid info to the DB (Model Unit Test)</li>
+</ul>
+</li>
+<li><p>Now I have that behavior, that I specified more and more, while writing the tests. Now, I can make the tests pass one by one. I start with Test 4, make these limits, then 3, 2, and finally 1.</p></li>
+</ul>
+
+
+<p>W00t? You have code that does exactly what you want, and that does not break! If you want to add code later, you just have to run the tests once this is finished, and make everything pass according to plan.</p>
+
+<p>It tends to take a bit longer, but then you have a &ldquo;perfect code!&rdquo;. So do that!</p>
+
+<h2>The new guys</h2>
+
+<p>I spent a bit of time with the new cohort. They are awesome!</p>
+
+<p>It is amazing to see that the tribe spirit is actually very different, once again. We had the &ldquo;University students&rdquo; Sea Lions, the &ldquo;Overachieving Kids&rdquo; Banana slugs, the &ldquo;Shy kids&rdquo; Golden bears, and now I think we have the &ldquo;Against-all-odds team&rdquo; fiery skippers.</p>
+
+<p>Many of them don&rsquo;t come from computer science backgrounds, many are not the usual start-up 20-something american bearded dudes. But then, I am really impressed with the effort, and especially the team spirit they have. If one knows, one shares. Pairing is optional today? I heard : You can make bigger groups.</p>
+
+<p>That is something I really resonate to, I just love it. They ask questions, try to know, show, learn, share, every verb I love ;)</p>
+
+<p>I think I&rsquo;m gonna hang around a lot even after graduation, because I think these skippers are going to impress me big time!</p>
+
+<p>And Golden bears are good too, but I just think that individuality and shyness makes it harder. I am expecting good things to come out of the final group projects of the Bears, but I feel like they will struggle more than the skippers.</p>
+
+<h2>My first full project</h2>
+
+<p>So, I finished my project. You can see it live on : <a href="http://movie-shootings-in-sf.herokuapp.com">Heroku</a>, and the code on <a href="https://github.com/Qt-dev/shootings">Github</a>.
+You can also check some of my tests on <a href="http://movie-shootings-in-sf.herokuapp.com/jasmine">Jasmine</a>.</p>
+
+<p>It shows you a list of movies that have been shot in San Francisco. You try typing a movie title, and it autocompletes the movie title. It then geocodes every location where it has been shot, from the address that I am given by <a href="http://sfdata.org">Sfdata</a>, and pins them on the map.</p>
+
+<p>Then, I make small popups info windows for when you click on the pin, with the director, location, name, year, and a link to IMDB to find the movie.</p>
+
+<p>It is not that impressive, but I f*cking did it! I took 2 days (Plus 2 slacking with only one commit&hellip; oops), and I learned about things I did not know about :</p>
+
+<ul>
+<li>Flask</li>
+<li>Jasmine + Sinon</li>
+<li>Backbone</li>
+<li>Google Maps API</li>
+<li>Google Geocoding</li>
+</ul>
+
+
+<p>And now I feel good about it!</p>
+]]></content>
+    
+  </entry>
   
   <entry>
     
@@ -1050,43 +1122,6 @@ Your options are :</p>
 
 
 <p>Anyway, going back to the project&hellip; See you tomorrow!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 3 - Day 3 - EE Cooldown, ActiveRecord and My first solo day]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown/"/>
-    
-    <updated>2014-02-13T08:41:13-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown</id>
-    
-    <content type="html"><![CDATA[<h2>Engineering Empathy Cooldown</h2>
-
-<p>Two days ago was our last Engineering Empathy session of Phase 1. Like the other cohort told us : &ldquo;You thought the first session was heavy? Wait &lsquo;til you see session 3&rdquo;.</p>
-
-<p>First week was &ldquo;The superego&rdquo;, and the exercise that we got was &ldquo;Share what your inner voice tells you&rdquo;. This week was &ldquo;Dive deeper in what you let people know about you&rdquo;&hellip; And so we sat in circle to tell people stuff, while starting every sentence with &ldquo;If you really knew me&rdquo;. Now let me tell you guys&hellip; There were tears, hugs, revelations, but no shocked reaction, no judgement, nothing like that. And everything told in this room stays in this room.</p>
-
-<p>Diving deeper than the usual in what you tell people is an exercise that does make us grow, but that also hits you hard at the moment you do it. And listening to all of the others&#8217; is not even easier. I think I can safely say that I will keep that day in my mind for a very very long time.</p>
-
-<h2>ActiveRecord</h2>
-
-<p>ActiveRecord is the design pattern I told you about yesterday. In Rails, the most well known web framework for Ruby, this design pattern is implemented in its own. What it does, in short, is mapping a database with an object. Columns of the database become attributes of the objects, you can create objects and save them to the db, or get objects from an entry in the db. Quite easy and practical!</p>
-
-<p>Yesterday, we worked on that for the whole day. The morning was the introduction, and the afternoon the application. I&rsquo;ll say that it was a pretty good day, I learned a lot, and ActiveRecord is cool&hellip; Wait&hellip; Better than that : ActiveRecord is coolER than SQL!</p>
-
-<h2>My first solo day</h2>
-
-<p>Wednesdays are optional solo days. That means that every other day, we have to pair or group with more people, but on wednesdays, we choose our pairs/groups. I did not solo until then, but I thought that to save my voice I&#8217;ld try and do so yesterday.</p>
-
-<p>In the end, I did finish the exercises, which was my goal. I had to go to other people soloing a couple of times, to get my mind off of the problems that were blocking me, and to help me figure out solutions sometimes, but I did it and I am pretty happy about it.</p>
-
-<p>The beginning was hard and I just &hellip; felt like I did not know where I was going. But I got on it after I expressed my incomprehension a first time, and then I just worked, with a decent speed.</p>
-
-<p>I don&rsquo;t know if I&rsquo;ll do that again, probably not next week, but probably another time. It was a good day but I prefer picking my pairs in the people I do well with (Looking at you Irene!).</p>
-
-<p>Anyway, today is assessment and group project&hellip; time to have fun !</p>
 ]]></content>
     
   </entry>
