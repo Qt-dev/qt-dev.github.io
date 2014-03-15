@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-03-13T09:34:08-07:00</updated>
+  <updated>2014-03-15T14:12:20-07:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 7 - Day 5 - A nice day]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/15/week-7-day-5-a-nice-day/"/>
+    
+    <updated>2014-03-15T14:10:25-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/15/week-7-day-5-a-nice-day</id>
+    
+    <content type="html"><![CDATA[<p>So, yesterday was a nice day. I wish I had a lot to say about it, but the idea is that I rested, I pair with the awesome Matthew, I ate well, I finished what I wanted, no pressure, nice weather, everything.</p>
+
+<p>It&rsquo;s sad that I don&rsquo;t have much to say about it, but that&rsquo;s cool ^.^</p>
+
+<p>See you guys on monday!</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 7 - Day 4 - Todos, group project, and effects of DBC']]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/14/week-7-day-4-todos/"/>
+    
+    <updated>2014-03-14T08:52:10-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/14/week-7-day-4-todos</id>
+    
+    <content type="html"><![CDATA[<h2>Todos</h2>
+
+<p>So, in DBC, we made Todos. When I say that, I mean, we learned how to make a todo app jn Ruby, with the command line. Then we learned how to make a new one that saves and read things in a file. After that we got in phase 2 and made a simple Sinatra Todo app. Then we made one that used Javascript, and now we&rsquo;re 4 days into phase 3, and we already made 2 todo apps.</p>
+
+<p>I feel like there is a common theme somewhere&hellip; Are DBC teachers trying to tell us something?</p>
+
+<p>I do not tend to use todo apps myself nowadays but I now know how to make it however I want. I also know how to manage my time, or&hellip;  know how to not manage my time actually.</p>
+
+<p>As for code, I know that using that same theme to learn new things help a lot, and I feel like I can learn what I want to learn by simply making a todo with it and comparing with what I know.</p>
+
+<p>And since I intend to learn much more&hellip; I end up with many todos apps eon my todo list&hellip;</p>
+
+<h2>Group Project</h2>
+
+<p>We got a small group project again, in Rails. Things are much easier, Rails does everything, people are confident, and we can now play with these interesting things, at our own pace, without stressing out!</p>
+
+<p>This week we have to make a &ldquo;Stack Overflow&rdquo;-like app. Basically, answer questions, select the best answer, and comment questions or answers. Also, they can vote for a question or an answer, and the site makes the selection after that.</p>
+
+<p>I am not even sure what to say about that, but it is what we&rsquo;re doing.</p>
+
+<p>We&rsquo;re having fun, and have an awesome group again, I guess I&rsquo;ll have something to show on monday, but even if I don&rsquo;t&hellip; No biggie!</p>
+
+<h2>Effects of DBC</h2>
+
+<p>Yesterday, I did something that triggered <a href="http://mknudsen01.tumblr.com">Matthew</a>. Basically, without getting too deep into that, I made him feel like he was left out for a moment, search for a reason why I would do so, and end up on some pretty bad, sad, and mean reasons.</p>
+
+<p>But then, magic happened.</p>
+
+<p>When I came back to work with him, before we started, we had a conversation that kinda went like this :</p>
+
+<p>&ldquo;Before we start, do you mind if we talk for a second?<br/>
+&ndash; Yeah sure, no problem, what&rsquo;s up?&rdquo;</p>
+
+<p>And then, he ended up sharing what exactly happened, what he felt, what he saw, and what he feels now. I shared how I felt about it, explained and confirmed what he saw, and apologized. And that was an argument that was solved in less than 2 minutes, without any fight or hard  feeling.</p>
+
+<p>This is what DBC made. DBC made us understanding human beings. DBC made Matthew not freak out about what happened, try to check what was happening, and then reflect. DBC made me listen, put myself in his shoes and be understanding.</p>
+
+<p>I had an experience like that with my fiancee, and it is quite strange to realize that what you have been learning, no matter how true it was in your current environment, is actually true outside of it.</p>
+
+<p>The first time I started listening like we try to do it here, it actually worked flawlessly. I tried again, it worked again. It may not work 100% of the time, but I know that I will keep on doing that for a while!</p>
+]]></content>
+    
+  </entry>
   
   <entry>
     
@@ -1003,125 +1072,6 @@ Behold, fellow students, winter is not coming, Mayhem is.</p>
 <p>(PS : Marching bands are AWESOME! :
 <img src="http://i.imgur.com/2Tl0g0Ll.jpg" alt="A nice picture of me in there!" />
 )</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Making a new faker gem]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/"/>
-    
-    <updated>2014-02-14T20:36:16-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker</id>
-    
-    <content type="html"><![CDATA[<p>Let&rsquo;s me sum some stuff up first before I start :</p>
-
-<ul>
-<li>Gem : A Gem is a &ldquo;library&rdquo;, a pack of code, in the programmatic language we call Ruby, that enables us to use functions not built in the languages without having to rewrite the code. When one feels he has enough code to share, he can wrap it up in a &ldquo;Gem&rdquo; that will be easily installable and usable by the other Ruby programmers.</li>
-<li>Faker : Faker is a gem that basically gives you random data. Let&rsquo;s say you want to make a huge database and want to test the load for when you have more than 1000 users. Instead of writing either 1000 times the same name or use 1000 names you write one by one, Faker will generate a random one for each of these entries. Pretty useful.</li>
-</ul>
-
-
-<p>But then, Faker generates what it has been built for. Generating team names, or even slogans, are not what it has been made for. So as a 2 days project with my fellow boots of Phase 1 DevBootcamp we created one that made the things we want. You can check the code here : <a href="https://github.com/Qt-dev/cool-faker">Github</a>, and more info on how to download the gem on : <a href="https://rubygems.org/gems/cool_faker">Rubygem</a>.</p>
-
-<p>Basically, we used <a href="http://bundler.io/v1.5/rubygems.html">bundle</a> to make the gem architecture, the files we needed. Then, we took a look at how Faker was built and decided to go around that same way, with our data stocked in a yaml file, and using the <a href="http://ruby-doc.org/stdlib-2.1.0/libdoc/yaml/rdoc/YAML.html">yaml</a> module to load it and get the data we wanted in ruby.</p>
-
-<p>And we end up with a gem that has 4 different functions :</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a random Character name from a famous movie, or tv show. The titles include The Lord of the Ring, Superman, Starwars, friends, or futurama.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Character</span><span class="o">.</span><span class="n">name_from</span><span class="p">(</span><span class="n">movie_or_tv_show</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a random name from the movie or tv show that you called.
-Your options are :</p>
-
-<ul>
-<li>friends</li>
-<li>entourage</li>
-<li>sex_and_the_city</li>
-<li>batman</li>
-<li>startrek</li>
-<li>superman</li>
-<li>star_wars</li>
-<li>the_lord_of_the_rings</li>
-<li>napolean_dynamite</li>
-<li>snow_white</li>
-<li>back_to_the_future</li>
-<li>the_wizard_of_oz</li>
-<li>toy_story</li>
-<li>the_simpsons</li>
-<li>futurama</li>
-<li>monty_python</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">slogan</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a random slogan from a 587 quotes database</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">CoolFaker</span><span class="p">:</span><span class="ss">:Team</span><span class="o">.</span><span class="n">name</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>generates a team name from a list of adjectives and a list of animal names. Expect some funny names, gender-confused pandas is a good one ;)</p>
-
-<p>With all that, we ended up making the gem with a simple</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">build</span> <span class="n">cool_faker</span><span class="o">.</span><span class="n">gemspec</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then send it to rubygems.org, and here we go.</p>
-
-<p>All in all, we ended up shipping a gem without knowing about gem building/shipping, building dozens of tests without knowing about rspec&hellip; a good 2 days of intense learning, a lot of fun, and we end up with an usable tool. I&rsquo;m pretty happy about it!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 3 - Day 4 - Group project and good news]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/14/week-3-day-4-group-projects/"/>
-    
-    <updated>2014-02-14T09:41:20-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/14/week-3-day-4-group-projects</id>
-    
-    <content type="html"><![CDATA[<h2>Group Project</h2>
-
-<p>Yesterday we started a new group project. This time, it&rsquo;s a 2 days stretch. You can follow how it&rsquo;s going on <a href="https://github.com/Qt-dev/cool-faker">Github</a>.</p>
-
-<p>The idea is that we are building an open-source project. More specifically, we are building a Ruby Gem (A code library, a set of tools for people who use ruby) that will generate random people names, team names, and useful info like that from a database of funny and famous words/names/quotes. The idea is that there is a gem called &ldquo;Faker&rdquo;, and we are building the cool version of this one, with Armando, Jamie, and Nicholas.</p>
-
-<p>So far, it&rsquo;s doing good! I got my voice back so I can participate much more in whiteboarding and all that, we planned everything decently and managed to get an MVP (Minimum Viable Product, the smallest thing you could build on your idea) in half the time. We&rsquo;re pushing for more options and some kind of implementation to show nice usage of that gem.</p>
-
-<p>It&rsquo;s exciting to be working on some tool that may very well be used by others all around the world. Plus, learning how to make gems is a very interesting thing. I think that when I have time later, I&rsquo;ll try to make some gems just for the sake of helping around. Open-source is awesome!</p>
-
-<h2>Good news</h2>
-
-<p>Among the good news :</p>
-
-<ul>
-<li><p>I may see my fiancee before I come back. This is by far the best news I could ever had heard. I miss her, and knowing that I may see her sooner than I expected is just the best thing that could have happened.</p></li>
-<li><p>I had a beer with Jonathan and got more info about after Dev Bootcamp. That was such a relief. Coming here as a frenchman, I just had no idea how the job market was, and how things were supposed to happen after that. I kinda get ideas from here and there, but finally being able to have some feedback from a guy who has the same experience, and comes from the same place, is really a relief. Now I just have to continue giving my best &lsquo;til the end of these 9 weeks.</p></li>
-<li><p>I&rsquo;m going to Phase 2! I got my assessment and it went ok. I overthought part of it so I wouldn&rsquo;t say I did perfectly, but with the goal being : Assess whether I know Phase 1 material or not, I did ok for that. That is perfect! So now it&rsquo;s time to learn even more!</p></li>
-</ul>
-
-
-<p>Anyway, going back to the project&hellip; See you tomorrow!</p>
 ]]></content>
     
   </entry>

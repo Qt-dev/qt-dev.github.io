@@ -9,7 +9,8 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Cries So today we started Engineer Empathy courses. The idea of this course seems to be that the better you are with yourself and the better your &hellip;">
+  <meta name="description" content="The context So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to : 1
+myClass[index]=& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,188 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/">Be Careful With Ruby&#8217;s Assignment Methods</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-31T00:59:00-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/31/be-careful-with-rubys-assignment-methods/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>The context</h2>
+
+<p>So, I am in Dev Bootcamp. Yesterday, while trying to implement a customized class, I tried to make ruby respond to :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">myClass</span><span class="o">[</span><span class="n">index</span><span class="o">]=</span><span class="s2">&quot;new_value&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My buddy and I were trying to get used to Test-Driven Development (<a href="http://fr.wikipedia.org/wiki/Test_Driven_Development">If you want more info&hellip; Thanks Wikipedia!</a>). So I had a very simple test method that tested if 2 things were equal.<br/>
+I was testing that this code would return true, just to make sure the whole code of my method was executed.</p>
+
+<p>Come this test, we found out that it wanted a method called &ldquo;[]=&rdquo;, so we did. Our method looked something like :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="n">index</span><span class="p">,</span><span class="n">new_value</span>
+</span><span class='line'>  <span class="c1">#Do some stuff</span>
+</span><span class='line'>  <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The problem</h2>
+
+<p>So, we got this method, this test, so far so good. Now, we launch the test to check if the result to that first expression is true and&hellip; No. The test said that this method just ended up returning the value that we were passing it (In this case &ldquo;new_value&rdquo;).</p>
+
+<p>Maybe that method was not doing what it should, so we used the Debugger gem (<a href="http://rubydoc.info/gems/debugger/1.6.5/frames">Docs</a>). With that we just checked step by step what it would be doing.<br/>
+&ndash;  First : It is calling the method. The debugger throws us right there in the middle of the method.<br/>
+&ndash;  Second : It is actually doing what we want. The data is changed, and it goes through the last line that returns true.<br/>
+&ndash;  Third : It does not care about that because on the very next step, the trace you have of this method and what it returns already became &ldquo;new_value&rdquo;</p>
+
+<p>We then asked more experienced boots, and came up with a test where we&#8217;ld be calling the method like this :<br/>
+<code>ruby myClass.[]=(index,"new_value")</code>
+Conclusion of this test : SUCCESS!<br/>
+This calls the method without any problem, and that is done exactly how we want.</p>
+
+<p>So at that point are conclusions were :<br/>
+&ndash; The method is called<br/>
+&ndash; The method does what it should, even the return<br/>
+&ndash; Its behavior changes when we call it with ruby&rsquo;s &ldquo;shortcut&rdquo;, or syntaxic sugar (<a href="http://rubylearning.com/satishtalim/ruby_syntactic_sugar.html">More info</a>) and we end up having the return value disappearing, and the second argument becoming that return value.</p>
+
+<h2>Assignments methods</h2>
+
+<p>Let&rsquo;s pause on that particular problem for a second to talk about assignment methods.</p>
+
+<p>Assignment methods can be used to assign a value to a particular item, like the name says. But in Ruby, everything is object. So assignment methods are actually methods, simple ones defined just like an initialize. What differenciate them mostly is :<br/>
+&ndash; An assignment method can has any number of spaces before its = when it is called.<br/>
+&ndash; When you call it with the &ldquo;shortcut&rdquo;, the behavior will be neglected and replaced.</p>
+
+<p>Now, the important thing&hellip; Let me rephrase that : The <blink>IMPORTANT</blink> thing is how ruby selects what is and what is not an assigment method.</p>
+
+<p>The answer is : It takes the last character of the name of the method, and checks if it is an equal.<br/>
+If it is, your method will be considered an assignment method.</p>
+
+<p>If we take our problem, the method can clearly be detected as an assignment method. That means that it can be called with spaces between the brackets and the = sign, and even more because ruby has a special shortcut for the methods with such a name (The one we used).<br/>
+That also means that the behavior will be transformed.</p>
+
+<p>Well, do you want to guess what behavior is the principal one concerned by that statement? You&rsquo;re right, it&rsquo;s the return. The rubydoc tells us that using an assignment method, so the shortcut we are talking about, will always return the argument.</p>
+
+<p>So, our code did work. It did do what we wanted it to do. But unless we wanted to redefine primitive ruby behavior by diving in Ruby&rsquo;s source, there is no way we can make an assignment method return anything else than the thing on the right.</p>
+
+<p>So, guys, be REALLY careful when you call your method with an =. That may help you in some parts, but it may also leave you and your friends, coworkers, teachers craving for answers ;)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/30/day-3---data-structurestypes-testing-and-a-brain-teaser/">Day 3 - Data Structures/types, Testing, and a Brain-teaser</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-30T08:13:00-08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/30/day-3---data-structurestypes-testing-and-a-brain-teaser/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Data Structures/types</h2>
+
+<p>Yesterday was the optionnal solo day, the day when we choose if we pair or not and work on some challenges. The code of the day was about Data Structures. I wont go as far as to try and explain all of that in detail in this blogpost but the idea is that you have all these data types in languages.<br/>
+For example, a String is a chain of characters. It has a length, characters at specified index, and methods to compare Strings together, to change some character, and all the other operations you would want to do on such an object.<br/>
+Once you get that far, it is what you call Abstract Data Structure. Then you implement it into a Data type, or a Data structure, according to if this ADT is a chain of separable elements, or an element in itself.</p>
+
+<p>So, in short, we spent most of the day working to understand that 100%<br/>
+And if you are curious about if I chose to work alone, I did not. I chose to work with the &ldquo;Brother from another mother&rdquo;, Armando.</p>
+
+<h2>Testing</h2>
+
+<p>In our lunch talks, Shadi introduced us to Test-driven development. The idea is that when you have an idea about what you want to do, and no matter how strong the feeling that you can code that is, you will just write tests to verify all that first.<br/>
+Your algorithm will not work (Duh&hellip; You did not write any code yet), but you then just launch your script, and jump from error to error, deciphering and correcting them on the way, one by one, never thinking about the big picture. Then when you finish that, you check if the code does exactly what you want. If not, you write more specific tests.</p>
+
+<p>Contrary to popular beliefs, people are really bad at multitasking, and so doing that allows you to complete simple tasks one by one, without multitasking, and empowering your debugging skills on the way.</p>
+
+<p>So, Test driven development, I love you. (Not as much as my fiance of course, but we&rsquo;re getting close)</p>
+
+<h2>A brain teaser</h2>
+
+<p>So, we worked on data structures, while using test-driven-development. While doing that we ended up redefining a method whose syntax is recognized and transformed by ruby&rsquo;s Syntaxic sugar :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">[]=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which transforms into :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">thing</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="mi">4</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So far so good.<br/>
+Now, the problem we find is that in Ruby, even if you make that method return something, the second expression, the after-SS one, is returning 4.<br/>
+I will tell you more when I realize what happens and why, but let&rsquo;s say other cohorts did not know, coaches did not know, Sherif did not know, and we have to know&hellip; So let&rsquo;s hunt for that!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -442,6 +625,14 @@ So here comes my first post, with an introduction, and info about why I am happy
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/15/week-7-day-5-a-nice-day/">Week 7 - Day 5 - A nice day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/14/week-7-day-4-todos/">Week 7 - Day 4 - Todos, group project, and effects of DBC&#8217;</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/13/week-7-day-3-testing-again/">Week 7 - Day 3 - Test driven development, the new guys, and my first full project</a>
       </li>
     
@@ -451,14 +642,6 @@ So here comes my first post, with an introduction, and info about why I am happy
     
       <li class="post">
         <a href="/blog/2014/03/11/week-7-rails/">Week 7 - Phase 3, projects, and another first day in DBC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/07/week-6-day-4-rest/">Week 6 - Day 4 - Rest, personal projects, and DBC life</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/06/week-6-day-3-oauth/">Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando</a>
       </li>
     
   </ul>
