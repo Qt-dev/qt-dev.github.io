@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 4 - Day 2 - Testing, Helping, and buying - Qt's Home</title>
+  <title>Week 8 - Day 1 - Making pages fast, group projects, and teaching - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Testing Yesterday, we paired with Elliot, a new Banana Slug who is re doing Phase 2. We had 4 challenges&hellip; and ended up not really finishing &hellip;">
+  <meta name="description" content="Making pages fast Yesterday, we had a fun day about optimisation. The idea is that we had pages that were loading in 20 seconds or more, and we had &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/19/week-4-day-2-testing">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 4 - Day 2 - Testing, Helping, and Buying</h1>
+      <h1 class="entry-title">Week 8 - Day 1 - Making Pages Fast, Group Projects, and Teaching</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-19T09:32:14-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+<time datetime="2014-03-18T09:04:15-07:00" pubdate data-updated="true">Mar 18<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,47 +108,46 @@
   </header>
 
 
-<div class="entry-content"><h2>Testing</h2>
+<div class="entry-content"><h2>Making pages fast</h2>
 
-<p>Yesterday, we paired with Elliot, a new Banana Slug who is re doing Phase 2. We had 4 challenges&hellip; and ended up not really finishing one. We had a great dynamic, we both learned tons and spent most of the day working on testing with <a href="https://relishapp.com/rspec">Rspec</a> on Sinatra, the tool we&rsquo;re working with at the moment.</p>
+<p>Yesterday, we had a fun day about optimisation. The idea is that we had pages that were loading in 20 seconds or more, and we had to find ways to fasten them.</p>
 
-<p>The challenge we worked on was making a simplified version of <a href="http://sfbay.craigslist.org/">CraigsList</a>.<br/>
-So to do that you need to meet these requirements :</p>
+<p>What we got from that is, among others :</p>
 
 <ul>
-<li>The front page creates a list of categories</li>
-<li>Each category has many posts</li>
-<li>A user can create a post in a category, and/or create a category</li>
-<li>A user that created a post gets a key/url that allows him and only him to edit or delete that post</li>
+<li>Use SQL requests to order, group, etc&hellip;  It is MUCH faster than getting everything from the database and sorting it in ruby or JS</li>
+<li>JS allows you to act as if you loaded everything even if you did not, USE THAT. Play with ajax, load only the titles, and when somebody clicks on a button, you load the rest!</li>
 </ul>
 
 
-<p>For that, we created tests, a lot of them. But then we forgot one of the basic principle : When you finish writing your test, you need to make it pass before working on the next one.</p>
+<p>At the end, all the pages were loading under 200 ms. Next part is destroying these pages to make useful ones instead haha.</p>
 
-<p>Just for that, we worked and learned a lot but being at the end and having to work on all that from scratch was a mess and we ended up working on other things.</p>
+<h2>Group projects</h2>
 
-<h2>Helping</h2>
+<p>We just finished the weekend group project with Armando, Hunter, Chermaine, and Matthew. It was really a bread group, a great dynamic. We were very laid back, no stress or anything. We did finish what we wanted and even more, everything works, and we had clear, maintainable, and tested code.</p>
 
-<p>So, I was told I am a patient person. Hell, I was even talk this very morning that I was a Cool person! Also, I already said that I have a bit of experience with the stuff we work with.</p>
+<p>Now with that being said, we have the final group projects coming on Thursday. People have been talking about it fo a bit now, sharing ideas that people are gonna pitch, checking them out&hellip;</p>
 
-<p>From that, I can tell you that I like helping, and spend a lot of my days doing so.</p>
+<p>I know I have a few ideas on my own, and I am interested in pitching them and then leading a group with that. I will not talk about them now, especially since they&rsquo;re not that clear in my mind even now, but don&rsquo;t worry&hellip; It&rsquo;s coming ;)</p>
 
-<p>Yesterday, we worked with Elliot, and I actually spent a lot of time trying to solve a lot of problems and explaining what we did to the people who were stuck. People came, people go, came again, and we spent like half of the day working on solving people&rsquo;s bugs. I have no problem with that, and I like to think that I learn much more by doing that than by just coding by myself, but then I also feel bad for Elliot who basically spent half of his day not &hellip; working on solving our problem.</p>
+<h2>Teaching</h2>
 
-<p>When we thought about stopping with that craigslist challenge, I went around and tried to help the people that I had not seen before. I ended up working on stuff with Golden Bears, and that was fun too (And took less of Elliot&rsquo;s time, so I&rsquo;m even happier about that haha)</p>
+<p>Yesterday, I ate with fiery skippers. I find it really amazing that people are so different from the cohorts we could see so far. They are a huge group of very knowledge hungry people.</p>
 
-<p>In the end, that was a fun day anyway.</p>
+<p>During the weekend, I also spent a lot of time with them, trying to push them in the right direction to solve Sudoku, the challenge people complete in the first week.</p>
 
-<h2>Buying</h2>
+<p>I also spent a bit of time with phase 2 Golden Bears, trying to share what I know.</p>
 
-<p>I started buying a couple of things. First thing is that I bought socks and underwear. I ended up in Uniqlo this weekend, a brand I really like, and they had sales&hellip; That coupled with the fact that I did not bring enough socks to have at least a 7 days period before I need any laundry made me buy a lot of socks&hellip; and then other stuff on sales haha. Don&rsquo;t worry though, I took advantage of the Dollar being lower than the Euro, and the conversion being a 1 to 1 in everyday&rsquo;s prices.</p>
+<p>And yesterday, I spent an hour with Armando showing him a way to complete some Javascript exercise without feeling lost about being in a language he is not used to.
+In the end, I just showed him how to solve the problem in Ruby, a language he feels more comfortable in, and how to translate it to Javascript.</p>
 
-<p>Another thing I had to buy was a beard trimmer. I was thinking about going to the barbershop (because the US HAS barbershops), but I ended up not having the time, the opportunity, or even the reason since I feel like spending valuable time there would be a waste if I just wanted to trim a bit.<br/>
-So instead of that I bought a beard trimmer, and played with it. I spent a lot of time playing with it yesterday. I spent a lot of time playing with it today, and now I love my beard even more.</p>
+<p>I loved teaching in Korea, and before that. I like to share my knowledge (which, if you follow the famous french saying, means that I have very little knowledge myself). And now I see that even here, I love doing that.</p>
 
-<p>Now, I also bought other stuff, but then some are surprises so&hellip; brace yourself, news are coming tomorrow too ;)</p>
+<p>I love trying to explain things to people actually listening, and using what you are showing them.</p>
 
-<p>PS : Today is my fiance and I&rsquo;s 6th anniversary&hellip; I love you Thuy, you make me happy and I will do my best to make that happen for you to&hellip; Everyday of the rest of my life.</p>
+<p>I think that after DBC, I will try to be a coach. I think I can be a decent help, and have a lot of fun doing it!</p>
+
+<p>Anyway, that is for in 2 weeks, which in DBC time means something like 2 or 3 months ^.^</p>
 </div>
 
 
@@ -171,7 +170,7 @@ So instead of that I bought a beard trimmer, and played with it. I spent a lot o
   
 
 
-<time datetime="2014-02-19T09:32:14-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+<time datetime="2014-03-18T09:04:15-07:00" pubdate data-updated="true">Mar 18<span>th</span>, 2014</time>
       
 
 
@@ -179,7 +178,7 @@ So instead of that I bought a beard trimmer, and played with it. I spent a lot o
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/19/week-4-day-2-testing/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/19/week-4-day-2-testing/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -192,10 +191,10 @@ So instead of that I bought a beard trimmer, and played with it. I spent a lot o
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/18/week-4-day-1-new-people/" title="Previous Post: Week 4 - Day 1 - New people, New challenges, Personal Projects">&laquo; Week 4 - Day 1 - New people, New challenges, Personal Projects</a>
+        <a class="basic-alignment left" href="/blog/2014/03/15/week-7-day-5-a-nice-day/" title="Previous Post: Week 7 - Day 5 - A nice day">&laquo; Week 7 - Day 5 - A nice day</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/02/20/week-4-day-3-building/" title="Next Post: Week 4 - Day 3 - Building, Testing, and deception">Week 4 - Day 3 - Building, Testing, and deception &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/03/19/week-8-day-2-jquery/" title="Next Post: Week 8 - Day 2 - JQuery, superego, and cookies">Week 8 - Day 2 - JQuery, superego, and cookies &raquo;</a>
       
     </p>
   </footer>
@@ -301,8 +300,8 @@ So instead of that I bought a beard trimmer, and played with it. I spent a lot o
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/19/week-4-day-2-testing/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/19/week-4-day-2-testing/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast/';
         var disqus_script = 'embed.js';
       
     (function () {

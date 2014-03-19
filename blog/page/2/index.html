@@ -9,7 +9,7 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Small and repetitive code Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for &hellip;">
+  <meta name="description" content="More OOJS Yesterday, I paires with Harry. We have a great dynamic going on and we ended up building a good MVC system on Javascript for one of the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,190 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/04/week-6-day-1-more-oojs/">Week 6 - Day 1 - More OOJS, APIs, and Changes</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-04T09:07:05-08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/04/week-6-day-1-more-oojs/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>More OOJS</h2>
+
+<p>Yesterday, I paires with Harry. We have a great dynamic going on and we ended up building a good MVC system on Javascript for one of the challenges we had.</p>
+
+<p>People don&rsquo;t necessary get it so by the end of the week I&rsquo;ll try to send some code that I came up with for private projects, as an example.</p>
+
+<p>As for the rest, we had a lot of fun and played with that a bit, to the point that we ended up falling short on a problem that apparently many people have. It feels good to not feel like you&rsquo;re outside of that whole development world ;)</p>
+
+<p>The problem we had was : We made a Controller class, and just to Namespace and separate concerns, all the AJAX calls were used from the Ajax Controller, a class of its own.</p>
+
+<p>Now the problem we hit is :</p>
+
+<ul>
+<li>Who calls the Ajax controller? &ndash;> The controller</li>
+<li>What does the Ajax controller in case of a successful request?  &ndash;> The controller</li>
+</ul>
+
+
+<p>That is a problem, how do you link two objects when you can not create both at the exact same time?<br/>
+And so our solution was to pass one as the argument to the other (The Ajax Controller knows about the controller), and then add the Ajax Controller to the controller</p>
+
+<p><strong>In demonstration : </strong></p>
+
+<pre><code class="js">
+var AjaxController = function(controller){
+    this.controller = controller;
+}
+// Do stuff with the ajax Controller
+
+var Controller = function(){}
+// Do stuff with the Controller
+
+$(document).ready(function(){
+    var controller = new Controller();
+    var ajaxController = new AjaxController({ 
+        controller: controller // First link
+    })
+    controller.ajaxController = ajaxController; // Link back
+})
+</code></pre>
+
+
+<p>In the end, that looks very hack-ish. But then it is actually a question that people have nowadays : How do you do that? And like every good programming problem : There is no right or wrong answer ;)</p>
+
+<p>I&rsquo;ll stick with that for now.</p>
+
+<h2>APIs</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Application_programming_interface">APIs</a> are interfaces for your program to be able to play with some web apps around. The idea is that instead of posting status via Facebook, you build an app that can do that for you somewhere else. The link between that App and Facebook is that API.</p>
+
+<p>Your app will send a message to Facebook saying (write_status) and that will write the status.</p>
+
+<p>Yesterday we started playing with Twitter and that was fun, and today we play on more&hellip; So expect some nice links in the near future ;)</p>
+
+<h2>Changes</h2>
+
+<p>I feel like DBC changes people. Not necessarily in the best way, but that does change people anyway.</p>
+
+<p>I feel changed, I AM changed. But then, you will be able to see that the next time you meet me ;)</p>
+
+<p>I am more confident, deal with my problems a more logical way, I empathize more with my peers&hellip; All in all, I like to think I took the good in that program. I may also have taken the bad, but then I don&rsquo;t know about that yet&hellip; Only time will tell!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/01/week-5-day-5-awesome-project/">Week 5 - Day 5 - Awesome Project, MVC Javascript, and Cohort Tribe Spirit</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-01T12:01:41-08:00" pubdate data-updated="true">Mar 1<span>st</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/01/week-5-day-5-awesome-project/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Awesome project</h2>
+
+<p>Yesterday we had our second group project of phase 2. The idea of this one is : create a new version of <a href="https://surveymonkey.com">SurveyMonkey</a>. This time, we could choose our groups. Just like &hellip; most of the time. I checked around, saw Armando, he nodded, and we&rsquo;re in the same group!
+We grouped with Henry, a new guy who repeated our phase, that I had not had the chance of talking with so far, Chermaine, who I had yet to pair with (really sorry >.&lt;), even though we&rsquo;re in the same accountability group (A group of 3 students of the same cohort that have to take care of each other), and Chris Woodrich, who is really an awesome dude, even though we end up messing with each other all the time.</p>
+
+<p>Armando came with the awesome team name : The Ultimate Amazing Super Best Friends!</p>
+
+<p>You can check how our project is going on : <a href="https://github.com/chriswoodrich/TUASBF/">https://github.com/chriswoodrich/TUASBF/</a></p>
+
+<p>We have an awesome dynamic, we&rsquo;re all very happy to work with each other, and the project is really going well. I can&rsquo;t wait til we present it on monday!</p>
+
+<h2>MVC Javascript</h2>
+
+<p>I won&rsquo;t talk for hours about that, I&rsquo;ve been talking about it for days so you&rsquo;re probably tired about it already, but Javascript is to be used with an object oriented programming style. You can do it, and if you don&rsquo;t you will end up having a lot of troubles.</p>
+
+<p>Now, we work on small JS projects here and there and even though I had some trouble finding where some part of my code would go (View or Controller for the listeners etc&hellip;). Now I do know and I really like it.</p>
+
+<p>I could spend hours explaining how to do stuff, but instead, I&rsquo;ll just say : I do it, I like it, I can explain it if you want, and I&rsquo;ll try to release some code where I do that on my <a href="https://github.com/Qt-dev">Github</a> whenever I can.</p>
+
+<h2>Cohort tribe spirit</h2>
+
+<p>A few things that Sherif (The guru that taught us in phase 1 haha) told us :</p>
+
+<ul>
+<li>&ldquo;If you think that you can become developers in 9 weeks, you are insane. All of you. But then, that is that common insanity that will take you there. It is that shared insanity that will make you actually succeed in that.&rdquo;</li>
+<li>&ldquo;You are a tribe. You are seen as such, you have a tribe spirit that is the way people and feel your whole group. Every cohort has a different spirit, and gives a different feeling&rdquo;</li>
+</ul>
+
+
+<p>These ideas will not be surprising to anybody who knows the guy. Now, we had a few nice talk about this.</p>
+
+<p>Nowadays, we have 3 cohorts in DBC. The Sea Lions, in phase 3, the Banana Slugs (US!) in phase 2, and Golden Bears in phase 1.
+And apparently, even just these 3 have a VERY different spirit.</p>
+
+<p>Sea Lions are apparently like university students. Their first instinct is more to work alone, even though they don&rsquo;t have any problem in forming groups in need be.</p>
+
+<p>The Banana Slugs are seen as overachieving kids. We are the kind of kids that say things like &ldquo;Oh look dad, a mountain! Look at me I&rsquo;ll go climb the thing faster that anybody else!&rdquo;. We crave on challenges that we can work on together and just be as awesome as one could be! Haha</p>
+
+<p>The Golden Bears are much more &ldquo;shy&rdquo;. Compared to us and our 2 hours of questions and ideas exchanges that we had to timebox everyday, the echo I get from some of them I talked to and from their instructors is that they are very silent and studious.</p>
+
+<p>At the end, none of us is right or wrong, but seeing that big of a difference in such a short amount of time is really interesting.</p>
+
+<p>But then, the idea is that the presence of all of these people is what is actually helping us get to the end. We work 15 hours a day, something I would NEVER have thought would happen before coming here. We support each other, help each other, and at the end I think that Sherif was actually right, that common insanity that makes us stay that late, that makes us work our asses off without even realizing that, is what takes us where we are.</p>
+
+<p>We learned Javascript/Object Oriented JS in one week, Everything we could about Sinatra, MVC WebApp frameworks, and all that in one week&hellip; That happens only in such conditions and I am really grateful about that!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -744,132 +928,6 @@ So instead of that I bought a beard trimmer, and played with it. I spent a lot o
 
     </article>
   
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/18/week-4-day-1-new-people/">Week 4 - Day 1 - New People, New Challenges, Personal Projects</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-18T08:50:01-08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/18/week-4-day-1-new-people/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>New People</h2>
-
-<p>Welcome to the Golden Bears!<br/>
-Yesterday was our Phase 2 first day, but also Phase 1&rsquo;s first day. A load of new people arrived in that small place that is DBC&rsquo;s current office, and so, we had to welcome them!</p>
-
-<p>The idea is that we got to get here at 8-8.30AM. Then, we shouted, gave advices, talked, ate,&hellip; All in all, a very good day!<br/>
-The new guys look cool, and it was really nice to see them approach the problems we had a different way. People ended up, from what I saw, working a lot on challenges where we did not really work much, and not care much about the ones we spent a lot of time on. That was refreshing, and fun to discover new bugs, new problems. Different approaches, different paths, I can&rsquo;t wait &lsquo;til they get on harder problems and blow my mind with problems I can&rsquo;t solve&hellip; again!</p>
-
-<p>And among the new people, they have another french dude! Plus, they also have a Korean girl who lived in France&hellip; New people to bother with conversations in random languages!</p>
-
-<h2>New Challenges</h2>
-
-<p>We started phase 2. Phase 2 is more about web development. We play with <a href="http://www.sinatrarb.com">Sinatra</a>, and are starting to make stuff that is actually stuff we can share with people who are not developers and they can use it and even get impressed with that with some luck.</p>
-
-<p>On these first challenges we paired with Jose. We had a great dynamic, no complex, and ended up helping each other into not getting stuck much, and completing the challenges. I feel like I learned a lot, and I really enjoyed that day. Even when I would think I was spending too much time on something, I checked around and found out that we were actually going quite fast. That problem was taking a bit more time than the rest of it, but then we went a bit fast on the other things and so in the end, what was confusing was our own change of pace more than the real speed at which we were going at that moment.</p>
-
-<p>Anyway, at the end of the day I learned, I worked, finished what I wanted, and if I had to sum it up&hellip; it was a great day.</p>
-
-<h2>Personal Projects</h2>
-
-<p>Now we can work on stuff that we can show to &ldquo;normal&rdquo; people. But then we&rsquo;re also using some stuff that I already know. I am not nearly good enough at all of these, but I do have some experience on some of these topics, and could just use that and be fine with that. But then I am not here to take the easy path. I am here because I want to learn.</p>
-
-<p>To do so, I figured (= People told me I should&hellip; ) I&#8217;ld start working on some personal projects. I have ideas, things to do, and so why not learn by pushing even further and work on that, independently of the things we work on.</p>
-
-<p>I&rsquo;ll try to work on blog articles to explain what I do, and share as much as I can. First day&rsquo;s work was quite long so I ended up not being able to do much, but expect more once I have more time!</p>
-
-<p>Also, phase 2 is full of &ldquo;Portfolio Projects&rdquo;. We&rsquo;ll have a lot of them, to be delivered on sundays. I&rsquo;ll share every one of them, and try to explain the thought process every time I work on one, so that&rsquo;ll be another thing to look for!</p>
-
-<p>Anyway, time to get back to coding, see you guys tomorrow!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/16/week-3-day-5-party/">Week 3 - Day 5 - Party~</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-16T14:37:26-08:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/16/week-3-day-5-party/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&lsquo;twas the day before the end of the phase. People were happy, exhausted, and alcohol and songs mixed up to help the moods enlighten.<br/>
-Week 3 Day 5, everybody has had his assignment. The outcome of these assignments is just an advice, then people had time to make their choices. Some of our cohort (2 I think, but we&rsquo;ll get the confirmation on monday) chose to go back to work on the same phase again, not feeling ready for the next one yet yet. Most chose to go on to the next level of difficulty. And That applies for phase 1 as for phase 2.</p>
-
-<p>One thing to know is that there are 2 differences between a phase and the next one.<br/>
-The first difference is : The next one is always more difficult that the current one. It starts higher, has a higher rhythm, everything will be harder.<br/>
-The second one is : The next phase will get harder much faster that the current. You start higher, and you&rsquo;ll have more work, to do in less time. More projects, and you&rsquo;ll have to learn things faster, and better.<br/>
-Behold, fellow students, winter is not coming, Mayhem is.</p>
-
-<p>Now, on the last friday of each phase, everybody knows where they&rsquo;re going, phase 1, phase 2, phase 3. Everybody finished their projects, presented what they wanted, and now they just have to &ldquo;wait&rdquo; for monday. So on this friday, we get beer, pizzas, mics, music on the big screen, and we partayyyyy~</p>
-
-<p>Wait is a big word though, everybody who was in this program will tell you that. New material, new studies and all that are on the next monday so on this weekend, people are stressed out and tend to study as much as they can about the new stuff we&rsquo;ll have to deal with on the next monday.</p>
-
-<p>For me, I spent one day discovering stuff. I went to Target, Whole Foods. I went to the Chinese New year&rsquo;s parade in San Francisco. And now, I am studying a bit about Sinatra and stuff. Things are going well, but I prefer resting before the mayhem. It&rsquo;ll get crazy whatever I do, so I might as well just rest before that ;)</p>
-
-<p>Anyway, see you on tuesday for news about monday&hellip; And the new cohort! And Welcome to the Golden Bears!</p>
-
-<p>(PS : Marching bands are AWESOME! :
-<img src="http://i.imgur.com/2Tl0g0Ll.jpg" alt="A nice picture of me in there!" />
-)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -887,6 +945,14 @@ Behold, fellow students, winter is not coming, Mayhem is.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/19/week-8-day-2-jquery/">Week 8 - Day 2 - JQuery, superego, and cookies</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/18/week-8-day-1-making-pages-fast/">Week 8 - Day 1 - Making pages fast, group projects, and teaching</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/15/week-7-day-5-a-nice-day/">Week 7 - Day 5 - A nice day</a>
       </li>
     
@@ -896,14 +962,6 @@ Behold, fellow students, winter is not coming, Mayhem is.</p>
     
       <li class="post">
         <a href="/blog/2014/03/13/week-7-day-3-testing-again/">Week 7 - Day 3 - Test driven development, the new guys, and my first full project</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/12/week-7-day-2-testing/">&#8216;Week 7 - Day 2 - Testing, A video , and naps</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/11/week-7-rails/">Week 7 - Phase 3, projects, and another first day in DBC</a>
       </li>
     
   </ul>
