@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-03-20T00:31:17-07:00</updated>
+  <updated>2014-03-21T13:15:01-07:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 8 - Day 4 - Group project, more pressure, and sleep depravation]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/21/week-8-day-4-group-project/"/>
+    <updated>2014-03-21T12:46:54-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/21/week-8-day-4-group-project</id>
+    <content type="html"><![CDATA[<h2>Group Project</h2>
+
+<p>The big even of yesterday was: The final projects pitching.</p>
+
+<p>Almost everybody pitched. You had good projects, strange projects, fun projects, good things!</p>
+
+<p>The one I pitched was about Role Playing Games. The idea is that I really enjoy pen and paper role playing games, but I also can&rsquo;t play them most of the time. My friends are all around the world, and I don&rsquo;t spend my time with my character sheets, dice, and/or books in my pocket.</p>
+
+<p>So to counter that, I wanted to make an app that makes the link between players and game masters, and give you these commands that will give you all the infos you have in these books, all the character sheets, and the dice rolling, just by sending a mail with different commands.</p>
+
+<p>In the end, I was not picked as one of the projects we would work on, but then among the 5 projects, 3 were projects that I really want to work on!</p>
+
+<p>So in the end, I am in Armando&rsquo;s team, and we are about to make a great app for diabetics to track their blood sugar stats and format them decently to transmit them to a doctor. I find it awesome and in a way, I am glad I was not picked!</p>
+
+<h2>More pressure</h2>
+
+<p>I put a lot of pressure on myself. Most of the time, I will not seem very stressed out, but inside, I may just be completely freaking out.</p>
+
+<p>The idea is that I overthink everything. Being logical enough, I overthink without putting too much emotions and feeling in these thoughts. I see something, try to find all the outcomes (I will never succeed, but well&hellip;), try to think about the causes and consequences, study everybody&rsquo;s point of view&hellip;</p>
+
+<p>In the end, I like to think that it makes me calm and not stress out much on the outside.</p>
+
+<p>Lately, the fact that I am coming to a situation that had a bad outcome the last time(the same situation I came to when I came back from korea), made me think about a lot of things, basically ways to prevent myself from falling in the same trap again. That just made me sleep less&hellip; which actually made me think more&hellip; And I fell into this strange loop that ended with me being exhausted, and giving too much credit to emotions and feelings.</p>
+
+<h2>Sleep depravation</h2>
+
+<p>The lack of sleep I am talking about is mainly due to a non restful sleep. A sleep where you keep on waking up, thinking about bad things, etc&hellip;</p>
+
+<p>This lack of sleep makes you take bad paths, the wrong paths, basically. In the end, I am now sleep depraved, and even though I worked on that pressure, and talking about it was enough to relieve a lot of pain on that topic, sleeping 6h does not make you really rested, especially if you&rsquo;ve been running on 5s for weeks&hellip;</p>
+
+<p>But then, I am a logical person. I am also a person who does fall deep into these pressure cycles, but overcomes that. I did that before, a lot of time, and approaching things logically just ends up making me overcome whatever emotional challenge I have had so far.</p>
+
+<p>So I work on my sleep, on my well being, and I am now much better than yesterday. Soon, I will be even better, and be sure that at the same time next week, our team will be kicking asses, and I will not be dragging them down!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 8 - Day 3 - Clean Javascript, final project, and leadership]]></title>
@@ -967,62 +1008,6 @@ I love that. I love that new family, every one of them! (Or maybe not Matthew? I
 <p>Things are related, that&rsquo;s it. I don&rsquo;t believe in randomness, I do believe in links too complicated to be understandable, but not in randomness.</p>
 
 <p>Anyway, back to work now, expect some news tomorrow!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Week 4 - Day 3 - Building, Testing, and deception]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/"/>
-    <updated>2014-02-20T08:51:00-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building</id>
-    <content type="html"><![CDATA[<h2>Building</h2>
-
-<p>So, yesterday&rsquo;s challenges were : Build apps. In the morning, we had to finish the Craigslist one that we started the day before, and in the afternoon, we had to make a non-authenticated blog.</p>
-
-<p>The teachers have to change a lot from last phase 2 program. We are different, and our phase 1 was so different than previous cohorts&#8217; than in the end, we don&rsquo;t code like our big brothers and sisters at all. While some of the previous cohorts (Thanks to their program/material ) tended to focus a lot on speed, and quantity, we tend to spend a ton of time on specific challenges, to master them to the end. While some would probably go for the &ldquo;Quantity of knowledge&rdquo;, we are going for &ldquo;Mastery&rdquo;. So in the end, while previous cohorts finished 10 challenges by the end of day 3, we finished only 4 but we did learn just as much and mastered a lot of things that previous people did not know about. An example would be Rspec testing. We literally spent all of yesterday testing&hellip;</p>
-
-<p>Anyway, at the end we finished one app, with Johnny : <a href="http://quentin-johnny-anon-blog.herokuapp.com/">Anonymous Blog</a>. It is not beautiful, not responsive, nothing like that, but the idea was not to make beautiful things, but to make a functional blog system that allows you to have posts that can have tags, and tags that can have many posts, with the corresponding pages.</p>
-
-<p>We are about to finish Craigslist so I&rsquo;ll show you that right after.</p>
-
-<h2>Testing</h2>
-
-<p>We tested! For 2 days!</p>
-
-<p>In the beginning, we just started to assert that things we wanted were equal. If we call &ldquo;5 + 5&rdquo;, we ask for it to be equal. That was phase 1.</p>
-
-<p>Then we started playing with some more tests, witnessing teachers/talking about re making Rspec (The testing suite for testing in ruby. Think about it as a toolbox with a LOT of tools).</p>
-
-<p>Now in Phase 2, we have Rspec, we have other tools, and we need that. The syntax is easy, very close to english. For example :</p>
-
-<pre><code class="ruby">expect(5+5).to be 10</code></pre>
-
-
-<p>And so the hardest part was : figuring out how ENGLISH it was. Is it &ldquo;.to&rdquo;? Is it &ldquo; to&rdquo;? Do I want to test if &ldquo;5+5 =10&rdquo; is true? or if &ldquo;5+5&rdquo; is 10?</p>
-
-<p>That, guys, is what we spent two days working on. We figured out a lot (and for future reference for students : <a href="http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax">You should not use should! but expect is cool</a> and <a href="http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames">Shoulda is your best friend if you&rsquo;re testing Sinatra or Rails&hellip; Anything with ActiveRecord, even if it needs should and not expect</a>), but it did take a lot of time.</p>
-
-<p>Now, I feel like I know much more about things like one a quote from one of my favorite books : “You don&rsquo;t have to test everything to destruction just to see if you made it right.”, Neil Gaiman, <a href="http://www.amazon.com/Good-Omens-Accurate-Prophecies-Nutter/dp/0060853980/ref=sr_1_1?ie=UTF8&amp;qid=1392918350&amp;sr=8-1&amp;keywords=good+omens">Good Omens</a>. Testing is good, but can be time devouring if not done right.</p>
-
-<p>But anyway, let&rsquo;s not talk about that more, there is always much to write and read about that, but there are places and times to do so!</p>
-
-<h2>Deception</h2>
-
-<p>Yesterday I was disappointed by <a href="http://www.interflora.fr/">Interflora</a>. If you don&rsquo;t know that brand, it&rsquo;s a flower selling service that is offered in France. It is a chain, you hear a lot about it, and so I thought I would use it when I needed that kind of service.</p>
-
-<p>Yesterday was my fiancee and I&rsquo;s <strong>6th anniversary</strong>. I can&rsquo;t be with her (Obviously&hellip;), so instead, I planned on making the biggest bouquet I could find delivered at her house when she would be coming home on this day. That was a long time plan, I kept the exact money I needed on my french bank account, I did some research to find how to get flowers delivered, and talked to a lot of people about that to never ever forget.</p>
-
-<p>Then, a few days ago when I got the confirmation that I had the money I needed to do so (last week), I took the biggest chain I could find, for safety, I took the biggest bouquet I could find, and make it delivered at 4PM at her house, right after she comes back home from work.</p>
-
-<p>Yesterday, when she woke up, I did not even send her a text. She was, of course, disappointed, but I was planning on that (and am very bad with time differences sometimes)! She thought I had forgotten that fateful day! But then she would be so happy when she would get back home from a long and hard day and find these flowers!</p>
-
-<p>But then&hellip; No flower was delivered. None. I checked the time, checked in with her to see if she had them, check the site to be sure they were delivered, and the site even told me &ldquo;The flower delivery guy has the order&rdquo;, which eventually turned to &ldquo;Your flowers have been delivered&rdquo;&hellip; But none got to her house. So I had to explain everything, my plan fell apart, and today she called them to check about the order and&hellip; Guess what? &hellip; Apparently the girl on the phone told her the delivery guy never got the order.</p>
-
-<p>So in short : I planned, I payed, went for safety over better shops, and in the end I feel just like an ass that did not do anything for our 6th anniversary, but just a couple of texts saying that I love and miss her.</p>
-
-<p>I am so sorry, Thuy, I am very unhappy about that, and I will never stress that enough: <strong>I WILL NEVER USE INTERFLORA AGAIN IN MY LIFE</strong></p>
-
-<p>Time to go back to coding now, see you tomorrow ;)</p>
 ]]></content>
   </entry>
   
