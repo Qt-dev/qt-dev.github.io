@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-03-21T13:15:01-07:00</updated>
+  <updated>2014-03-29T19:15:52-07:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,239 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 9 - Day 5 - The end...?]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot/"/>
+    
+    <updated>2014-03-29T13:40:25-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot</id>
+    
+    <content type="html"><![CDATA[<p>So, yesterday, I graduated. I now have my very own dog tags with my name on it. I am &ldquo;officially&rdquo; a web developer. I will try to not spoil it too much for the people still in the program, but I do have to talk about this day.</p>
+
+<p>If I had to sum that day up in one word, I&#8217;ld say : &lsquo;Tears&rsquo;.</p>
+
+<p>The day started with the usual friday group checkins. What came out of that were that other cohorts were excited for everything new (every cohort is getting to the next phase on monday, DBC is moving, a new cohort is coming too&hellip;), and unhappy about us moving out. But then, like we told them again and again, we are not going anywhere.</p>
+
+<p>After that, we presented our projects. A lot of clapping, a lot of laughing, and being impressed by every one of them. Also, for some reason, Rao discovered that I existed that very day, apparently. He asked me what was that necklace that I am wearing&hellip; But then I have been wearing that every single day for 3 years now&hellip; But that&rsquo;s fine, I still love him !</p>
+
+<p>Then, we came back to coding&hellip; psych, we did not write a single line that day. We ate these things DBC had ordered for us (COOKIES!), and then I took a huge nap.</p>
+
+<p>I got waken up when Steven, one of our teachers, was about to speak about a nice life lesson he got some time ago. I won&rsquo;t tell you the whole story but I will just sum it up with :<br/>
+The day you start resenting everything about where you are, what you do, what you life looks like&hellip; Take a step back. Cash in on some money you have, and get out. Physically, mentally, it does not matter, just get out. I think this is a great advice that sometimes people just don&rsquo;t follow. I got stuck in France and ended up needing friends and family to pull me out because I had not plan any kind of exit strategy&hellip; Don&rsquo;t be me!</p>
+
+<p>After that, we went to the park, and without telling you much about it, let&rsquo;s just say we had the chance to say what we thought about people. And I just wanted to say, from the bottom of my heart, that I hate you, banana slugs, so much for the amount of tears you made me cry! ;)</p>
+
+<p>Let me give you a quick example of things I heard :</p>
+
+<ul>
+<li>&ldquo;Quentin, if I explained how much I like you in a sentence right now&hellip; That would mean I have not spent the 9 last weeks with you and did not know you.&rdquo;</li>
+<li>&ldquo;Thanks to you, becoming a better person seems so easy&hellip;&rdquo;</li>
+<li>&ldquo;I love your scarf&rdquo;</li>
+</ul>
+
+
+<p>There were plenty of others, these are just the 3 ones that came to my mind right now, you probably get the tone anyway.</p>
+
+<p>After that, we went back, and graduated. We were welcomed with that High-Five tunnel that greeted us the very first day, then they gave us our dog tags,&hellip; and we partied until 2 in the morning!</p>
+
+<p>I spent almost all of my night trying to tell people how much I love them and how grateful I am that I met them. These 9 weeks were such an adventure&hellip;</p>
+
+<h2>The end&hellip; ?</h2>
+
+<p>Now, I am out, but what I feel is that the training ended, now it&rsquo;s time for the big game. I am never leaving these people, I will haunt them forever, at least just to thank them for how good they made me feel.</p>
+
+<p>And if I end up making them happy one day in their lives, I will consider myself happy. And to all the DBC Staff, all the alumnus, all the current students, my cohort and the others, I am talking about all of you. You are SO going to regret making me feel that good ;)</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 9 - Day 4 - Presentation, giving thanks, and D-4]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/28/week-9-day-4-presentation/"/>
+    
+    <updated>2014-03-28T00:02:46-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/28/week-9-day-4-presentation</id>
+    
+    <content type="html"><![CDATA[<h2>Presentation</h2>
+
+<p>Tomorrow is the big day. I am writing this in advance to make sure I have time to do it before tomorrow ends, because I know that it is going to be crazy.</p>
+
+<p>Tomorrow is my last day as a boot in Dev Bootcamp. After our usual friday group check-ins, our team will present our final project, then talk about the next week and job searching, and spend the rest of the day pretty much partying&hellip;</p>
+
+<p>So, today, to prepare, we worked on the presentation. I was hesitating, wondering if I could speak about refactoring (I did a bit of that&hellip; I had a 5 hours streak on it, with 28 commits in the pull request at the end&hellip;), but I don&rsquo;t think it is as interesting as the other things to talk about. At some points, we have to make choices, right?</p>
+
+<p>I will be talking about the javascript part of that app. Basically, since I worked a lot on the connection between pages in javascript, I will be explaining how I built the whole engine. Also, I will try to push the fact that everything is done with very simple methods, clear and readable (still available on <a href="https://github.com/banana-slugs-2014/GlucoseAmigo">github</a>).</p>
+
+<p>When you work with a team on a very tight schedule (= all the time) you have to have concise code. You will never go back and edit/refactor the part you did not have time to write correctly today, and if you think otherwise, you are wrong!</p>
+
+<h2>Giving thanks</h2>
+
+<p>I always had the feeling that people don&rsquo;t get the praises they deserve.</p>
+
+<p>Everywhere you go, no matter what you do, people will see the bad sides. If they see the good parts, then they will just not give it enough importance to praise as much as they would complain if they were bad&hellip;</p>
+
+<p>When I got accepted for DBC, I thought I needed to work on it, in my own tiny world. After all, one of the idioms I try and follow is &ldquo;Be the change you want to see in the world&rdquo; &ndash; Gandhi.</p>
+
+<p>So, back in France, I ended up finding old teacher that taught me how to do some things that people called useless, just to tell them how useful they were to me. I went to talk to everybody about what they were doing good&hellip;</p>
+
+<p>I like to think that if I am in a very good place, I have the power to have a word that matters to most. If I don&rsquo;t use it, I am doing something wrong.</p>
+
+<p>So today, I went to Steven, one of our teachers, to tell him about how inspiring he is to me. My words were, more or less : &ldquo;Before I came here, I ended up doubting myself, thinking that I was taking the wrong path, that I should not be all that &lsquo;crazy&rsquo; and start getting into the norm. But coming here, I realized a lot of people are like me. And I feel like he tends to be crazy a bit like I could be, and thanks to that, no matter where I go after that, I will forever know that there are people just like me, in a place somewhere, that they are doing great, and inspiring billions of people. So thank you.&rdquo;</p>
+
+<p>I then ended up speaking with Shereef, the creator of Dev Bootcamp, and having more or less the same words. Also, I had a meeting with Sefora, a DBC staff member that works for the mental well being of the boots, and was very grateful that I met her. I am looking forward to having more conversations with all of these awesome people&hellip; I have so much to learn!</p>
+
+<h2>D-4</h2>
+
+<p>Today was the day we talk and meet people. In that same idea, I found out that I may end up introducing Thuy to new people everyday of her stay in here.</p>
+
+<p>Teachers and DBC staff are on the list, alumni too, and then even current boots!</p>
+
+<p>I know that there are some nice places and events that happen usually the first week of the month in SF apparently (I just discovered that), and so I will probably end up in all these things, with all these people.</p>
+
+<p>I can say without much doubt that it will be an awesome week and I can&rsquo;t wait!</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 9 - Day 3 - The glucose amigos, personnalities,  and D-5]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/26/week-9-day-3-personnalities/"/>
+    
+    <updated>2014-03-26T23:23:53-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/26/week-9-day-3-personnalities</id>
+    
+    <content type="html"><![CDATA[<h2>The Glucose Amigos</h2>
+
+<p>What an awesome name, that our captain found us! And here is the site : <a href="http://glucose-amigo.herokuapp.com">Glucose Amigo</a></p>
+
+<p>So, we pretty much finished the app. This, guys, is what we can do in one week, with 4-5 of us, after 9 weeks of hard work. We came all with different experiences, behaviors, point of views, and in the end&hellip; We build a full app in one week.</p>
+
+<p>I wish I would have more time to spend on the testing (I did most of the Javascript, there are 2 test, one on the login one on the logout&hellip;), but after that week of working with that awesome team, what I want to say is : Thank you DBC, thank you team, and thank you captain!</p>
+
+<p>Working with all these awesome people is incredible!</p>
+
+<p>If you want to know more about the app (and not read the &ldquo;help&rdquo; in the menu), the idea is that we made an app that keeps track of one or multiple diabetics&rsquo;s blood sugar level and weight, gives you a graph and a list of records, sends it per mail to your doctor, and can remind you to measure, and log the measures.</p>
+
+<h2>Personalities</h2>
+
+<p>In these 9 weeks, I saw a lot of different personalities. For example, among the people I paired with, I found 2 different types of people:</p>
+
+<ul>
+<li>People who want everything to be done, at the cost of understanding everything, but will not hesitate in going back at it to learn more about what they did not understood the first time</li>
+<li>People who take the time to discover and learn everything even if it ends up taking them more than twice the time everybody else takes.</li>
+</ul>
+
+
+<p>I paired with both, and &hellip; strangely enough, no conflict emerged from it! I think I am a bit more of the second, but in the days I was working with somebody from the other group, I would just work his/her way, or use my &ldquo;reputation&rdquo; to try and teach the other person, go over what I did not see fully before, and go deeper.</p>
+
+<p>In the end, I think I got most of what I could get from DBC, and mostly, I got the one lesson everybody should take : You don&rsquo;t know anything. Thinking you do is dangerous, don&rsquo;t do that.</p>
+
+<p>Some people may think that this is just a fancy way to say that when you actually know what you&rsquo;re talking about (For real, I have already been told), but honestly, it is 100% of the truth. The difference between a confident person and and a stressed out one is quite often the fact that the confident already knows he has no idea what he&rsquo;s doing, but knows how to figure things out, learn, and maybe next time not have to spend too much time on it.</p>
+
+<p>Also, we had to work on a personality test for our career week at DBC. My results&hellip; : <a href="http://www.16personalities.com/entj-personality">You are an ENTJ</a>.</p>
+
+<p>If I have to sum it up, I would say I am a confident and convincing leader who need people to survive and who sometimes end up relying too much on emotions. I don&rsquo;t know if it is true, but I like the description, so that&rsquo;s a start!</p>
+
+<h2>D-5</h2>
+
+<p>So, 5 days huh&hellip;</p>
+
+<p>I learn a lot of new things around, about SF, about the city and everything around it, just to make sure I can be the perfect guide for Thuy. I have found cookies places that will blow her mind, and I think I found some great example of SF food that would make her love the place.</p>
+
+<p>In the time I&rsquo;ve been here, I have not had any time to discover anything, but even in that small 10 blocks area that I lived in, I still found restaurants that have nothing to do with what we have in Paris, kinds of food we never ate, and better versions of things we found elsewhere (Of course, I did not find better bread, but that is another topic&hellip;)</p>
+
+<p>I could say I have not seen the sea, Alcatraz, the bridges, or many other things, but the thing that I feel like I want to discover the most is &hellip; SF food and drinks! Maybe that is her influence, who knows&hellip;</p>
+
+<p>Anyway, in the end, I just want to say thank you to SF in a whole. Your food rocks so hard I became addicted and I can&rsquo;t wait to get her hooked on that too ;)</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Week 9 - Day 1,2 - Ajax everything, pressure, D-6 and an end before a new beginning]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1/"/>
+    
+    <updated>2014-03-26T14:25:17-07:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1</id>
+    
+    <content type="html"><![CDATA[<p>First of all, I&rsquo;ll start by saying I am sorry I did not write before. I have been&hellip;overwhelmed by a few things I will try to sum up in this article, and just ended up having no time anyway.</p>
+
+<h2>Ajax Everything</h2>
+
+<p>So, our app is going great! You can see its evolution on : <a href="https://github.com/banana-slugs-2014/GlucoseAmigo">Github</a>. In all that, one of the biggest thing I played with on this app is the javascript. If you look in /app/assets/javascripts, you&rsquo;ll see what I&rsquo;m talking about.</p>
+
+<p>The idea is that we ended up developing everything separately (doctors, diabetics, records, etc&hellip;) and I ended up in charge of connecting it altogether in Javascript. To do so, I play with two types of routes in the app :</p>
+
+<p>1 &ndash; Routes that render JSON :
+Basically, I render a JSON object with 3 parameters :</p>
+
+<ul>
+<li>ok :  true or false, tells the javascript if the operation succeeded or not</li>
+<li>path : The address of the next page</li>
+<li>alert : The eventual problems or info messages.</li>
+</ul>
+
+
+<p>2 &ndash; Routes that render partials :
+These render a small baby-html page with some javascript code to populate the javascript templates when it loads.</p>
+
+<p>The idea is that every action and button is plugged on an action on the controller that calls a route that render JSON. If it returns ok:true, then I take the path, ask for the partial from it in javascript, and render it in the middle of the page, populating javascript templates on the go. If not, I print the alerts for 5 seconds and don&rsquo;t move.</p>
+
+<p>I had fun doing that and even though it needs a lot of refactoring right now, I hope you can see that and enjoy reading it as much as I did writing it.</p>
+
+<h2>Pressure</h2>
+
+<p>Sometimes, you get stuck in a strange loop. I just &hellip; had that exact thing.</p>
+
+<p>I put a lot of pressure on me, to make sure I can make my way out of the life I had in France. Because of that, I end up sleeping less. But then if I sleep less, I think about that more, and sleep even less&hellip; * infinite loop *.</p>
+
+<p>At some point, it breaks, and so it did. I ended up completely exhausted last thursday/friday, with a lot of things on my mind. I have to impress people to make sure I can move. But then I also know that I fought my way through to Dev Bootcamp, I worked hard IN Dev Bootcamp, I WILL make it happen no matter what. But it was not that clear at that time.</p>
+
+<p>I gave this analogy to the people who ended up listening :<br/>
+Picture a black NBA player that comes from a bad neighborhood.
+He struggled to get food when he was a kid. He struggled against racism his whole life. He fought the system in school, every step of the way.<br/>
+Now, he is fighting to get in the playoff and to be the MVP of every match he plays.</p>
+
+<p>Well, if today, you were to tell him to go back to struggling to get food, he would be disappointed, probably angry, but he made it once and you can be sure he&rsquo;ll make it twice.</p>
+
+<p>This is the kind of idea I have about going back to France. I don&rsquo;t mind struggling to find a better job, to make the world a better place, to make the difference against much more intelligent people. But what I would not like would be to have to go back to struggling for minimum wages with a 2 hours commute every morning every evening, and only 6 hours of seeing my fiance every week. I fought my way through, and I would rather not get back to that.<br/>
+But then if I have to&hellip; I will.</p>
+
+<p>The only thing I know now, is that I am a new person, and you can be sure that I will fight as much as I can to get my fiance, my sister, and the people I loved to the comfortable places that they deserve, and the world a better place, one step at a time.</p>
+
+<h2>D-6</h2>
+
+<p>She&rsquo;s coming!!!</p>
+
+<p><strong>She&rsquo;s coming!!!</strong></p>
+
+<p>My fiance, Thuy, the wonderful woman that actually chose to stick with me for 6 years now (I know, people are crazy&hellip;) is coming to San Francisco! I finally have the chance to get her into that world, show her what&rsquo;s happening, introduce her to the wonderful people I met&hellip;</p>
+
+<p>And make her taste the great foods I found!</p>
+
+<p>She still thinks that in the 7 days she get in here, she will end up getting a burger at burger king&hellip; Come on, people from here, let&rsquo;s laugh about it together ;)</p>
+
+<p>She will be coming on next tuesday and I don&rsquo;t know how much I will be blogging at that point, but right now&hellip; It&rsquo;s D-6!</p>
+
+<h2>An end before a new beginning</h2>
+
+<p>Dev Bootcamp is coming to an end!</p>
+
+<p>We are on our way to finish our last projects, we had fun, learned a lot, and met really cool people (looking at you, Chris! Haha). But this is now coming to an end.</p>
+
+<p>However, I don&rsquo;t take it as an end but more like a beginning. I am a new self. I am a new this (got this, fellow developers?). I am a new person that now has the rest of his life to profit from this extraordinary experience.</p>
+
+<p>I see that as the beginning of a new life that I will start, happily, with my fiance, or wife, we&rsquo;ll not stay like that for too long I hope. Not completely unlinked from the old life, but as a continuity, I see the before-graduation period as a preparatory stage for what is coming.</p>
+
+<p>Now, things are different, it is a new life, and I intend to be very good at it!</p>
+]]></content>
+    
+  </entry>
   
   <entry>
     
@@ -878,215 +1111,6 @@ That is what I came for. That is what I work my ass for and I will keep on doing
 <p>And if you feel like this is far from the truth&hellip;</p>
 
 <p>Watch me.</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 5 - Day 2 - OOJS again and namespacing, helpers, and lack of sleep]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/"/>
-    
-    <updated>2014-02-26T09:25:50-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again</id>
-    
-    <content type="html"><![CDATA[<h2>OOJS again and Namespacing</h2>
-
-<p>Yesterday I told you about Object Oriented Javascript. Today I have to tell you again :</p>
-
-<p>If you make some software in Javascript and DON&rsquo;T use that, you are a BAD person and should feel BAD.</p>
-
-<p>Javascript is powerful, and the community using it gives you some really good tools that enable you to make almost anything in JS today, but coding, like what I did before, in a whole file with random stuff around is NOT the way to go. One could try and go <a href="http://en.wikipedia.org/wiki/Procedural_programming">Procedural</a>, but then, even if procedural programming is actually a thing, it makes code that is a bit more messy, less maintainable, and less readable for the people working with you.</p>
-
-<p>JS gives you classes, attributes, methods, instances, packs of methods and way to call them, inheritance, and everything you would need to make &ldquo;real&rdquo; software. If you don&rsquo;t use it, then you&rsquo;re not doing it right.</p>
-
-<p>The way to actually name everything to identify and sort them the way you understand it is called namespacing. That IS a thing, and should happen in all of the code you write. That is what I have spent the last articles talking about. That is the way to go when working on big project, even alone, and now you have to do that. You&rsquo;ve been warned. Twice.</p>
-
-<h2>Helpers</h2>
-
-<p>In Dev Bootcamp phase 2 we have thing thing we call lightning talks. In the afternoon, we register at least once a week to talk for 4 minutes about one particular topic. We start the week not knowing about the topic, but then we learn about it, and have 4 minutes to share about it.</p>
-
-<p>Yesterday, I had one about helpers. Helpers are all of these &ldquo;packs&rdquo; of methods that you can use in other parts of your apps. That is the name that has been given to these packs in MVC app frameworks like <a href="http://nodejs.org">Node.js</a>, <a href="http://www.sinatrarb.com">Sinatra</a> and <a href="http://rubyonrails.org">Rails</a> are good examples.</p>
-
-<p>The idea is that you have a separation between your code that shows stuff to the user, the one that does things, and the one that stocks and pulls out data. Helpers are packages that allow one of two things :<br/>
-&ndash; Be able to encapsulate a pack of code you use at multiple times in one simple method you would call instead (<a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">GET DRY !</a>, and use namespacing like I&rsquo;ve been telling you ! )<br/>
-&ndash; Be able to use simple code in the things that are supposed to only be able to print stuff to the user (ex : Show a logout button when the user is logged in. You just print something &ldquo;If logged_in == true&rdquo;)</p>
-
-<p>In Sinatra or Rails you can actually even build a whole module to plug in helpers, I did that, that was fun&hellip; Until I realized that people did it before and that I did not need to reinvent the wheel.</p>
-
-<h2>Lack of sleep</h2>
-
-<p>Last week, I went to sleep at 1AM or more every day. After a week of doing that and waking up between 7 and 8 I can tell you : Don&rsquo;t do that.</p>
-
-<p>I have been feeling a bit tired (what a surprise&hellip;) and ended up not being myself, like every time I am tired. When I am like that, I tend to be less patient, and to get things done silently.</p>
-
-<p>Now, DBC is about pair programming&hellip; And so I ended up trying to make things work that were just remotely connected to our project, without sharing much about where I was and what I was doing, and in the end did not get stuff to work. At some point, I had lost :<br/>
-&ndash; My focus<br/>
-&ndash; My buddy&rsquo;s focus<br/>
-&ndash; My time<br/>
-&ndash; My energy and happiness (I&rsquo;m grumpy when I don&rsquo;t make things work&hellip;)</p>
-
-<p>We ended up finishing the project and doing it a way I can teach people too, so that&rsquo;s cool, but it took us so much time, I wasted so much time, and I felt so bad for my pair, that most of my day was actually really tiring.</p>
-
-<p>Now, I slept more, and I am learning from my mistakes. today is another day!</p>
-
-<p>(Plus, we had great talks with Armando, and Armando rocks haha. Oh and Armando got a new challenger, Christine is pretty awesome too :p)
-(Though, to be fair, Janet, Roy, Nic, and many others rock too haha&hellip;)</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 5 - Day 1 - OOJS, JQuery, and hugs]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/25/week-5-day-1-oojs/"/>
-    
-    <updated>2014-02-25T09:04:14-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/25/week-5-day-1-oojs</id>
-    
-    <content type="html"><![CDATA[<h2>OOJS</h2>
-
-<p>Ok, dev things. You probably heard about Javascript. If you want to hear more about it you can check <a href="http://en.wikipedia.org/wiki/JavaScript">-Wikipedia-</a>. Object oriented programming is a way to model your code in objects that interact with others. Again, <a href="http://en.wikipedia.org/wiki/JavaScript">Wikipedia</a> has all the infos.</p>
-
-<p>Yesterday, we had 2 parts in the day. First part was coding Javascript a bad way. Second part was the right way. The right way is apparently OO, Object Oriented. This allows you to actually make your code &ldquo;look&rdquo; like a developer&rsquo;s code. I did some JS before and it was cool, fine, and interesting. But what I was doing was the first thing : Random lines of code altogether, not in objects, functions, anything.</p>
-
-<p>Say I wanted a button to hide another button, I made that code in a small script, not organized, in a random file.</p>
-
-<p>That is NOT the way to do it. It works when you want simple things, but then what if you start having a lot of lines, like you do most of the time? Well what happens is a big mess of a code that nobody knows about because in human langage none of that is understandable. When you make a complicated code to make your page glow, somebody has to read the whole thing to know what it does. If you encapsulate it in a function called &ldquo;Blink&rdquo;, people will know exactly what it is the moment they see it!</p>
-
-<p>And then what if that blink was a function of the object &ldquo;PageManager&rdquo;? Well, then you have very understandable code, manageable, maintainable, and definitely object oriented.</p>
-
-<p>Building JS code without Object-Oriented Programming is like trying to build houses without any plan. Yes, sometimes the house does not fall apart. But the house is not maintainable, you have no idea about what&rsquo;s up with it, and if you do that, you&rsquo;re a bad person and you should feel bad about yourself ;)</p>
-
-<h2>JQuery</h2>
-
-<p><a href="http://jquery.com/">JQuery</a> is an open source library. People thought Javascript lacked function and could use simplification of some others, and so they built that tool with special functions, in Javascript, that give you that extension, that package of code people would use.</p>
-
-<p>That simplifies web a lot. But then&hellip; That is a very risky path to take. People tend to think that because it is easy, they don&rsquo;t really have to code it any other way that like a very long &hellip; bunch of code that does stuff with the page. No object orientation, no namespacing (Naming the things you just build, objects and functions), and in the end&hellip; No readability.</p>
-
-<p>If you do that, well, just like this sentence in my first part : You are a bad person and you should feel bad about yourself!</p>
-
-<p>Coding is not about making something work right now, coding is about building things, and when you build you plan, and organize everything. It works for Houses, Cars, Planes, and definitely for programming.</p>
-
-<p>A bunch of code, be it JQuery, Javascript, Ruby, C, any langage whatsoever, should be organized.</p>
-
-<p>So yesterday we learned that. In the morning we randomly JQuery-ed pages around the web, and on the afternoon we started encapsulated everything and naming what we did.</p>
-
-<h2>Hugs</h2>
-
-<p>I will not complain, not again. But what I did yesterday was talk. I talked about things in my life I did not like, feelings I had that are not out in the open all of the time. Dev Bootcamp tend to do that to people.</p>
-
-<p>But then yeah, sharing with everybody around helps a lot in solidifying thoughts in my mind. In a way, it is my own therapy!</p>
-
-<p>So yeah, yesterday, I talked about my life. I talked about why I don&rsquo;t want to go back to France. Any other country but not France. I talked about what I felt&hellip; And so I got a lot nice feedback from people, plus hugs for the bad parts.</p>
-
-<p>I&rsquo;m happy and grateful I am among all of these people, and I am not looking forward to having to move on, out of DBC ;)</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 4 - Day 5 - Pressure, accomplishment, and more work]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/22/week-4-day-5-pressure/"/>
-    
-    <updated>2014-02-22T00:19:23-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/22/week-4-day-5-pressure</id>
-    
-    <content type="html"><![CDATA[<h2>Pressure</h2>
-
-<p>Yesterday was our first group project day of phase 2. The subject was &ldquo;A Flashcards Game&rdquo;.</p>
-
-<p>We had until noon to find a whole plan for a MVP (Minimum Viable Product), that we could complete before 5PM. Then at 5PM we had to present the project. We have the rest of the weekend to work on it and on Monday we&rsquo;ll present the final release.</p>
-
-<p>With that being said, we also got lectures, and lightning talks (short lectures on specific topics made by other students), and so our afternoon basically started at 3.20PM&hellip;<br/>
-So with that, plus the 6 people that never really paired altogether, it ended up being a huge mess.</p>
-
-<p>If you know me, you know that if there is one goal that I have in life, one thing that I am confident in, one thing that I like to do, it is : Leading groups.</p>
-
-<p>So today, I took the whiteboard, tried to planned a bit, and we went on. We were 6 so it was a bit of a mess, but once we got the ideas all on paper (or whiteboard&hellip;), the rest was easy.</p>
-
-<p>The problem though, is that nobody handles pressure very well, nobody including me, especially with the exhaustion after this week. I ended up going around trying to fix every problem of the team, and people ended up panicking a bit and falling in easy traps.</p>
-
-<p>In the end, we were literally 10 minutes short when the presentation started (I coded for 10 minutes when people started talking and got it working decently&hellip;)</p>
-
-<p>The after presentation was much easier. I explained everything I knew that could be useful for the rest of the team, then we separated tasks, and went on to finish our first release. Expect a link and more info on Monday when we deliver!</p>
-
-<p>I have to say, though, that going ending up listening to some music I had somewhere on my laptop made me very nostalgic, like if I had not been in France for years, but also helped calming me. I now have a rage, a will to conquer. I will succeed!</p>
-
-<h2>Accomplishment</h2>
-
-<p>A few accomplishments this week :</p>
-
-<ul>
-<li>I got to know the new cohort and they are really awesome. I managed to spend a lot of time doing that, while helping my cohort, learning, and finishing many challenges. I count that as a damn good achievement, if not the best I have every felt so far.</li>
-<li>We finished that MVP, managed to split everything correctly, and things are going well for monday!</li>
-<li>I managed to learn enough to not be categorized in &ldquo;I am good in this skill&rdquo; for anything that we learned so far. I understand what I am doing on every part of every challenge, I learned about everything we use and can use and make everything without frustration. That is something that I will be proud of for a while. Now I do need to keep up with that</li>
-<li>Even if I am not a native, struggle with my accent and my language skills sometimes, and I did not lead any team for a while, I can still make myself useful in organizing our groups. It&rsquo;s a relief, because with the knowledge we accumulate in here, sometimes I&rsquo;m afraid I&#8217;ld just forget the things we don&rsquo;t use&hellip;</li>
-</ul>
-
-
-<p>And finally a new one that is not for me :<br/>
-My mother, who has been struggling to lose weight for a while, is finally losing enough that I can even start thinking if she did not lose a leg or something. (I have ways to keep track, call me big brother).</p>
-
-<p>That may be nothing to you, but I want to say that : I am proud.</p>
-
-<h2>More work</h2>
-
-<p>The weekend is going to be full of work everywhere. I want to show my sudoku solver to phase 1 guys so that they would do better than me, but I also have to work on the group project, I have portfolio projects, and I have personal projects on the side. 24 hours days suck.</p>
-
-<p>Oh and my first portfolio project is up. It is not full but I&rsquo;ll finish that in the weekend.
-You can check it at : <a href="http://quentins-notes.herokuapp.com/notes">Quentin&rsquo;s Notes</a></p>
-
-<p>It is a note-taking app. Not very beautiful, and the code (I&rsquo;ll release that later) is not very glorious, but that&rsquo;s the first one, and it does work ;)</p>
-
-<p>Have a great weekend everybody and see you&hellip; maybe later this weekend actually&hellip; If I find a way to stop time to write.</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 4 - Day 4 - Confidence, (Lack of) sleep and links]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/20/week-4-day-4-building/"/>
-    
-    <updated>2014-02-20T08:51:00-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/20/week-4-day-4-building</id>
-    
-    <content type="html"><![CDATA[<h2>Confidence</h2>
-
-<p>Yesterday, we paired with Ivan. He is awesome! And we completed the blog engine with everything that we need. It now works, has tags, user management, perfect!
-The only thing is that it is not beautiful, but we got what we wanted from that. You can see that here : <a href="http://evening-beach-8495.herokuapp.com">Our super blog engine~</a></p>
-
-<p>But then I realized it took us more time than the others. I feel very confident and could explain every line of code in all of that, but then what if I just spent too much time on that?</p>
-
-<p>I feel like Phase 2 is hard on confidence. I complete stuff, learn all the time, and then compare myself.</p>
-
-<p>But then, we got code review. At the end of that, I know that my work is fine. My code is clean, upgradable of course, but not needed upgrades, and not with the things we know so far.<br/>
-Another thing that actually helped me was : We took 45 minutes with matthew, and we created our own version of <a href="http://bit.ly">bit.ly</a>. I&rsquo;ll share the link when I have it deployed ;)</p>
-
-<p>So in the end, we took more time on the main challenges&hellip; And that gave us the possibility to finish the rest much faster. So in the end, I am still in the race&hellip; We are ALL! But we need to keep on going.</p>
-
-<h2>(Lack of) Sleep</h2>
-
-<p>First phase was cool. We live nearby, we work until late, but then we go back fast, sleep, and come in late in the morning.</p>
-
-<p>Phase 2 is not like that. The fact that I did not feel really confident about the amount of work ended up making me, and a lot of us, go back home later and later everyday. Yesterday, we got back home at 1AM&hellip;</p>
-
-<p>So in the end, bye bye the 8 hours nights for this week&hellip; But then I need to sleep, because DBC is a marathon, not a sprint. And less sleep &ndash;> less effective the next days. So this weekend, I&rsquo;ll sleep. A lot.</p>
-
-<p>It is my plan, and I will stick to that! If not, I&rsquo;ll get hit very hard by my fiancee&hellip; I am scared.</p>
-
-<h2>Links</h2>
-
-<p>Everything is linked. We are all, the things we do are all, the whole world is just a big net. In DBC, and especially in the hard times we are facing sometimes, it just makes us connect more. I feel like everybody around me is now part of my family. Even the new cohort are like little brothers and sisters I just got.<br/>
-I love that. I love that new family, every one of them! (Or maybe not Matthew? I haven&rsquo;t decided yet, he&rsquo;s ok as Glenn)</p>
-
-<p>Plus, small things make me think about that big net. Yesterday was a conference by a developer that works for <a href="http://www.zendesk.com">Zendesk</a>. Zendesk being the tool that I used in my work before DBC&hellip;</p>
-
-<p>Things are related, that&rsquo;s it. I don&rsquo;t believe in randomness, I do believe in links too complicated to be understandable, but not in randomness.</p>
-
-<p>Anyway, back to work now, expect some news tomorrow!</p>
 ]]></content>
     
   </entry>

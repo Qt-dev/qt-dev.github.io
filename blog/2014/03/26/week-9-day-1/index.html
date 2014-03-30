@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 5 - Day 4 - Small and repetitive code, DB Constraints, and connecting - Qt's Home</title>
+  <title>Week 9 - Day 1,2 - Ajax everything, pressure, D-6 and an end before a new beginning - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Small and repetitive code Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for &hellip;">
+  <meta name="description" content="First of all, I&rsquo;ll start by saying I am sorry I did not write before. I have been&hellip;overwhelmed by a few things I will try to sum up in &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 5 - Day 4 - Small and Repetitive Code, DB Constraints, and Connecting</h1>
+      <h1 class="entry-title">Week 9 - Day 1,2 - Ajax Everything, Pressure, D-6 and an End Before a New Beginning</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-28T09:48:47-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
+<time datetime="2014-03-26T14:25:17-07:00" pubdate data-updated="true">Mar 26<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,49 +108,76 @@
   </header>
 
 
-<div class="entry-content"><h2>Small and repetitive code</h2>
+<div class="entry-content"><p>First of all, I&rsquo;ll start by saying I am sorry I did not write before. I have been&hellip;overwhelmed by a few things I will try to sum up in this article, and just ended up having no time anyway.</p>
 
-<p>Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for yourself or for the teachers. They are small, easy, and fun&hellip; And everything is relative, like Einstein said.</p>
+<h2>Ajax Everything</h2>
 
-<p>One of the project was hard, but not because of the complicated content, but because of the amount of repetitive code we had to do.</p>
+<p>So, our app is going great! You can see its evolution on : <a href="https://github.com/banana-slugs-2014/GlucoseAmigo">Github</a>. In all that, one of the biggest thing I played with on this app is the javascript. If you look in /app/assets/javascripts, you&rsquo;ll see what I&rsquo;m talking about.</p>
 
-<p>Don&rsquo;t get the bad idea though, the challenge was cool, but it was about making a big bunch of code that we have been making for 2 weeks now. I did it late, and because of that I just ended up having to re do again, instead of doing it in the middle of my learning.</p>
+<p>The idea is that we ended up developing everything separately (doctors, diabetics, records, etc&hellip;) and I ended up in charge of connecting it altogether in Javascript. To do so, I play with two types of routes in the app :</p>
 
-<p>Anyway, the thing I got from that challenge is : Code is repetitive! That&rsquo;s why people take and make shortcuts. Sometimes, you have to make the same thing again, a few times, and that sucks. Copy pasting and all that works, but in this particular context, it did not&hellip;</p>
-
-<h2>DB Constraints</h2>
-
-<p>I did a lightning talk about DB Constraints. The idea is that the apps that we build with Ruby On Rails, Sinatra, Nodejs, or all these things, use tools that allow you to not have to deal with database languages and small tasks by yourself.</p>
-
-<p>But then, people tend to forget that in the end, we ARE working with databases. And what if one day your app falls apart? What if you want to change some portion of your code, among which is the DB reader thingy?</p>
-
-<p>If you don&rsquo;t put any constraints on your database, then you have a problem because now people can use empty username, 1230912301921309 characters numbers, etc&hellip;</p>
-
-<p>So to prevent that, put constraints!
-When I say constraints, you can limit your 4 things (or 5) :</p>
+<p>1 &ndash; Routes that render JSON :
+Basically, I render a JSON object with 3 parameters :</p>
 
 <ul>
-<li>:limit : Works for binary, numbers, strings, and texts, and set the max number of characters</li>
-<li>:null : Allows (Or not allow, if you give it false) this column to have a null entry in it</li>
-<li>:default : Give a default value to that field when none is entered</li>
-<li>:precision / :scale : Specifies the number of digits you can give, and the number of digits after the decimal</li>
+<li>ok :  true or false, tells the javascript if the operation succeeded or not</li>
+<li>path : The address of the next page</li>
+<li>alert : The eventual problems or info messages.</li>
 </ul>
 
 
-<p>See? That was not hard!</p>
+<p>2 &ndash; Routes that render partials :
+These render a small baby-html page with some javascript code to populate the javascript templates when it loads.</p>
 
-<p>Now, go ahead and go read : <a href="http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_column">this</a>.</p>
+<p>The idea is that every action and button is plugged on an action on the controller that calls a route that render JSON. If it returns ok:true, then I take the path, ask for the partial from it in javascript, and render it in the middle of the page, populating javascript templates on the go. If not, I print the alerts for 5 seconds and don&rsquo;t move.</p>
 
-<h2>Connecting</h2>
+<p>I had fun doing that and even though it needs a lot of refactoring right now, I hope you can see that and enjoy reading it as much as I did writing it.</p>
 
-<p>One thing we do here is connecting. We spend all of our time together, we are now a huge family where everybody has to know and live with everybody.</p>
+<h2>Pressure</h2>
 
-<p>Yesterday, Irene and I &ldquo;cashed in&rdquo; my free meal from Sherif, our big first phase teacher that we don&rsquo;t see much because we&rsquo;re in phase 2 now, because we finished our sudoku solver that solves 170 sudokus in less than a minutes (8.5 seconds whaddup!).<br/>
-That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, when he is &ldquo;off duty&rdquo;, we learn a lot from him!</p>
+<p>Sometimes, you get stuck in a strange loop. I just &hellip; had that exact thing.</p>
 
-<p>He told us a lot about how he had trouble connecting with the new cohort and I feel bad for them.</p>
+<p>I put a lot of pressure on me, to make sure I can make my way out of the life I had in France. Because of that, I end up sleeping less. But then if I sleep less, I think about that more, and sleep even less&hellip; * infinite loop *.</p>
 
-<p>Today, I went/am going to eat with Strand, and that is awesome. He&rsquo;s a 2nd phase teacher and I feel like I&rsquo;m connecting with everybody and I love it ^.^</p>
+<p>At some point, it breaks, and so it did. I ended up completely exhausted last thursday/friday, with a lot of things on my mind. I have to impress people to make sure I can move. But then I also know that I fought my way through to Dev Bootcamp, I worked hard IN Dev Bootcamp, I WILL make it happen no matter what. But it was not that clear at that time.</p>
+
+<p>I gave this analogy to the people who ended up listening :<br/>
+Picture a black NBA player that comes from a bad neighborhood.
+He struggled to get food when he was a kid. He struggled against racism his whole life. He fought the system in school, every step of the way.<br/>
+Now, he is fighting to get in the playoff and to be the MVP of every match he plays.</p>
+
+<p>Well, if today, you were to tell him to go back to struggling to get food, he would be disappointed, probably angry, but he made it once and you can be sure he&rsquo;ll make it twice.</p>
+
+<p>This is the kind of idea I have about going back to France. I don&rsquo;t mind struggling to find a better job, to make the world a better place, to make the difference against much more intelligent people. But what I would not like would be to have to go back to struggling for minimum wages with a 2 hours commute every morning every evening, and only 6 hours of seeing my fiance every week. I fought my way through, and I would rather not get back to that.<br/>
+But then if I have to&hellip; I will.</p>
+
+<p>The only thing I know now, is that I am a new person, and you can be sure that I will fight as much as I can to get my fiance, my sister, and the people I loved to the comfortable places that they deserve, and the world a better place, one step at a time.</p>
+
+<h2>D-6</h2>
+
+<p>She&rsquo;s coming!!!</p>
+
+<p><strong>She&rsquo;s coming!!!</strong></p>
+
+<p>My fiance, Thuy, the wonderful woman that actually chose to stick with me for 6 years now (I know, people are crazy&hellip;) is coming to San Francisco! I finally have the chance to get her into that world, show her what&rsquo;s happening, introduce her to the wonderful people I met&hellip;</p>
+
+<p>And make her taste the great foods I found!</p>
+
+<p>She still thinks that in the 7 days she get in here, she will end up getting a burger at burger king&hellip; Come on, people from here, let&rsquo;s laugh about it together ;)</p>
+
+<p>She will be coming on next tuesday and I don&rsquo;t know how much I will be blogging at that point, but right now&hellip; It&rsquo;s D-6!</p>
+
+<h2>An end before a new beginning</h2>
+
+<p>Dev Bootcamp is coming to an end!</p>
+
+<p>We are on our way to finish our last projects, we had fun, learned a lot, and met really cool people (looking at you, Chris! Haha). But this is now coming to an end.</p>
+
+<p>However, I don&rsquo;t take it as an end but more like a beginning. I am a new self. I am a new this (got this, fellow developers?). I am a new person that now has the rest of his life to profit from this extraordinary experience.</p>
+
+<p>I see that as the beginning of a new life that I will start, happily, with my fiance, or wife, we&rsquo;ll not stay like that for too long I hope. Not completely unlinked from the old life, but as a continuity, I see the before-graduation period as a preparatory stage for what is coming.</p>
+
+<p>Now, things are different, it is a new life, and I intend to be very good at it!</p>
 </div>
 
 
@@ -173,7 +200,7 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
   
 
 
-<time datetime="2014-02-28T09:48:47-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
+<time datetime="2014-03-26T14:25:17-07:00" pubdate data-updated="true">Mar 26<span>th</span>, 2014</time>
       
 
 
@@ -181,7 +208,7 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -194,10 +221,10 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/27/week-5-day-3-ajax/" title="Previous Post: Week 5 - Day 3 - Ajax, MVC and congratulations">&laquo; Week 5 - Day 3 - Ajax, MVC and congratulations</a>
+        <a class="basic-alignment left" href="/blog/2014/03/21/week-8-day-4-group-project/" title="Previous Post: Week 8 - Day 4 - Group project, more pressure, and sleep depravation">&laquo; Week 8 - Day 4 - Group project, more pressure, and sleep depravation</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/03/01/week-5-day-5-awesome-project/" title="Next Post: Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit">Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/03/26/week-9-day-3-personnalities/" title="Next Post: Week 9 - Day 3 - The glucose amigos, personnalities,  and D-5">Week 9 - Day 3 - The glucose amigos, personnalities,  and D-5 &raquo;</a>
       
     </p>
   </footer>
@@ -303,8 +330,8 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1/';
         var disqus_script = 'embed.js';
       
     (function () {

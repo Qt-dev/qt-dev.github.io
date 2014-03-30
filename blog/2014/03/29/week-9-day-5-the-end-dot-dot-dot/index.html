@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Week 5 - Day 4 - Small and repetitive code, DB Constraints, and connecting - Qt's Home</title>
+  <title>Week 9 - Day 5 - The end...? - Qt's Home</title>
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Small and repetitive code Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for &hellip;">
+  <meta name="description" content="So, yesterday, I graduated. I now have my very own dog tags with my name on it. I am &ldquo;officially&rdquo; a web developer. I will try to not &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects">
+  <link rel="canonical" href="http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Qt's Home" type="application/atom+xml">
@@ -82,7 +82,7 @@
   <header>
   
     
-      <h1 class="entry-title">Week 5 - Day 4 - Small and Repetitive Code, DB Constraints, and Connecting</h1>
+      <h1 class="entry-title">Week 9 - Day 5 - the End...?</h1>
     
   
     
@@ -99,7 +99,7 @@
   
 
 
-<time datetime="2014-02-28T09:48:47-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
+<time datetime="2014-03-29T13:40:25-07:00" pubdate data-updated="true">Mar 29<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -108,49 +108,41 @@
   </header>
 
 
-<div class="entry-content"><h2>Small and repetitive code</h2>
+<div class="entry-content"><p>So, yesterday, I graduated. I now have my very own dog tags with my name on it. I am &ldquo;officially&rdquo; a web developer. I will try to not spoil it too much for the people still in the program, but I do have to talk about this day.</p>
 
-<p>Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for yourself or for the teachers. They are small, easy, and fun&hellip; And everything is relative, like Einstein said.</p>
+<p>If I had to sum that day up in one word, I&#8217;ld say : &lsquo;Tears&rsquo;.</p>
 
-<p>One of the project was hard, but not because of the complicated content, but because of the amount of repetitive code we had to do.</p>
+<p>The day started with the usual friday group checkins. What came out of that were that other cohorts were excited for everything new (every cohort is getting to the next phase on monday, DBC is moving, a new cohort is coming too&hellip;), and unhappy about us moving out. But then, like we told them again and again, we are not going anywhere.</p>
 
-<p>Don&rsquo;t get the bad idea though, the challenge was cool, but it was about making a big bunch of code that we have been making for 2 weeks now. I did it late, and because of that I just ended up having to re do again, instead of doing it in the middle of my learning.</p>
+<p>After that, we presented our projects. A lot of clapping, a lot of laughing, and being impressed by every one of them. Also, for some reason, Rao discovered that I existed that very day, apparently. He asked me what was that necklace that I am wearing&hellip; But then I have been wearing that every single day for 3 years now&hellip; But that&rsquo;s fine, I still love him !</p>
 
-<p>Anyway, the thing I got from that challenge is : Code is repetitive! That&rsquo;s why people take and make shortcuts. Sometimes, you have to make the same thing again, a few times, and that sucks. Copy pasting and all that works, but in this particular context, it did not&hellip;</p>
+<p>Then, we came back to coding&hellip; psych, we did not write a single line that day. We ate these things DBC had ordered for us (COOKIES!), and then I took a huge nap.</p>
 
-<h2>DB Constraints</h2>
+<p>I got waken up when Steven, one of our teachers, was about to speak about a nice life lesson he got some time ago. I won&rsquo;t tell you the whole story but I will just sum it up with :<br/>
+The day you start resenting everything about where you are, what you do, what you life looks like&hellip; Take a step back. Cash in on some money you have, and get out. Physically, mentally, it does not matter, just get out. I think this is a great advice that sometimes people just don&rsquo;t follow. I got stuck in France and ended up needing friends and family to pull me out because I had not plan any kind of exit strategy&hellip; Don&rsquo;t be me!</p>
 
-<p>I did a lightning talk about DB Constraints. The idea is that the apps that we build with Ruby On Rails, Sinatra, Nodejs, or all these things, use tools that allow you to not have to deal with database languages and small tasks by yourself.</p>
+<p>After that, we went to the park, and without telling you much about it, let&rsquo;s just say we had the chance to say what we thought about people. And I just wanted to say, from the bottom of my heart, that I hate you, banana slugs, so much for the amount of tears you made me cry! ;)</p>
 
-<p>But then, people tend to forget that in the end, we ARE working with databases. And what if one day your app falls apart? What if you want to change some portion of your code, among which is the DB reader thingy?</p>
-
-<p>If you don&rsquo;t put any constraints on your database, then you have a problem because now people can use empty username, 1230912301921309 characters numbers, etc&hellip;</p>
-
-<p>So to prevent that, put constraints!
-When I say constraints, you can limit your 4 things (or 5) :</p>
+<p>Let me give you a quick example of things I heard :</p>
 
 <ul>
-<li>:limit : Works for binary, numbers, strings, and texts, and set the max number of characters</li>
-<li>:null : Allows (Or not allow, if you give it false) this column to have a null entry in it</li>
-<li>:default : Give a default value to that field when none is entered</li>
-<li>:precision / :scale : Specifies the number of digits you can give, and the number of digits after the decimal</li>
+<li>&ldquo;Quentin, if I explained how much I like you in a sentence right now&hellip; That would mean I have not spent the 9 last weeks with you and did not know you.&rdquo;</li>
+<li>&ldquo;Thanks to you, becoming a better person seems so easy&hellip;&rdquo;</li>
+<li>&ldquo;I love your scarf&rdquo;</li>
 </ul>
 
 
-<p>See? That was not hard!</p>
+<p>There were plenty of others, these are just the 3 ones that came to my mind right now, you probably get the tone anyway.</p>
 
-<p>Now, go ahead and go read : <a href="http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_column">this</a>.</p>
+<p>After that, we went back, and graduated. We were welcomed with that High-Five tunnel that greeted us the very first day, then they gave us our dog tags,&hellip; and we partied until 2 in the morning!</p>
 
-<h2>Connecting</h2>
+<p>I spent almost all of my night trying to tell people how much I love them and how grateful I am that I met them. These 9 weeks were such an adventure&hellip;</p>
 
-<p>One thing we do here is connecting. We spend all of our time together, we are now a huge family where everybody has to know and live with everybody.</p>
+<h2>The end&hellip; ?</h2>
 
-<p>Yesterday, Irene and I &ldquo;cashed in&rdquo; my free meal from Sherif, our big first phase teacher that we don&rsquo;t see much because we&rsquo;re in phase 2 now, because we finished our sudoku solver that solves 170 sudokus in less than a minutes (8.5 seconds whaddup!).<br/>
-That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, when he is &ldquo;off duty&rdquo;, we learn a lot from him!</p>
+<p>Now, I am out, but what I feel is that the training ended, now it&rsquo;s time for the big game. I am never leaving these people, I will haunt them forever, at least just to thank them for how good they made me feel.</p>
 
-<p>He told us a lot about how he had trouble connecting with the new cohort and I feel bad for them.</p>
-
-<p>Today, I went/am going to eat with Strand, and that is awesome. He&rsquo;s a 2nd phase teacher and I feel like I&rsquo;m connecting with everybody and I love it ^.^</p>
+<p>And if I end up making them happy one day in their lives, I will consider myself happy. And to all the DBC Staff, all the alumnus, all the current students, my cohort and the others, I am talking about all of you. You are SO going to regret making me feel that good ;)</p>
 </div>
 
 
@@ -173,7 +165,7 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
   
 
 
-<time datetime="2014-02-28T09:48:47-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
+<time datetime="2014-03-29T13:40:25-07:00" pubdate data-updated="true">Mar 29<span>th</span>, 2014</time>
       
 
 
@@ -181,7 +173,7 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot/" data-via="Supamachin" data-counturl="http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -194,10 +186,8 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/27/week-5-day-3-ajax/" title="Previous Post: Week 5 - Day 3 - Ajax, MVC and congratulations">&laquo; Week 5 - Day 3 - Ajax, MVC and congratulations</a>
+        <a class="basic-alignment left" href="/blog/2014/03/28/week-9-day-4-presentation/" title="Previous Post: Week 9 - Day 4 - Presentation, giving thanks, and D-4">&laquo; Week 9 - Day 4 - Presentation, giving thanks, and D-4</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/03/01/week-5-day-5-awesome-project/" title="Next Post: Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit">Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit &raquo;</a>
       
     </p>
   </footer>
@@ -303,8 +293,8 @@ That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, w
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/';
-        var disqus_url = 'http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/';
+        var disqus_identifier = 'http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot/';
+        var disqus_url = 'http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot/';
         var disqus_script = 'embed.js';
       
     (function () {
