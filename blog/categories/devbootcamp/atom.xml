@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DevBootCamp | Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/blog/categories/devbootcamp/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-04-09T15:06:56-07:00</updated>
+  <updated>2014-07-03T11:32:25+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Making a new faker gem]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/"/>
-    <updated>2014-02-14T20:36:16-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker</id>
+    <link href="http://Qt-dev.github.io/blog/2014/02/15/making-a-new-faker/"/>
+    <updated>2014-02-15T05:36:16+01:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/02/15/making-a-new-faker</id>
     <content type="html"><![CDATA[<p>Let&rsquo;s me sum some stuff up first before I start :</p>
 
 <ul>

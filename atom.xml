@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-04-09T15:06:56-07:00</updated>
+  <updated>2014-07-03T11:32:25+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -15,10 +15,699 @@
   
   <entry>
     
+    <title type="html"><![CDATA[ReactJS - How to make a collapsible content panel]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/07/01/reactjs-how-to-make-a-collapsible-content-panel/"/>
+    
+    <updated>2014-07-01T11:50:02+02:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/07/01/reactjs-how-to-make-a-collapsible-content-panel</id>
+    
+    <content type="html"><![CDATA[<h2>Before we start</h2>
+
+<p>This is a small and easy guide about something you can do easily with React and CSS3.</p>
+
+<p>First, a few things you need to know about before we start :
+* <a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em>
+* <a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></p>
+
+<h2>How-to</h2>
+
+<p>What we are building is something like this <a href="http://jqueryui.com/accordion/">JQuery UI plugin</a>.<br/>
+We have content, and titles. When the user clicks on a title, it opens the accordion below while closing the others.</p>
+
+<h3>React modelisation</h3>
+
+<p>Let&rsquo;s start with the simple HTML content that we want to have (For React very beginners) :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;section-1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;section-title&quot;</span><span class="nt">&gt;</span>Section 1<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;section-content&quot;</span><span class="nt">&gt;</span>Our content for the section 1<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;section-2&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;section-title&quot;</span><span class="nt">&gt;</span>Section 2<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;section-content&quot;</span><span class="nt">&gt;</span>Our content for the section 2<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;section-3&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;section-title&quot;</span><span class="nt">&gt;</span>Section 3<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;section-content&quot;</span><span class="nt">&gt;</span>Our content for the section 3<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is not a file we are making, but this is what we will try to model with React.</p>
+
+<p>So, first things first, let&rsquo;s put the content in a simple json object (there are many ways to get data to build react components but we&rsquo;ll talk about that in another post).</p>
+
+<p><em>backendData.js</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">backendData</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="s2">&quot;Section 1&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="s2">&quot;Our content for the section 1&quot;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="s2">&quot;Section 2&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="s2">&quot;Our content for the section 2&quot;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="s2">&quot;Section 3&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="s2">&quot;Our content for the section 3&quot;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, we build our components for the ground up. First, the section component we&rsquo;ll instantiate:</p>
+
+<p><em>section.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm">* @jsx React.DOM</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="cm">/* section.jsx */</span>
+</span><span class='line'><span class="nx">Section</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;section&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">key</span><span class="p">}</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">h2</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;sectionTitle&quot;</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;sectionContent&quot;</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(I decided to put the data given by my &ldquo;back-end&rdquo; in a single JS object. Single responsibility, DRY code, let&rsquo;s say I have reasons)</p>
+
+<p>Then, we make the container component, that creates nested sections with our data:</p>
+
+<p><em>container.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm">* @jsx React.DOM</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="nx">Container</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">buildSections</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sectionList</span><span class="p">){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">sections</span> <span class="o">=</span> <span class="nx">sectionList</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">section</span><span class="p">,</span> <span class="nx">index</span><span class="p">){</span>
+</span><span class='line'>      <span class="cm">/* Remember to add a &#39;key&#39;. React wants you to add an identifier when you instantiate a component multiple times */</span>
+</span><span class='line'>      <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Section</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">section</span><span class="p">}</span> <span class="o">/&gt;</span>
+</span><span class='line'>    <span class="p">})</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">sections</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">sections</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">buildSections</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="p">{</span><span class="nx">sections</span><span class="p">}</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So far so good, we get pretty much exactly the html code above if we instantiate our page with something like this :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="nx">Container</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">backendData</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span class='line'><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now on to setting up our closed/open states</p>
+
+<h3>Closed/Open states</h3>
+
+<p>First, let&rsquo;s hide the sectionContents with some simple CSS.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.sectionContent</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The only thing to note here is that we will be using heights, from 0 to &hellip; what we need. So, to do so, we need to make it so that the overflow is hidden instead of toggling <code>display:none</code>and <code>display:block</code></p>
+
+<p>Now, let&rsquo;s trigger these changes in our components :</p>
+
+<p><em>section.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm">* @jsx React.DOM</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="nx">Section</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">open</span><span class="o">:</span> <span class="kc">true</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">toggleContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">open</span><span class="o">:</span> <span class="o">!</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">open</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">})</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">getContentToggleHeight</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">open</span><span class="p">){</span>
+</span><span class='line'>      <span class="k">return</span> <span class="s2">&quot;3em&quot;</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="s2">&quot;0&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">contentStyle</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">height</span><span class="o">:</span> <span class="nx">getContentToggleHeight</span><span class="p">()</span> <span class="p">};</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;section section&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">key</span><span class="p">}</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">h2</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;sectionTitle&quot;</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">toggleContent</span><span class="p">}</span> <span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;sectionContent&quot;</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In here, assign a height based on the state of our component to our sectionContent. I chose 3em pretty randomly because I like fixed things, you can decide to calculate the height you need instead. The inherit and auto don&rsquo;t work well with transitions, but they will work if you don&rsquo;t need them. This state is changed when you click on the title. It triggers the toggleContent function that inverts the closed state.</p>
+
+<p>So, now we have a closed and a open state. We toggle between them based on the state of our Section component, defined by how many times we clicked on that title.</p>
+
+<p><strong><em>If you are looking for a way to make tabs open all at once, stop here. If you&rsquo;re looking for that JQueryUI style One tab only thing, keep on to the next part</em></strong></p>
+
+<h3>Closing all of them when one is open</h3>
+
+<p>Single responsibility principles tells us our Sections don&rsquo;t know about the other sections. That means our section cannot tell the others to close. The container, however, knows about all of the sections&hellip;</p>
+
+<p><em>container.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm">* @jsx React.DOM</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="nx">Container</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sectionList</span><span class="p">){</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">{</span> <span class="nx">openSectionIndex</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">buildSections</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sectionList</span><span class="p">){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">sections</span> <span class="o">=</span> <span class="nx">sectionList</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">buildSection</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">sections</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">buildSection</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">section</span><span class="p">,</span> <span class="nx">index</span><span class="p">){</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">openStatus</span> <span class="o">=</span> <span class="p">(</span><span class="nx">index</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">openSectionIndex</span><span class="p">);</span>
+</span><span class='line'>      <span class="cm">/* Remember to add a &#39;key&#39;. React wants you to add an identifier when you instantiate a component multiple times */</span>
+</span><span class='line'>      <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Section</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">section</span><span class="p">}</span> <span class="nx">toggleOne</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">toggleOne</span><span class="p">}</span> <span class="nx">open</span><span class="o">=</span><span class="p">{</span><span class="nx">openStatus</span><span class="p">}</span> <span class="o">/&gt;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">toggleOne</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">){</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">openSectionIndex</span> <span class="o">===</span> <span class="nx">id</span><span class="p">){</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">openSectionIndex</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">openSectionIndex</span><span class="o">:</span> <span class="nx">id</span><span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">sections</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">buildSections</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="p">{</span><span class="nx">sections</span><span class="p">}</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, we actually play with the state of the parent component. It keeps track of the id of the tab that is open, and starts with -1.</p>
+
+<p>We pass the toggleOneSection callback to the child component (the section), it takes an id (the id of the thing we want to toggle), and it sets the openSectionIndex of the state accordingly to our argument, or back to nothing (-1).</p>
+
+<p>We then build sections with an &ldquo;open&rdquo; prop, a boolean that will be the thing that is used to get the class of our sectionContent, instead of the Section&rsquo;s state. React building the page on the go, from the javascript, in the way of a simple diff, the children will just be changed instead of generated again, which will trigger whatever we have on them (listeners, animations, etc&hellip;).</p>
+
+<p>Now to the section :</p>
+
+<p><em>section.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm">* @jsx React.DOM</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="nx">Section</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">toggleContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">toggleOne</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">key</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">getHeight</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">open</span><span class="p">){</span>
+</span><span class='line'>      <span class="k">return</span> <span class="s2">&quot;3em&quot;</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="s2">&quot;0&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">height</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">()</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;section section&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">key</span><span class="p">}</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">h2</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;sectionTitle&quot;</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">toggleContent</span><span class="p">}</span> <span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;sectionContent&quot;</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">style</span><span class="p">}</span> <span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As I said above, getContentToggleClass now uses the props instead of the state, and I got rid of the other state functions.
+The toggleContent internal callback now call the callback we called in the props, with that key that we gave it at the very beginning.</p>
+
+<p>Now, up to animations</p>
+
+<h3>Animations</h3>
+
+<p>This is the very easy part. To trigger the animations, we just put a &ldquo;transition&rdquo; on the container selector, in the css.</p>
+
+<p><em>style.css</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.sectionContent</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">height</span> <span class="m">0.3s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">height</span> <span class="m">0.3s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">height</span> <span class="m">0.3s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">height</span> <span class="m">0.3s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">transition</span><span class="o">:</span> <span class="k">height</span> <span class="m">0.3s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This tells the interpreter that when the height changes, it has to take 0.3s to transition into the new height, with ease-in giving it a slow start for a cleaner interface (just a matter of preferences on this one).</p>
+
+<p>And we now have our accordion menu.</p>
+
+<h2>Conclusion</h2>
+
+<p>You now have a clean accordion menu. I tend to add a few styling thing that I consider the bare minimum on that like :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.sectionTitle</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But that&rsquo;s just me. Also, you don&rsquo;t need to use H2s, you can use whatever you want, links work too but remember to preventDefault if you use them.</p>
+
+<p>Let me know what you thought about that guide, I may have missed things here and there, and thank you for reading!</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[A Letter to DBC]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/05/11/letter-to-dbc/"/>
+    
+    <updated>2014-05-11T13:28:07+02:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/05/11/letter-to-dbc</id>
+    
+    <content type="html"><![CDATA[<p>I am writing this in the plane from San Francisco to Paris (actually Newark to Paris but who cares about layovers).</p>
+
+<p>I am leaving for a bit, but I will be back. I usually make my posts in &frac34; parts, to talk about specific topics, but today, this is a letter to the people I met in SF.</p>
+
+<p>First, I want to say that I love you. I love you all, the ones I spent a lot of time with as much as the ones I wish I spent more time with, the ones I slept in the same bed with, the ones I never knew the names, all of you.</p>
+
+<p>3 months ago, I was coming to San Francisco and I knew none of you guys. I knew nothing about anybody else&rsquo;s history, almost nothing about the US, about San Francisco, and actually not much about myself. It feels like you guys taught me so much about all of this.<br/>
+And now, thanks to you, I would not say that I know much more about all of that, but what I can say is that I now know that I don&rsquo;t know much, but that if I am interested in getting answers, I can make it happen.</p>
+
+<p>In these 3 months, I met all of you guys. TV Star, writer, designer, fresh out of school or with a ton of experience, all of you are just incredible. One could thing I make a general statement about a group full of very different individuals, but I can assure you that I am not. Every single person that I met during these 3 months is incredible. Everybody a different way, with different traits, good sides and bad sides, but all of them are incredible. All.Of.You.</p>
+
+<p>But let me split all of you guys in smaller categories to prevent too many generic statements.</p>
+
+<h3>To the DBC Staff</h3>
+
+<p>If I could tell you just one thing, that would be : Thank you for everything.</p>
+
+<p>What you do is great, and I am not talking about code, but about the human experience that you set up, and make us experience. Coming here, I thought I would get a lot of coding experience, but more than coding, what I got was an incredible life experience. As if being around people like <strong>Karim Bishay</strong>, <strong>Sherif Abushadi</strong>, or <strong>Steven Harms</strong>, for example, was not enough, the program is made so that every part of the staff contributes to making you learn so much about how to approach everything.</p>
+
+<p>And the funny thing is that you actually get out with more questions that you came in, but you can now realize that questions are what will take you further. Wondering about them, asking them, and searching for the answers will give you so much more than just having the answer. I realize that now, but 3 months ago, that would probably not have been the case.</p>
+
+<p>And I know some names come up much more than others, but people like Keren and Sam, Brandon, or the people that I never asked the name of (oops, sorry) are just as important. You may get through DBC and not realize that, but if any of them was any different, your experience would also be completely different.</p>
+
+<h3>To the alumnis/previous cohorts</h3>
+
+<p>Whether you are a coach of not does not matter, you guys rock. Seeing what people did before us has been an inspiration all throughout these 3 months. And just the fact that most of the people are so accessible, so open-minded, and even years after going through the program, are sill that friendly with former boot, is something that I don&rsquo;t think I experienced before. And now, I will do my best to perpetuate this tradition!</p>
+
+<p>As for the coaches&hellip; Thank you. In my opinion, spending days on Three.js with <strong>Salar</strong> is just as valuable as finding the solution to that hard problem you&rsquo;ve been given. In the end, what makes us good is not the challenges we finish, but the fact that we like to wander around and discover everything we can.</p>
+
+<p>Never stop learning and redistributing that knowledge. This is what makes us great, this is what make you great, this is also what makes the program and the whole experience that valuable.</p>
+
+<h3>To the cohorts after us</h3>
+
+<p><strong>Golden Bears</strong>, thank you for being my confidents, give me that feeling of that a big brother has when he sees his younger siblings grow. You are much better than what many of you could think, just keep up the good work, gather, and built great things!</p>
+
+<p><strong>Fiery Skippers</strong>, when I am writing this, you just graduated (yup, 2 weeks for a post). Congratulations, I never ever doubted that you would do great. You guys have an incredible group dynamic that will take you so far&hellip; I envy you just as much as I thank you. Now blow everybody&rsquo;s mind, you have to!</p>
+
+<p><strong>Pocket Gophers</strong>, I don&rsquo;t know you as much as I wish I would. I met you guys when I already knew I had to leave. But the things I saw in your cohort from the small window I had make me think you are bound to be great. I have a lot of faith in what you can do, and I can&rsquo;t wait for you to graduate, to see what happens.</p>
+
+<p><strong>The Red admirals</strong>, I &hellip; genuinely don&rsquo;t know you, except 2 of you that I met at our graduation party&hellip; But I wish you a lot of fun and learning!</p>
+
+<h3>To my cohort, the Banana Slugs</h3>
+
+<p>I love you guys! I came from far away, first time in the US, no time to adapt, but from the very first day I felt at home among you guys. I slept in the same bed as some of you, same floor as others, same couch as (many) even more of you. I lived with 9 of you guys, I worked with most of you guys, and I have only good things to say about every one of you. When the worse thing you can say about somebody is &ldquo;He wants to get things done asap&rdquo;, I consider that a good thing, right? ;)</p>
+
+<p>I thank you all for welcoming me, sharing with me, being great altogether, and making me feel good about myself! I love you guys and I will be available for every one of you, as long as I can.</p>
+
+<p><strong>SLUGS LIFE~~</strong></p>
+
+<h3>Special mentions</h3>
+
+<p><strong>Armando</strong>, my new brother, I love you. Even now that we are far away, you are still changing my life everyday. I am reading your book, making life changes from stuff you said, you are everywhere. Damn you big brother ;)</p>
+
+<p><strong>Christine</strong>, damn you for being that awesome! I felt bad when I did not know what was up with you, I cried with you, I even made you taste french food (not that good though)! I feel like you will do great things. You are so much better than me >.&lt;<br/>
+Now be great, and be happy. We talked about it before, but even more than &ldquo;you deserve it&rdquo;, think about it as &ldquo;you have a duty to do so&rdquo;.</p>
+
+<p><strong>Drew</strong>, I wish I had spent more time with you. I really feel a great connection with you, and at times I felt like you were losing hope, losing part of that motivation&hellip; You should not. I believe you can do great things, and I am and will be available for you whenever you will need it.</p>
+
+<p><strong>Sherif Abushadi</strong>, thank you for being you. My new goal in life is to give that same feeling you&rsquo;re giving people around you one day. You have to feel that one day!</p>
+
+<p><strong>Karim Bishay</strong>, thank you for that new vision of life you brought me with these EE sessions. I was interested in Empathy before, but now I actually know how to share it. Thank you.</p>
+
+<p><strong>Steven Harms</strong>, thank you for all that knowledge. I felt like I learned as much in DBC than outside of it when we got these lunches. I love the way you teach, the way you share what you know, and I will work to get back to get lunch again!</p>
+
+<p><strong>Rao</strong>, meow. Meow meow meow meoooooow meoow. Meow meow meow Mouw.</p>
+
+<p><strong>Salar</strong>, thank you for being awesome. Keep on being awesome like that. I am looking forward to the day I can work with you!</p>
+
+<p><strong>Ben, Pocket Gopher</strong>, I did not spend half as much time as I wanted with you. I feel like you are an incredible person, and I want to learn everything about your life. Let&rsquo;s meet again when you get more time!</p>
+
+<p><strong>Matthew and Johnny</strong>, thank you for being around. I felt so good around you and I will feel good again when I am back. I consider you like my little brothers. Overachieving brothers that will end up ruling the world, haha.</p>
+
+<p><strong>Stephen</strong>, man, I love you too&hellip; But you keep me so worried all of the time. Please take care of yourself, and keep on being great. Don&rsquo;t listen to that voice in your head, &lsquo;haters gonna hate&rsquo; ;)</p>
+
+<p>Not sure how to finish that letter, but I&rsquo;ll go with : Keep on being awesome, people, I love you, you changed me.</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Where I was, where I am, where I am going]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/05/11/where-i-was/"/>
+    
+    <updated>2014-05-11T12:52:26+02:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/05/11/where-i-was</id>
+    
+    <content type="html"><![CDATA[<h2>Where I was</h2>
+
+<p>Well, I was in DBC, in case you did not know. I published today <a href="http://qt-dev.tumblr.com/post/85410637038/a-letter-to-dbc">this letter to the people I met there</a>.</p>
+
+<p>In short, I was a technical support guy, playing with development, not really sure about anything he was doing. Then I went to Dev Bootcamp, learned a lot about code and about life in general. At the end, I did not find a company that would be willing to work with me on immigration stuff so I could not stay in the US.</p>
+
+<p>I had played with PHP, Android Development, Java (it does go with Android Dev, doesn&rsquo;t it?), Python, and some simple Javascript.
+In DBC I then played with more (and MUCH better) Js, with Ruby, and with frameworks like Sinatra, Rails, Backbone, Flask (In order of how much I used them there).</p>
+
+<h2>Where I am</h2>
+
+<p>I could not stay so &hellip; I am back in France. I have been around for a bit more than a month now.</p>
+
+<p>I decided to spend a lot of time studying/coding while I was looking for opportunities in countries I could go more easily than the US, or a very very good opportunity in France.</p>
+
+<p>The project I spend most of my time on is : <a href="https://github.com/Qt-dev/server-admin">Server Admin</a>, a server management page for TV shows/movies downloading servers (for us that are far from getting any good show from the US under license in our country, of course&hellip;).
+I decided to go hard or go home (I am home already anyway), and so I use more or less only technologies that I did not know before.</p>
+
+<p>We have a backend in <strong>NodeJS</strong> with tests in <strong>Mocha</strong> and automation with <strong>Grunt</strong>. The frontend is built with a couple of <strong>Backbone</strong> and <strong>React</strong>. Right now I am working on passing the pseudo database that I had before (= a json file loaded by JQuery&hellip; I am very very ashamed right now&hellip;) into a real DB. I use <strong>TingoDB</strong>. It is an alternative to <strong>MongoDB</strong> for a NoSQL database. Basically, instead of having to install some kind of service and secure it, it saves all the stuff in a file. I figured it was a better fit for an app I can just send as a package and people can install easily.</p>
+
+<p>Apart from coding, I got some interviews that mostly went well, but with the wrong companies (Companies that found their new recruits right before my interview, others that actually did not have the money to recruit, or others who are looking for seniors). Being far away is probably not helping either&hellip;</p>
+
+<p>I also got a new dog, hang around on Facebook for the pictures ;)</p>
+
+<p>I would say I spend almost 100% of my time in my house, speaking to &hellip; my family, and maybe one or 2 friends in the week (yes, Thuy is my family). That feels weird, especially when you are usually working much better with others, in teams, etc&hellip;<br/>
+But with a lot of breathing, a bit of meditation, and a lot of hard work, I&rsquo;m making things happen so that&rsquo;s cool ;)</p>
+
+<h2>Where I am going</h2>
+
+<p>Unless I get a very good opportunity in here, my goal is still to go back to my friends on the other side of the world. My primary focus is on <strong>Vancouver</strong> and <strong>Toronto</strong> right now. If you know anybody around there, please let me know!</p>
+
+<p>I touched a bit of iOS development today, as a break from that Server Admin development, so I will probably try some stuff with that once the server-admin MVP is out. I am also planning on porting <a href="https://play.google.com/store/apps/details?id=com.qdev.craftmeapass">Craft Me A Pass!</a> on iOS and as a simple JS web app when I get time.</p>
+
+<p>I am still wondering if I will not just take some money that I saved and go to one of these cities to search from there directly&hellip; I just want to finish a few things before I go. This would feel like an &ldquo;All-in&rdquo; and &hellip; I am not a fan of no-backup-plan ideas hehe.</p>
+
+<p>And where I am going is in a blogging world. I did not blog enough recently, which is stupid since it&rsquo;s my main way to get in contact with people I miss but well, I did it anyway. Now I will, I&rsquo;m giving you my word! (And people who&rsquo;ve known me for a while know that it means a lot ;))
+Also, I realized I know a bit about technologies that are not necessarily well-documented all around, so I might as well share. So expect a few blog posts on fancy React tricks, maybe how to test node backend, and funny stuff like that!</p>
+
+<p>Anyway, see you in a few guys, and don&rsquo;t hesitate to comment or &hellip; just even get in contact haha</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[I won a NASA Hackathon, languages, and job searching, still]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/04/16/i-won-a-nasa-hackathon/"/>
+    
+    <updated>2014-04-16T00:50:47+02:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/04/16/i-won-a-nasa-hackathon</id>
+    
+    <content type="html"><![CDATA[<h2>The NASA Hackathon</h2>
+
+<p>So, this weekend was the &ldquo;NASA SpaceApp hackathon&rdquo;, and we won the first round. But I see you coming with your questions, so let me attempt to explain?.</p>
+
+<ul>
+<li><p>What is a hackathon ?<br/>
+A Hackathon is a &ldquo;code contest&rdquo;. The idea is that you are given an amount of time (most of the time 1-2 days), and themes/challenges. From that, you make teams with the people you can find, and you have to build something. At the end of the timer, a panel of judge selects the winner/winners.</p></li>
+<li><p>What is NASA Spaceapp?<br/>
+The NASA is &hellip; NASA, the National Aeronautics and Space Administration, or in easier words : The American government department that manages Space research. They put Mr Armstrong on the moon in 1969, they helped a lot sending the International Space Station in space, they are the one that give you these images of Mars, and are one of the only agency in the world that, when they miscalculate, end up having a robot battery and communication lasting much longer than expected! (It&rsquo;s usually the opposite&hellip; isn&rsquo;t it?)<br/>
+SpaceApp is a part of a program to encourage innovation in that domain. It is an incubator, so a center for innovators to build new projects, and it was hosting this hackathon this weekend. This one was organized in 90 cities in the world!</p></li>
+<li><p>What was the theme?<br/>
+Space of course! If you check the <a href="https://2014.spaceappschallenge.org">SpaceApp</a> website, you can see a list of challenges. One group had to pick one, and make something to complete it. In every location, they added small local challenges too. So we went for one of them.</p></li>
+<li><p>What about your team? Your challenge?<br/>
+Our team was : Anne, Harry, Matthew and me from the Banana Slugs 2014, Matt Higgins from the Sea Lions (the previous cohort), and Roman, a web developer.<br/>
+We chose to work on the <a href="https://2014.spaceappschallenge.org/challenge/alert-alert/">Alert! Alert!</a> challenge. Basically, we had to build a way to monitor some space events from the ground.<br/>
+We also went for a local challenge with <a href="https://getpebble.com">Pebble</a>, a smart watch. If we were to be the best implementation of the Pebble app in our challenge, we were to all win a Pebble watch!</p></li>
+<li><p>So what did you decide to do?<br/>
+Our project is an alert system, on the Pebble and on a site, that warns you when one of the 40 biggest space objects we could find is around you. It tells you which one is, and if visible, gives you a direction to look at.</p></li>
+<li><p>How did you do it?<br/>
+Well, first, the Pebble has a whole interface in C. None of us knew C. They are pushing a Javascript part of the SDK(Development Kit), which is a language we actually know, but definitely not in this context, getting info about space objects, using them, and making things happen on a watch with that data&hellip;<br/>
+In the end, we have a (more or less) clear code, 2 versions on the Pebble store, and a working app. We discovered C, I spent a good amount of time on Sunday having &ldquo;fun&rdquo;(C Coder will understand) with Strings, Static variables, &hellip; Good fun.</p></li>
+<li><p>And so&hellip; in the end&hellip; ?<br/>
+In the end, we f*cking won! The judges from famous companies around here like Twitter or Pivotal voted for us, and you can see there : <a href="http://spaceappssf.weebly.com/winners.html">SpaceApp SF</a> that we were selected for &ldquo;Best Use of Hardware&rdquo;. <br/>
+We won Pebble watches, we have our app, and judges from NASA will actually compare us with other groups in the world.</p></li>
+<li><p>And your thoughts?<br/>
+I think we really rocked. We had never touched the watch, never coded for hardware, never coded Javascript like that, or played with such strong limitations as those of smart watches&hellip; And yet, we had a fully working app on the given hour, released on the store even, we won, and we did not feel stuck at any time during the whole thing. And all that almost only with DBC grads! For me, it is a HUGE win.<br/>
+I have close to no hope about the next step, seeing that people we&rsquo;re competing against teams built augmented reality but at least, we got this done and I&rsquo;m happy about it.</p></li>
+</ul>
+
+
+<h2>Languages</h2>
+
+<p>So, with this hackathon, one of the things I realized was that&hellip; I almost don&rsquo;t care about languages anymore. We did not know C, I still don&rsquo;t know it, but I coded in this language, refactored, and will keep on doing it, after a 2 days stretch.</p>
+
+<p>People tend to think that languages are REALLY different and that if you know one, learning another is going to be a real pain&hellip; Well, guess what, it is not!</p>
+
+<p>If I had to picture it I would say:<br/>
+Ok, you are mandated to compile data about a city, as much as you could. You would do it, it would take a lot of time to figure out what data to get, where to get it, how to compile it, etc&hellip;<br/>
+Then when you&rsquo;re done, you&rsquo;re asked to do that with the next town. You don&rsquo;t have to learn how to compile it, what data to get is still a bit tricky, and you are having less trouble with where to get it.<br/>
+Now they give you a new one to do. You know where to go, you will probably have a list of pieces of data you want to look for, because you got used to it, and things are most likely kind of where they were in the other towns, right?</p>
+
+<p>Well, learning coding languages is pretty much the same.
+The first one is painful and you have no clue what you&rsquo;re doing. And the next one may be the furthest &ldquo;city in the country&rdquo;, to take that example again, but you know a bit about what to look for, where to go, what to get. And the more you do it, the more you realize that it&rsquo;s actually pretty easy!</p>
+
+<p>That was probably a bad example but I hope you got it ;)</p>
+
+<p>Now, I do feel comfortable in Java, still, Ruby, Rails, Javascript, Python, and am getting used to some C. How cool is that!!</p>
+
+<h2>Job searching again</h2>
+
+<p>Well, I don&rsquo;t have a job. I find it funny that big company do not really care much about you unless they can see either a huge professional experience, or a very good school degree&hellip;<br/>
+And the small companies do value the stuff you build, but then they don&rsquo;t have the resources to hire many foreigners.</p>
+
+<p>In a way, I do understand all of them&hellip; But then, I am exactly the one stat slips through the cracks of that system. And now, I am looking for companies that would actually look at me, but then could also hire me&hellip;</p>
+
+<p>That, people, is hard.</p>
+
+<p>So far, nothing really interesting happened on that&hellip; I hope I can end up getting some info before I have to go back, at least on what I can join, when, and what I would need to do to be sure to be hirable.</p>
+
+<p>I am not afraid of going back, or that I might not get anything. But sometimes, you just want to be told something. You want to be told you&rsquo;re going the right way, or the wrong way.<br/>
+You will eventually find out, but if you could find out before&hellip; things would be much easier.</p>
+
+<p>Anyway, back to job searching, while trying to do fun stuff with code&hellip; See you guys next week! (or maybe earlier if I find things to talk about&hellip;)</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
     <title type="html"><![CDATA[One week later - I'm Back, Job Hunting & back to work]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/04/09/one-week-later-im-back/"/>
     
-    <updated>2014-04-09T14:34:29-07:00</updated>
+    <updated>2014-04-09T23:34:29+02:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/04/09/one-week-later-im-back</id>
     
     <content type="html"><![CDATA[<h2>I&rsquo;m back</h2>
@@ -80,7 +769,7 @@
     <title type="html"><![CDATA[Week 9 - Day 5 - The end...?]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot/"/>
     
-    <updated>2014-03-29T13:40:25-07:00</updated>
+    <updated>2014-03-29T21:40:25+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot</id>
     
     <content type="html"><![CDATA[<p>So, yesterday, I graduated. I now have my very own dog tags with my name on it. I am &ldquo;officially&rdquo; a web developer. I will try to not spoil it too much for the people still in the program, but I do have to talk about this day.</p>
@@ -127,7 +816,7 @@ The day you start resenting everything about where you are, what you do, what yo
     <title type="html"><![CDATA[Week 9 - Day 4 - Presentation, giving thanks, and D-4]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/28/week-9-day-4-presentation/"/>
     
-    <updated>2014-03-28T00:02:46-07:00</updated>
+    <updated>2014-03-28T08:02:46+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/28/week-9-day-4-presentation</id>
     
     <content type="html"><![CDATA[<h2>Presentation</h2>
@@ -174,10 +863,10 @@ The day you start resenting everything about where you are, what you do, what yo
   <entry>
     
     <title type="html"><![CDATA[Week 9 - Day 3 - The glucose amigos, personnalities,  and D-5]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/03/26/week-9-day-3-personnalities/"/>
+    <link href="http://Qt-dev.github.io/blog/2014/03/27/week-9-day-3-personnalities/"/>
     
-    <updated>2014-03-26T23:23:53-07:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/03/26/week-9-day-3-personnalities</id>
+    <updated>2014-03-27T07:23:53+01:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/03/27/week-9-day-3-personnalities</id>
     
     <content type="html"><![CDATA[<h2>The Glucose Amigos</h2>
 
@@ -231,7 +920,7 @@ The day you start resenting everything about where you are, what you do, what yo
     <title type="html"><![CDATA[Week 9 - Day 1,2 - Ajax everything, pressure, D-6 and an end before a new beginning]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1/"/>
     
-    <updated>2014-03-26T14:25:17-07:00</updated>
+    <updated>2014-03-26T22:25:17+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1</id>
     
     <content type="html"><![CDATA[<p>First of all, I&rsquo;ll start by saying I am sorry I did not write before. I have been&hellip;overwhelmed by a few things I will try to sum up in this article, and just ended up having no time anyway.</p>
@@ -313,7 +1002,7 @@ But then if I have to&hellip; I will.</p>
     <title type="html"><![CDATA[Week 8 - Day 4 - Group project, more pressure, and sleep depravation]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/21/week-8-day-4-group-project/"/>
     
-    <updated>2014-03-21T12:46:54-07:00</updated>
+    <updated>2014-03-21T20:46:54+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/21/week-8-day-4-group-project</id>
     
     <content type="html"><![CDATA[<h2>Group Project</h2>
@@ -358,7 +1047,7 @@ But then if I have to&hellip; I will.</p>
     <title type="html"><![CDATA[Week 8 - Day 3 - Clean Javascript, final project, and leadership]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/20/week-8-day-3-clean-javascript/"/>
     
-    <updated>2014-03-20T00:06:00-07:00</updated>
+    <updated>2014-03-20T08:06:00+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/20/week-8-day-3-clean-javascript</id>
     
     <content type="html"><![CDATA[<h2>Clean Javascript</h2>
@@ -408,7 +1097,7 @@ The person who pitched the project will lead his/her 4-5 people group through th
     <title type="html"><![CDATA[Week 8 - Day 2 - JQuery, superego, and cookies]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/19/week-8-day-2-jquery/"/>
     
-    <updated>2014-03-19T09:04:15-07:00</updated>
+    <updated>2014-03-19T17:04:15+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/19/week-8-day-2-jquery</id>
     
     <content type="html"><![CDATA[<h2>JQuery</h2>
@@ -461,7 +1150,7 @@ And the answer she got was apparently : &#8220;Quentin&rdquo;&hellip;</p>
     <title type="html"><![CDATA[Week 8 - Day 1 - Making pages fast, group projects, and teaching]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast/"/>
     
-    <updated>2014-03-18T09:04:15-07:00</updated>
+    <updated>2014-03-18T17:04:15+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast</id>
     
     <content type="html"><![CDATA[<h2>Making pages fast</h2>
@@ -513,7 +1202,7 @@ In the end, I just showed him how to solve the problem in Ruby, a language he fe
     <title type="html"><![CDATA[Week 7 - Day 5 - A nice day]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/15/week-7-day-5-a-nice-day/"/>
     
-    <updated>2014-03-15T14:10:25-07:00</updated>
+    <updated>2014-03-15T22:10:25+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/15/week-7-day-5-a-nice-day</id>
     
     <content type="html"><![CDATA[<p>So, yesterday was a nice day. I wish I had a lot to say about it, but the idea is that I rested, I pair with the awesome Matthew, I ate well, I finished what I wanted, no pressure, nice weather, everything.</p>
@@ -530,7 +1219,7 @@ In the end, I just showed him how to solve the problem in Ruby, a language he fe
     <title type="html"><![CDATA[Week 7 - Day 4 - Todos, group project, and effects of DBC']]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/14/week-7-day-4-todos/"/>
     
-    <updated>2014-03-14T08:52:10-07:00</updated>
+    <updated>2014-03-14T16:52:10+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/14/week-7-day-4-todos</id>
     
     <content type="html"><![CDATA[<h2>Todos</h2>
@@ -582,7 +1271,7 @@ In the end, I just showed him how to solve the problem in Ruby, a language he fe
     <title type="html"><![CDATA[Week 7 - Day 3 - Test driven development, the new guys, and my first full project]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again/"/>
     
-    <updated>2014-03-13T09:03:05-07:00</updated>
+    <updated>2014-03-13T17:03:05+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again</id>
     
     <content type="html"><![CDATA[<h2>Test driven development</h2>
@@ -654,7 +1343,7 @@ You can also check some of my tests on <a href="http://movie-shootings-in-sf.her
     <title type="html"><![CDATA['Week 7 - Day 2 - Testing, A video , and naps]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/12/week-7-day-2-testing/"/>
     
-    <updated>2014-03-12T00:36:51-07:00</updated>
+    <updated>2014-03-12T08:36:51+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/12/week-7-day-2-testing</id>
     
     <content type="html"><![CDATA[<h2>Testing</h2>
@@ -698,7 +1387,7 @@ I hope I can make that be less of a habit soon&hellip; So I&rsquo;ll go to sleep
     <title type="html"><![CDATA[Week 7 - Phase 3, projects, and another first day in DBC]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/11/week-7-rails/"/>
     
-    <updated>2014-03-11T09:26:44-07:00</updated>
+    <updated>2014-03-11T17:26:44+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/11/week-7-rails</id>
     
     <content type="html"><![CDATA[<h2>Phase 3</h2>
@@ -753,7 +1442,7 @@ See you tomorrow!</p>
     <title type="html"><![CDATA[Week 6 - Day 4 - Rest, personal projects, and DBC life]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/07/week-6-day-4-rest/"/>
     
-    <updated>2014-03-07T08:48:04-08:00</updated>
+    <updated>2014-03-07T17:48:04+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/07/week-6-day-4-rest</id>
     
     <content type="html"><![CDATA[<h2>Rest</h2>
@@ -791,7 +1480,7 @@ If you have a lesson to get from DBC, it should be &lsquo;You don&rsquo;t know a
     <title type="html"><![CDATA[Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a fun day with Armando]]></title>
     <link href="http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth/"/>
     
-    <updated>2014-03-06T09:23:33-08:00</updated>
+    <updated>2014-03-06T18:23:33+01:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth</id>
     
     <content type="html"><![CDATA[<h2>Oauth</h2>
@@ -857,250 +1546,6 @@ I was looking forward to it. He has been down for a bit, with a lack of self con
 <p>Well, you know what? He f*cking rocks! We had fun the whole day, finished most of the challenges, and the best part :<br/>
 Teachers did not try and assess him. And if they don&rsquo;t, that means that THEY don&rsquo;t doubt him. And one thing that I know :<br/>
 If the person that&rsquo;s making it hard on you, teaching you, and taught hundreds before, has no doubt about you&hellip; that probably means you should stop doubting and assume you do (not really fully) know what you&rsquo;re doing.</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 6 - Day 2 - Observer design pattern, EE aftermath, and looking for a job]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern/"/>
-    
-    <updated>2014-03-05T09:22:11-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern</id>
-    
-    <content type="html"><![CDATA[<h2>Observer Design Pattern</h2>
-
-<p><a href="http://en.wikipedia.org/wiki/Software_design_pattern">Design patterns</a> are a very important thing in Development. The idea is that experienced developers came up with the idea that no matter the language, the experience, the software they were building, they always ended up on the exact same problems. And then they came up with a &ldquo;simple solution&rdquo; for that, simpler than the problem at least.</p>
-
-<p>So, they came up with design patterns they could use next time they would encounter that same problem. Many of them are useful mainly in statically typed languages like Java or C, but most of them are actually useful, for your own logic development, and for the time you might have to end up using these languages.</p>
-
-<p>Also, since it is a pretty complicated notion, it does show people (like recruiters&hellip;) that you actually know what you are talking about, which is not a bad thing right?</p>
-
-<p>Yesterday, I did a lightning talk about the <a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer Pattern</a>. The idea is that it is a solution to the problem :</p>
-
-<ul>
-<li>I have objects that must be aware of changed of a particular object</li>
-</ul>
-
-
-<p>The solution is pretty simple. You actually give all the info to the observed (called observable) object.</p>
-
-<ul>
-<li>The observer gets an &ldquo;update&rdquo; method that will be triggered by the observable with the info it sent.</li>
-<li>The observable gets a &ldquo;notify&rdquo; method that triggers the update method of the observers</li>
-<li>The observable has a list of observers and relative methods (add/remove/number of them)</li>
-</ul>
-
-
-<p>And that is it. According to the language you&rsquo;ll use, you will have modules to do so (<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/observer/rdoc/Observable.html">Observable in Ruby</a>), Interfaces (like some implementations in Java), but the idea will always be the same.</p>
-
-<p>Now go on and play with it !</p>
-
-<h2>Engineering Empathy Aftermath</h2>
-
-<p>We still have Engineering Empathy in phase 2. Yesterday was the last session, about what triggers us and how to respond accordingly.</p>
-
-<p>I did use that without even knowing about what I was doing. The idea is that when something triggers you, you stop, breathe, think about what&rsquo;s happening, then select the best response and respond. I tend to do that myself, mostly because I am overthinking everything.</p>
-
-<p>Now, yesterday was also 3rd EE session for the phase 1, the Golden Bears. It is a really strong and heavy session, even though it is also a very liberating one. I felt like I wanted to be there for the people and so I spent my evening with anybody I could find, and that was nice.</p>
-
-<p>They are affected, but they seem ok&hellip; You may find it strange, but just like a big brother about his younger siblings, I feel relieved to see they are doing fine&hellip;</p>
-
-<h2>Looking for a job</h2>
-
-<p>Things are going well at DBC, but yesterday I had a bit of time and ended up thinking about jobs. After all, that is one of the endpoint of this program, a reason why I came here.</p>
-
-<p>I know that before I came here, hired was the only site I tried to join, and I just not being accepted. But now, things have changed. I have good proofs of what I can do, I have more mastery, people that can vouch for me&hellip;</p>
-
-<p>I am thinking about that way in advance, but I feel like I want and have to. Being a foreigner, these things may be trickier, so I need to be better, and faster.</p>
-
-<p>So now, time to work on side project to show my worth, and then use that!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 6 - Day 1 - More OOJS, APIs, and changes]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs/"/>
-    
-    <updated>2014-03-04T09:07:05-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs</id>
-    
-    <content type="html"><![CDATA[<h2>More OOJS</h2>
-
-<p>Yesterday, I paires with Harry. We have a great dynamic going on and we ended up building a good MVC system on Javascript for one of the challenges we had.</p>
-
-<p>People don&rsquo;t necessary get it so by the end of the week I&rsquo;ll try to send some code that I came up with for private projects, as an example.</p>
-
-<p>As for the rest, we had a lot of fun and played with that a bit, to the point that we ended up falling short on a problem that apparently many people have. It feels good to not feel like you&rsquo;re outside of that whole development world ;)</p>
-
-<p>The problem we had was : We made a Controller class, and just to Namespace and separate concerns, all the AJAX calls were used from the Ajax Controller, a class of its own.</p>
-
-<p>Now the problem we hit is :</p>
-
-<ul>
-<li>Who calls the Ajax controller? &ndash;> The controller</li>
-<li>What does the Ajax controller in case of a successful request?  &ndash;> The controller</li>
-</ul>
-
-
-<p>That is a problem, how do you link two objects when you can not create both at the exact same time?<br/>
-And so our solution was to pass one as the argument to the other (The Ajax Controller knows about the controller), and then add the Ajax Controller to the controller</p>
-
-<p><strong>In demonstration : </strong></p>
-
-<pre><code class="js">
-var AjaxController = function(controller){
-    this.controller = controller;
-}
-// Do stuff with the ajax Controller
-
-var Controller = function(){}
-// Do stuff with the Controller
-
-$(document).ready(function(){
-    var controller = new Controller();
-    var ajaxController = new AjaxController({ 
-        controller: controller // First link
-    })
-    controller.ajaxController = ajaxController; // Link back
-})
-</code></pre>
-
-
-<p>In the end, that looks very hack-ish. But then it is actually a question that people have nowadays : How do you do that? And like every good programming problem : There is no right or wrong answer ;)</p>
-
-<p>I&rsquo;ll stick with that for now.</p>
-
-<h2>APIs</h2>
-
-<p><a href="http://en.wikipedia.org/wiki/Application_programming_interface">APIs</a> are interfaces for your program to be able to play with some web apps around. The idea is that instead of posting status via Facebook, you build an app that can do that for you somewhere else. The link between that App and Facebook is that API.</p>
-
-<p>Your app will send a message to Facebook saying (write_status) and that will write the status.</p>
-
-<p>Yesterday we started playing with Twitter and that was fun, and today we play on more&hellip; So expect some nice links in the near future ;)</p>
-
-<h2>Changes</h2>
-
-<p>I feel like DBC changes people. Not necessarily in the best way, but that does change people anyway.</p>
-
-<p>I feel changed, I AM changed. But then, you will be able to see that the next time you meet me ;)</p>
-
-<p>I am more confident, deal with my problems a more logical way, I empathize more with my peers&hellip; All in all, I like to think I took the good in that program. I may also have taken the bad, but then I don&rsquo;t know about that yet&hellip; Only time will tell!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 5 - Day 5 - Awesome project, MVC Javascript, and cohort tribe spirit]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/03/01/week-5-day-5-awesome-project/"/>
-    
-    <updated>2014-03-01T12:01:41-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/03/01/week-5-day-5-awesome-project</id>
-    
-    <content type="html"><![CDATA[<h2>Awesome project</h2>
-
-<p>Yesterday we had our second group project of phase 2. The idea of this one is : create a new version of <a href="https://surveymonkey.com">SurveyMonkey</a>. This time, we could choose our groups. Just like &hellip; most of the time. I checked around, saw Armando, he nodded, and we&rsquo;re in the same group!
-We grouped with Henry, a new guy who repeated our phase, that I had not had the chance of talking with so far, Chermaine, who I had yet to pair with (really sorry >.&lt;), even though we&rsquo;re in the same accountability group (A group of 3 students of the same cohort that have to take care of each other), and Chris Woodrich, who is really an awesome dude, even though we end up messing with each other all the time.</p>
-
-<p>Armando came with the awesome team name : The Ultimate Amazing Super Best Friends!</p>
-
-<p>You can check how our project is going on : <a href="https://github.com/chriswoodrich/TUASBF/">https://github.com/chriswoodrich/TUASBF/</a></p>
-
-<p>We have an awesome dynamic, we&rsquo;re all very happy to work with each other, and the project is really going well. I can&rsquo;t wait til we present it on monday!</p>
-
-<h2>MVC Javascript</h2>
-
-<p>I won&rsquo;t talk for hours about that, I&rsquo;ve been talking about it for days so you&rsquo;re probably tired about it already, but Javascript is to be used with an object oriented programming style. You can do it, and if you don&rsquo;t you will end up having a lot of troubles.</p>
-
-<p>Now, we work on small JS projects here and there and even though I had some trouble finding where some part of my code would go (View or Controller for the listeners etc&hellip;). Now I do know and I really like it.</p>
-
-<p>I could spend hours explaining how to do stuff, but instead, I&rsquo;ll just say : I do it, I like it, I can explain it if you want, and I&rsquo;ll try to release some code where I do that on my <a href="https://github.com/Qt-dev">Github</a> whenever I can.</p>
-
-<h2>Cohort tribe spirit</h2>
-
-<p>A few things that Sherif (The guru that taught us in phase 1 haha) told us :</p>
-
-<ul>
-<li>&ldquo;If you think that you can become developers in 9 weeks, you are insane. All of you. But then, that is that common insanity that will take you there. It is that shared insanity that will make you actually succeed in that.&rdquo;</li>
-<li>&ldquo;You are a tribe. You are seen as such, you have a tribe spirit that is the way people and feel your whole group. Every cohort has a different spirit, and gives a different feeling&rdquo;</li>
-</ul>
-
-
-<p>These ideas will not be surprising to anybody who knows the guy. Now, we had a few nice talk about this.</p>
-
-<p>Nowadays, we have 3 cohorts in DBC. The Sea Lions, in phase 3, the Banana Slugs (US!) in phase 2, and Golden Bears in phase 1.
-And apparently, even just these 3 have a VERY different spirit.</p>
-
-<p>Sea Lions are apparently like university students. Their first instinct is more to work alone, even though they don&rsquo;t have any problem in forming groups in need be.</p>
-
-<p>The Banana Slugs are seen as overachieving kids. We are the kind of kids that say things like &ldquo;Oh look dad, a mountain! Look at me I&rsquo;ll go climb the thing faster that anybody else!&rdquo;. We crave on challenges that we can work on together and just be as awesome as one could be! Haha</p>
-
-<p>The Golden Bears are much more &ldquo;shy&rdquo;. Compared to us and our 2 hours of questions and ideas exchanges that we had to timebox everyday, the echo I get from some of them I talked to and from their instructors is that they are very silent and studious.</p>
-
-<p>At the end, none of us is right or wrong, but seeing that big of a difference in such a short amount of time is really interesting.</p>
-
-<p>But then, the idea is that the presence of all of these people is what is actually helping us get to the end. We work 15 hours a day, something I would NEVER have thought would happen before coming here. We support each other, help each other, and at the end I think that Sherif was actually right, that common insanity that makes us stay that late, that makes us work our asses off without even realizing that, is what takes us where we are.</p>
-
-<p>We learned Javascript/Object Oriented JS in one week, Everything we could about Sinatra, MVC WebApp frameworks, and all that in one week&hellip; That happens only in such conditions and I am really grateful about that!</p>
-]]></content>
-    
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Week 5 - Day 4 - Small and repetitive code, DB Constraints, and connecting]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/"/>
-    
-    <updated>2014-02-28T09:48:47-08:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects</id>
-    
-    <content type="html"><![CDATA[<h2>Small and repetitive code</h2>
-
-<p>Yesterday, I worked on portfolio projects. They are projects to check if you know about what we&rsquo;ve been using, for yourself or for the teachers. They are small, easy, and fun&hellip; And everything is relative, like Einstein said.</p>
-
-<p>One of the project was hard, but not because of the complicated content, but because of the amount of repetitive code we had to do.</p>
-
-<p>Don&rsquo;t get the bad idea though, the challenge was cool, but it was about making a big bunch of code that we have been making for 2 weeks now. I did it late, and because of that I just ended up having to re do again, instead of doing it in the middle of my learning.</p>
-
-<p>Anyway, the thing I got from that challenge is : Code is repetitive! That&rsquo;s why people take and make shortcuts. Sometimes, you have to make the same thing again, a few times, and that sucks. Copy pasting and all that works, but in this particular context, it did not&hellip;</p>
-
-<h2>DB Constraints</h2>
-
-<p>I did a lightning talk about DB Constraints. The idea is that the apps that we build with Ruby On Rails, Sinatra, Nodejs, or all these things, use tools that allow you to not have to deal with database languages and small tasks by yourself.</p>
-
-<p>But then, people tend to forget that in the end, we ARE working with databases. And what if one day your app falls apart? What if you want to change some portion of your code, among which is the DB reader thingy?</p>
-
-<p>If you don&rsquo;t put any constraints on your database, then you have a problem because now people can use empty username, 1230912301921309 characters numbers, etc&hellip;</p>
-
-<p>So to prevent that, put constraints!
-When I say constraints, you can limit your 4 things (or 5) :</p>
-
-<ul>
-<li>:limit : Works for binary, numbers, strings, and texts, and set the max number of characters</li>
-<li>:null : Allows (Or not allow, if you give it false) this column to have a null entry in it</li>
-<li>:default : Give a default value to that field when none is entered</li>
-<li>:precision / :scale : Specifies the number of digits you can give, and the number of digits after the decimal</li>
-</ul>
-
-
-<p>See? That was not hard!</p>
-
-<p>Now, go ahead and go read : <a href="http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_column">this</a>.</p>
-
-<h2>Connecting</h2>
-
-<p>One thing we do here is connecting. We spend all of our time together, we are now a huge family where everybody has to know and live with everybody.</p>
-
-<p>Yesterday, Irene and I &ldquo;cashed in&rdquo; my free meal from Sherif, our big first phase teacher that we don&rsquo;t see much because we&rsquo;re in phase 2 now, because we finished our sudoku solver that solves 170 sudokus in less than a minutes (8.5 seconds whaddup!).<br/>
-That was really fun, we ate a lot, and learnt a lot&hellip; again. Incredible, when he is &ldquo;off duty&rdquo;, we learn a lot from him!</p>
-
-<p>He told us a lot about how he had trouble connecting with the new cohort and I feel bad for them.</p>
-
-<p>Today, I went/am going to eat with Strand, and that is awesome. He&rsquo;s a 2nd phase teacher and I feel like I&rsquo;m connecting with everybody and I love it ^.^</p>
 ]]></content>
     
   </entry>

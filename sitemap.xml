@@ -2,230 +2,248 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://Qt-dev.github.io/blog/2013/11/26/because-im-happy/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://Qt-dev.github.io/blog/2013/11/29/ruby-tips-nullpointerexceptions-are-fun-/
         </loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2013/12/12/it-is-time-again/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2013/12/13/welcome-to-dev-bootcamp/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/01/10/unknown-post-type/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/01/28/so-it-begins/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/01/29/day-2---cries-laughters-and-code/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://Qt-dev.github.io/blog/2014/01/30/day-3---data-structurestypes-testing-and-a-brain-teaser/
         </loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://Qt-dev.github.io/blog/2014/01/31/be-careful-with-rubys-assignment-methods/
         </loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/01/31/day-4---games-and-solutions/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/01/day-5---week-review-sudoku-day/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://Qt-dev.github.io/blog/2014/02/04/day-6---an-new-partner-experience-vs-mastery-sudoku-solving/
         </loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://Qt-dev.github.io/blog/2014/02/05/week-2---day-2---oop-friends-brothers-battleship-sudoku/
         </loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/09/week-2-i-am-still-alive/</loc>
-        <lastmod>2014-02-09T21:02:54-08:00</lastmod>
+        <lastmod>2014-02-10T06:02:54+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/11/week-3-day-1-sql/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/12/week-3-day-2-more-sql/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/13/week-3-day-3-ee-cooldown/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/14/week-3-day-4-group-projects/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
-        <loc>http://Qt-dev.github.io/blog/2014/02/14/making-a-new-faker/</loc>
-        <lastmod>2014-02-14T20:57:52-08:00</lastmod>
+        <loc>http://Qt-dev.github.io/blog/2014/02/15/making-a-new-faker/</loc>
+        <lastmod>2014-02-15T05:57:52+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/16/week-3-day-5-party/</loc>
-        <lastmod>2014-02-16T18:38:57-08:00</lastmod>
+        <lastmod>2014-02-17T03:38:57+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/18/week-4-day-1-new-people/</loc>
-        <lastmod>2014-02-18T09:51:10-08:00</lastmod>
+        <lastmod>2014-02-18T18:51:10+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/19/week-4-day-2-testing/</loc>
-        <lastmod>2014-02-19T10:09:19-08:00</lastmod>
+        <lastmod>2014-02-19T19:09:19+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/20/week-4-day-3-building/</loc>
-        <lastmod>2014-02-20T10:00:30-08:00</lastmod>
+        <lastmod>2014-02-20T19:00:30+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/20/week-4-day-4-building/</loc>
-        <lastmod>2014-02-21T10:41:55-08:00</lastmod>
+        <lastmod>2014-02-21T19:41:55+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/22/week-4-day-5-pressure/</loc>
-        <lastmod>2014-02-22T00:40:36-08:00</lastmod>
+        <lastmod>2014-02-22T09:40:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/25/week-5-day-1-oojs/</loc>
-        <lastmod>2014-02-25T09:51:52-08:00</lastmod>
+        <lastmod>2014-02-25T18:51:52+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/26/week-5-day-2-oojs-again/</loc>
-        <lastmod>2014-02-26T09:57:57-08:00</lastmod>
+        <lastmod>2014-02-26T18:57:57+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/02/27/week-5-day-3-ajax/</loc>
-        <lastmod>2014-02-27T12:19:54-08:00</lastmod>
+        <lastmod>2014-02-27T21:19:54+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://Qt-dev.github.io/blog/2014/02/28/week-5-day-4-small-and-repetitive-projects/
         </loc>
-        <lastmod>2014-02-28T14:30:17-08:00</lastmod>
+        <lastmod>2014-02-28T23:30:17+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/01/week-5-day-5-awesome-project/</loc>
-        <lastmod>2014-03-01T12:34:27-08:00</lastmod>
+        <lastmod>2014-03-01T21:34:27+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/04/week-6-day-1-more-oojs/</loc>
-        <lastmod>2014-03-05T15:58:04-08:00</lastmod>
+        <lastmod>2014-03-06T00:58:04+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/05/week-6-day-2-observer-design-pattern/</loc>
-        <lastmod>2014-03-05T10:01:19-08:00</lastmod>
+        <lastmod>2014-03-05T19:01:19+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/06/week-6-day-3-oauth/</loc>
-        <lastmod>2014-03-06T09:57:16-08:00</lastmod>
+        <lastmod>2014-03-06T18:57:16+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/07/week-6-day-4-rest/</loc>
-        <lastmod>2014-03-07T08:58:17-08:00</lastmod>
+        <lastmod>2014-03-07T17:58:17+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/11/week-7-rails/</loc>
-        <lastmod>2014-03-11T10:30:21-07:00</lastmod>
+        <lastmod>2014-03-11T18:30:21+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/12/week-7-day-2-testing/</loc>
-        <lastmod>2014-03-12T00:53:50-07:00</lastmod>
+        <lastmod>2014-03-12T08:53:50+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/13/week-7-day-3-testing-again/</loc>
-        <lastmod>2014-03-13T09:34:00-07:00</lastmod>
+        <lastmod>2014-03-13T17:34:00+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/14/week-7-day-4-todos/</loc>
-        <lastmod>2014-03-14T10:32:13-07:00</lastmod>
+        <lastmod>2014-03-14T18:32:13+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/15/week-7-day-5-a-nice-day/</loc>
-        <lastmod>2014-03-15T14:11:48-07:00</lastmod>
+        <lastmod>2014-03-15T22:11:48+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/18/week-8-day-1-making-pages-fast/</loc>
-        <lastmod>2014-03-18T09:35:53-07:00</lastmod>
+        <lastmod>2014-03-18T17:35:53+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/19/week-8-day-2-jquery/</loc>
-        <lastmod>2014-03-19T09:21:55-07:00</lastmod>
+        <lastmod>2014-03-19T17:21:55+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/20/week-8-day-3-clean-javascript/</loc>
-        <lastmod>2014-03-20T00:31:08-07:00</lastmod>
+        <lastmod>2014-03-20T08:31:08+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/21/week-8-day-4-group-project/</loc>
-        <lastmod>2014-03-21T13:14:52-07:00</lastmod>
+        <lastmod>2014-03-21T21:14:52+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/26/week-9-day-1/</loc>
-        <lastmod>2014-03-26T14:49:39-07:00</lastmod>
+        <lastmod>2014-03-26T22:49:39+01:00</lastmod>
     </url>
     <url>
-        <loc>http://Qt-dev.github.io/blog/2014/03/26/week-9-day-3-personnalities/</loc>
-        <lastmod>2014-03-26T23:46:24-07:00</lastmod>
+        <loc>http://Qt-dev.github.io/blog/2014/03/27/week-9-day-3-personnalities/</loc>
+        <lastmod>2014-03-27T07:46:24+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/28/week-9-day-4-presentation/</loc>
-        <lastmod>2014-03-28T00:37:52-07:00</lastmod>
+        <lastmod>2014-03-28T08:37:52+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/03/29/week-9-day-5-the-end-dot-dot-dot/</loc>
-        <lastmod>2014-03-29T19:15:40-07:00</lastmod>
+        <lastmod>2014-03-30T04:15:40+02:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/2014/04/09/one-week-later-im-back/</loc>
-        <lastmod>2014-04-09T15:05:03-07:00</lastmod>
+        <lastmod>2014-04-10T00:05:03+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Qt-dev.github.io/blog/2014/04/16/i-won-a-nasa-hackathon/</loc>
+        <lastmod>2014-04-16T01:51:27+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Qt-dev.github.io/blog/2014/05/11/where-i-was/</loc>
+        <lastmod>2014-06-18T17:33:00+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Qt-dev.github.io/blog/2014/05/11/letter-to-dbc/</loc>
+        <lastmod>2014-05-11T13:35:33+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://Qt-dev.github.io/blog/2014/07/01/reactjs-how-to-make-a-collapsible-content-panel/
+        </loc>
+        <lastmod>2014-07-03T11:32:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/archives/</loc>
-        <lastmod>2014-04-09T15:05:03-07:00</lastmod>
+        <lastmod>2014-07-03T11:32:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/categories/</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/blog/</loc>
-        <lastmod>2014-04-09T15:05:03-07:00</lastmod>
+        <lastmod>2014-07-03T11:32:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/feed/index.xml</loc>
-        <lastmod>2014-02-02T20:06:31-08:00</lastmod>
+        <lastmod>2014-02-03T05:06:31+01:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/</loc>
-        <lastmod>2014-04-09T15:05:03-07:00</lastmod>
+        <lastmod>2014-07-03T11:32:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://Qt-dev.github.io/robots.txt</loc>
-        <lastmod>2014-02-14T20:32:47-08:00</lastmod>
+        <lastmod>2014-02-15T05:32:47+01:00</lastmod>
     </url>
 </urlset>
