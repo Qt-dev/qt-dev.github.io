@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-07-03T11:32:25+02:00</updated>
+  <updated>2014-07-03T11:47:06+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -25,9 +25,13 @@
 
 <p>This is a small and easy guide about something you can do easily with React and CSS3.</p>
 
-<p>First, a few things you need to know about before we start :
-* <a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em>
-* <a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></p>
+<p>First, a few things you need to know about before we start :</p>
+
+<ul>
+<li><a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em></li>
+<li><a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></li>
+</ul>
+
 
 <h2>How-to</h2>
 
