@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-07-03T11:47:06+02:00</updated>
+  <updated>2014-07-03T11:56:26+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -489,6 +489,10 @@ The toggleContent internal callback now call the callback we called in the props
 <p>But that&rsquo;s just me. Also, you don&rsquo;t need to use H2s, you can use whatever you want, links work too but remember to preventDefault if you use them.</p>
 
 <p>Let me know what you thought about that guide, I may have missed things here and there, and thank you for reading!</p>
+
+<h3>Last minute edit :</h3>
+
+<p>You can check the code on <a href="https://gist.github.com/Qt-dev/4ca4c41b8ec8f6c0bb27">Github</a>. Download it, run it, check it out!</p>
 ]]></content>
     
   </entry>
