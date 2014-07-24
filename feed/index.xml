@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-07-24T18:20:11+02:00</updated>
+  <updated>2014-07-24T18:30:31+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -25,9 +25,16 @@ I won&rsquo;t spoil it, especially for the next people doing it, but I thought t
 
 <p>So, this is a guide about how to make a simple dropdown navbar from some backend data and simple React/CSS.</p>
 
-<p>To understand you&rsquo;ll need :
-* <a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em>
-* <a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></p>
+<p>To understand you&rsquo;ll need :</p>
+
+<ul>
+<li><a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em></li>
+<li><a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></li>
+</ul>
+
+
+<!--more-->
+
 
 <h2>How-to</h2>
 
@@ -435,6 +442,9 @@ Nothing fancy in here, you&rsquo;re the one styling it, but let me show you what
 <li><a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em></li>
 <li><a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></li>
 </ul>
+
+
+<!--more-->
 
 
 <h2>How-to</h2>
@@ -909,6 +919,9 @@ The toggleContent internal callback now call the callback we called in the props
 
 <p>I am leaving for a bit, but I will be back. I usually make my posts in &frac34; parts, to talk about specific topics, but today, this is a letter to the people I met in SF.</p>
 
+<!--more-->
+
+
 <p>First, I want to say that I love you. I love you all, the ones I spent a lot of time with as much as the ones I wish I spent more time with, the ones I slept in the same bed with, the ones I never knew the names, all of you.</p>
 
 <p>3 months ago, I was coming to San Francisco and I knew none of you guys. I knew nothing about anybody else&rsquo;s history, almost nothing about the US, about San Francisco, and actually not much about myself. It feels like you guys taught me so much about all of this.<br/>
@@ -988,7 +1001,12 @@ Now be great, and be happy. We talked about it before, but even more than &ldquo
     <link href="http://Qt-dev.github.io/blog/2014/05/11/where-i-was/"/>
     <updated>2014-05-11T12:52:26+02:00</updated>
     <id>http://Qt-dev.github.io/blog/2014/05/11/where-i-was</id>
-    <content type="html"><![CDATA[<h2>Where I was</h2>
+    <content type="html"><![CDATA[<p>Today is a small check-in day. Time to share my thoughts a bit</p>
+
+<!--more-->
+
+
+<h2>Where I was</h2>
 
 <p>Well, I was in DBC, in case you did not know. I published today <a href="http://qt-dev.tumblr.com/post/85410637038/a-letter-to-dbc">this letter to the people I met there</a>.</p>
 
