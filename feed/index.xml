@@ -4,7 +4,7 @@
   <title><![CDATA[Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/feed" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-07-24T18:30:31+02:00</updated>
+  <updated>2014-07-24T18:40:57+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -919,9 +919,6 @@ The toggleContent internal callback now call the callback we called in the props
 
 <p>I am leaving for a bit, but I will be back. I usually make my posts in &frac34; parts, to talk about specific topics, but today, this is a letter to the people I met in SF.</p>
 
-<!--more-->
-
-
 <p>First, I want to say that I love you. I love you all, the ones I spent a lot of time with as much as the ones I wish I spent more time with, the ones I slept in the same bed with, the ones I never knew the names, all of you.</p>
 
 <p>3 months ago, I was coming to San Francisco and I knew none of you guys. I knew nothing about anybody else&rsquo;s history, almost nothing about the US, about San Francisco, and actually not much about myself. It feels like you guys taught me so much about all of this.<br/>
@@ -1056,6 +1053,9 @@ Also, I realized I know a bit about technologies that are not necessarily well-d
     <content type="html"><![CDATA[<h2>The NASA Hackathon</h2>
 
 <p>So, this weekend was the &ldquo;NASA SpaceApp hackathon&rdquo;, and we won the first round. But I see you coming with your questions, so let me attempt to explain?.</p>
+
+<!--more-->
+
 
 <ul>
 <li><p>What is a hackathon ?<br/>
