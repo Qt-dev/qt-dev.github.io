@@ -4,7 +4,7 @@
   <title><![CDATA[Category: how-to | Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-07-03T11:56:26+02:00</updated>
+  <updated>2014-07-24T18:13:24+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -12,6 +12,289 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ReactJS - How to make a simple navbar]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/07/24/reactjs-how-to-make-a-simple-navbar/"/>
+    <updated>2014-07-24T16:06:38+02:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/07/24/reactjs-how-to-make-a-simple-navbar</id>
+    <content type="html"><![CDATA[<h2>Before we start</h2>
+
+<p>I&rsquo;ve got a coding challenge a few weeks ago about how to make a navbar out of pure JS/CSS, no library.
+I won&rsquo;t spoil it, especially for the next people doing it, but I thought the idea interesting so I decided to show how one could do one in ReactJS.</p>
+
+<p>So, this is a guide about how to make a simple dropdown navbar from some backend data and simple React/CSS.</p>
+
+<p>To understand you&rsquo;ll need :
+* <a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em>
+* <a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></p>
+
+<h2>How-to</h2>
+
+<h3>What we have</h3>
+
+<p>We have a basic html page with the React files (from a CDN here) :</p>
+
+<p>```html
+&lt;!DOCTYPE html>
+<html>
+<head>
+  <title>My page</title>
+  <script type="text/javascript" src="http://Qt-dev.github.io//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/react.min.js"></script>
+  <script type="text/javascript" src="http://Qt-dev.github.io//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/JSXTransformer.js"></script></p>
+
+<p></head>
+<body>
+<nav></nav>
+</body>
+</html>
+```</p>
+
+<p>and the data we get from our backend to populate this navbar. To do so I&rsquo;ll format them like this :</p>
+
+<p>```javascript
+[
+ {</p>
+
+<pre><code>"text": "THE TEXT OF YOUR LINK",
+"url": "http://THE.URL"
+</code></pre>
+
+<p> },
+ {</p>
+
+<pre><code>"text": "THE TEXT OF YOUR LINK",
+"url": "http://THE.URL",
+"submenu": [
+    { 
+    "text": "THE TEXT OF YOUR LINK",
+    "url": "http://THE.URL"
+    }
+]
+</code></pre>
+
+<p> }
+]
+```</p>
+
+<p>The submenu is not needed and we&rsquo;ll build the navbar accordingly.</p>
+
+<h2>Our React components</h2>
+
+<p>We have : a Navbar container, Navbar items containing a link and a submenu if possible, and Navbar links.</p>
+
+<p>So, from the smallest to the biggest</p>
+
+<p><em>navbarLink.jsx</em>
+```javascript
+/<em>* @jsx React.DOM </em>/
+var NavBarLink = React.createClass({
+  render: function() {</p>
+
+<pre><code>return (
+  &lt;a href={this.props.url}&gt;{this.props.text}&lt;/a&gt;
+);
+</code></pre>
+
+<p>  }
+})
+```</p>
+
+<p>We render a simple link, separately. This is easier for events handlers, and &hellip; OOJS !</p>
+
+<p><em>navbarItem.jsx</em>
+```javascript
+/<em>* @jsx React.DOM </em>/
+var NavBarItem = React.createClass({
+  generateLink: function(){</p>
+
+<pre><code>//Right now we don't need our class but what if we wanted to change the text, add an arrow or something? 
+//Single responsibility principles tell us that it our "Item" should not handle this.
+return &lt;NavBarLink url={this.props.url} text={this.props.text} /&gt;;
+</code></pre>
+
+<p>  },
+  generateSubmenu: function(){</p>
+
+<pre><code>//We generate a simple Navbar (the parent). 
+//Spoilers: it takes items as its argument. 
+return &lt;NavBar items={this.props.submenu} /&gt;
+</code></pre>
+
+<p>  },
+  generateContent: function(){</p>
+
+<pre><code>var content = [this.generateLink()];
+if(this.props.submenu){
+  //If there is a submenu in our data for this item
+  //We add a generated Submenu to our content
+  content.push(this.generateSubmenu());
+}
+return content;
+</code></pre>
+
+<p>  },
+  render: function() {</p>
+
+<pre><code>var content = this.generateContent();
+return (
+  &lt;li&gt;
+    {content}
+  &lt;/li&gt;
+);
+</code></pre>
+
+<p>  }
+})
+```</p>
+
+<p>And finally our NavBar main container :</p>
+
+<p><em>navbar.jsx</em>
+```javascript
+/<em>* @jsx React.DOM </em>/
+var NavBar = React.createClass({
+  generateItem: function(item){</p>
+
+<pre><code>return &lt;NavBarItem text={item.text} url={item.url} submenu={item.submenu} /&gt;
+</code></pre>
+
+<p>  },
+  render: function() {</p>
+
+<pre><code>var items = this.props.items.map(this.generateItem);
+return (
+  &lt;ul className="menu"&gt;
+  {items}
+  &lt;/ul&gt;
+);
+</code></pre>
+
+<p>  }
+})
+```</p>
+
+<p>To sum it up, our Navbar generates NavbarItems from the array of items we gave it.
+Each NavbarItem contains a NavbarLink + an optional NavBar, which would simply be the submenu we want.</p>
+
+<p>All in all, it generates an html that looks like this :
+```html
+<nav></p>
+
+<pre><code>&lt;ul class="menu" data-reactid=".0"&gt;
+    &lt;li data-reactid=".0.0"&gt;&lt;a href="#" data-reactid=".0.0.0"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-reactid=".0.1"&gt;&lt;a href="#" data-reactid=".0.1.0"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-reactid=".0.2"&gt;
+        &lt;a href="#" data-reactid=".0.2.0"&gt;Link 3&lt;/a&gt;
+        &lt;ul class="menu" data-reactid=".0.2.1"&gt;
+            &lt;li data-reactid=".0.2.1.0"&gt;
+                &lt;a href="#" data-reactid=".0.2.1.0.0"&gt;Sublink 1▼&lt;/a&gt;
+                &lt;ul class="menu" data-reactid=".0.2.1.0.1"&gt;
+                    &lt;li data-reactid=".0.2.1.0.1.0"&gt;&lt;a href="#" data-reactid=".0.2.1.0.1.0.0"&gt;SubSublink 1&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li data-reactid=".0.2.1.1"&gt;
+                &lt;a href="#" data-reactid=".0.2.1.1.0"&gt;Sublink 2▼&lt;/a&gt;
+                &lt;ul class="menu" data-reactid=".0.2.1.1.1"&gt;
+                    &lt;li data-reactid=".0.2.1.1.1.0"&gt;&lt;a href="#" data-reactid=".0.2.1.1.1.0.0"&gt;SubSublink 2&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p></nav>
+```</p>
+
+<h3>The CSS</h3>
+
+<p>Now, we need to style that because it honestly looks like&hellip; bad things (PG-rated tutorials FTW).
+Nothing fancy in here, you&rsquo;re the one styling it, but let me show you what you&rsquo;ll need :</p>
+
+<p><em>style.css</em>
+```css
+.menu {
+  list-style: none;
+  /* Important for sizing problems when you add/remove the submenus</p>
+
+<pre><code> Make it use 100% of the size of your container */
+</code></pre>
+
+<p>  width: 100%;
+  /* This prevents a lot of problems with the submenus.</p>
+
+<pre><code> UL have basic padding, keep that in mind */
+</code></pre>
+
+<p>  padding: 0;
+}</p>
+
+<p>.menu li {
+  /<em> I wanted mine horizontal. Feel free to change it to what you want </em>/
+  display:inline-block;
+  /<em> Float the items to the left, to make sure the disposition does not change when it shows the subitems </em>/
+  float:left;
+  /* The -1px on top and right make it so that our borders end up above one another</p>
+
+<pre><code> Not needed it you don't have borders... */
+</code></pre>
+
+<p>  margin:-1px -1px 0 0;
+}</p>
+
+<p>.menu li a {
+  display:block;</p>
+
+<p>  /<em> My basic styling. I&rsquo;m just giving them a black text, with a black border, and center the text in the box. </em>/
+  text-decoration:none;
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;</p>
+
+<p>  /* Fixed size is also just me.</p>
+
+<pre><code> Not fixing it just make huge boxes when you have submenus */
+</code></pre>
+
+<p>  width:100px;
+  height:50px;
+  line-height: 50px;
+}</p>
+
+<p>.menu li > ul {
+/<strong><strong><strong> THE INTERESTING PART </strong></strong></strong>/
+/<em> We hide the submenus by putting them somewhere on the left, with no opacity. </em>/
+  left:-9999px;
+  opacity: 0;</p>
+
+<p>/<em> We make transitions on opacity </em>/
+  -webkit-transiton: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}</p>
+
+<p>.menu li:hover > ul {
+/<em> On hover, we get it back to its basic spot
+  left:0;
+/</em> And change the opacity to a fully visible one */
+  opacity: 1;
+};
+```</p>
+
+<h3>The result on a beautiful gist</h3>
+
+<p>Here is the link on <a href="https://gist.github.com/Qt-dev/556e2e0558892c99bd81">Github</a>. Feel free to download/tweak and comment it.</p>
+
+<h2>Next parts</h2>
+
+<p>I plan on giving you the version with the dropdowns triggered by a click instead of a hover. This is coming in a few days, the code is almost ready already ;)</p>
+
+<p>Feel free to let me know if I missed/misexplained anything here or by mail at <a href="mailto:quentin@devauchelle.eu">quentin@devauchelle.eu</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ReactJS - How to make a collapsible content panel]]></title>

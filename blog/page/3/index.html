@@ -9,7 +9,7 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Observer Design Pattern Design patterns are a very important thing in Development. The idea is that experienced developers came up with the idea that &hellip;">
+  <meta name="description" content="Oauth Oauth is a system used in authentification on the web nowadays. The idea is that authenticating is easy, with password and username/email/name/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,108 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/06/week-6-day-3-oauth/">Week 6 - Day 3 - Oauth, Other languages/Frameworks, and a Fun Day With Armando</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-06T18:23:33+01:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/06/week-6-day-3-oauth/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Oauth</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/OAuth">Oauth</a> is a system used in authentification on the web nowadays.</p>
+
+<p>The idea is that authenticating is easy, with password and username/email/name/whatever-id-you-want. But this is not secure enough. Plus, people get tired of logging on every site they use.</p>
+
+<p>Oauth came out in 2010, when people were trying to remedy to that problem with different theories, <a href="http://en.wikipedia.org/wiki/OpenID">OpenID</a> being one of them.</p>
+
+<p>So in the end, they came up with this way to identify an user on one site, and share that identification on every app authorized by this site and the user.</p>
+
+<p>Let me try to explain the process a bit :</p>
+
+<ul>
+<li>The app maker registers on the giver&rsquo;s site (Twitter, Facebook, &hellip;)</li>
+<li>The giver&rsquo;s site give the app maker a private <strong>API Token</strong>, a code that can be use to identify that app when it talks with the giver&rsquo;s site.</li>
+</ul>
+
+
+<p>&hellip;Time passes&hellip;</p>
+
+<ul>
+<li>An user comes on the site, tries to log in</li>
+<li>The app redirects to the giver&rsquo;s site where the user is asked to log in. In the background, the app gives the <strong>API Token</strong> on the way, as a proof that the user is coming from there.</li>
+<li>The user authorizes his account to be linked/identified on this app. The giver&rsquo;s saves that decision.</li>
+<li>The giver&rsquo;s site sends back a <strong>User Token</strong> to the app.</li>
+</ul>
+
+
+<p>Now, the app has an <strong>API Token</strong> and a <strong>User Token</strong>.
+Using these 2, the app can ask the giver&rsquo;s site for info (last tweets? send tweet?), and while this is true, the user is authenticated on the site.</p>
+
+<p>In the end, the user only has to login once, and nobody has the user password or anything. And anytime somebody&rsquo;s info is asked for, the giver&rsquo;s site verifies that the asking app has the rights.</p>
+
+<p>This, ladies and gentlemen, is what we played with yesterday ;)
+This : <a href="http://blooming-reaches-2179.herokuapp.com">Tweet from Heroku</a> is an example ;)</p>
+
+<h2>Other languages / Frameworks</h2>
+
+<p>The world of development is full of a lot (really&hellip; a tremendous amount) of languages and frameworks. People don&rsquo;t use them the same way, in the same places, but I can tell you that to do one thing, you have multiple tools in development.</p>
+
+<p>In DBC, we learn about Ruby, Javascript, HTML, and CSS, mostly. We cover a few framework for each of those too. But in the end, we are not here to learn languages.</p>
+
+<p>No good developer knows one language by heart.<br/>
+&hellip; Let me rephrase and split that that:</p>
+
+<ul>
+<li>A good developer does not know fully a language, knowing that is what makes him really good.</li>
+<li>A good developer learns new languages/frameworks all the time. One does not &ldquo;know one&rdquo;, but learns many.</li>
+</ul>
+
+
+<p>I try to work on that and get the second part up and running, and that is really fun. Also, using tools made by and for other people is really eyes opening. I love it.</p>
+
+<p>I had ideas about that yesterday and I&rsquo;m thinking I&rsquo;ll learn a bit more about the languages I already approached but did not use that much as soon as I have 5 minutes (probably this weekend).</p>
+
+<h2>A fun day with Armando</h2>
+
+<p>Yesterday, we paired with Armando again.<br/>
+I was looking forward to it. He has been down for a bit, with a lack of self confidence and some doubts about his skills, and I was looking forward to doing my best to work on helping him with that.</p>
+
+<p>Well, you know what? He f*cking rocks! We had fun the whole day, finished most of the challenges, and the best part :<br/>
+Teachers did not try and assess him. And if they don&rsquo;t, that means that THEY don&rsquo;t doubt him. And one thing that I know :<br/>
+If the person that&rsquo;s making it hard on you, teaching you, and taught hundreds before, has no doubt about you&hellip; that probably means you should stop doubting and assume you do (not really fully) know what you&rsquo;re doing.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -847,93 +949,6 @@ I love that. I love that new family, every one of them! (Or maybe not Matthew? I
 
     </article>
   
-  
-    <article>
-      
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/20/week-4-day-3-building/">Week 4 - Day 3 - Building, Testing, and Deception</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-20T17:51:00+01:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/20/week-4-day-3-building/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Building</h2>
-
-<p>So, yesterday&rsquo;s challenges were : Build apps. In the morning, we had to finish the Craigslist one that we started the day before, and in the afternoon, we had to make a non-authenticated blog.</p>
-
-<p>The teachers have to change a lot from last phase 2 program. We are different, and our phase 1 was so different than previous cohorts&#8217; than in the end, we don&rsquo;t code like our big brothers and sisters at all. While some of the previous cohorts (Thanks to their program/material ) tended to focus a lot on speed, and quantity, we tend to spend a ton of time on specific challenges, to master them to the end. While some would probably go for the &ldquo;Quantity of knowledge&rdquo;, we are going for &ldquo;Mastery&rdquo;. So in the end, while previous cohorts finished 10 challenges by the end of day 3, we finished only 4 but we did learn just as much and mastered a lot of things that previous people did not know about. An example would be Rspec testing. We literally spent all of yesterday testing&hellip;</p>
-
-<p>Anyway, at the end we finished one app, with Johnny : <a href="http://quentin-johnny-anon-blog.herokuapp.com/">Anonymous Blog</a>. It is not beautiful, not responsive, nothing like that, but the idea was not to make beautiful things, but to make a functional blog system that allows you to have posts that can have tags, and tags that can have many posts, with the corresponding pages.</p>
-
-<p>We are about to finish Craigslist so I&rsquo;ll show you that right after.</p>
-
-<h2>Testing</h2>
-
-<p>We tested! For 2 days!</p>
-
-<p>In the beginning, we just started to assert that things we wanted were equal. If we call &ldquo;5 + 5&rdquo;, we ask for it to be equal. That was phase 1.</p>
-
-<p>Then we started playing with some more tests, witnessing teachers/talking about re making Rspec (The testing suite for testing in ruby. Think about it as a toolbox with a LOT of tools).</p>
-
-<p>Now in Phase 2, we have Rspec, we have other tools, and we need that. The syntax is easy, very close to english. For example :</p>
-
-<pre><code class="ruby">expect(5+5).to be 10</code></pre>
-
-
-<p>And so the hardest part was : figuring out how ENGLISH it was. Is it &ldquo;.to&rdquo;? Is it &ldquo; to&rdquo;? Do I want to test if &ldquo;5+5 =10&rdquo; is true? or if &ldquo;5+5&rdquo; is 10?</p>
-
-<p>That, guys, is what we spent two days working on. We figured out a lot (and for future reference for students : <a href="http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax">You should not use should! but expect is cool</a> and <a href="http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames">Shoulda is your best friend if you&rsquo;re testing Sinatra or Rails&hellip; Anything with ActiveRecord, even if it needs should and not expect</a>), but it did take a lot of time.</p>
-
-<p>Now, I feel like I know much more about things like one a quote from one of my favorite books : “You don&rsquo;t have to test everything to destruction just to see if you made it right.”, Neil Gaiman, <a href="http://www.amazon.com/Good-Omens-Accurate-Prophecies-Nutter/dp/0060853980/ref=sr_1_1?ie=UTF8&amp;qid=1392918350&amp;sr=8-1&amp;keywords=good+omens">Good Omens</a>. Testing is good, but can be time devouring if not done right.</p>
-
-<p>But anyway, let&rsquo;s not talk about that more, there is always much to write and read about that, but there are places and times to do so!</p>
-
-<h2>Deception</h2>
-
-<p>Yesterday I was disappointed by <a href="http://www.interflora.fr/">Interflora</a>. If you don&rsquo;t know that brand, it&rsquo;s a flower selling service that is offered in France. It is a chain, you hear a lot about it, and so I thought I would use it when I needed that kind of service.</p>
-
-<p>Yesterday was my fiancee and I&rsquo;s <strong>6th anniversary</strong>. I can&rsquo;t be with her (Obviously&hellip;), so instead, I planned on making the biggest bouquet I could find delivered at her house when she would be coming home on this day. That was a long time plan, I kept the exact money I needed on my french bank account, I did some research to find how to get flowers delivered, and talked to a lot of people about that to never ever forget.</p>
-
-<p>Then, a few days ago when I got the confirmation that I had the money I needed to do so (last week), I took the biggest chain I could find, for safety, I took the biggest bouquet I could find, and make it delivered at 4PM at her house, right after she comes back home from work.</p>
-
-<p>Yesterday, when she woke up, I did not even send her a text. She was, of course, disappointed, but I was planning on that (and am very bad with time differences sometimes)! She thought I had forgotten that fateful day! But then she would be so happy when she would get back home from a long and hard day and find these flowers!</p>
-
-<p>But then&hellip; No flower was delivered. None. I checked the time, checked in with her to see if she had them, check the site to be sure they were delivered, and the site even told me &ldquo;The flower delivery guy has the order&rdquo;, which eventually turned to &ldquo;Your flowers have been delivered&rdquo;&hellip; But none got to her house. So I had to explain everything, my plan fell apart, and today she called them to check about the order and&hellip; Guess what? &hellip; Apparently the girl on the phone told her the delivery guy never got the order.</p>
-
-<p>So in short : I planned, I payed, went for safety over better shops, and in the end I feel just like an ass that did not do anything for our 6th anniversary, but just a couple of texts saying that I love and miss her.</p>
-
-<p>I am so sorry, Thuy, I am very unhappy about that, and I will never stress that enough: <strong>I WILL NEVER USE INTERFLORA AGAIN IN MY LIFE</strong></p>
-
-<p>Time to go back to coding now, see you tomorrow ;)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -951,6 +966,10 @@ I love that. I love that new family, every one of them! (Or maybe not Matthew? I
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/24/reactjs-how-to-make-a-simple-navbar/">ReactJS - How to make a simple navbar</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/01/reactjs-how-to-make-a-collapsible-content-panel/">ReactJS - How to make a collapsible content panel</a>
       </li>
     
@@ -964,10 +983,6 @@ I love that. I love that new family, every one of them! (Or maybe not Matthew? I
     
       <li class="post">
         <a href="/blog/2014/04/16/i-won-a-nasa-hackathon/">I won a NASA Hackathon, languages, and job searching, still</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/09/one-week-later-im-back/">One week later - I&#8217;m Back, Job Hunting & back to work</a>
       </li>
     
   </ul>

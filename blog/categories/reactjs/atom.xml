@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ReactJS | Qt's Home]]></title>
+  <title><![CDATA[Category: ReactJS, | Qt's Home]]></title>
   <link href="http://Qt-dev.github.io/blog/categories/reactjs/atom.xml" rel="self"/>
   <link href="http://Qt-dev.github.io/"/>
-  <updated>2014-07-03T11:56:26+02:00</updated>
+  <updated>2014-07-24T18:13:24+02:00</updated>
   <id>http://Qt-dev.github.io/</id>
   <author>
     <name><![CDATA[Quentin Devauchelle]]></name>
@@ -14,132 +14,85 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ReactJS - How to make a collapsible content panel]]></title>
-    <link href="http://Qt-dev.github.io/blog/2014/07/01/reactjs-how-to-make-a-collapsible-content-panel/"/>
-    <updated>2014-07-01T11:50:02+02:00</updated>
-    <id>http://Qt-dev.github.io/blog/2014/07/01/reactjs-how-to-make-a-collapsible-content-panel</id>
+    <title type="html"><![CDATA[ReactJS - How to make a simple navbar]]></title>
+    <link href="http://Qt-dev.github.io/blog/2014/07/24/reactjs-how-to-make-a-simple-navbar/"/>
+    <updated>2014-07-24T16:06:38+02:00</updated>
+    <id>http://Qt-dev.github.io/blog/2014/07/24/reactjs-how-to-make-a-simple-navbar</id>
     <content type="html"><![CDATA[<h2>Before we start</h2>
 
-<p>This is a small and easy guide about something you can do easily with React and CSS3.</p>
+<p>I&rsquo;ve got a coding challenge a few weeks ago about how to make a navbar out of pure JS/CSS, no library.
+I won&rsquo;t spoil it, especially for the next people doing it, but I thought the idea interesting so I decided to show how one could do one in ReactJS.</p>
 
-<p>First, a few things you need to know about before we start :</p>
+<p>So, this is a guide about how to make a simple dropdown navbar from some backend data and simple React/CSS.</p>
 
-<ul>
-<li><a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em></li>
-<li><a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></li>
-</ul>
-
+<p>To understand you&rsquo;ll need :
+* <a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em>
+* <a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></p>
 
 <h2>How-to</h2>
 
-<p>What we are building is something like this <a href="http://jqueryui.com/accordion/">JQuery UI plugin</a>.<br/>
-We have content, and titles. When the user clicks on a title, it opens the accordion below while closing the others.</p>
+<h3>What we have</h3>
 
-<h3>React modelisation</h3>
+<p>We have a basic html page with the React files (from a CDN here) :</p>
 
-<p>Let&rsquo;s start with the simple HTML content that we want to have (For React very beginners) :
-```html</p>
+<p>```html
+&lt;!DOCTYPE html>
+<html>
+<head>
+  <title>My page</title>
+  <script type="text/javascript" src="http://Qt-dev.github.io//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/react.min.js"></script>
+  <script type="text/javascript" src="http://Qt-dev.github.io//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/JSXTransformer.js"></script></p>
 
-<div class="container">
-    <div class="section-1">
-        <h2 class="section-title">Section 1</h2>
-        <p class="section-content">Our content for the section 1</p>
-    </div>
+<p></head>
+<body>
+<nav></nav>
+</body>
+</html>
+```</p>
 
-    <div class="section-2">
-        <h2 class="section-title">Section 2</h2>
-        <p class="section-content">Our content for the section 2</p>
-    </div>
+<p>and the data we get from our backend to populate this navbar. To do so I&rsquo;ll format them like this :</p>
 
-    <div class="section-3">
-        <h2 class="section-title">Section 3</h2>
-        <p class="section-content">Our content for the section 3</p>
-    </div>
-</div>
+<p>```javascript
+[
+ {</p>
 
-
-<p>```</p>
-
-<p>This is not a file we are making, but this is what we will try to model with React.</p>
-
-<p>So, first things first, let&rsquo;s put the content in a simple json object (there are many ways to get data to build react components but we&rsquo;ll talk about that in another post).</p>
-
-<p><em>backendData.js</em>
-```javascript
-var backendData = [
-  {</p>
-
-<pre><code>"title":"Section 1",
-"content":"Our content for the section 1"
+<pre><code>"text": "THE TEXT OF YOUR LINK",
+"url": "http://THE.URL"
 </code></pre>
 
-<p>  },
-  {</p>
+<p> },
+ {</p>
 
-<pre><code>"title":"Section 2",
-"content":"Our content for the section 2"
+<pre><code>"text": "THE TEXT OF YOUR LINK",
+"url": "http://THE.URL",
+"submenu": [
+    { 
+    "text": "THE TEXT OF YOUR LINK",
+    "url": "http://THE.URL"
+    }
+]
 </code></pre>
 
-<p>  },
-  {</p>
-
-<pre><code>"title":"Section 3",
-"content":"Our content for the section 3"
-</code></pre>
-
-<p>  }
+<p> }
 ]
 ```</p>
 
-<p>Then, we build our components for the ground up. First, the section component we&rsquo;ll instantiate:</p>
+<p>The submenu is not needed and we&rsquo;ll build the navbar accordingly.</p>
 
-<p><em>section.jsx</em>
+<h2>Our React components</h2>
+
+<p>We have : a Navbar container, Navbar items containing a link and a submenu if possible, and Navbar links.</p>
+
+<p>So, from the smallest to the biggest</p>
+
+<p><em>navbarLink.jsx</em>
 ```javascript
-/<em><em>
-* @jsx React.DOM
-</em>/
-/</em> section.jsx */
-Section = React.createClass({
+/<em>* @jsx React.DOM </em>/
+var NavBarLink = React.createClass({
   render: function() {</p>
 
 <pre><code>return (
-  &lt;div className={"section" + this.props.key}&gt;
-    &lt;h2 className="sectionTitle"&gt;{this.props.data.title}&lt;/h2&gt;
-    &lt;p className="sectionContent"&gt;{this.props.data.content}&lt;/p&gt;
-  &lt;/div&gt;
-);
-</code></pre>
-
-<p>  }
-})
-```
-(I decided to put the data given by my &ldquo;back-end&rdquo; in a single JS object. Single responsibility, DRY code, let&rsquo;s say I have reasons)</p>
-
-<p>Then, we make the container component, that creates nested sections with our data:</p>
-
-<p><em>container.jsx</em>
-```javascript
-/<em>*
-* @jsx React.DOM
-</em>/
-Container = React.createClass({
-  buildSections: function(sectionList){</p>
-
-<pre><code>var sections = sectionList.map(function(section, index){
-  /* Remember to add a 'key'. React wants you to add an identifier when you instantiate a component multiple times */
-  return &lt;Section key={index} data={section} /&gt;
-})
-return sections;
-</code></pre>
-
-<p>  },
-  render: function() {</p>
-
-<pre><code>var sections = this.buildSections(this.props.data);
-return (
-  &lt;div className="container"&gt;
-    {sections}
-  &lt;/div&gt;
+  &lt;a href={this.props.url}&gt;{this.props.text}&lt;/a&gt;
 );
 </code></pre>
 
@@ -147,128 +100,47 @@ return (
 })
 ```</p>
 
-<p>So far so good, we get pretty much exactly the html code above if we instantiate our page with something like this :
-<code>javascript
-React.renderComponent(
-  &lt;Container data={backendData} /&gt;,
-  document.getElementsByTagName('body')[0]
-);
-</code></p>
+<p>We render a simple link, separately. This is easier for events handlers, and &hellip; OOJS !</p>
 
-<p>Now on to setting up our closed/open states</p>
-
-<h3>Closed/Open states</h3>
-
-<p>First, let&rsquo;s hide the sectionContents with some simple CSS.
-<code>css
-.sectionContent {
-  overflow: hidden
-}
-</code>
-The only thing to note here is that we will be using heights, from 0 to &hellip; what we need. So, to do so, we need to make it so that the overflow is hidden instead of toggling <code>display:none</code>and <code>display:block</code></p>
-
-<p>Now, let&rsquo;s trigger these changes in our components :</p>
-
-<p><em>section.jsx</em>
+<p><em>navbarItem.jsx</em>
 ```javascript
-/<em>*
-* @jsx React.DOM
-</em>/
-Section = React.createClass({
-  getInitialState: function(){</p>
+/<em>* @jsx React.DOM </em>/
+var NavBarItem = React.createClass({
+  generateLink: function(){</p>
 
-<pre><code>return {
-  open: true
-}
+<pre><code>//Right now we don't need our class but what if we wanted to change the text, add an arrow or something? 
+//Single responsibility principles tell us that it our "Item" should not handle this.
+return &lt;NavBarLink url={this.props.url} text={this.props.text} /&gt;;
 </code></pre>
 
 <p>  },
-  toggleContent: function(){</p>
+  generateSubmenu: function(){</p>
 
-<pre><code>this.setState({
-  open: !(this.state.open)
-})
+<pre><code>//We generate a simple Navbar (the parent). 
+//Spoilers: it takes items as its argument. 
+return &lt;NavBar items={this.props.submenu} /&gt;
 </code></pre>
 
 <p>  },
-  getContentToggleHeight: function(){</p>
+  generateContent: function(){</p>
 
-<pre><code>if(this.state.open){
-  return "3em"
-} else {
-  return "0"
+<pre><code>var content = [this.generateLink()];
+if(this.props.submenu){
+  //If there is a submenu in our data for this item
+  //We add a generated Submenu to our content
+  content.push(this.generateSubmenu());
 }
+return content;
 </code></pre>
 
 <p>  },
   render: function() {</p>
 
-<pre><code>var contentStyle = { height: getContentToggleHeight() };
+<pre><code>var content = this.generateContent();
 return (
-  &lt;div className={"section section" + this.props.key}&gt;
-    &lt;h2 className="sectionTitle" onClick={this.toggleContent} &gt;{this.props.data.title}&lt;/h2&gt;
-    &lt;p className="sectionContent"&gt;{this.props.data.content}&lt;/p&gt;
-  &lt;/div&gt;
-);
-</code></pre>
-
-<p>  }
-})
-```
-In here, assign a height based on the state of our component to our sectionContent. I chose 3em pretty randomly because I like fixed things, you can decide to calculate the height you need instead. The inherit and auto don&rsquo;t work well with transitions, but they will work if you don&rsquo;t need them. This state is changed when you click on the title. It triggers the toggleContent function that inverts the closed state.</p>
-
-<p>So, now we have a closed and a open state. We toggle between them based on the state of our Section component, defined by how many times we clicked on that title.</p>
-
-<p><strong><em>If you are looking for a way to make tabs open all at once, stop here. If you&rsquo;re looking for that JQueryUI style One tab only thing, keep on to the next part</em></strong></p>
-
-<h3>Closing all of them when one is open</h3>
-
-<p>Single responsibility principles tells us our Sections don&rsquo;t know about the other sections. That means our section cannot tell the others to close. The container, however, knows about all of the sections&hellip;</p>
-
-<p><em>container.jsx</em>
-```javascript
-/<em>*
-* @jsx React.DOM
-</em>/
-Container = React.createClass({
-  getInitialState: function(sectionList){</p>
-
-<pre><code>return { openSectionIndex: -1 }
-</code></pre>
-
-<p>  },
-  buildSections: function(sectionList){</p>
-
-<pre><code>var sections = sectionList.map(this.buildSection)
-return sections;
-</code></pre>
-
-<p>  },
-  buildSection: function(section, index){</p>
-
-<pre><code>  var openStatus = (index === this.state.openSectionIndex);
-  /* Remember to add a 'key'. React wants you to add an identifier when you instantiate a component multiple times */
-  return &lt;Section key={index} data={section} toggleOne={this.toggleOne} open={openStatus} /&gt;
-</code></pre>
-
-<p>  },
-  toggleOne: function(id){</p>
-
-<pre><code>if(this.state.openSectionIndex === id){
-  this.setState({openSectionIndex: -1});
-} else {
-  this.setState({openSectionIndex: id});
-}
-</code></pre>
-
-<p>  },
-  render: function() {</p>
-
-<pre><code>var sections = this.buildSections(this.props.data);
-return (
-  &lt;div className="container"&gt;
-    {sections}
-  &lt;/div&gt;
+  &lt;li&gt;
+    {content}
+  &lt;/li&gt;
 );
 </code></pre>
 
@@ -276,44 +148,25 @@ return (
 })
 ```</p>
 
-<p>Now, we actually play with the state of the parent component. It keeps track of the id of the tab that is open, and starts with -1.</p>
+<p>And finally our NavBar main container :</p>
 
-<p>We pass the toggleOneSection callback to the child component (the section), it takes an id (the id of the thing we want to toggle), and it sets the openSectionIndex of the state accordingly to our argument, or back to nothing (-1).</p>
-
-<p>We then build sections with an &ldquo;open&rdquo; prop, a boolean that will be the thing that is used to get the class of our sectionContent, instead of the Section&rsquo;s state. React building the page on the go, from the javascript, in the way of a simple diff, the children will just be changed instead of generated again, which will trigger whatever we have on them (listeners, animations, etc&hellip;).</p>
-
-<p>Now to the section :</p>
-
-<p><em>section.jsx</em>
+<p><em>navbar.jsx</em>
 ```javascript
-/<em>*
-* @jsx React.DOM
-</em>/
-Section = React.createClass({
-  toggleContent: function(){</p>
+/<em>* @jsx React.DOM </em>/
+var NavBar = React.createClass({
+  generateItem: function(item){</p>
 
-<pre><code>this.props.toggleOne(this.props.key)
-</code></pre>
-
-<p>  },
-  getHeight: function(){</p>
-
-<pre><code>if(this.props.open){
-  return "3em"
-} else {
-  return "0"
-}
+<pre><code>return &lt;NavBarItem text={item.text} url={item.url} submenu={item.submenu} /&gt;
 </code></pre>
 
 <p>  },
   render: function() {</p>
 
-<pre><code>var style = { height: this.getHeight() }
+<pre><code>var items = this.props.items.map(this.generateItem);
 return (
-  &lt;div className={"section section" + this.props.key}&gt;
-    &lt;h2 className="sectionTitle" onClick={this.toggleContent} &gt;{this.props.data.title}&lt;/h2&gt;
-    &lt;p className="sectionContent" style={style} &gt;{this.props.data.content}&lt;/p&gt;
-  &lt;/div&gt;
+  &lt;ul className="menu"&gt;
+  {items}
+  &lt;/ul&gt;
 );
 </code></pre>
 
@@ -321,46 +174,125 @@ return (
 })
 ```</p>
 
-<p>As I said above, getContentToggleClass now uses the props instead of the state, and I got rid of the other state functions.
-The toggleContent internal callback now call the callback we called in the props, with that key that we gave it at the very beginning.</p>
+<p>To sum it up, our Navbar generates NavbarItems from the array of items we gave it.
+Each NavbarItem contains a NavbarLink + an optional NavBar, which would simply be the submenu we want.</p>
 
-<p>Now, up to animations</p>
+<p>All in all, it generates an html that looks like this :
+```html
+<nav></p>
 
-<h3>Animations</h3>
+<pre><code>&lt;ul class="menu" data-reactid=".0"&gt;
+    &lt;li data-reactid=".0.0"&gt;&lt;a href="#" data-reactid=".0.0.0"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-reactid=".0.1"&gt;&lt;a href="#" data-reactid=".0.1.0"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-reactid=".0.2"&gt;
+        &lt;a href="#" data-reactid=".0.2.0"&gt;Link 3&lt;/a&gt;
+        &lt;ul class="menu" data-reactid=".0.2.1"&gt;
+            &lt;li data-reactid=".0.2.1.0"&gt;
+                &lt;a href="#" data-reactid=".0.2.1.0.0"&gt;Sublink 1▼&lt;/a&gt;
+                &lt;ul class="menu" data-reactid=".0.2.1.0.1"&gt;
+                    &lt;li data-reactid=".0.2.1.0.1.0"&gt;&lt;a href="#" data-reactid=".0.2.1.0.1.0.0"&gt;SubSublink 1&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li data-reactid=".0.2.1.1"&gt;
+                &lt;a href="#" data-reactid=".0.2.1.1.0"&gt;Sublink 2▼&lt;/a&gt;
+                &lt;ul class="menu" data-reactid=".0.2.1.1.1"&gt;
+                    &lt;li data-reactid=".0.2.1.1.1.0"&gt;&lt;a href="#" data-reactid=".0.2.1.1.1.0.0"&gt;SubSublink 2&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
 
-<p>This is the very easy part. To trigger the animations, we just put a &ldquo;transition&rdquo; on the container selector, in the css.</p>
+<p></nav>
+```</p>
+
+<h3>The CSS</h3>
+
+<p>Now, we need to style that because it honestly looks like&hellip; bad things (PG-rated tutorials FTW).
+Nothing fancy in here, you&rsquo;re the one styling it, but let me show you what you&rsquo;ll need :</p>
 
 <p><em>style.css</em>
-<code>css
-.sectionContent {
-  overflow: hidden;
-  -webkit-transition: height 0.3s ease-in;
-  -moz-transition: height 0.3s ease-in;
-  -o-transition: height 0.3s ease-in;
-  -ms-transition: height 0.3s ease-in;
-  transition: height 0.3s ease-in;
-}
-</code>
-This tells the interpreter that when the height changes, it has to take 0.3s to transition into the new height, with ease-in giving it a slow start for a cleaner interface (just a matter of preferences on this one).</p>
+```css
+.menu {
+  list-style: none;
+  /* Important for sizing problems when you add/remove the submenus</p>
 
-<p>And we now have our accordion menu.</p>
+<pre><code> Make it use 100% of the size of your container */
+</code></pre>
 
-<h2>Conclusion</h2>
+<p>  width: 100%;
+  /* This prevents a lot of problems with the submenus.</p>
 
-<p>You now have a clean accordion menu. I tend to add a few styling thing that I consider the bare minimum on that like :
-<code>css
-.sectionTitle {
-  display: block;
-  cursor: pointer;
-}
-</code>
-But that&rsquo;s just me. Also, you don&rsquo;t need to use H2s, you can use whatever you want, links work too but remember to preventDefault if you use them.</p>
+<pre><code> UL have basic padding, keep that in mind */
+</code></pre>
 
-<p>Let me know what you thought about that guide, I may have missed things here and there, and thank you for reading!</p>
+<p>  padding: 0;
+}</p>
 
-<h3>Last minute edit :</h3>
+<p>.menu li {
+  /<em> I wanted mine horizontal. Feel free to change it to what you want </em>/
+  display:inline-block;
+  /<em> Float the items to the left, to make sure the disposition does not change when it shows the subitems </em>/
+  float:left;
+  /* The -1px on top and right make it so that our borders end up above one another</p>
 
-<p>You can check the code on <a href="https://gist.github.com/Qt-dev/4ca4c41b8ec8f6c0bb27">Github</a>. Download it, run it, check it out!</p>
+<pre><code> Not needed it you don't have borders... */
+</code></pre>
+
+<p>  margin:-1px -1px 0 0;
+}</p>
+
+<p>.menu li a {
+  display:block;</p>
+
+<p>  /<em> My basic styling. I&rsquo;m just giving them a black text, with a black border, and center the text in the box. </em>/
+  text-decoration:none;
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;</p>
+
+<p>  /* Fixed size is also just me.</p>
+
+<pre><code> Not fixing it just make huge boxes when you have submenus */
+</code></pre>
+
+<p>  width:100px;
+  height:50px;
+  line-height: 50px;
+}</p>
+
+<p>.menu li > ul {
+/<strong><strong><strong> THE INTERESTING PART </strong></strong></strong>/
+/<em> We hide the submenus by putting them somewhere on the left, with no opacity. </em>/
+  left:-9999px;
+  opacity: 0;</p>
+
+<p>/<em> We make transitions on opacity </em>/
+  -webkit-transiton: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}</p>
+
+<p>.menu li:hover > ul {
+/<em> On hover, we get it back to its basic spot
+  left:0;
+/</em> And change the opacity to a fully visible one */
+  opacity: 1;
+};
+```</p>
+
+<h3>The result on a beautiful gist</h3>
+
+<p>Here is the link on <a href="https://gist.github.com/Qt-dev/556e2e0558892c99bd81">Github</a>. Feel free to download/tweak and comment it.</p>
+
+<h2>Next parts</h2>
+
+<p>I plan on giving you the version with the dropdowns triggered by a click instead of a hover. This is coming in a few days, the code is almost ready already ;)</p>
+
+<p>Feel free to let me know if I missed/misexplained anything here or by mail at <a href="mailto:quentin@devauchelle.eu">quentin@devauchelle.eu</a></p>
 ]]></content>
   </entry>
   

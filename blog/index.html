@@ -9,7 +9,8 @@
   <meta name="author" content="Quentin Devauchelle">
 
   
-  <meta name="description" content="Before we start This is a small and easy guide about something you can do easily with React and CSS3. First, a few things you need to know about &hellip;">
+  <meta name="description" content="Before we start I&rsquo;ve got a coding challenge a few weeks ago about how to make a navbar out of pure JS/CSS, no library.
+I won&rsquo;t spoil it, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +78,442 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+  
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/24/reactjs-how-to-make-a-simple-navbar/">ReactJS - How to Make a Simple Navbar</a></h1>
+      
+      
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-24T16:06:38+02:00" pubdate data-updated="true">Jul 24<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/07/24/reactjs-how-to-make-a-simple-navbar/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Before we start</h2>
+
+<p>I&rsquo;ve got a coding challenge a few weeks ago about how to make a navbar out of pure JS/CSS, no library.
+I won&rsquo;t spoil it, especially for the next people doing it, but I thought the idea interesting so I decided to show how one could do one in ReactJS.</p>
+
+<p>So, this is a guide about how to make a simple dropdown navbar from some backend data and simple React/CSS.</p>
+
+<p>To understand you&rsquo;ll need :
+* <a href="http://facebook.github.io/react/">ReactJS</a> &ndash; <em>Beginner</em>
+* <a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a> &ndash; <em>Beginner</em></p>
+
+<h2>How-to</h2>
+
+<h3>What we have</h3>
+
+<p>We have a basic html page with the React files (from a CDN here) :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>My page<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/react.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/JSXTransformer.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'><span class="nt">&lt;nav&gt;&lt;/nav&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and the data we get from our backend to populate this navbar. To do so I&rsquo;ll format them like this :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">[</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;text&quot;</span><span class="o">:</span> <span class="s2">&quot;THE TEXT OF YOUR LINK&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://THE.URL&quot;</span>
+</span><span class='line'> <span class="p">},</span>
+</span><span class='line'> <span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;text&quot;</span><span class="o">:</span> <span class="s2">&quot;THE TEXT OF YOUR LINK&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://THE.URL&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;submenu&quot;</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>      <span class="s2">&quot;text&quot;</span><span class="o">:</span> <span class="s2">&quot;THE TEXT OF YOUR LINK&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://THE.URL&quot;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">]</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The submenu is not needed and we&rsquo;ll build the navbar accordingly.</p>
+
+<h2>Our React components</h2>
+
+<p>We have : a Navbar container, Navbar items containing a link and a submenu if possible, and Navbar links.</p>
+
+<p>So, from the smallest to the biggest</p>
+
+<p><em>navbarLink.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/** @jsx React.DOM */</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">NavBarLink</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">url</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We render a simple link, separately. This is easier for events handlers, and &hellip; OOJS !</p>
+
+<p><em>navbarItem.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/** @jsx React.DOM */</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">NavBarItem</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">generateLink</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="c1">//Right now we don&#39;t need our class but what if we wanted to change the text, add an arrow or something? </span>
+</span><span class='line'>    <span class="c1">//Single responsibility principles tell us that it our &quot;Item&quot; should not handle this.</span>
+</span><span class='line'>    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">NavBarLink</span> <span class="nx">url</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">url</span><span class="p">}</span> <span class="nx">text</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">generateSubmenu</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="c1">//We generate a simple Navbar (the parent). </span>
+</span><span class='line'>  <span class="c1">//Spoilers: it takes items as its argument. </span>
+</span><span class='line'>    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">NavBar</span> <span class="nx">items</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">submenu</span><span class="p">}</span> <span class="o">/&gt;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">generateContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">generateLink</span><span class="p">()];</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">submenu</span><span class="p">){</span>
+</span><span class='line'>      <span class="c1">//If there is a submenu in our data for this item</span>
+</span><span class='line'>      <span class="c1">//We add a generated Submenu to our content</span>
+</span><span class='line'>      <span class="nx">content</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">generateSubmenu</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">content</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateContent</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="p">{</span><span class="nx">content</span><span class="p">}</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="err">/li&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And finally our NavBar main container :</p>
+
+<p><em>navbar.jsx</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/** @jsx React.DOM */</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">NavBar</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">generateItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
+</span><span class='line'>    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">NavBarItem</span> <span class="nx">text</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span> <span class="nx">url</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">url</span><span class="p">}</span> <span class="nx">submenu</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">submenu</span><span class="p">}</span> <span class="o">/&gt;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">generateItem</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">ul</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;menu&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>      <span class="p">{</span><span class="nx">items</span><span class="p">}</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To sum it up, our Navbar generates NavbarItems from the array of items we gave it.
+Each NavbarItem contains a NavbarLink + an optional NavBar, which would simply be the submenu we want.</p>
+
+<p>All in all, it generates an html that looks like this :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;nav&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;menu&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;li</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.0.0&quot;</span><span class="nt">&gt;</span>Link 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;li</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.1.0&quot;</span><span class="nt">&gt;</span>Link 2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;li</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.0&quot;</span><span class="nt">&gt;</span>Link 3<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;menu&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;li</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.0.0&quot;</span><span class="nt">&gt;</span>Sublink 1▼<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;menu&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.0.1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                      <span class="nt">&lt;li</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.0.1.0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.0.1.0.0&quot;</span><span class="nt">&gt;</span>SubSublink 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;li</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.1.0&quot;</span><span class="nt">&gt;</span>Sublink 2▼<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;menu&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.1.1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                      <span class="nt">&lt;li</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.1.1.0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-reactid=</span><span class="s">&quot;.0.2.1.1.1.0.0&quot;</span><span class="nt">&gt;</span>SubSublink 2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'><span class="nt">&lt;/nav&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The CSS</h3>
+
+<p>Now, we need to style that because it honestly looks like&hellip; bad things (PG-rated tutorials FTW).
+Nothing fancy in here, you&rsquo;re the one styling it, but let me show you what you&rsquo;ll need :</p>
+
+<p><em>style.css</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.menu</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+</span><span class='line'>  <span class="c">/* Important for sizing problems when you add/remove the submenus </span>
+</span><span class='line'><span class="c">   Make it use 100% of the size of your container */</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'>  <span class="c">/* This prevents a lot of problems with the submenus. </span>
+</span><span class='line'><span class="c">   UL have basic padding, keep that in mind */</span>
+</span><span class='line'>  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.menu</span> <span class="nt">li</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c">/* I wanted mine horizontal. Feel free to change it to what you want */</span>
+</span><span class='line'>  <span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+</span><span class='line'>  <span class="c">/* Float the items to the left, to make sure the disposition does not change when it shows the subitems */</span>
+</span><span class='line'>  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+</span><span class='line'>  <span class="c">/* The -1px on top and right make it so that our borders end up above one another</span>
+</span><span class='line'><span class="c">     Not needed it you don&#39;t have borders... */</span>
+</span><span class='line'>  <span class="k">margin</span><span class="o">:-</span><span class="m">1px</span> <span class="m">-1px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.menu</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">/* My basic styling. I&#39;m just giving them a black text, with a black border, and center the text in the box. */</span>
+</span><span class='line'>  <span class="k">text-decoration</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="nb">black</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">/* Fixed size is also just me. </span>
+</span><span class='line'><span class="c">     Not fixing it just make huge boxes when you have submenus */</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span><span class="m">100px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span><span class="m">50px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">line-height</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.menu</span> <span class="nt">li</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'><span class="c">/****** THE INTERESTING PART ******/</span>
+</span><span class='line'><span class="c">/* We hide the submenus by putting them somewhere on the left, with no opacity. */</span>
+</span><span class='line'>  <span class="k">left</span><span class="o">:-</span><span class="m">9999px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">/* We make transitions on opacity */</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transiton</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">0.3s</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">0.3s</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">0.3s</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">0.3s</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">0.3s</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.menu</span> <span class="nt">li</span><span class="nd">:hover</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'><span class="c">/* On hover, we get it back to its basic spot</span>
+</span><span class='line'><span class="c">  left:0;</span>
+</span><span class='line'><span class="c">/* And change the opacity to a fully visible one */</span>
+</span><span class='line'>  <span class="k">opacity</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>The result on a beautiful gist</h3>
+
+<p>Here is the link on <a href="https://gist.github.com/Qt-dev/556e2e0558892c99bd81">Github</a>. Feel free to download/tweak and comment it.</p>
+
+<h2>Next parts</h2>
+
+<p>I plan on giving you the version with the dropdowns triggered by a click instead of a hover. This is coming in a few days, the code is almost ready already ;)</p>
+
+<p>Feel free to let me know if I missed/misexplained anything here or by mail at <a href="mailto:quentin@devauchelle.eu">quentin@devauchelle.eu</a></p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -1289,76 +1726,6 @@ But then if I have to&hellip; I will.</p>
 <p>I see that as the beginning of a new life that I will start, happily, with my fiance, or wife, we&rsquo;ll not stay like that for too long I hope. Not completely unlinked from the old life, but as a continuity, I see the before-graduation period as a preparatory stage for what is coming.</p>
 
 <p>Now, things are different, it is a new life, and I intend to be very good at it!</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-  
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/21/week-8-day-4-group-project/">Week 8 - Day 4 - Group Project, More Pressure, and Sleep Depravation</a></h1>
-      
-      
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-21T20:46:54+01:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
-        
-         | <a href="/blog/2014/03/21/week-8-day-4-group-project/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Group Project</h2>
-
-<p>The big even of yesterday was: The final projects pitching.</p>
-
-<p>Almost everybody pitched. You had good projects, strange projects, fun projects, good things!</p>
-
-<p>The one I pitched was about Role Playing Games. The idea is that I really enjoy pen and paper role playing games, but I also can&rsquo;t play them most of the time. My friends are all around the world, and I don&rsquo;t spend my time with my character sheets, dice, and/or books in my pocket.</p>
-
-<p>So to counter that, I wanted to make an app that makes the link between players and game masters, and give you these commands that will give you all the infos you have in these books, all the character sheets, and the dice rolling, just by sending a mail with different commands.</p>
-
-<p>In the end, I was not picked as one of the projects we would work on, but then among the 5 projects, 3 were projects that I really want to work on!</p>
-
-<p>So in the end, I am in Armando&rsquo;s team, and we are about to make a great app for diabetics to track their blood sugar stats and format them decently to transmit them to a doctor. I find it awesome and in a way, I am glad I was not picked!</p>
-
-<h2>More pressure</h2>
-
-<p>I put a lot of pressure on myself. Most of the time, I will not seem very stressed out, but inside, I may just be completely freaking out.</p>
-
-<p>The idea is that I overthink everything. Being logical enough, I overthink without putting too much emotions and feeling in these thoughts. I see something, try to find all the outcomes (I will never succeed, but well&hellip;), try to think about the causes and consequences, study everybody&rsquo;s point of view&hellip;</p>
-
-<p>In the end, I like to think that it makes me calm and not stress out much on the outside.</p>
-
-<p>Lately, the fact that I am coming to a situation that had a bad outcome the last time(the same situation I came to when I came back from korea), made me think about a lot of things, basically ways to prevent myself from falling in the same trap again. That just made me sleep less&hellip; which actually made me think more&hellip; And I fell into this strange loop that ended with me being exhausted, and giving too much credit to emotions and feelings.</p>
-
-<h2>Sleep depravation</h2>
-
-<p>The lack of sleep I am talking about is mainly due to a non restful sleep. A sleep where you keep on waking up, thinking about bad things, etc&hellip;</p>
-
-<p>This lack of sleep makes you take bad paths, the wrong paths, basically. In the end, I am now sleep depraved, and even though I worked on that pressure, and talking about it was enough to relieve a lot of pain on that topic, sleeping 6h does not make you really rested, especially if you&rsquo;ve been running on 5s for weeks&hellip;</p>
-
-<p>But then, I am a logical person. I am also a person who does fall deep into these pressure cycles, but overcomes that. I did that before, a lot of time, and approaching things logically just ends up making me overcome whatever emotional challenge I have had so far.</p>
-
-<p>So I work on my sleep, on my well being, and I am now much better than yesterday. Soon, I will be even better, and be sure that at the same time next week, our team will be kicking asses, and I will not be dragging them down!</p>
 </div>
   
   
